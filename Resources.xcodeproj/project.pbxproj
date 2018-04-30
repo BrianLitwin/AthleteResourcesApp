@@ -1,0 +1,1105 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD5404D420938E790092C9E9 /* Keyboard_Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */; };
+		BD75B170209777CA009392B3 /* Bodyweight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B16F209777CA009392B3 /* Bodyweight.swift */; };
+		BD75B1722097781C009392B3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B1712097781C009392B3 /* Settings.swift */; };
+		BD75B1802097803B009392B3 /* ReloadableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B17F2097803B009392B3 /* ReloadableModel.swift */; };
+		BDA9599B2078028B001BE931 /* Resources_View2_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA9599A2078028B001BE931 /* Resources_View2_1.framework */; };
+		BDA9599C2078028B001BE931 /* Resources_View2_1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDA9599A2078028B001BE931 /* Resources_View2_1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BDE3D4362079799C003C6A94 /* RepMaxesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3D4352079799C003C6A94 /* RepMaxesModel.swift */; };
+		BDE3D43820797ED5003C6A94 /* RepMaxesModel_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3D43720797ED5003C6A94 /* RepMaxesModel_Test.swift */; };
+		BDE92441207A8F1100709020 /* PersonalRecords_DeletionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE92440207A8F1100709020 /* PersonalRecords_DeletionTest.swift */; };
+		BDF5C0DA207CFADE007F198E /* UpdateBodyweight_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C0D9207CFADE007F198E /* UpdateBodyweight_Test.swift */; };
+		BDF5C7382078588C002FDC10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF5C7372078588B002FDC10 /* Main.storyboard */; };
+		BDF5C7DE207858AE002FDC10 /* RecordsDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C792207858AE002FDC10 /* RecordsDisplayModel.swift */; };
+		BDF5C7DF207858AE002FDC10 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C793207858AE002FDC10 /* Constants.swift */; };
+		BDF5C7E0207858AE002FDC10 /* Compound Exercise Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C794207858AE002FDC10 /* Compound Exercise Model.swift */; };
+		BDF5C7E1207858AE002FDC10 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C795207858AE002FDC10 /* Metric.swift */; };
+		BDF5C7E2207858AE002FDC10 /* emom tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C796207858AE002FDC10 /* emom tableViewController.swift */; };
+		BDF5C7E3207858AE002FDC10 /* CreateOreditExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C797207858AE002FDC10 /* CreateOreditExerciseModel.swift */; };
+		BDF5C7E5207858AE002FDC10 /* Test Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C799207858AE002FDC10 /* Test Data.swift */; };
+		BDF5C7E6207858AE002FDC10 /* OneRMCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79A207858AE002FDC10 /* OneRMCalculator.swift */; };
+		BDF5C7E7207858AE002FDC10 /* Sequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79B207858AE002FDC10 /* Sequences.swift */; };
+		BDF5C7E8207858AE002FDC10 /* Multiple_Exercise_Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79C207858AE002FDC10 /* Multiple_Exercise_Container.swift */; };
+		BDF5C7E9207858AE002FDC10 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79D207858AE002FDC10 /* String.swift */; };
+		BDF5C7EA207858AE002FDC10 /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79E207858AE002FDC10 /* Dimension.swift */; };
+		BDF5C7EB207858AE002FDC10 /* Reload Workout UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79F207858AE002FDC10 /* Reload Workout UI.swift */; };
+		BDF5C7EC207858AE002FDC10 /* Date Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A0207858AE002FDC10 /* Date Manager.swift */; };
+		BDF5C7EE207858AE002FDC10 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A3207858AE002FDC10 /* WorkoutViewController.swift */; };
+		BDF5C7EF207858AE002FDC10 /* EMOM model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A4207858AE002FDC10 /* EMOM model.swift */; };
+		BDF5C7F0207858AE002FDC10 /* SortableTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A5207858AE002FDC10 /* SortableTable.swift */; };
+		BDF5C7F1207858AE002FDC10 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A6207858AE002FDC10 /* Categories.swift */; };
+		BDF5C7F3207858AE002FDC10 /* EM_Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A8207858AE002FDC10 /* EM_Containers.swift */; };
+		BDF5C7F5207858AE002FDC10 /* Workout Header Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7AB207858AE002FDC10 /* Workout Header Model.swift */; };
+		BDF5C7F6207858AE002FDC10 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7AC207858AE002FDC10 /* TimerModel.swift */; };
+		BDF5C7F7207858AE002FDC10 /* Exercise_Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7AD207858AE002FDC10 /* Exercise_Metrics.swift */; };
+		BDF5C7F8207858AE002FDC10 /* Record UpdateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7AE207858AE002FDC10 /* Record UpdateHandler.swift */; };
+		BDF5C7F9207858AE002FDC10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF5C7AF207858AE002FDC10 /* Assets.xcassets */; };
+		BDF5C7FA207858AE002FDC10 /* Dashboard TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7B0207858AE002FDC10 /* Dashboard TableViewController.swift */; };
+		BDF5C7FB207858AE002FDC10 /* CreateDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7B1207858AE002FDC10 /* CreateDatabase.swift */; };
+		BDF5C7FC207858AE002FDC10 /* Workout history Segue Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7B2207858AE002FDC10 /* Workout history Segue Handler.swift */; };
+		BDF5C7FD207858AE002FDC10 /* Create Menu TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7B3207858AE002FDC10 /* Create Menu TableViewController.swift */; };
+		BDF5C7FE207858AE002FDC10 /* Update Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7B4207858AE002FDC10 /* Update Metric.swift */; };
+		BDF5C800207858AE002FDC10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF5C7B6207858AE002FDC10 /* LaunchScreen.storyboard */; };
+		BDF5C801207858AE002FDC10 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7B8207858AE002FDC10 /* Extensions.swift */; };
+		BDF5C802207858AE002FDC10 /* Orderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7B9207858AE002FDC10 /* Orderable.swift */; };
+		BDF5C804207858AE002FDC10 /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7BB207858AE002FDC10 /* MasterVC.swift */; };
+		BDF5C805207858AE002FDC10 /* Search Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7BC207858AE002FDC10 /* Search Exercises.swift */; };
+		BDF5C806207858AE002FDC10 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7BD207858AE002FDC10 /* Notifications.swift */; };
+		BDF5C807207858AE002FDC10 /* OneRepMaxOverTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7BE207858AE002FDC10 /* OneRepMaxOverTimeModel.swift */; };
+		BDF5C808207858AE002FDC10 /* Workouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7BF207858AE002FDC10 /* Workouts.swift */; };
+		BDF5C80A207858AE002FDC10 /* BodyweightAnalyticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7C1207858AE002FDC10 /* BodyweightAnalyticsModel.swift */; };
+		BDF5C80B207858AE002FDC10 /* SequenceController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7C2207858AE002FDC10 /* SequenceController1.swift */; };
+		BDF5C80C207858AE002FDC10 /* Compound Exercise Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7C3207858AE002FDC10 /* Compound Exercise Records.swift */; };
+		BDF5C80F207858AE002FDC10 /* dataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7C6207858AE002FDC10 /* dataModel.xcdatamodel */; };
+		BDF5C811207858AE002FDC10 /* Compound Lift Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7C8207858AE002FDC10 /* Compound Lift Creator.swift */; };
+		BDF5C812207858AE002FDC10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7C9207858AE002FDC10 /* Post.swift */; };
+		BDF5C813207858AE002FDC10 /* Converting To Dict Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7CA207858AE002FDC10 /* Converting To Dict Values.swift */; };
+		BDF5C814207858AE002FDC10 /* Update Name Variation Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7CB207858AE002FDC10 /* Update Name Variation Instructions.swift */; };
+		BDF5C815207858AE002FDC10 /* Records Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7CC207858AE002FDC10 /* Records Extensions.swift */; };
+		BDF5C816207858AE002FDC10 /* Exercise Picker Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7CD207858AE002FDC10 /* Exercise Picker Model.swift */; };
+		BDF5C817207858AE002FDC10 /* CompoundExercise Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7CE207858AE002FDC10 /* CompoundExercise Records.swift */; };
+		BDF5C818207858AE002FDC10 /* CategoriesPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7CF207858AE002FDC10 /* CategoriesPicker.swift */; };
+		BDF5C819207858AE002FDC10 /* Sequence Model Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D0207858AE002FDC10 /* Sequence Model Updater.swift */; };
+		BDF5C81A207858AE002FDC10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D1207858AE002FDC10 /* AppDelegate.swift */; };
+		BDF5C81C207858AE002FDC10 /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D3207858AE002FDC10 /* Exercises.swift */; };
+		BDF5C81E207858AE002FDC10 /* Metric_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D5207858AE002FDC10 /* Metric_Info.swift */; };
+		BDF5C81F207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D6207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift */; };
+		BDF5C820207858AE002FDC10 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDF5C7D7207858AE002FDC10 /* Info.plist */; };
+		BDF5C821207858AE002FDC10 /* Context Observor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D8207858AE002FDC10 /* Context Observor.swift */; };
+		BDF5C823207858AE002FDC10 /* ExerciseListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7DA207858AE002FDC10 /* ExerciseListModel.swift */; };
+		BDF5C824207858AE002FDC10 /* WorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7DB207858AE002FDC10 /* WorkoutHistory.swift */; };
+		BDF5C825207858AE002FDC10 /* Update Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7DC207858AE002FDC10 /* Update Exercise.swift */; };
+		BDF5C826207858AE002FDC10 /* WVC Reloadable Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7DD207858AE002FDC10 /* WVC Reloadable Model.swift */; };
+		BDFE06B6207909B700F3024B /* Sorting_Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75820785899002FDC10 /* Sorting_Performance.swift */; };
+		BDFE06B7207909B700F3024B /* Exercise_List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75A20785899002FDC10 /* Exercise_List.swift */; };
+		BDFE06B8207909B700F3024B /* Test_Sorting_Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73A20785899002FDC10 /* Test_Sorting_Cases.swift */; };
+		BDFE06B9207909B700F3024B /* Tag_IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74920785899002FDC10 /* Tag_IDs.swift */; };
+		BDFE06BA207909B700F3024B /* Exercise Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C76020785899002FDC10 /* Exercise Picker.swift */; };
+		BDFE06BB207909B700F3024B /* Cascade_Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73B20785899002FDC10 /* Cascade_Rules.swift */; };
+		BDFE06BC207909B700F3024B /* Exercise_Metrics_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */; };
+		BDFE06BD207909B700F3024B /* Workout Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74A20785899002FDC10 /* Workout Controller.swift */; };
+		BDFE06BE207909B700F3024B /* Sequence CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75B20785899002FDC10 /* Sequence CollectionView.swift */; };
+		BDFE06BF207909B700F3024B /* Workout_Controller_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75920785899002FDC10 /* Workout_Controller_Tests.swift */; };
+		BDFE06C0207909B700F3024B /* One_RMCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75D20785899002FDC10 /* One_RMCalculator.swift */; };
+		BDFE06C1207909B700F3024B /* delete_first_workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74620785899002FDC10 /* delete_first_workout.swift */; };
+		BDFE06C2207909B700F3024B /* Create Exercises From Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74D20785899002FDC10 /* Create Exercises From Database.swift */; };
+		BDFE06C4207909B700F3024B /* Deletion Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74420785899002FDC10 /* Deletion Rules.swift */; };
+		BDFE06C5207909B700F3024B /* CompoundExerciseRecordsMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74720785899002FDC10 /* CompoundExerciseRecordsMethods.swift */; };
+		BDFE06C6207909B700F3024B /* Metric_Info_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75F20785899002FDC10 /* Metric_Info_Test.swift */; };
+		BDFE06C7207909B700F3024B /* OneRM_Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73D20785899002FDC10 /* OneRM_Weeks.swift */; };
+		BDFE06C8207909B700F3024B /* Scroll View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74C20785899002FDC10 /* Scroll View.swift */; };
+		BDFE06C9207909B700F3024B /* Workouts Fetch test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74520785899002FDC10 /* Workouts Fetch test.swift */; };
+		BDFE06CA207909B700F3024B /* Sequence model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75220785899002FDC10 /* Sequence model.swift */; };
+		BDFE06CB207909B700F3024B /* Helper Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C76320785899002FDC10 /* Helper Method.swift */; };
+		BDFE06CC207909B700F3024B /* CompoundExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75120785899002FDC10 /* CompoundExercise.swift */; };
+		BDFE06CD207909B700F3024B /* Sort_Descriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75C20785899002FDC10 /* Sort_Descriptors.swift */; };
+		BDFE06CE207909B700F3024B /* ExerciseMetricInputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C76120785899002FDC10 /* ExerciseMetricInputManager.swift */; };
+		BDFE06CF207909B700F3024B /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74320785899002FDC10 /* DateManager.swift */; };
+		BDFE06D0207909B700F3024B /* Bodyweight_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75420785899002FDC10 /* Bodyweight_Testing.swift */; };
+		BDFE06D1207909B700F3024B /* SortableTable_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75720785899002FDC10 /* SortableTable_Test.swift */; };
+		BDFE06D2207909B700F3024B /* Creating Exercises From Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C76220785899002FDC10 /* Creating Exercises From Database.swift */; };
+		BDFE06D3207909B700F3024B /* Compound ExerciseRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73E20785899002FDC10 /* Compound ExerciseRecords.swift */; };
+		BDFE06D4207909B700F3024B /* Date Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74220785899002FDC10 /* Date Methods.swift */; };
+		BDFE06D5207909B700F3024B /* Test Record Sorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74020785899002FDC10 /* Test Record Sorter.swift */; };
+		BDFE06D6207909B700F3024B /* Workout_HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74F20785899002FDC10 /* Workout_HistoryModel.swift */; };
+		BDFE06D7207909B700F3024B /* EM Value Save Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75320785899002FDC10 /* EM Value Save Methods.swift */; };
+		BDFE06D8207909B700F3024B /* Orderable_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75520785899002FDC10 /* Orderable_Test.swift */; };
+		BDFE06D9207909B700F3024B /* Edit Or Save Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74E20785899002FDC10 /* Edit Or Save Exercise.swift */; };
+		BDFE06DA207909B700F3024B /* Setting_CD_Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73F20785899002FDC10 /* Setting_CD_Fields.swift */; };
+		F82546EA4520DB3DEC4ACA62 /* Pods_Resources2_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E230E99B0B461E50F34FEFB8 /* Pods_Resources2_1.framework */; };
+		FAD90F328EEF1966B68880DE /* Pods_Resources2_1_Unit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5649103C98B211008C71249B /* Pods_Resources2_1_Unit_Tests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDFE06B12079095500F3024B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDFD1B022006EBEC00F85BDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDFD1B092006EBEC00F85BDA;
+			remoteInfo = Resources2.1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDA9599D2078028B001BE931 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BDA9599C2078028B001BE931 /* Resources_View2_1.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		05FCDB4EED5A6236ED6B82B7 /* Pods-Resources2.1-Resources2.1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1-Resources2.1Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1-Resources2.1Tests/Pods-Resources2.1-Resources2.1Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		10ECF02F8380FD825C51D25A /* Pods-Resources2.1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1/Pods-Resources2.1.release.xcconfig"; sourceTree = "<group>"; };
+		3C28DEC9BC6CA47C0C40768F /* Pods-Resources2.1-Unit Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1-Unit Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1-Unit Tests/Pods-Resources2.1-Unit Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		5649103C98B211008C71249B /* Pods_Resources2_1_Unit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resources2_1_Unit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C714B2B7395E6689FEB26F /* Pods_Resources2_1_Resources2_1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resources2_1_Resources2_1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF3694DD49AF6D85C15AAAF /* Pods-Resources2.1-Resources2.1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1-Resources2.1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1-Resources2.1Tests/Pods-Resources2.1-Resources2.1Tests.release.xcconfig"; sourceTree = "<group>"; };
+		812A1EBA6371768F8EAD748A /* Pods-Resources2.1-Unit Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1-Unit Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1-Unit Tests/Pods-Resources2.1-Unit Tests.release.xcconfig"; sourceTree = "<group>"; };
+		B9A13C26032FD947FBA5305F /* Pods-Resources2.1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1/Pods-Resources2.1.debug.xcconfig"; sourceTree = "<group>"; };
+		BD012F7E203A621C00A4A351 /* Resources_View2_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Resources_View2_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard_Methods.swift; sourceTree = "<group>"; };
+		BD75B16F209777CA009392B3 /* Bodyweight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bodyweight.swift; sourceTree = "<group>"; };
+		BD75B1712097781C009392B3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		BD75B17F2097803B009392B3 /* ReloadableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadableModel.swift; sourceTree = "<group>"; };
+		BDA9599A2078028B001BE931 /* Resources_View2_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Resources_View2_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDE3D4352079799C003C6A94 /* RepMaxesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepMaxesModel.swift; sourceTree = "<group>"; };
+		BDE3D43720797ED5003C6A94 /* RepMaxesModel_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepMaxesModel_Test.swift; sourceTree = "<group>"; };
+		BDE92440207A8F1100709020 /* PersonalRecords_DeletionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecords_DeletionTest.swift; sourceTree = "<group>"; };
+		BDF5C0D9207CFADE007F198E /* UpdateBodyweight_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBodyweight_Test.swift; sourceTree = "<group>"; };
+		BDF5C7372078588B002FDC10 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BDF5C73A20785899002FDC10 /* Test_Sorting_Cases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Sorting_Cases.swift; sourceTree = "<group>"; };
+		BDF5C73B20785899002FDC10 /* Cascade_Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cascade_Rules.swift; sourceTree = "<group>"; };
+		BDF5C73D20785899002FDC10 /* OneRM_Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRM_Weeks.swift; sourceTree = "<group>"; };
+		BDF5C73E20785899002FDC10 /* Compound ExerciseRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Compound ExerciseRecords.swift"; sourceTree = "<group>"; };
+		BDF5C73F20785899002FDC10 /* Setting_CD_Fields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting_CD_Fields.swift; sourceTree = "<group>"; };
+		BDF5C74020785899002FDC10 /* Test Record Sorter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test Record Sorter.swift"; sourceTree = "<group>"; };
+		BDF5C74220785899002FDC10 /* Date Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date Methods.swift"; sourceTree = "<group>"; };
+		BDF5C74320785899002FDC10 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		BDF5C74420785899002FDC10 /* Deletion Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Deletion Rules.swift"; sourceTree = "<group>"; };
+		BDF5C74520785899002FDC10 /* Workouts Fetch test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workouts Fetch test.swift"; sourceTree = "<group>"; };
+		BDF5C74620785899002FDC10 /* delete_first_workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = delete_first_workout.swift; sourceTree = "<group>"; };
+		BDF5C74720785899002FDC10 /* CompoundExerciseRecordsMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompoundExerciseRecordsMethods.swift; sourceTree = "<group>"; };
+		BDF5C74920785899002FDC10 /* Tag_IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag_IDs.swift; sourceTree = "<group>"; };
+		BDF5C74A20785899002FDC10 /* Workout Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workout Controller.swift"; sourceTree = "<group>"; };
+		BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise_Metrics_Test.swift; sourceTree = "<group>"; };
+		BDF5C74C20785899002FDC10 /* Scroll View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scroll View.swift"; sourceTree = "<group>"; };
+		BDF5C74D20785899002FDC10 /* Create Exercises From Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Create Exercises From Database.swift"; sourceTree = "<group>"; };
+		BDF5C74E20785899002FDC10 /* Edit Or Save Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Edit Or Save Exercise.swift"; sourceTree = "<group>"; };
+		BDF5C74F20785899002FDC10 /* Workout_HistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout_HistoryModel.swift; sourceTree = "<group>"; };
+		BDF5C75120785899002FDC10 /* CompoundExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompoundExercise.swift; sourceTree = "<group>"; };
+		BDF5C75220785899002FDC10 /* Sequence model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence model.swift"; sourceTree = "<group>"; };
+		BDF5C75320785899002FDC10 /* EM Value Save Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EM Value Save Methods.swift"; sourceTree = "<group>"; };
+		BDF5C75420785899002FDC10 /* Bodyweight_Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bodyweight_Testing.swift; sourceTree = "<group>"; };
+		BDF5C75520785899002FDC10 /* Orderable_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orderable_Test.swift; sourceTree = "<group>"; };
+		BDF5C75720785899002FDC10 /* SortableTable_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortableTable_Test.swift; sourceTree = "<group>"; };
+		BDF5C75820785899002FDC10 /* Sorting_Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sorting_Performance.swift; sourceTree = "<group>"; };
+		BDF5C75920785899002FDC10 /* Workout_Controller_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout_Controller_Tests.swift; sourceTree = "<group>"; };
+		BDF5C75A20785899002FDC10 /* Exercise_List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise_List.swift; sourceTree = "<group>"; };
+		BDF5C75B20785899002FDC10 /* Sequence CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence CollectionView.swift"; sourceTree = "<group>"; };
+		BDF5C75C20785899002FDC10 /* Sort_Descriptors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort_Descriptors.swift; sourceTree = "<group>"; };
+		BDF5C75D20785899002FDC10 /* One_RMCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = One_RMCalculator.swift; sourceTree = "<group>"; };
+		BDF5C75F20785899002FDC10 /* Metric_Info_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metric_Info_Test.swift; sourceTree = "<group>"; };
+		BDF5C76020785899002FDC10 /* Exercise Picker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Exercise Picker.swift"; sourceTree = "<group>"; };
+		BDF5C76120785899002FDC10 /* ExerciseMetricInputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseMetricInputManager.swift; sourceTree = "<group>"; };
+		BDF5C76220785899002FDC10 /* Creating Exercises From Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Creating Exercises From Database.swift"; sourceTree = "<group>"; };
+		BDF5C76320785899002FDC10 /* Helper Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Helper Method.swift"; sourceTree = "<group>"; };
+		BDF5C792207858AE002FDC10 /* RecordsDisplayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsDisplayModel.swift; sourceTree = "<group>"; };
+		BDF5C793207858AE002FDC10 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BDF5C794207858AE002FDC10 /* Compound Exercise Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Compound Exercise Model.swift"; sourceTree = "<group>"; };
+		BDF5C795207858AE002FDC10 /* Metric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
+		BDF5C796207858AE002FDC10 /* emom tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "emom tableViewController.swift"; sourceTree = "<group>"; };
+		BDF5C797207858AE002FDC10 /* CreateOreditExerciseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOreditExerciseModel.swift; sourceTree = "<group>"; };
+		BDF5C799207858AE002FDC10 /* Test Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test Data.swift"; sourceTree = "<group>"; };
+		BDF5C79A207858AE002FDC10 /* OneRMCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRMCalculator.swift; sourceTree = "<group>"; };
+		BDF5C79B207858AE002FDC10 /* Sequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequences.swift; sourceTree = "<group>"; };
+		BDF5C79C207858AE002FDC10 /* Multiple_Exercise_Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multiple_Exercise_Container.swift; sourceTree = "<group>"; };
+		BDF5C79D207858AE002FDC10 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		BDF5C79E207858AE002FDC10 /* Dimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimension.swift; sourceTree = "<group>"; };
+		BDF5C79F207858AE002FDC10 /* Reload Workout UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reload Workout UI.swift"; sourceTree = "<group>"; };
+		BDF5C7A0207858AE002FDC10 /* Date Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date Manager.swift"; sourceTree = "<group>"; };
+		BDF5C7A3207858AE002FDC10 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		BDF5C7A4207858AE002FDC10 /* EMOM model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EMOM model.swift"; sourceTree = "<group>"; };
+		BDF5C7A5207858AE002FDC10 /* SortableTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortableTable.swift; sourceTree = "<group>"; };
+		BDF5C7A6207858AE002FDC10 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		BDF5C7A8207858AE002FDC10 /* EM_Containers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EM_Containers.swift; sourceTree = "<group>"; };
+		BDF5C7AB207858AE002FDC10 /* Workout Header Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workout Header Model.swift"; sourceTree = "<group>"; };
+		BDF5C7AC207858AE002FDC10 /* TimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		BDF5C7AD207858AE002FDC10 /* Exercise_Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise_Metrics.swift; sourceTree = "<group>"; };
+		BDF5C7AE207858AE002FDC10 /* Record UpdateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Record UpdateHandler.swift"; sourceTree = "<group>"; };
+		BDF5C7AF207858AE002FDC10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDF5C7B0207858AE002FDC10 /* Dashboard TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dashboard TableViewController.swift"; sourceTree = "<group>"; };
+		BDF5C7B1207858AE002FDC10 /* CreateDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDatabase.swift; sourceTree = "<group>"; };
+		BDF5C7B2207858AE002FDC10 /* Workout history Segue Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workout history Segue Handler.swift"; sourceTree = "<group>"; };
+		BDF5C7B3207858AE002FDC10 /* Create Menu TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Create Menu TableViewController.swift"; sourceTree = "<group>"; };
+		BDF5C7B4207858AE002FDC10 /* Update Metric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Update Metric.swift"; sourceTree = "<group>"; };
+		BDF5C7B7207858AE002FDC10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDF5C7B8207858AE002FDC10 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BDF5C7B9207858AE002FDC10 /* Orderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orderable.swift; sourceTree = "<group>"; };
+		BDF5C7BB207858AE002FDC10 /* MasterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterVC.swift; sourceTree = "<group>"; };
+		BDF5C7BC207858AE002FDC10 /* Search Exercises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Search Exercises.swift"; sourceTree = "<group>"; };
+		BDF5C7BD207858AE002FDC10 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		BDF5C7BE207858AE002FDC10 /* OneRepMaxOverTimeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRepMaxOverTimeModel.swift; sourceTree = "<group>"; };
+		BDF5C7BF207858AE002FDC10 /* Workouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workouts.swift; sourceTree = "<group>"; };
+		BDF5C7C1207858AE002FDC10 /* BodyweightAnalyticsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyweightAnalyticsModel.swift; sourceTree = "<group>"; };
+		BDF5C7C2207858AE002FDC10 /* SequenceController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceController1.swift; sourceTree = "<group>"; };
+		BDF5C7C3207858AE002FDC10 /* Compound Exercise Records.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Compound Exercise Records.swift"; sourceTree = "<group>"; };
+		BDF5C7C6207858AE002FDC10 /* dataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataModel.xcdatamodel; sourceTree = "<group>"; };
+		BDF5C7C8207858AE002FDC10 /* Compound Lift Creator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Compound Lift Creator.swift"; sourceTree = "<group>"; };
+		BDF5C7C9207858AE002FDC10 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BDF5C7CA207858AE002FDC10 /* Converting To Dict Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Converting To Dict Values.swift"; sourceTree = "<group>"; };
+		BDF5C7CB207858AE002FDC10 /* Update Name Variation Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Update Name Variation Instructions.swift"; sourceTree = "<group>"; };
+		BDF5C7CC207858AE002FDC10 /* Records Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Records Extensions.swift"; sourceTree = "<group>"; };
+		BDF5C7CD207858AE002FDC10 /* Exercise Picker Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Exercise Picker Model.swift"; sourceTree = "<group>"; };
+		BDF5C7CE207858AE002FDC10 /* CompoundExercise Records.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CompoundExercise Records.swift"; sourceTree = "<group>"; };
+		BDF5C7CF207858AE002FDC10 /* CategoriesPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesPicker.swift; sourceTree = "<group>"; };
+		BDF5C7D0207858AE002FDC10 /* Sequence Model Updater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence Model Updater.swift"; sourceTree = "<group>"; };
+		BDF5C7D1207858AE002FDC10 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BDF5C7D3207858AE002FDC10 /* Exercises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
+		BDF5C7D5207858AE002FDC10 /* Metric_Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metric_Info.swift; sourceTree = "<group>"; };
+		BDF5C7D6207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutControllerNotificationHandler.swift; sourceTree = "<group>"; };
+		BDF5C7D7207858AE002FDC10 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDF5C7D8207858AE002FDC10 /* Context Observor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Context Observor.swift"; sourceTree = "<group>"; };
+		BDF5C7DA207858AE002FDC10 /* ExerciseListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseListModel.swift; sourceTree = "<group>"; };
+		BDF5C7DB207858AE002FDC10 /* WorkoutHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
+		BDF5C7DC207858AE002FDC10 /* Update Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Update Exercise.swift"; sourceTree = "<group>"; };
+		BDF5C7DD207858AE002FDC10 /* WVC Reloadable Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WVC Reloadable Model.swift"; sourceTree = "<group>"; };
+		BDF5C83320785F5A002FDC10 /* Resources2.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resources2.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDFE06AC2079095500F3024B /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDFE06B02079095500F3024B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E230E99B0B461E50F34FEFB8 /* Pods_Resources2_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resources2_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDFD1B072006EBEC00F85BDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA9599B2078028B001BE931 /* Resources_View2_1.framework in Frameworks */,
+				F82546EA4520DB3DEC4ACA62 /* Pods_Resources2_1.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDFE06A92079095500F3024B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD90F328EEF1966B68880DE /* Pods_Resources2_1_Unit_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E1BCE783935A2E0FC97A666 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9A13C26032FD947FBA5305F /* Pods-Resources2.1.debug.xcconfig */,
+				10ECF02F8380FD825C51D25A /* Pods-Resources2.1.release.xcconfig */,
+				05FCDB4EED5A6236ED6B82B7 /* Pods-Resources2.1-Resources2.1Tests.debug.xcconfig */,
+				6AF3694DD49AF6D85C15AAAF /* Pods-Resources2.1-Resources2.1Tests.release.xcconfig */,
+				3C28DEC9BC6CA47C0C40768F /* Pods-Resources2.1-Unit Tests.debug.xcconfig */,
+				812A1EBA6371768F8EAD748A /* Pods-Resources2.1-Unit Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD75B16C209776B9009392B3 /* Records */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7CE207858AE002FDC10 /* CompoundExercise Records.swift */,
+				BDF5C7CC207858AE002FDC10 /* Records Extensions.swift */,
+				BDF5C792207858AE002FDC10 /* RecordsDisplayModel.swift */,
+				BDF5C7C3207858AE002FDC10 /* Compound Exercise Records.swift */,
+				BDF5C7AE207858AE002FDC10 /* Record UpdateHandler.swift */,
+			);
+			path = Records;
+			sourceTree = "<group>";
+		};
+		BD75B16D209776FF009392B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7BD207858AE002FDC10 /* Notifications.swift */,
+				BDF5C7D1207858AE002FDC10 /* AppDelegate.swift */,
+				BDF5C7AF207858AE002FDC10 /* Assets.xcassets */,
+				BDF5C793207858AE002FDC10 /* Constants.swift */,
+				BDF5C799207858AE002FDC10 /* Test Data.swift */,
+				BDF5C7B6207858AE002FDC10 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BD75B16E209777A2009392B3 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C79C207858AE002FDC10 /* Multiple_Exercise_Container.swift */,
+				BDF5C79B207858AE002FDC10 /* Sequences.swift */,
+				BDF5C7AD207858AE002FDC10 /* Exercise_Metrics.swift */,
+				BDF5C7A8207858AE002FDC10 /* EM_Containers.swift */,
+				BDF5C7A6207858AE002FDC10 /* Categories.swift */,
+				BD75B1712097781C009392B3 /* Settings.swift */,
+				BD75B16F209777CA009392B3 /* Bodyweight.swift */,
+				BDF5C7B1207858AE002FDC10 /* CreateDatabase.swift */,
+				BDF5C7BF207858AE002FDC10 /* Workouts.swift */,
+				BDF5C795207858AE002FDC10 /* Metric.swift */,
+				BDF5C7D5207858AE002FDC10 /* Metric_Info.swift */,
+				BDF5C7C9207858AE002FDC10 /* Post.swift */,
+				BDF5C7D3207858AE002FDC10 /* Exercises.swift */,
+				BDF5C7C6207858AE002FDC10 /* dataModel.xcdatamodel */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		BD75B17320977898009392B3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7B8207858AE002FDC10 /* Extensions.swift */,
+				BDF5C79E207858AE002FDC10 /* Dimension.swift */,
+				BDF5C79D207858AE002FDC10 /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BD75B174209778CE009392B3 /* CurrentWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7C2207858AE002FDC10 /* SequenceController1.swift */,
+				BDF5C7D6207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift */,
+				BDF5C7A3207858AE002FDC10 /* WorkoutViewController.swift */,
+				BDF5C79F207858AE002FDC10 /* Reload Workout UI.swift */,
+				BDF5C7AB207858AE002FDC10 /* Workout Header Model.swift */,
+				BDF5C7DD207858AE002FDC10 /* WVC Reloadable Model.swift */,
+				BD75B17F2097803B009392B3 /* ReloadableModel.swift */,
+			);
+			path = CurrentWorkout;
+			sourceTree = "<group>";
+		};
+		BD75B175209778DB009392B3 /* Global Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7A0207858AE002FDC10 /* Date Manager.swift */,
+			);
+			path = "Global Managers";
+			sourceTree = "<group>";
+		};
+		BD75B176209778FD009392B3 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7A5207858AE002FDC10 /* SortableTable.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		BD75B177209779D3009392B3 /* Update Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C797207858AE002FDC10 /* CreateOreditExerciseModel.swift */,
+				BDF5C7CB207858AE002FDC10 /* Update Name Variation Instructions.swift */,
+				BDF5C7B4207858AE002FDC10 /* Update Metric.swift */,
+				BDF5C7DC207858AE002FDC10 /* Update Exercise.swift */,
+			);
+			path = "Update Exercise";
+			sourceTree = "<group>";
+		};
+		BD75B17820977A2C009392B3 /* Exercise Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7BE207858AE002FDC10 /* OneRepMaxOverTimeModel.swift */,
+				BDE3D4352079799C003C6A94 /* RepMaxesModel.swift */,
+			);
+			path = "Exercise Detail";
+			sourceTree = "<group>";
+		};
+		BD75B17920977A54009392B3 /* Base Models */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C794207858AE002FDC10 /* Compound Exercise Model.swift */,
+			);
+			path = "Base Models";
+			sourceTree = "<group>";
+		};
+		BD75B17A20977AA3009392B3 /* SideBar Sections */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7B0207858AE002FDC10 /* Dashboard TableViewController.swift */,
+				BDF5C7BC207858AE002FDC10 /* Search Exercises.swift */,
+				BDF5C7C8207858AE002FDC10 /* Compound Lift Creator.swift */,
+				BDF5C7C1207858AE002FDC10 /* BodyweightAnalyticsModel.swift */,
+				BDF5C7DA207858AE002FDC10 /* ExerciseListModel.swift */,
+				BDF5C7B2207858AE002FDC10 /* Workout history Segue Handler.swift */,
+				BDF5C7DB207858AE002FDC10 /* WorkoutHistory.swift */,
+			);
+			path = "SideBar Sections";
+			sourceTree = "<group>";
+		};
+		BD75B17B20977B90009392B3 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7CF207858AE002FDC10 /* CategoriesPicker.swift */,
+				BDF5C7CD207858AE002FDC10 /* Exercise Picker Model.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		BD75B17C20977D0A009392B3 /* MasterVC */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7BB207858AE002FDC10 /* MasterVC.swift */,
+			);
+			path = MasterVC;
+			sourceTree = "<group>";
+		};
+		BD75B17D20977D68009392B3 /* NonEssential */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7A4207858AE002FDC10 /* EMOM model.swift */,
+				BDF5C7CA207858AE002FDC10 /* Converting To Dict Values.swift */,
+				BDF5C796207858AE002FDC10 /* emom tableViewController.swift */,
+				BDF5C7AC207858AE002FDC10 /* TimerModel.swift */,
+			);
+			path = NonEssential;
+			sourceTree = "<group>";
+		};
+		BD75B17E20977E9F009392B3 /* Important Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7D8207858AE002FDC10 /* Context Observor.swift */,
+				BDF5C7D0207858AE002FDC10 /* Sequence Model Updater.swift */,
+				BDF5C7B3207858AE002FDC10 /* Create Menu TableViewController.swift */,
+				BDF5C79A207858AE002FDC10 /* OneRMCalculator.swift */,
+				BDF5C7B9207858AE002FDC10 /* Orderable.swift */,
+			);
+			path = "Important Helpers";
+			sourceTree = "<group>";
+		};
+		BDF5C791207858AE002FDC10 /* Resources2.1 */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7D7207858AE002FDC10 /* Info.plist */,
+				BD75B16C209776B9009392B3 /* Records */,
+				BD75B17820977A2C009392B3 /* Exercise Detail */,
+				BD75B17920977A54009392B3 /* Base Models */,
+				BD75B16D209776FF009392B3 /* Supporting Files */,
+				BD75B17320977898009392B3 /* Extensions */,
+				BD75B174209778CE009392B3 /* CurrentWorkout */,
+				BD75B175209778DB009392B3 /* Global Managers */,
+				BD75B176209778FD009392B3 /* Misc */,
+				BD75B16E209777A2009392B3 /* Persistence */,
+				BD75B17D20977D68009392B3 /* NonEssential */,
+				BD75B177209779D3009392B3 /* Update Exercise */,
+				BD75B17E20977E9F009392B3 /* Important Helpers */,
+				BD75B17C20977D0A009392B3 /* MasterVC */,
+				BD75B17A20977AA3009392B3 /* SideBar Sections */,
+				BD75B17B20977B90009392B3 /* Pickers */,
+			);
+			path = Resources2.1;
+			sourceTree = "<group>";
+		};
+		BDFD1B012006EBEC00F85BDA = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7372078588B002FDC10 /* Main.storyboard */,
+				BDF5C791207858AE002FDC10 /* Resources2.1 */,
+				BDA9599A2078028B001BE931 /* Resources_View2_1.framework */,
+				BD012F7E203A621C00A4A351 /* Resources_View2_1.framework */,
+				5E1BCE783935A2E0FC97A666 /* Pods */,
+				BDFE06AD2079095500F3024B /* Unit Tests */,
+				E646CA2D2FE8DD51247A45CD /* Frameworks */,
+				BDF5C83320785F5A002FDC10 /* Resources2.1.app */,
+				BDFE06AC2079095500F3024B /* Unit Tests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		BDFE06AD2079095500F3024B /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C75A20785899002FDC10 /* Exercise_List.swift */,
+				BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */,
+				BDF5C75B20785899002FDC10 /* Sequence CollectionView.swift */,
+				BDF5C75C20785899002FDC10 /* Sort_Descriptors.swift */,
+				BDF5C75D20785899002FDC10 /* One_RMCalculator.swift */,
+				BDF5C73A20785899002FDC10 /* Test_Sorting_Cases.swift */,
+				BDF5C73B20785899002FDC10 /* Cascade_Rules.swift */,
+				BDF5C74220785899002FDC10 /* Date Methods.swift */,
+				BDF5C74320785899002FDC10 /* DateManager.swift */,
+				BDF5C73D20785899002FDC10 /* OneRM_Weeks.swift */,
+				BDF5C73E20785899002FDC10 /* Compound ExerciseRecords.swift */,
+				BDF5C73F20785899002FDC10 /* Setting_CD_Fields.swift */,
+				BDF5C74020785899002FDC10 /* Test Record Sorter.swift */,
+				BDE92440207A8F1100709020 /* PersonalRecords_DeletionTest.swift */,
+				BDF5C74420785899002FDC10 /* Deletion Rules.swift */,
+				BDF5C74520785899002FDC10 /* Workouts Fetch test.swift */,
+				BDE3D43720797ED5003C6A94 /* RepMaxesModel_Test.swift */,
+				BDF5C74620785899002FDC10 /* delete_first_workout.swift */,
+				BDF5C74720785899002FDC10 /* CompoundExerciseRecordsMethods.swift */,
+				BDF5C74920785899002FDC10 /* Tag_IDs.swift */,
+				BDF5C74A20785899002FDC10 /* Workout Controller.swift */,
+				BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */,
+				BDF5C74C20785899002FDC10 /* Scroll View.swift */,
+				BDF5C74D20785899002FDC10 /* Create Exercises From Database.swift */,
+				BDF5C74E20785899002FDC10 /* Edit Or Save Exercise.swift */,
+				BDF5C74F20785899002FDC10 /* Workout_HistoryModel.swift */,
+				BDF5C75120785899002FDC10 /* CompoundExercise.swift */,
+				BDF5C75220785899002FDC10 /* Sequence model.swift */,
+				BDF5C75320785899002FDC10 /* EM Value Save Methods.swift */,
+				BDF5C75420785899002FDC10 /* Bodyweight_Testing.swift */,
+				BDF5C0D9207CFADE007F198E /* UpdateBodyweight_Test.swift */,
+				BDF5C75520785899002FDC10 /* Orderable_Test.swift */,
+				BDF5C75720785899002FDC10 /* SortableTable_Test.swift */,
+				BDF5C75820785899002FDC10 /* Sorting_Performance.swift */,
+				BDF5C75920785899002FDC10 /* Workout_Controller_Tests.swift */,
+				BDF5C75F20785899002FDC10 /* Metric_Info_Test.swift */,
+				BDF5C76020785899002FDC10 /* Exercise Picker.swift */,
+				BDF5C76120785899002FDC10 /* ExerciseMetricInputManager.swift */,
+				BDF5C76220785899002FDC10 /* Creating Exercises From Database.swift */,
+				BDF5C76320785899002FDC10 /* Helper Method.swift */,
+				BDFE06B02079095500F3024B /* Info.plist */,
+			);
+			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		E646CA2D2FE8DD51247A45CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E230E99B0B461E50F34FEFB8 /* Pods_Resources2_1.framework */,
+				62C714B2B7395E6689FEB26F /* Pods_Resources2_1_Resources2_1Tests.framework */,
+				5649103C98B211008C71249B /* Pods_Resources2_1_Unit_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDFD1B092006EBEC00F85BDA /* Resources2.1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDFD1B2A2006EBED00F85BDA /* Build configuration list for PBXNativeTarget "Resources2.1" */;
+			buildPhases = (
+				4C7021EDBC6631C4D60FECC5 /* [CP] Check Pods Manifest.lock */,
+				BDFD1B062006EBEC00F85BDA /* Sources */,
+				BDFD1B072006EBEC00F85BDA /* Frameworks */,
+				BDFD1B082006EBEC00F85BDA /* Resources */,
+				BDA9599D2078028B001BE931 /* Embed Frameworks */,
+				31F19C2EF1ED78696E87732A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Resources2.1;
+			productName = Resources2.1;
+			productReference = BDF5C83320785F5A002FDC10 /* Resources2.1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDFE06AB2079095500F3024B /* Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDFE06B32079095500F3024B /* Build configuration list for PBXNativeTarget "Unit Tests" */;
+			buildPhases = (
+				4EDEC1134AF237B6CEF8FC66 /* [CP] Check Pods Manifest.lock */,
+				BDFE06A82079095500F3024B /* Sources */,
+				BDFE06A92079095500F3024B /* Frameworks */,
+				BDFE06AA2079095500F3024B /* Resources */,
+				E7CE714D9F1FC655422B776D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDFE06B22079095500F3024B /* PBXTargetDependency */,
+			);
+			name = "Unit Tests";
+			productName = "Unit Tests";
+			productReference = BDFE06AC2079095500F3024B /* Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDFD1B022006EBEC00F85BDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = B_Litwin;
+				TargetAttributes = {
+					BDFD1B092006EBEC00F85BDA = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GE9MEQXM5B;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					BDFE06AB2079095500F3024B = {
+						CreatedOnToolsVersion = 9.0.1;
+						DevelopmentTeam = GE9MEQXM5B;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BDFD1B092006EBEC00F85BDA;
+					};
+				};
+			};
+			buildConfigurationList = BDFD1B052006EBEC00F85BDA /* Build configuration list for PBXProject "Resources" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDFD1B012006EBEC00F85BDA;
+			productRefGroup = BDFD1B012006EBEC00F85BDA;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDFD1B092006EBEC00F85BDA /* Resources2.1 */,
+				BDFE06AB2079095500F3024B /* Unit Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDFD1B082006EBEC00F85BDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF5C820207858AE002FDC10 /* Info.plist in Resources */,
+				BDF5C800207858AE002FDC10 /* LaunchScreen.storyboard in Resources */,
+				BDF5C7F9207858AE002FDC10 /* Assets.xcassets in Resources */,
+				BDF5C7382078588C002FDC10 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDFE06AA2079095500F3024B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31F19C2EF1ED78696E87732A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Resources2.1/Pods-Resources2.1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CorePlot/CorePlot.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CorePlot.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Resources2.1/Pods-Resources2.1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C7021EDBC6631C4D60FECC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Resources2.1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EDEC1134AF237B6CEF8FC66 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Resources2.1-Unit Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7CE714D9F1FC655422B776D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Resources2.1-Unit Tests/Pods-Resources2.1-Unit Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CorePlot/CorePlot.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CorePlot.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Resources2.1-Unit Tests/Pods-Resources2.1-Unit Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDFD1B062006EBEC00F85BDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD75B1802097803B009392B3 /* ReloadableModel.swift in Sources */,
+				BDF5C7E0207858AE002FDC10 /* Compound Exercise Model.swift in Sources */,
+				BDF5C805207858AE002FDC10 /* Search Exercises.swift in Sources */,
+				BDF5C81E207858AE002FDC10 /* Metric_Info.swift in Sources */,
+				BDF5C7E1207858AE002FDC10 /* Metric.swift in Sources */,
+				BDF5C80C207858AE002FDC10 /* Compound Exercise Records.swift in Sources */,
+				BDF5C80B207858AE002FDC10 /* SequenceController1.swift in Sources */,
+				BDF5C81F207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift in Sources */,
+				BDF5C7EA207858AE002FDC10 /* Dimension.swift in Sources */,
+				BDF5C7E5207858AE002FDC10 /* Test Data.swift in Sources */,
+				BDF5C7EC207858AE002FDC10 /* Date Manager.swift in Sources */,
+				BDF5C7E7207858AE002FDC10 /* Sequences.swift in Sources */,
+				BDF5C81A207858AE002FDC10 /* AppDelegate.swift in Sources */,
+				BDF5C813207858AE002FDC10 /* Converting To Dict Values.swift in Sources */,
+				BDF5C821207858AE002FDC10 /* Context Observor.swift in Sources */,
+				BDF5C7FA207858AE002FDC10 /* Dashboard TableViewController.swift in Sources */,
+				BDF5C802207858AE002FDC10 /* Orderable.swift in Sources */,
+				BDF5C80A207858AE002FDC10 /* BodyweightAnalyticsModel.swift in Sources */,
+				BDF5C807207858AE002FDC10 /* OneRepMaxOverTimeModel.swift in Sources */,
+				BDF5C819207858AE002FDC10 /* Sequence Model Updater.swift in Sources */,
+				BDF5C801207858AE002FDC10 /* Extensions.swift in Sources */,
+				BDF5C806207858AE002FDC10 /* Notifications.swift in Sources */,
+				BD75B1722097781C009392B3 /* Settings.swift in Sources */,
+				BDE3D4362079799C003C6A94 /* RepMaxesModel.swift in Sources */,
+				BDF5C7EE207858AE002FDC10 /* WorkoutViewController.swift in Sources */,
+				BDF5C7F7207858AE002FDC10 /* Exercise_Metrics.swift in Sources */,
+				BDF5C812207858AE002FDC10 /* Post.swift in Sources */,
+				BDF5C825207858AE002FDC10 /* Update Exercise.swift in Sources */,
+				BDF5C7EB207858AE002FDC10 /* Reload Workout UI.swift in Sources */,
+				BDF5C7FC207858AE002FDC10 /* Workout history Segue Handler.swift in Sources */,
+				BDF5C7E9207858AE002FDC10 /* String.swift in Sources */,
+				BDF5C826207858AE002FDC10 /* WVC Reloadable Model.swift in Sources */,
+				BDF5C808207858AE002FDC10 /* Workouts.swift in Sources */,
+				BDF5C7F1207858AE002FDC10 /* Categories.swift in Sources */,
+				BDF5C7F8207858AE002FDC10 /* Record UpdateHandler.swift in Sources */,
+				BDF5C81C207858AE002FDC10 /* Exercises.swift in Sources */,
+				BDF5C823207858AE002FDC10 /* ExerciseListModel.swift in Sources */,
+				BDF5C7F5207858AE002FDC10 /* Workout Header Model.swift in Sources */,
+				BDF5C811207858AE002FDC10 /* Compound Lift Creator.swift in Sources */,
+				BDF5C7E8207858AE002FDC10 /* Multiple_Exercise_Container.swift in Sources */,
+				BDF5C804207858AE002FDC10 /* MasterVC.swift in Sources */,
+				BDF5C80F207858AE002FDC10 /* dataModel.xcdatamodel in Sources */,
+				BDF5C7E2207858AE002FDC10 /* emom tableViewController.swift in Sources */,
+				BDF5C7FB207858AE002FDC10 /* CreateDatabase.swift in Sources */,
+				BDF5C814207858AE002FDC10 /* Update Name Variation Instructions.swift in Sources */,
+				BDF5C7E3207858AE002FDC10 /* CreateOreditExerciseModel.swift in Sources */,
+				BDF5C816207858AE002FDC10 /* Exercise Picker Model.swift in Sources */,
+				BDF5C818207858AE002FDC10 /* CategoriesPicker.swift in Sources */,
+				BDF5C7F6207858AE002FDC10 /* TimerModel.swift in Sources */,
+				BDF5C7DE207858AE002FDC10 /* RecordsDisplayModel.swift in Sources */,
+				BDF5C7F3207858AE002FDC10 /* EM_Containers.swift in Sources */,
+				BDF5C7E6207858AE002FDC10 /* OneRMCalculator.swift in Sources */,
+				BDF5C7F0207858AE002FDC10 /* SortableTable.swift in Sources */,
+				BDF5C815207858AE002FDC10 /* Records Extensions.swift in Sources */,
+				BDF5C7FD207858AE002FDC10 /* Create Menu TableViewController.swift in Sources */,
+				BD75B170209777CA009392B3 /* Bodyweight.swift in Sources */,
+				BDF5C817207858AE002FDC10 /* CompoundExercise Records.swift in Sources */,
+				BDF5C7FE207858AE002FDC10 /* Update Metric.swift in Sources */,
+				BDF5C824207858AE002FDC10 /* WorkoutHistory.swift in Sources */,
+				BDF5C7EF207858AE002FDC10 /* EMOM model.swift in Sources */,
+				BDF5C7DF207858AE002FDC10 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDFE06A82079095500F3024B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDFE06BB207909B700F3024B /* Cascade_Rules.swift in Sources */,
+				BDFE06BE207909B700F3024B /* Sequence CollectionView.swift in Sources */,
+				BDE92441207A8F1100709020 /* PersonalRecords_DeletionTest.swift in Sources */,
+				BDFE06D9207909B700F3024B /* Edit Or Save Exercise.swift in Sources */,
+				BDFE06CB207909B700F3024B /* Helper Method.swift in Sources */,
+				BDFE06D6207909B700F3024B /* Workout_HistoryModel.swift in Sources */,
+				BDFE06D5207909B700F3024B /* Test Record Sorter.swift in Sources */,
+				BDFE06CA207909B700F3024B /* Sequence model.swift in Sources */,
+				BDFE06C2207909B700F3024B /* Create Exercises From Database.swift in Sources */,
+				BDFE06C0207909B700F3024B /* One_RMCalculator.swift in Sources */,
+				BDF5C0DA207CFADE007F198E /* UpdateBodyweight_Test.swift in Sources */,
+				BDFE06CD207909B700F3024B /* Sort_Descriptors.swift in Sources */,
+				BDFE06B7207909B700F3024B /* Exercise_List.swift in Sources */,
+				BD5404D420938E790092C9E9 /* Keyboard_Methods.swift in Sources */,
+				BDFE06BC207909B700F3024B /* Exercise_Metrics_Test.swift in Sources */,
+				BDFE06DA207909B700F3024B /* Setting_CD_Fields.swift in Sources */,
+				BDFE06C1207909B700F3024B /* delete_first_workout.swift in Sources */,
+				BDFE06C9207909B700F3024B /* Workouts Fetch test.swift in Sources */,
+				BDFE06B9207909B700F3024B /* Tag_IDs.swift in Sources */,
+				BDFE06BD207909B700F3024B /* Workout Controller.swift in Sources */,
+				BDFE06B8207909B700F3024B /* Test_Sorting_Cases.swift in Sources */,
+				BDFE06D3207909B700F3024B /* Compound ExerciseRecords.swift in Sources */,
+				BDFE06D2207909B700F3024B /* Creating Exercises From Database.swift in Sources */,
+				BDFE06C5207909B700F3024B /* CompoundExerciseRecordsMethods.swift in Sources */,
+				BDFE06C6207909B700F3024B /* Metric_Info_Test.swift in Sources */,
+				BDFE06C8207909B700F3024B /* Scroll View.swift in Sources */,
+				BDFE06C7207909B700F3024B /* OneRM_Weeks.swift in Sources */,
+				BDFE06CE207909B700F3024B /* ExerciseMetricInputManager.swift in Sources */,
+				BDFE06BF207909B700F3024B /* Workout_Controller_Tests.swift in Sources */,
+				BDE3D43820797ED5003C6A94 /* RepMaxesModel_Test.swift in Sources */,
+				BDFE06D8207909B700F3024B /* Orderable_Test.swift in Sources */,
+				BDFE06D0207909B700F3024B /* Bodyweight_Testing.swift in Sources */,
+				BDFE06D1207909B700F3024B /* SortableTable_Test.swift in Sources */,
+				BDFE06D7207909B700F3024B /* EM Value Save Methods.swift in Sources */,
+				BDFE06BA207909B700F3024B /* Exercise Picker.swift in Sources */,
+				BDFE06C4207909B700F3024B /* Deletion Rules.swift in Sources */,
+				BDFE06CC207909B700F3024B /* CompoundExercise.swift in Sources */,
+				BDFE06CF207909B700F3024B /* DateManager.swift in Sources */,
+				BDFE06B6207909B700F3024B /* Sorting_Performance.swift in Sources */,
+				BDFE06D4207909B700F3024B /* Date Methods.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDFE06B22079095500F3024B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDFD1B092006EBEC00F85BDA /* Resources2.1 */;
+			targetProxy = BDFE06B12079095500F3024B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BDF5C7B6207858AE002FDC10 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDF5C7B7207858AE002FDC10 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDFD1B282006EBED00F85BDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDFD1B292006EBED00F85BDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDFD1B2B2006EBED00F85BDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9A13C26032FD947FBA5305F /* Pods-Resources2.1.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GE9MEQXM5B;
+				INFOPLIST_FILE = Resources2.1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Final";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BDFD1B2C2006EBED00F85BDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10ECF02F8380FD825C51D25A /* Pods-Resources2.1.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GE9MEQXM5B;
+				INFOPLIST_FILE = Resources2.1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Final";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BDFE06B42079095500F3024B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C28DEC9BC6CA47C0C40768F /* Pods-Resources2.1-Unit Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GE9MEQXM5B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Unit Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Resources2.1.app/Resources2.1";
+			};
+			name = Debug;
+		};
+		BDFE06B52079095500F3024B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 812A1EBA6371768F8EAD748A /* Pods-Resources2.1-Unit Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GE9MEQXM5B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Unit Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Resources2.1.app/Resources2.1";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDFD1B052006EBEC00F85BDA /* Build configuration list for PBXProject "Resources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDFD1B282006EBED00F85BDA /* Debug */,
+				BDFD1B292006EBED00F85BDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDFD1B2A2006EBED00F85BDA /* Build configuration list for PBXNativeTarget "Resources2.1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDFD1B2B2006EBED00F85BDA /* Debug */,
+				BDFD1B2C2006EBED00F85BDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDFE06B32079095500F3024B /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDFE06B42079095500F3024B /* Debug */,
+				BDFE06B52079095500F3024B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDFD1B022006EBEC00F85BDA /* Project object */;
+}

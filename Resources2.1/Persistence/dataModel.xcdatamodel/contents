@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Bodyweight" representedClassName=".Bodyweight" syncable="YES" codeGenerationType="category">
+        <attribute name="bodyweight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dateSV" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Categories" representedClassName=".Categories" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString=" " syncable="YES"/>
+        <relationship name="compound_Exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Multi_Exercise_Container_Types" inverseName="category" inverseEntity="Multi_Exercise_Container_Types" syncable="YES"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercises" inverseName="category" inverseEntity="Exercises" syncable="YES"/>
+    </entity>
+    <entity name="EM_Containers" representedClassName=".EM_Containers" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderSV" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercises" inverseName="containers" inverseEntity="Exercises" syncable="YES"/>
+        <relationship name="exercise_metrics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Exercise_Metrics" inverseName="container" inverseEntity="Exercise_Metrics" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Multi_Exercise_Container_Types" inverseName="personal_records" inverseEntity="Multi_Exercise_Container_Types" syncable="YES"/>
+        <relationship name="sequence" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sequences" inverseName="containers" inverseEntity="Sequences" syncable="YES"/>
+    </entity>
+    <entity name="Exercise_Metrics" representedClassName=".Exercise_Metrics" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="is_local_record" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="is_personal_record" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lengthSV" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="missed_reps" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="repsSV" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="restperiodSV" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="set_number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="setsSV" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timeSV" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="used_bodyweight" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="velocitySV" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weightSV" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="container" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EM_Containers" inverseName="exercise_metrics" inverseEntity="EM_Containers" syncable="YES"/>
+        <relationship name="personal_record" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercises" inverseName="personal_records" inverseEntity="Exercises" syncable="YES"/>
+        <relationship name="temporal_record" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercises" inverseName="temporal_records" inverseEntity="Exercises" syncable="YES"/>
+    </entity>
+    <entity name="Exercises" representedClassName=".Exercises" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="variation" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categories" inverseName="exercises" inverseEntity="Categories" syncable="YES"/>
+        <relationship name="containers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EM_Containers" inverseName="exercise" inverseEntity="EM_Containers" syncable="YES"/>
+        <relationship name="metric_info" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Metric_Info" inverseName="exercise" inverseEntity="Metric_Info" syncable="YES"/>
+        <relationship name="multi_exercise_container" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Multi_Exercise_Container" inverseName="exercise" inverseEntity="Multi_Exercise_Container" syncable="YES"/>
+        <relationship name="personal_records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise_Metrics" inverseName="personal_record" inverseEntity="Exercise_Metrics" syncable="YES"/>
+        <relationship name="temporal_records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise_Metrics" inverseName="temporal_record" inverseEntity="Exercise_Metrics" syncable="YES"/>
+    </entity>
+    <entity name="Metric_Info" representedClassName=".Metric_Info" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="metricSV" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="output_label" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sort_in_ascending_order" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unit_of_measurement" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercises" inverseName="metric_info" inverseEntity="Exercises" syncable="YES"/>
+    </entity>
+    <entity name="Multi_Exercise_Container" representedClassName=".Multi_Exercise_Container" syncable="YES" codeGenerationType="category">
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercises" inverseName="multi_exercise_container" inverseEntity="Exercises" syncable="YES"/>
+        <relationship name="parent_container" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Multi_Exercise_Container_Types" inverseName="exercises" inverseEntity="Multi_Exercise_Container_Types" syncable="YES"/>
+    </entity>
+    <entity name="Multi_Exercise_Container_Types" representedClassName=".Multi_Exercise_Container_Types" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="typeSV" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categories" inverseName="compound_Exercises" inverseEntity="Categories" syncable="YES"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Multi_Exercise_Container" inverseName="parent_container" inverseEntity="Multi_Exercise_Container" syncable="YES"/>
+        <relationship name="personal_records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EM_Containers" inverseName="newRelationship" inverseEntity="EM_Containers" syncable="YES"/>
+        <relationship name="sequences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sequences" inverseName="multi_exercise_container_type" inverseEntity="Sequences" syncable="YES"/>
+    </entity>
+    <entity name="Sequences" representedClassName=".Sequences" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="workout_order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="containers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EM_Containers" inverseName="sequence" inverseEntity="EM_Containers" syncable="YES"/>
+        <relationship name="multi_exercise_container_type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Multi_Exercise_Container_Types" inverseName="sequences" inverseEntity="Multi_Exercise_Container_Types" syncable="YES"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workouts" inverseName="sequences" inverseEntity="Workouts" syncable="YES"/>
+    </entity>
+    <entity name="Settings" representedClassName=".Settings" syncable="YES" codeGenerationType="category">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstLaunch" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unique_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Workouts" representedClassName=".Workouts" syncable="YES" codeGenerationType="category">
+        <attribute name="dateSV" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sequences" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Sequences" inverseName="workout" inverseEntity="Sequences" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Bodyweight" positionX="-243" positionY="-18" width="128" height="105"/>
+        <element name="Categories" positionX="-27" positionY="-18" width="128" height="118"/>
+        <element name="EM_Containers" positionX="151" positionY="522" width="128" height="135"/>
+        <element name="Exercise_Metrics" positionX="-36" positionY="389" width="128" height="285"/>
+        <element name="Exercises" positionX="-27" positionY="99" width="128" height="210"/>
+        <element name="Metric_Info" positionX="-243" positionY="183" width="128" height="133"/>
+        <element name="Multi_Exercise_Container" positionX="144" positionY="164" width="128" height="88"/>
+        <element name="Multi_Exercise_Container_Types" positionX="160" positionY="-0" width="128" height="150"/>
+        <element name="Sequences" positionX="-234" positionY="500" width="128" height="135"/>
+        <element name="Settings" positionX="-243" positionY="90" width="128" height="90"/>
+        <element name="Workouts" positionX="-234" positionY="332" width="128" height="120"/>
+    </elements>
+</model>
