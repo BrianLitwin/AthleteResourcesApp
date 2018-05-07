@@ -49,7 +49,7 @@ final class Multi_Exercise_Container_Types: NSManagedObject, HasAnalyticsControl
     }
     
     var orderedExercises: [Exercises] {
-        return orderedExerciseContainers.flatMap({ $0.exercise })
+        return orderedExerciseContainers.compactMap({ $0.exercise })
     }
     
     class func fetchAll(active: Bool = true) -> [Multi_Exercise_Container_Types] {

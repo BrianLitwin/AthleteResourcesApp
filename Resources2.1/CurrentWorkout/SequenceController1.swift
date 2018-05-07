@@ -54,7 +54,13 @@
  
  have an empty screen for exercises if there are no active exercises
  
- the edit/create exercise looks bad as is: update to previous version 
+ the edit/create exercise looks bad as is: update to previous version
+ 
+ if you create an exercise, and go back to create another exercise, the exercise form will be populated with the prev exercise forms data
+ 
+ there is a checkmark built into tableviewcell accessory type.. check into this for search exercise list/ activeOr not
+ 
+ creating new exercise effectively doesn't work 
  
 */
 

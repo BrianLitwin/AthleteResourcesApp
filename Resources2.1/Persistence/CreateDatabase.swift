@@ -112,7 +112,7 @@ private enum CategoryToAdd: String {
                 createExercise(name: "Snatch", variation: "From  Block"),
                 createExercise(name: "Snatch", variation: "No Feet / No Hook-Grip"),
                 createExercise(name: "Power Snatch", variation: "From Block"),
-                createExercise(name: "Snatch", variation: "Clean-Grup"),
+                createExercise(name: "Snatch", variation: "Clean-Grip"),
                 createExercise(name: "Muscle Snatch"),
                 createExercise(name: "Drop Snatch"),
                 

@@ -18,21 +18,41 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
             guard let model = self.model else { return }
             let exerciseName = model.exerciseInfo.exerciseInfo.name
             title = exerciseName.IsEmptyString ? "Create Exercise" : "Edit Exercise"
+            
+            
+            //set the drop down table info
+            metricCount = model.pendingUpdateModels.count
+            (0..<metricCount).forEach({ num in
+                dropdownSectionState[num] = false
+            })
         }
     }
     
     var doneBtn: UIBarButtonItem?
     
+    var dropdownSectionState = [Int:Bool]()
+    
+    var metricCount = 0
+    
+    var visibleDropDownSections: Int {
+        return dropdownSectionState.reduce(0, { count, bool in
+            return bool.value ? count + 1 : count
+        })
+    }
+    
     public init() {
         
         super.init(style: .grouped)
+        tableView.separatorInset = .zero
         setupDefaultColorScheme()
         
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         tableView.register(UpdateExerciseMetricTableViewCell.self, forCellReuseIdentifier: UpdateExerciseMetricTableViewCell.reuseID)
         tableView.register(UpdateExerciseNVITableViewCell.self, forCellReuseIdentifier: UpdateExerciseNVITableViewCell.reuseID)
+        tableView.register(UpdateExerciseInstructionsHeader.self, forHeaderFooterViewReuseIdentifier: UpdateExerciseInstructionsHeader.reuseID)
         NotificationCenter.default.addObserver(self, selector: #selector(systemKeyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(systemKeyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
     
     override public func viewDidLoad() {
@@ -52,6 +72,22 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setDefaultColorScheme()
+    }
+    
+    override public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 1: return 75
+        default: return 44
+        }
+    }
+    
+    override public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard section == 1 else { return nil }
+        
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: UpdateExerciseInstructionsHeader.reuseID) as! UpdateExerciseInstructionsHeader
+        return header
+
     }
     
     @objc func cancelBtnTap() {
@@ -94,9 +130,15 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
 
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 3
-        case 1: return model?.pendingUpdateModels.count ?? 0
-        default: return 0
+        case 0:
+            return 3
+            
+        case 1:
+            let minCount = model?.pendingUpdateModels.count ?? 0
+            return minCount + visibleDropDownSections
+            
+        default:
+            return 0
         }
     }
 
@@ -117,7 +159,7 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
                 
             case 0:
                 
-                cell.textField.text = exerciseInfo.exerciseInfo.name
+                cell.textfield.text = exerciseInfo.exerciseInfo.name
                 
                 cell.setTextfieldPlaceholder("Exercise Name")
                 
@@ -128,7 +170,7 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
                 
             case 1:
                 
-                cell.textField.text = exerciseInfo.exerciseInfo.variation
+                cell.textfield.text = exerciseInfo.exerciseInfo.variation
                 
                 cell.setTextfieldPlaceholder("Exercise Variation")
                 
@@ -139,7 +181,7 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
                 
             case 2:
                 
-                cell.textField.text = exerciseInfo.exerciseInfo.instructions
+                cell.textfield.text = exerciseInfo.exerciseInfo.instructions
                 
                 cell.setTextfieldPlaceholder("Exercise Instructions")
                 
@@ -157,17 +199,14 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
             return cell
             
         } else {
-        
+            
+            
+            
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: UpdateExerciseMetricTableViewCell.reuseID, for: indexPath) as! UpdateExerciseMetricTableViewCell
             
-            cell.backgroundColor = UIColor.lighterBlack()
-            
-            cell.label.textColor = UIColor.groupedTableText()
-            
             cell.selectionStyle = .none
-            
             cell.delegate = model?.pendingUpdateModels[indexPath.row]
-
             return cell
             
         }
@@ -176,7 +215,7 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? UpdateExerciseNVITableViewCell {
-            cell.textField.becomeFirstResponder()
+            cell.textfield.becomeFirstResponder()
         }
     }
     

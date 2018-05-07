@@ -14,27 +14,51 @@ class UpdateExerciseNVITableViewCell: BaseTableViewCell, UITextFieldDelegate {
     
     static var reuseID = "NIVcell"
     
-    lazy var textField: UITextField = {
-        let textField = UITextField()
-        textField.tintColor = UIColor.brightTurquoise()
-        textField.delegate = self
-        textField.textColor = UIColor.groupedTableText()
-        return textField
+    lazy var textfield: UITextField = {
+        let tf = UITextField()
+        tf.tintColor = UIColor.brightTurquoise()
+        tf.delegate = self
+        tf.textColor = UIColor.groupedTableText()
+        return tf
+    }()
+    
+    let icon: UIImageView = {
+        let image = #imageLiteral(resourceName: "create").withRenderingMode(.alwaysTemplate)
+        let iv = UIImageView(image: image)
+        iv.tintColor = UIColor.groupedTableText()
+        return iv
     }()
     
     override func setupViews() {
-        addSubview(textField)
-        centerLeft(textField)
+        addSubview(icon)
+        addSubview(textfield)
+        let layoutGuide = layoutMarginsGuide
+        
+        //configure icon
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor).isActive = true
+        icon.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        icon.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        icon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        //configure textfield
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor).isActive = true
+        textfield.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        textfield.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        textfield.trailingAnchor.constraint(equalTo: icon.leadingAnchor, constant: -10).isActive = true
+        
+        
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        saveText?(textField.text ?? "")
-        textField.resignFirstResponder()
+    func textFieldShouldReturn(_ textfield: UITextField) -> Bool {
+        saveText?(textfield.text ?? "")
+        textfield.resignFirstResponder()
         return true
     }
     
     func setTextfieldPlaceholder(_ text: String) {
-        textField.attributedPlaceholder = NSAttributedString(string: text, attributes:[NSAttributedStringKey.foregroundColor : UIColor.lightGray])
+        textfield.attributedPlaceholder = NSAttributedString(string: text, attributes:[NSAttributedStringKey.foregroundColor : UIColor.lightGray])
     }
     
     deinit {
