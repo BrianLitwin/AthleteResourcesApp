@@ -21,7 +21,6 @@ class CreateOreditExercise {
     let pendingMetricInfos: [PendingMetricInfo]
     
     init(exercise: Exercises) {
-        
         self.exercise = exercise
         self.pendingMetricInfos = Metric.orderedMetrics.map({
             let preexistingMetricInfo = exercise.metricInfoSet.containsMetric($0)

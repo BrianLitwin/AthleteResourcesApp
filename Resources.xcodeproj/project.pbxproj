@@ -387,10 +387,10 @@
 		BD75B177209779D3009392B3 /* Update Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				BDF5C7DC207858AE002FDC10 /* Update Exercise.swift */,
 				BDF5C797207858AE002FDC10 /* CreateOreditExerciseModel.swift */,
 				BDF5C7CB207858AE002FDC10 /* Update Name Variation Instructions.swift */,
 				BDF5C7B4207858AE002FDC10 /* Update Metric.swift */,
-				BDF5C7DC207858AE002FDC10 /* Update Exercise.swift */,
 			);
 			path = "Update Exercise";
 			sourceTree = "<group>";

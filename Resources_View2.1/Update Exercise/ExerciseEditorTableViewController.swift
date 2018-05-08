@@ -13,32 +13,17 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     public var updateWorkoutUIAfterSave: (() -> Void)?
     
     public var model: UpdateExerciseModel? {
-        //patch for now - put a method in protocol to set view controller's title
         didSet {
             guard let model = self.model else { return }
             let exerciseName = model.exerciseInfo.exerciseInfo.name
             title = exerciseName.IsEmptyString ? "Create Exercise" : "Edit Exercise"
-            
-            
-            //set the drop down table info
-            metricCount = model.pendingUpdateModels.count
-            (0..<metricCount).forEach({ num in
-                dropdownSectionState[num] = false
-            })
+            collapsibleSectionModel = CollapsibleModel(count: model.pendingUpdateModels.count)
         }
     }
     
     var doneBtn: UIBarButtonItem?
     
-    var dropdownSectionState = [Int:Bool]()
-    
-    var metricCount = 0
-    
-    var visibleDropDownSections: Int {
-        return dropdownSectionState.reduce(0, { count, bool in
-            return bool.value ? count + 1 : count
-        })
-    }
+    var collapsibleSectionModel: CollapsibleModel?
     
     public init() {
         
@@ -48,10 +33,19 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
         
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         tableView.register(UpdateExerciseMetricTableViewCell.self, forCellReuseIdentifier: UpdateExerciseMetricTableViewCell.reuseID)
+        tableView.register(UpdateExerciseMetricDropdownTableViewCell.self, forCellReuseIdentifier: UpdateExerciseMetricDropdownTableViewCell.reuseID)
         tableView.register(UpdateExerciseNVITableViewCell.self, forCellReuseIdentifier: UpdateExerciseNVITableViewCell.reuseID)
         tableView.register(UpdateExerciseInstructionsHeader.self, forHeaderFooterViewReuseIdentifier: UpdateExerciseInstructionsHeader.reuseID)
         NotificationCenter.default.addObserver(self, selector: #selector(systemKeyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(systemKeyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //a little padding at the bottom 
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 200))
+        
+        //Mark: IOS 11 work around
+        tableView.estimatedRowHeight = 0;
+        tableView.estimatedSectionHeaderHeight = 0;
+        tableView.estimatedSectionFooterHeight = 0;
         
     }
     
@@ -72,6 +66,9 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setDefaultColorScheme()
+        
+        //short term fix for resetting the views
+        tableView.reloadData()
     }
     
     override public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -130,15 +127,9 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
 
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            return 3
-            
-        case 1:
-            let minCount = model?.pendingUpdateModels.count ?? 0
-            return minCount + visibleDropDownSections
-            
-        default:
-            return 0
+        case 0: return 3
+        case 1: return collapsibleSectionModel?.sections.count ?? 0
+        default: return 0
         }
     }
 
@@ -199,14 +190,31 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
             return cell
             
         } else {
+            return configureCollapsibleSectionCell(for: indexPath)
+        }
+        
+    }
+    
+    
+    func configureCollapsibleSectionCell(for indexPath: IndexPath) -> UITableViewCell {
+        guard let sectionModel = collapsibleSectionModel else { return UITableViewCell() }
+        let row = indexPath.row
+        let isSubsection = sectionModel.sections[row]
+        let originalIndex = sectionModel.offsetIndexes[row]
+        let cellDelegate = model?.pendingUpdateModels[originalIndex]
+        
+        switch isSubsection {
             
+        case true:
+            let cell = tableView.dequeueReusableCell(withIdentifier: UpdateExerciseMetricDropdownTableViewCell.reuseID, for: indexPath) as! UpdateExerciseMetricDropdownTableViewCell
+            cell.delegate = cellDelegate
+            return cell 
             
-            
-            
+        case false:
             let cell = tableView.dequeueReusableCell(withIdentifier: UpdateExerciseMetricTableViewCell.reuseID, for: indexPath) as! UpdateExerciseMetricTableViewCell
-            
             cell.selectionStyle = .none
-            cell.delegate = model?.pendingUpdateModels[indexPath.row]
+            cell.delegate = cellDelegate
+            cell.moreInfoDelegate = self
             return cell
             
         }
@@ -224,3 +232,43 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     }
 
 }
+
+
+
+extension UpdateExerciseTableViewController: DropDownButtonDelegate {
+    func cellDropDownPressed(for cell: UITableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        guard let sectionModel = collapsibleSectionModel else { return }
+        let expandSubSection = sectionModel.toggle(section: indexPath.row)
+        let indexPaths: [IndexPath] = [[indexPath.section, indexPath.row + 1]]
+        
+        if expandSubSection {
+            tableView.insertRows(at: indexPaths, with: .automatic)
+        } else {
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

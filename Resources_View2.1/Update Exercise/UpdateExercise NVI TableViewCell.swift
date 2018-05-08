@@ -42,6 +42,7 @@ class UpdateExerciseNVITableViewCell: BaseTableViewCell, UITextFieldDelegate {
         icon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         //configure textfield
+        textfield.delegate = self 
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor).isActive = true
         textfield.heightAnchor.constraint(equalToConstant: 35).isActive = true

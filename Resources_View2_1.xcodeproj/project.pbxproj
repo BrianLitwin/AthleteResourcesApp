@@ -50,6 +50,7 @@
 		BD06E6002052F77500B312AA /* Search Exercise TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06E5FF2052F77500B312AA /* Search Exercise TableViewCell.swift */; };
 		BD1FEA572052FA9900D62407 /* ExerciseSearch Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FEA562052FA9900D62407 /* ExerciseSearch Model.swift */; };
 		BD28ECB6209908C4007DB94C /* HeaderInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28ECB5209908C4007DB94C /* HeaderInstructionsView.swift */; };
+		BD32C96220A0986C005422B0 /* CollapsibleSectionDataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD32C96120A0986C005422B0 /* CollapsibleSectionDataStructure.swift */; };
 		BD391D70204E0BA600CDD2C8 /* Compound Creator Nav Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD391D6F204E0BA600CDD2C8 /* Compound Creator Nav Control.swift */; };
 		BD391D74204E0F4000CDD2C8 /* ReloadUI Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD391D73204E0F4000CDD2C8 /* ReloadUI Handler.swift */; };
 		BD391D77204E19EA00CDD2C8 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD391D72204E0F2D00CDD2C8 /* WorkoutController.swift */; };
@@ -161,6 +162,7 @@
 		BD06E5FF2052F77500B312AA /* Search Exercise TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Exercise TableViewCell.swift"; sourceTree = "<group>"; };
 		BD1FEA562052FA9900D62407 /* ExerciseSearch Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseSearch Model.swift"; sourceTree = "<group>"; };
 		BD28ECB5209908C4007DB94C /* HeaderInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInstructionsView.swift; sourceTree = "<group>"; };
+		BD32C96120A0986C005422B0 /* CollapsibleSectionDataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleSectionDataStructure.swift; sourceTree = "<group>"; };
 		BD391D6F204E0BA600CDD2C8 /* Compound Creator Nav Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Compound Creator Nav Control.swift"; sourceTree = "<group>"; };
 		BD391D72204E0F2D00CDD2C8 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
 		BD391D73204E0F4000CDD2C8 /* ReloadUI Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReloadUI Handler.swift"; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 				BDD21819204CF153006BAA70 /* UpdateExercise NVI TableViewCell.swift */,
 				BDD21817204CD9E2006BAA70 /* UpdateExercise Metric TableViewCells.swift */,
 				BD28ECB5209908C4007DB94C /* HeaderInstructionsView.swift */,
+				BD32C96120A0986C005422B0 /* CollapsibleSectionDataStructure.swift */,
 			);
 			path = "Update Exercise";
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				BDFEDAC9207AEAD8000C0FAE /* ExerciseSearchViewController.swift in Sources */,
 				BD06E5FD2052F71400B312AA /* Search Exercises Data Source.swift in Sources */,
 				BDAA112220770648008A8EB4 /* ExerciseInfoViewController.swift in Sources */,
+				BD32C96220A0986C005422B0 /* CollapsibleSectionDataStructure.swift in Sources */,
 				BD012F48203A597400A4A351 /* standard keyboard.swift in Sources */,
 				BD012F3A203A592900A4A351 /* Edit Set view.swift in Sources */,
 				BD012F47203A597400A4A351 /* KeyboardDelegate.swift in Sources */,

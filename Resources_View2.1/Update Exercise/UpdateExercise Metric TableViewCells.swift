@@ -9,6 +9,10 @@
 import UIKit
 
 
+protocol DropDownButtonDelegate {
+    func cellDropDownPressed(for cell: UITableViewCell)
+}
+
 
 class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
     
@@ -17,6 +21,8 @@ class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
     let disclosure = UITableViewCell()
     
     let moreInfoIcon = UIButton()
+    
+    var moreInfoDelegate: DropDownButtonDelegate?
     
     let headerLabel = UILabel()
     
@@ -27,7 +33,6 @@ class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
             guard let model = delegate else { return }
             headerLabel.text = model.metricName
             metricSwitch.isOn = delegate?.selectedUnitIndex != nil
-            
         }
     }
     
@@ -45,6 +50,7 @@ class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
         moreInfoIcon.addSubview(disclosure)
         moreInfoIcon.addConstraintsWithFormat("H:|[v0]|", views: disclosure)
         moreInfoIcon.addConstraintsWithFormat("V:|[v0]|", views: disclosure)
+        moreInfoIcon.addTarget(self, action: #selector(moreInfoTap), for: .touchDown)
         
         //add btn and header label to view
         centerLeft(moreInfoIcon)
@@ -62,27 +68,71 @@ class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
     }
     
     @objc func switchValueChanged(_ sender: UISwitch) {
-        delegate?.metricIs(active: sender.isOn)
-
+        guard let delegate = delegate else { return }
+        delegate.metricIs(active: sender.isOn)
+        if delegate.selectedUnitIndex == nil && sender.isOn {
+            delegate.unitSelectionChanged(to: 0)
+        }
     }
     
+    @objc func moreInfoTap() {
+        moreInfoDelegate?.cellDropDownPressed(for: self)
+    }
     
 }
 
 
-class UpdateExerciseMetricDropdownTableViewCell {
+class UpdateExerciseMetricDropdownTableViewCell: BaseTableViewCell {
     
+    static var reuseID = "ddCell"
     
+    let segmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl()
+        sc.tintColor = UIColor.brightTurquoise()
+        return sc
+    }()
     
+    weak var delegate: UpdateExerciseModelSection? {
+        didSet {
+            guard let model = delegate else { return }
+            setupSegmentedControl(with: model.unitOptions.map({$0.symbol}))
+        }
+    }
+    
+    override func setupViews() {
+        addSubview(segmentedControl)
+        segmentedControl.addTarget(self, action: #selector(segmentedControlTapped), for: .valueChanged)
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        segmentedControl.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        segmentedControl.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        backgroundColor = UIColor.lighterBlack()
+    }
+    
+    func setupSegmentedControl(with items: [String]) {
+        guard items.count > 1 else { return } //don't display segmented control for reps and sets
+        segmentedControl.removeAllSegments()
+        items.enumerated().forEach({ item in
+            segmentedControl.insertSegment(withTitle: item.element, at: item.offset, animated: false)
+        })
+        
+        segmentedControl.selectedSegmentIndex = delegate?.selectedUnitIndex ?? UISegmentedControlNoSegment
+        let segmentCount = CGFloat(delegate?.unitOptions.count ?? 0)
+        
+        if segmentCount == 0 {
+            //hide the segmented control if its sets or reps
+            segmentedControl.isHidden = true 
+        } else {
+            let segmentWidth = (frame.width * 0.75) / segmentCount
+            segmentedControl.widthAnchor.constraint(equalToConstant: segmentWidth * segmentCount).isActive = true
+        }
+    }
+    
+    @objc func segmentedControlTapped(_ sender: UISegmentedControl) {
+        delegate?.unitSelectionChanged(to: sender.selectedSegmentIndex)
+    }
     
 }
-
-
-
-
-
-
-
 
 
 class UpdateExerciseMetricTableViewCell1: BaseTableViewCell {
@@ -94,7 +144,7 @@ class UpdateExerciseMetricTableViewCell1: BaseTableViewCell {
             
             guard let sectionModel = delegate else { return }
             setupMetricSwitch()
-            setupSegmentedControl(with: sectionModel.unitOptions.map({$0.symbol}))
+            //setupSegmentedControl(with: sectionModel.unitOptions.map({$0.symbol}))
             label.text = sectionModel.metricName
             setupAllViews()
             
@@ -133,12 +183,6 @@ class UpdateExerciseMetricTableViewCell1: BaseTableViewCell {
         
     }
     
-    func setupSegmentedControl(with items: [String]) {
-        guard items.count > 1 else { return } //don't display segmented control for reps and sets
-        segmentedControl = UISegmentedControl(items: items)
-        segmentedControl?.addTarget(self, action: #selector(segmentedControlTapped), for: .valueChanged)
-        setSegmentedControlSelectedIndex()
-    }
     
     func setupMetricSwitch() {
         metricSwitch = UISwitch()
