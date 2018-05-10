@@ -32,10 +32,7 @@ public protocol SequenceSectionData {
 }
 
 
-public protocol UpdatesExercise {
-    func loadExerciseUpdateTableView() -> UpdateExerciseTableViewController
-    var updateExerciseAlertTitle: String { get }
-}
+
 
 extension SequenceModel {
     

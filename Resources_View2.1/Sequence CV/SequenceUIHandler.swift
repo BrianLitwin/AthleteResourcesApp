@@ -147,13 +147,6 @@ public class SequenceUIHandler {
                     })
                 })
                  */
-                
-                
-                if let exerciseUpdateClass = masterInfoController as? UpdatesExercise {
-                    addUpdateExerciseAction(exerciseUpdateClass: exerciseUpdateClass,
-                                            alert: alert,
-                                            indexPath: indexPath)
-                }
             
             }
             
@@ -200,35 +193,35 @@ public class SequenceUIHandler {
     }
     
     
-    func addUpdateExerciseAction(exerciseUpdateClass: UpdatesExercise, alert: UIAlertController, indexPath: IndexPath) {
-            
-            alert.addAction(UIAlertAction(title: exerciseUpdateClass.updateExerciseAlertTitle, style: .default) {
-                
-                [weak self] action in
-                
-                let tableViewController = exerciseUpdateClass.loadExerciseUpdateTableView() 
-                
-                //vc.reloadUIDelegate = self?.delegate
-                
-                tableViewController.tableView.reloadData()
-                
-                let navControl = UINavigationController(rootViewController: tableViewController)
-                
-                let userInfo = ["UINavigationController": navControl]
-                
-                tableViewController.updateWorkoutUIAfterSave = {
-                    [weak self] in
-                    guard let strongSelf = self else { return }
-                    strongSelf.delegate?.updateUIHandler?.reloadWith(change:
-                        .exerciseName(model: strongSelf.model, section: indexPath.section))
-                }
-                
-                
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: showEditExerciseTableViewController), object: nil, userInfo: userInfo)
-                
-            })
-        
-    }
+//    func addUpdateExerciseAction(exerciseUpdateClass: UpdatesExercise, alert: UIAlertController, indexPath: IndexPath) {
+//
+//            alert.addAction(UIAlertAction(title: exerciseUpdateClass.updateExerciseAlertTitle, style: .default) {
+//
+//                [weak self] action in
+//
+//                let tableViewController = exerciseUpdateClass.loadExerciseUpdateTableView() 
+//
+//                //vc.reloadUIDelegate = self?.delegate
+//
+//                tableViewController.tableView.reloadData()
+//                
+//                let navControl = UINavigationController(rootViewController: tableViewController)
+//
+//                let userInfo = ["UINavigationController": navControl]
+//
+//                tableViewController.updateWorkoutUIAfterSave = {
+//                    [weak self] in
+//                    guard let strongSelf = self else { return }
+//                    strongSelf.delegate?.updateUIHandler?.reloadWith(change:
+//                        .exerciseName(model: strongSelf.model, section: indexPath.section))
+//                }
+//                
+//
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: showEditExerciseTableViewController), object: nil, userInfo: userInfo)
+//
+//            })
+//
+//    }
     
     
     func showExMetricEditor(for indexPath: IndexPath, insertRow: Bool) {

@@ -44,8 +44,6 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
         super.viewDidAppear(animated)
         //doing this here apparently lets the navbar adjust the size of the searchbar to accomodate the ham menu
         navigationController?.navigationItem.titleView = searchBar
-        //let leftNavBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search"), style: .plain, target: self, action: #selector(showSearchBar))
-        //self.navigationController?.navigationItem.leftBarButtonItem = leftNavBarButton
     }
     
 

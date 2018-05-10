@@ -25,7 +25,7 @@ class WorkoutReloadHandler: ContextObserver {
         super.init(context: context)
     }
     
-    func loadLastWorkout() {
+    private func loadLastWorkout() {
         let lastWorkout = Workouts.fetchLast() ?? Workouts.createNewWorkout()
         delegate?.setup(for: lastWorkout)
     }
@@ -33,18 +33,26 @@ class WorkoutReloadHandler: ContextObserver {
     override func objectsDiDChange(type: ContextObserver.changeType, entity: NSManagedObject, changedValues: [String : Any])
     {
         
-        guard let workout = entity as? Workouts else { return }
-        
-        switch type {
-            
-        case .delete:
-    
-            if workout == delegate?.currentWorkout {
-                loadLastWorkout()
+        //if the current workout gets deleted, reload to previous workout
+        //if no previous workouts exist, create first workout 
+        if let workout = entity as? Workouts {
+            switch type {
+            case .delete:
+                if workout == delegate?.currentWorkout { loadLastWorkout() }
+            default:
+                break
             }
-            
-        default:
-            break
+        }
+        
+        //if an exercise is updated, and workout contains the exercise, need to reload
+        if let exercise = entity as? Exercises {
+            //this is to say the workout contains the exercise that was changed.
+            guard let currentWorkout = delegate?.currentWorkout else { return }
+            if currentWorkout.exerciseMetricsSet.contains(where: {
+                $0.exercise == exercise
+            }) {
+                delegate?.setup(for: currentWorkout)
+            }
         }
         
     }

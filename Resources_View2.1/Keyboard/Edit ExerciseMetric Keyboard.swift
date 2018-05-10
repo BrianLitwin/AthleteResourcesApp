@@ -44,15 +44,16 @@ class EditExerciseMetricKeyboard: KeyboardView {
     override init() {
         super.init()
         
-        let dummyButton = UIButton()
-        dummyButton.backgroundColor = UIColor.clear 
         
-        let row = KeyboardRow(arrangedSubviews: [bodyweightBtn, addMissedRepBtn, dummyButton])
-        
-        guard let masterStackView = subviews[1] as? MasterKeyboardStackView else { return }
-        
-        masterStackView.addArrangedSubview(row)
-        
+
+        //unit test this at some point
+        //this is all very suspicious
+        //guard let masterStackView = subviews[1] as? MasterKeyboardStackView else { return }
+        //masterStackView.appendButton(bodyweightBtn, toRow: 0)
+        //masterStackView.appendButton(addMissedRepBtn, toRow: 1)
+        //masterStackView.appendButton(UIButton(), toRow: 2)
+        //masterStackView.appendButton(UIButton(), toRow: 3)
+
     }
     
     required init?(coder aDecoder: NSCoder) {

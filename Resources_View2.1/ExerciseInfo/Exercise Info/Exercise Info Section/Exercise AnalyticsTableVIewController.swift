@@ -27,7 +27,6 @@ public protocol ExerciseInfoController {
     var displaysInExerciseInfo: Bool { get }
 }
 
-
 //this is key: that the views know to reload, because they inherit reloadable view
 
 public protocol ExerciseAnalyticsView: ReloadableView {

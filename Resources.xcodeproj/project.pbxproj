@@ -30,7 +30,6 @@
 		BDF5C7E8207858AE002FDC10 /* Multiple_Exercise_Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79C207858AE002FDC10 /* Multiple_Exercise_Container.swift */; };
 		BDF5C7E9207858AE002FDC10 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79D207858AE002FDC10 /* String.swift */; };
 		BDF5C7EA207858AE002FDC10 /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79E207858AE002FDC10 /* Dimension.swift */; };
-		BDF5C7EB207858AE002FDC10 /* Reload Workout UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C79F207858AE002FDC10 /* Reload Workout UI.swift */; };
 		BDF5C7EC207858AE002FDC10 /* Date Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A0207858AE002FDC10 /* Date Manager.swift */; };
 		BDF5C7EE207858AE002FDC10 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A3207858AE002FDC10 /* WorkoutViewController.swift */; };
 		BDF5C7EF207858AE002FDC10 /* EMOM model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7A4207858AE002FDC10 /* EMOM model.swift */; };
@@ -71,7 +70,6 @@
 		BDF5C81A207858AE002FDC10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D1207858AE002FDC10 /* AppDelegate.swift */; };
 		BDF5C81C207858AE002FDC10 /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D3207858AE002FDC10 /* Exercises.swift */; };
 		BDF5C81E207858AE002FDC10 /* Metric_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D5207858AE002FDC10 /* Metric_Info.swift */; };
-		BDF5C81F207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D6207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift */; };
 		BDF5C820207858AE002FDC10 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDF5C7D7207858AE002FDC10 /* Info.plist */; };
 		BDF5C821207858AE002FDC10 /* Context Observor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7D8207858AE002FDC10 /* Context Observor.swift */; };
 		BDF5C823207858AE002FDC10 /* ExerciseListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7DA207858AE002FDC10 /* ExerciseListModel.swift */; };
@@ -210,7 +208,6 @@
 		BDF5C79C207858AE002FDC10 /* Multiple_Exercise_Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multiple_Exercise_Container.swift; sourceTree = "<group>"; };
 		BDF5C79D207858AE002FDC10 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BDF5C79E207858AE002FDC10 /* Dimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimension.swift; sourceTree = "<group>"; };
-		BDF5C79F207858AE002FDC10 /* Reload Workout UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reload Workout UI.swift"; sourceTree = "<group>"; };
 		BDF5C7A0207858AE002FDC10 /* Date Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date Manager.swift"; sourceTree = "<group>"; };
 		BDF5C7A3207858AE002FDC10 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		BDF5C7A4207858AE002FDC10 /* EMOM model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EMOM model.swift"; sourceTree = "<group>"; };
@@ -251,7 +248,6 @@
 		BDF5C7D1207858AE002FDC10 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDF5C7D3207858AE002FDC10 /* Exercises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
 		BDF5C7D5207858AE002FDC10 /* Metric_Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metric_Info.swift; sourceTree = "<group>"; };
-		BDF5C7D6207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutControllerNotificationHandler.swift; sourceTree = "<group>"; };
 		BDF5C7D7207858AE002FDC10 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDF5C7D8207858AE002FDC10 /* Context Observor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Context Observor.swift"; sourceTree = "<group>"; };
 		BDF5C7DA207858AE002FDC10 /* ExerciseListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseListModel.swift; sourceTree = "<group>"; };
@@ -358,9 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF5C7C2207858AE002FDC10 /* SequenceController1.swift */,
-				BDF5C7D6207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift */,
 				BDF5C7A3207858AE002FDC10 /* WorkoutViewController.swift */,
-				BDF5C79F207858AE002FDC10 /* Reload Workout UI.swift */,
 				BDF5C7AB207858AE002FDC10 /* Workout Header Model.swift */,
 				BDF5C7DD207858AE002FDC10 /* WVC Reloadable Model.swift */,
 				BD75B17F2097803B009392B3 /* ReloadableModel.swift */,
@@ -756,7 +750,6 @@
 				BDF5C7E1207858AE002FDC10 /* Metric.swift in Sources */,
 				BDF5C80C207858AE002FDC10 /* Compound Exercise Records.swift in Sources */,
 				BDF5C80B207858AE002FDC10 /* SequenceController1.swift in Sources */,
-				BDF5C81F207858AE002FDC10 /* WorkoutControllerNotificationHandler.swift in Sources */,
 				BDF5C7EA207858AE002FDC10 /* Dimension.swift in Sources */,
 				BDF5C7E5207858AE002FDC10 /* Test Data.swift in Sources */,
 				BDF5C7EC207858AE002FDC10 /* Date Manager.swift in Sources */,
@@ -777,7 +770,6 @@
 				BDF5C7F7207858AE002FDC10 /* Exercise_Metrics.swift in Sources */,
 				BDF5C812207858AE002FDC10 /* Post.swift in Sources */,
 				BDF5C825207858AE002FDC10 /* Update Exercise.swift in Sources */,
-				BDF5C7EB207858AE002FDC10 /* Reload Workout UI.swift in Sources */,
 				BDF5C7FC207858AE002FDC10 /* Workout history Segue Handler.swift in Sources */,
 				BDF5C7E9207858AE002FDC10 /* String.swift in Sources */,
 				BDF5C826207858AE002FDC10 /* WVC Reloadable Model.swift in Sources */,

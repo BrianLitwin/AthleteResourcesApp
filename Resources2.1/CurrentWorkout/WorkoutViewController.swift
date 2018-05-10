@@ -18,8 +18,6 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
     
     var updateUIHandler: ReloadsWorkoutUI?
     
-    var notificationHandler: WorkoutControllerNotificationhandler?
-    
     var currentWorkout: Workouts?
     
     var currentlySelectedMasterInfoController: MasterInfoController?
@@ -46,8 +44,6 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.workoutBackground()
-        notificationHandler = WorkoutControllerNotificationhandler(viewController: self)
-        updateUIHandler = UpdateWorkoutUIClass(workoutController: self)
         view.insertSubview(scrollView, at: 0)
         reloadWorkoutHandler = WorkoutReloadHandler(delegate: self)
         

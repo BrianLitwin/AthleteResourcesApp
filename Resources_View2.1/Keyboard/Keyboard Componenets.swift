@@ -22,6 +22,8 @@ class KeyboardRow: BaseStackView {
 
 class MasterKeyboardStackView: BaseStackView {
     
+    var rows = [KeyboardRow]()
+    
     override func setupViews() {
         axis = .vertical
         distribution = .fillEqually
@@ -31,7 +33,15 @@ class MasterKeyboardStackView: BaseStackView {
     convenience init(rows: KeyboardRow... ) {
         self.init()
         rows.forEach({ addArrangedSubview($0) })
+        self.rows = rows 
     }
+    
+    func appendButton(_ button: UIButton, toRow: Int) {
+        if rows.indices.contains(toRow) {
+            rows[toRow].addArrangedSubview(button)
+        }
+    }
+    
     
 }
 

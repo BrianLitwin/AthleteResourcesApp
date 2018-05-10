@@ -133,7 +133,7 @@ func setCategoryActiveState(itemisActive: Bool, category: Categories) {
 }
 
 
-class ExerciseController: UpdatesExercise, MasterInfoController {
+class ExerciseController: MasterInfoController {
     
     let exercise: Exercises
     
