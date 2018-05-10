@@ -40,7 +40,8 @@ class SearchExercisesModel: ExerciseSearchModel {
         sections.forEach({
             $0.filterExercises(with: text)
         })
-        sections.filter({
+        
+        filteredSections = sections.filter({
             !$0.filteredExercises.isEmpty
         })
     }
@@ -67,9 +68,11 @@ class CategorySectionClass: CategorySection {
     }
     
     func filterExercises(with text: String) {
-        filteredExercises = filteredExercises.filter({
+        
+        filteredExercises = exercises.filter({
             ($0.name ?? "").lowercased().contains(text.lowercased())
         })
+        
     }
     
 }

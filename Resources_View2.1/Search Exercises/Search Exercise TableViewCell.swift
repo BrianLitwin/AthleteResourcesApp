@@ -20,6 +20,7 @@ class SearchExerciseTableViewCell: BaseTableViewCell {
         return cell
     }()
     
+    //todo: can use the default apple checkmarks here 
     lazy var checkBox: UIImageView = {
         let image = #imageLiteral(resourceName: "check").withRenderingMode(.alwaysTemplate)
         let imageView = UIImageView(image: image)

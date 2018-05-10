@@ -60,7 +60,11 @@
  
  there is a checkmark built into tableviewcell accessory type.. check into this for search exercise list/ activeOr not
  
- creating new exercise effectively doesn't work 
+ "Sets" and "Reps" should be lower-cased since the default unit of measurements are lowercased - in popup to enter
+ 
+ put "extra buttons" .. missed reps, bw, etc.. on side of keyboard
+ 
+ edit exercise should not be in popup.. it's in "exercise info" already 
  
 */
 

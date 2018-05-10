@@ -6,27 +6,36 @@
 //  Copyright © 2018 B_Litwin. All rights reserved.
 //
 
+//todo: search not working correctly
+
 import UIKit
 
-class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     let model: ExerciseSearchModel
     
     let tableView: UITableView
     
-    let searchController: UISearchController
+    let searchBar: UISearchBar
     
     private var exerciseSearchText = "Exercises"
     
     private var categorySearchText = "Categories"
     
-    init(model: ExerciseSearchModel, searchController: UISearchController, tableView: UITableView) {
-        self.model = model;
-        self.searchController = searchController
+    init(model: ExerciseSearchModel, tableView: UITableView, searchBar: UISearchBar) {
+        self.model = model
         self.tableView = tableView
+        self.searchBar = searchBar
         super.init()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.reloadData()
+    }
+    
+    //search bar delegate method
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        model.filterByExercise(with: searchBar.text ?? "")
         tableView.reloadData()
     }
     
@@ -86,7 +95,6 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchExerciseTableViewCell.reuseID, for: indexPath) as! SearchExerciseTableViewCell
-        
         let cellData = item(at: indexPath)
         cell.cell.textLabel?.text = cellData.name
         cell.cell.detailTextLabel?.text = cellData.variation
@@ -94,29 +102,16 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
         return cell
     }
     
-    
+    //
+    //redundant
+    //
     
     func searchBarIsEmpty() -> Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
-    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        
-        guard isFiltering() else { return }
-        
-        switch scope {
-            
-        case exerciseSearchText: model.filterByExercise(with: searchText)
-        case categorySearchText: model.filterByCategory(with: searchText)
-        default: break
-            
-        }
-        
-        tableView.reloadData()
+        return searchBar.text?.isEmpty ?? true
     }
     
     func isFiltering() -> Bool {
-        return searchController.isActive && !searchBarIsEmpty()
+        return !searchBarIsEmpty()
     }
     
     
@@ -147,8 +142,7 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
      }
      */
     
-    
-    
 }
+
 
 

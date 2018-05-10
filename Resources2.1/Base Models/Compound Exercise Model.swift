@@ -11,7 +11,6 @@ import Resources_View2_1
 
 
 
-
 class CompoundExerciseModel: SequenceModel {
     
     let containerType: Multi_Exercise_Container_Types
@@ -39,7 +38,7 @@ class CompoundExerciseModel: SequenceModel {
         
         self.exerciseContainers = containerType.orderedExerciseContainers
         
-        self.exercises = exerciseContainers.flatMap({ $0.exercise })
+        self.exercises = exerciseContainers.compactMap({ $0.exercise })
         
         self.section = CompoundExerciseSections(sequence: sequence)
         
@@ -89,7 +88,7 @@ class CompoundExerciseSections: SequenceSectionData {
         
         self.containerType = sequence.multi_exercise_container_type ?? Multi_Exercise_Container_Types(context: context) //FIXME
         
-        self.exercises = containerType.orderedExerciseContainers.flatMap({ $0.exercise })
+        self.exercises = containerType.orderedExerciseContainers.compactMap({ $0.exercise })
         
         let exerciseMetricCount = sequence.containerSet.reduce(0, { count, sequence in
             count + sequence.exerciseMetricsSet.count
@@ -210,10 +209,8 @@ func displayStringForCompoundExerciseMetrics(ems: [Exercise_Metrics]) -> String 
     let weight = ems[0].displayString(for: .Weight)
     let reps: String? = "(" + ems.map({ $0.repsSV.displayString }).joined(separator: " + ") + ")"
     let sets = ems[0].displayString(for: .Sets)
-    return [weight, reps, sets].flatMap({$0}).joined(separator: " x ")
+    return [weight, reps, sets].compactMap({$0}).joined(separator: " x ")
 }
-
-
 
 
 
