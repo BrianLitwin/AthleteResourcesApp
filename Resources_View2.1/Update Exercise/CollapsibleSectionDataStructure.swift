@@ -12,37 +12,37 @@ import UIKit
 
 public class CollapsibleModel {
     
-    public var sections = [Bool]()
+    public var expandedSections = [Bool]()
     
     public var offsetIndexes = [Int]()
     
     public init(count: Int) {
-        sections = Array.init(repeating: false, count: count)
-        offsetIndexes = sections.enumerated().map({ $0.offset })
+        expandedSections = Array.init(repeating: false, count: count)
+        offsetIndexes = expandedSections.enumerated().map({ $0.offset })
     }
     
     public func toggle(section: Int) -> Bool {
         //if the section is a subsection, return
-        guard !sections[section] else { return false }
+        guard !expandedSections[section] else { return false }
         
         let subSection = section + 1
         let originalIndex = offsetIndexes[section]
         
         func expandSubSection() -> Bool {
-            sections.insert(true, at: subSection)
+            expandedSections.insert(true, at: subSection)
             offsetIndexes.insert(originalIndex, at: subSection)
             return true
         }
         
         func collapseSubSection() -> Bool {
-            sections.remove(at: subSection)
+            expandedSections.remove(at: subSection)
             offsetIndexes.remove(at: subSection)
             return false
         }
         
-        if subSection >= sections.count {
+        if subSection >= expandedSections.count {
             return expandSubSection()
-        } else if sections[section + 1] == true {
+        } else if expandedSections[section + 1] == true {
             return collapseSubSection()
         } else {
             return expandSubSection()

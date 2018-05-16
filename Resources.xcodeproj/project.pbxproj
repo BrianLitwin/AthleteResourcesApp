@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BD5404D420938E790092C9E9 /* Keyboard_Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */; };
+		BD6EE21D20AC927900DA9E68 /* Test_ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */; };
+		BD6EE22620ACAAE400DA9E68 /* Test_ContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */; };
 		BD75B170209777CA009392B3 /* Bodyweight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B16F209777CA009392B3 /* Bodyweight.swift */; };
 		BD75B1722097781C009392B3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B1712097781C009392B3 /* Settings.swift */; };
 		BD75B1802097803B009392B3 /* ReloadableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B17F2097803B009392B3 /* ReloadableModel.swift */; };
@@ -84,16 +86,12 @@
 		BDFE06BB207909B700F3024B /* Cascade_Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73B20785899002FDC10 /* Cascade_Rules.swift */; };
 		BDFE06BC207909B700F3024B /* Exercise_Metrics_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */; };
 		BDFE06BD207909B700F3024B /* Workout Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74A20785899002FDC10 /* Workout Controller.swift */; };
-		BDFE06BE207909B700F3024B /* Sequence CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75B20785899002FDC10 /* Sequence CollectionView.swift */; };
 		BDFE06BF207909B700F3024B /* Workout_Controller_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75920785899002FDC10 /* Workout_Controller_Tests.swift */; };
 		BDFE06C0207909B700F3024B /* One_RMCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75D20785899002FDC10 /* One_RMCalculator.swift */; };
 		BDFE06C1207909B700F3024B /* delete_first_workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74620785899002FDC10 /* delete_first_workout.swift */; };
 		BDFE06C2207909B700F3024B /* Create Exercises From Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74D20785899002FDC10 /* Create Exercises From Database.swift */; };
-		BDFE06C4207909B700F3024B /* Deletion Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74420785899002FDC10 /* Deletion Rules.swift */; };
-		BDFE06C5207909B700F3024B /* CompoundExerciseRecordsMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74720785899002FDC10 /* CompoundExerciseRecordsMethods.swift */; };
 		BDFE06C6207909B700F3024B /* Metric_Info_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75F20785899002FDC10 /* Metric_Info_Test.swift */; };
 		BDFE06C7207909B700F3024B /* OneRM_Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73D20785899002FDC10 /* OneRM_Weeks.swift */; };
-		BDFE06C8207909B700F3024B /* Scroll View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74C20785899002FDC10 /* Scroll View.swift */; };
 		BDFE06C9207909B700F3024B /* Workouts Fetch test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74520785899002FDC10 /* Workouts Fetch test.swift */; };
 		BDFE06CA207909B700F3024B /* Sequence model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75220785899002FDC10 /* Sequence model.swift */; };
 		BDFE06CB207909B700F3024B /* Helper Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C76320785899002FDC10 /* Helper Method.swift */; };
@@ -102,8 +100,6 @@
 		BDFE06CE207909B700F3024B /* ExerciseMetricInputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C76120785899002FDC10 /* ExerciseMetricInputManager.swift */; };
 		BDFE06CF207909B700F3024B /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74320785899002FDC10 /* DateManager.swift */; };
 		BDFE06D0207909B700F3024B /* Bodyweight_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75420785899002FDC10 /* Bodyweight_Testing.swift */; };
-		BDFE06D1207909B700F3024B /* SortableTable_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75720785899002FDC10 /* SortableTable_Test.swift */; };
-		BDFE06D2207909B700F3024B /* Creating Exercises From Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C76220785899002FDC10 /* Creating Exercises From Database.swift */; };
 		BDFE06D3207909B700F3024B /* Compound ExerciseRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73E20785899002FDC10 /* Compound ExerciseRecords.swift */; };
 		BDFE06D4207909B700F3024B /* Date Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74220785899002FDC10 /* Date Methods.swift */; };
 		BDFE06D5207909B700F3024B /* Test Record Sorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74020785899002FDC10 /* Test Record Sorter.swift */; };
@@ -151,6 +147,8 @@
 		B9A13C26032FD947FBA5305F /* Pods-Resources2.1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1/Pods-Resources2.1.debug.xcconfig"; sourceTree = "<group>"; };
 		BD012F7E203A621C00A4A351 /* Resources_View2_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Resources_View2_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard_Methods.swift; sourceTree = "<group>"; };
+		BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ScrollView.swift; sourceTree = "<group>"; };
+		BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ContextObserver.swift; sourceTree = "<group>"; };
 		BD75B16F209777CA009392B3 /* Bodyweight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bodyweight.swift; sourceTree = "<group>"; };
 		BD75B1712097781C009392B3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		BD75B17F2097803B009392B3 /* ReloadableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadableModel.swift; sourceTree = "<group>"; };
@@ -168,14 +166,11 @@
 		BDF5C74020785899002FDC10 /* Test Record Sorter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test Record Sorter.swift"; sourceTree = "<group>"; };
 		BDF5C74220785899002FDC10 /* Date Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date Methods.swift"; sourceTree = "<group>"; };
 		BDF5C74320785899002FDC10 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
-		BDF5C74420785899002FDC10 /* Deletion Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Deletion Rules.swift"; sourceTree = "<group>"; };
 		BDF5C74520785899002FDC10 /* Workouts Fetch test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workouts Fetch test.swift"; sourceTree = "<group>"; };
 		BDF5C74620785899002FDC10 /* delete_first_workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = delete_first_workout.swift; sourceTree = "<group>"; };
-		BDF5C74720785899002FDC10 /* CompoundExerciseRecordsMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompoundExerciseRecordsMethods.swift; sourceTree = "<group>"; };
 		BDF5C74920785899002FDC10 /* Tag_IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag_IDs.swift; sourceTree = "<group>"; };
 		BDF5C74A20785899002FDC10 /* Workout Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workout Controller.swift"; sourceTree = "<group>"; };
 		BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise_Metrics_Test.swift; sourceTree = "<group>"; };
-		BDF5C74C20785899002FDC10 /* Scroll View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scroll View.swift"; sourceTree = "<group>"; };
 		BDF5C74D20785899002FDC10 /* Create Exercises From Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Create Exercises From Database.swift"; sourceTree = "<group>"; };
 		BDF5C74E20785899002FDC10 /* Edit Or Save Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Edit Or Save Exercise.swift"; sourceTree = "<group>"; };
 		BDF5C74F20785899002FDC10 /* Workout_HistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout_HistoryModel.swift; sourceTree = "<group>"; };
@@ -184,17 +179,14 @@
 		BDF5C75320785899002FDC10 /* EM Value Save Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EM Value Save Methods.swift"; sourceTree = "<group>"; };
 		BDF5C75420785899002FDC10 /* Bodyweight_Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bodyweight_Testing.swift; sourceTree = "<group>"; };
 		BDF5C75520785899002FDC10 /* Orderable_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orderable_Test.swift; sourceTree = "<group>"; };
-		BDF5C75720785899002FDC10 /* SortableTable_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortableTable_Test.swift; sourceTree = "<group>"; };
 		BDF5C75820785899002FDC10 /* Sorting_Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sorting_Performance.swift; sourceTree = "<group>"; };
 		BDF5C75920785899002FDC10 /* Workout_Controller_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout_Controller_Tests.swift; sourceTree = "<group>"; };
 		BDF5C75A20785899002FDC10 /* Exercise_List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise_List.swift; sourceTree = "<group>"; };
-		BDF5C75B20785899002FDC10 /* Sequence CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence CollectionView.swift"; sourceTree = "<group>"; };
 		BDF5C75C20785899002FDC10 /* Sort_Descriptors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort_Descriptors.swift; sourceTree = "<group>"; };
 		BDF5C75D20785899002FDC10 /* One_RMCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = One_RMCalculator.swift; sourceTree = "<group>"; };
 		BDF5C75F20785899002FDC10 /* Metric_Info_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metric_Info_Test.swift; sourceTree = "<group>"; };
 		BDF5C76020785899002FDC10 /* Exercise Picker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Exercise Picker.swift"; sourceTree = "<group>"; };
 		BDF5C76120785899002FDC10 /* ExerciseMetricInputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseMetricInputManager.swift; sourceTree = "<group>"; };
-		BDF5C76220785899002FDC10 /* Creating Exercises From Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Creating Exercises From Database.swift"; sourceTree = "<group>"; };
 		BDF5C76320785899002FDC10 /* Helper Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Helper Method.swift"; sourceTree = "<group>"; };
 		BDF5C792207858AE002FDC10 /* RecordsDisplayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsDisplayModel.swift; sourceTree = "<group>"; };
 		BDF5C793207858AE002FDC10 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -292,6 +284,71 @@
 				812A1EBA6371768F8EAD748A /* Pods-Resources2.1-Unit Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD6EE21E20AC9FA500DA9E68 /* Records */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C73F20785899002FDC10 /* Setting_CD_Fields.swift */,
+				BDF5C73E20785899002FDC10 /* Compound ExerciseRecords.swift */,
+				BDE92440207A8F1100709020 /* PersonalRecords_DeletionTest.swift */,
+				BDF5C74020785899002FDC10 /* Test Record Sorter.swift */,
+			);
+			path = Records;
+			sourceTree = "<group>";
+		};
+		BD6EE21F20ACA00A00DA9E68 /* AnalyticsAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BD6EE21E20AC9FA500DA9E68 /* Records */,
+				BDF5C73D20785899002FDC10 /* OneRM_Weeks.swift */,
+				BDF5C75C20785899002FDC10 /* Sort_Descriptors.swift */,
+				BDF5C75D20785899002FDC10 /* One_RMCalculator.swift */,
+				BDE3D43720797ED5003C6A94 /* RepMaxesModel_Test.swift */,
+			);
+			path = AnalyticsAPI;
+			sourceTree = "<group>";
+		};
+		BD6EE22020ACA03000DA9E68 /* ExerciseMetrics */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */,
+			);
+			path = ExerciseMetrics;
+			sourceTree = "<group>";
+		};
+		BD6EE22120ACA08200DA9E68 /* Metric_Info */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C75F20785899002FDC10 /* Metric_Info_Test.swift */,
+			);
+			path = Metric_Info;
+			sourceTree = "<group>";
+		};
+		BD6EE22220ACA0DB00DA9E68 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		BD6EE22320ACA10600DA9E68 /* Dates */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C74320785899002FDC10 /* DateManager.swift */,
+				BDF5C74220785899002FDC10 /* Date Methods.swift */,
+			);
+			path = Dates;
+			sourceTree = "<group>";
+		};
+		BD6EE22420ACA14800DA9E68 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C74620785899002FDC10 /* delete_first_workout.swift */,
+				BDF5C74520785899002FDC10 /* Workouts Fetch test.swift */,
+			);
+			path = Workouts;
 			sourceTree = "<group>";
 		};
 		BD75B16C209776B9009392B3 /* Records */ = {
@@ -502,28 +559,17 @@
 			isa = PBXGroup;
 			children = (
 				BDF5C75A20785899002FDC10 /* Exercise_List.swift */,
-				BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */,
-				BDF5C75B20785899002FDC10 /* Sequence CollectionView.swift */,
-				BDF5C75C20785899002FDC10 /* Sort_Descriptors.swift */,
-				BDF5C75D20785899002FDC10 /* One_RMCalculator.swift */,
+				BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */,
+				BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */,
+				BD6EE22220ACA0DB00DA9E68 /* Keyboard */,
 				BDF5C73A20785899002FDC10 /* Test_Sorting_Cases.swift */,
 				BDF5C73B20785899002FDC10 /* Cascade_Rules.swift */,
-				BDF5C74220785899002FDC10 /* Date Methods.swift */,
-				BDF5C74320785899002FDC10 /* DateManager.swift */,
-				BDF5C73D20785899002FDC10 /* OneRM_Weeks.swift */,
-				BDF5C73E20785899002FDC10 /* Compound ExerciseRecords.swift */,
-				BDF5C73F20785899002FDC10 /* Setting_CD_Fields.swift */,
-				BDF5C74020785899002FDC10 /* Test Record Sorter.swift */,
-				BDE92440207A8F1100709020 /* PersonalRecords_DeletionTest.swift */,
-				BDF5C74420785899002FDC10 /* Deletion Rules.swift */,
-				BDF5C74520785899002FDC10 /* Workouts Fetch test.swift */,
-				BDE3D43720797ED5003C6A94 /* RepMaxesModel_Test.swift */,
-				BDF5C74620785899002FDC10 /* delete_first_workout.swift */,
-				BDF5C74720785899002FDC10 /* CompoundExerciseRecordsMethods.swift */,
+				BD6EE22320ACA10600DA9E68 /* Dates */,
+				BD6EE22420ACA14800DA9E68 /* Workouts */,
+				BD6EE21F20ACA00A00DA9E68 /* AnalyticsAPI */,
 				BDF5C74920785899002FDC10 /* Tag_IDs.swift */,
 				BDF5C74A20785899002FDC10 /* Workout Controller.swift */,
-				BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */,
-				BDF5C74C20785899002FDC10 /* Scroll View.swift */,
+				BD6EE22020ACA03000DA9E68 /* ExerciseMetrics */,
 				BDF5C74D20785899002FDC10 /* Create Exercises From Database.swift */,
 				BDF5C74E20785899002FDC10 /* Edit Or Save Exercise.swift */,
 				BDF5C74F20785899002FDC10 /* Workout_HistoryModel.swift */,
@@ -533,13 +579,11 @@
 				BDF5C75420785899002FDC10 /* Bodyweight_Testing.swift */,
 				BDF5C0D9207CFADE007F198E /* UpdateBodyweight_Test.swift */,
 				BDF5C75520785899002FDC10 /* Orderable_Test.swift */,
-				BDF5C75720785899002FDC10 /* SortableTable_Test.swift */,
 				BDF5C75820785899002FDC10 /* Sorting_Performance.swift */,
 				BDF5C75920785899002FDC10 /* Workout_Controller_Tests.swift */,
-				BDF5C75F20785899002FDC10 /* Metric_Info_Test.swift */,
+				BD6EE22120ACA08200DA9E68 /* Metric_Info */,
 				BDF5C76020785899002FDC10 /* Exercise Picker.swift */,
 				BDF5C76120785899002FDC10 /* ExerciseMetricInputManager.swift */,
-				BDF5C76220785899002FDC10 /* Creating Exercises From Database.swift */,
 				BDF5C76320785899002FDC10 /* Helper Method.swift */,
 				BDFE06B02079095500F3024B /* Info.plist */,
 			);
@@ -809,8 +853,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD6EE21D20AC927900DA9E68 /* Test_ScrollView.swift in Sources */,
 				BDFE06BB207909B700F3024B /* Cascade_Rules.swift in Sources */,
-				BDFE06BE207909B700F3024B /* Sequence CollectionView.swift in Sources */,
 				BDE92441207A8F1100709020 /* PersonalRecords_DeletionTest.swift in Sources */,
 				BDFE06D9207909B700F3024B /* Edit Or Save Exercise.swift in Sources */,
 				BDFE06CB207909B700F3024B /* Helper Method.swift in Sources */,
@@ -831,20 +875,16 @@
 				BDFE06BD207909B700F3024B /* Workout Controller.swift in Sources */,
 				BDFE06B8207909B700F3024B /* Test_Sorting_Cases.swift in Sources */,
 				BDFE06D3207909B700F3024B /* Compound ExerciseRecords.swift in Sources */,
-				BDFE06D2207909B700F3024B /* Creating Exercises From Database.swift in Sources */,
-				BDFE06C5207909B700F3024B /* CompoundExerciseRecordsMethods.swift in Sources */,
 				BDFE06C6207909B700F3024B /* Metric_Info_Test.swift in Sources */,
-				BDFE06C8207909B700F3024B /* Scroll View.swift in Sources */,
 				BDFE06C7207909B700F3024B /* OneRM_Weeks.swift in Sources */,
 				BDFE06CE207909B700F3024B /* ExerciseMetricInputManager.swift in Sources */,
 				BDFE06BF207909B700F3024B /* Workout_Controller_Tests.swift in Sources */,
 				BDE3D43820797ED5003C6A94 /* RepMaxesModel_Test.swift in Sources */,
+				BD6EE22620ACAAE400DA9E68 /* Test_ContextObserver.swift in Sources */,
 				BDFE06D8207909B700F3024B /* Orderable_Test.swift in Sources */,
 				BDFE06D0207909B700F3024B /* Bodyweight_Testing.swift in Sources */,
-				BDFE06D1207909B700F3024B /* SortableTable_Test.swift in Sources */,
 				BDFE06D7207909B700F3024B /* EM Value Save Methods.swift in Sources */,
 				BDFE06BA207909B700F3024B /* Exercise Picker.swift in Sources */,
-				BDFE06C4207909B700F3024B /* Deletion Rules.swift in Sources */,
 				BDFE06CC207909B700F3024B /* CompoundExercise.swift in Sources */,
 				BDFE06CF207909B700F3024B /* DateManager.swift in Sources */,
 				BDFE06B6207909B700F3024B /* Sorting_Performance.swift in Sources */,

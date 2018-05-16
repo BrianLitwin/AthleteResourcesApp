@@ -154,7 +154,6 @@ class OneRM_Weeks: XCTestCase {
         XCTAssertEqual(absoluteChnges, [-16, -1, 0, 21, 0, 0])
         
         
-        
     }
     
     

@@ -72,6 +72,10 @@
  add the BW button and the add missed reps button to the keyboard in a "more options" view 
 >>>>>>> Stashed changes
  
+ //searchBar textcolor is dark
+ 
+ //put searchBar in tableview header so you can escape it 
+ 
 */
 
 

@@ -35,6 +35,7 @@ class SequenceCollectionView: UICollectionView, UICollectionViewDataSource, UICo
         
         delegate = self
         dataSource = self
+        layout.scrollDirection = .vertical
         
         register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.reuseID)
         register(CVHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: CVHeader.reuseID)
