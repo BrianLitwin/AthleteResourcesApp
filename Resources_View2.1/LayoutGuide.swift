@@ -75,9 +75,8 @@ extension LayoutGuide where Self: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         marginGuideView.addSubview(view)
         view.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        view.trailingAnchor.constraint(equalTo: marginGuideView.trailingAnchor, constant: -21).isActive = true
+        view.trailingAnchor.constraint(equalTo: marginGuideView.trailingAnchor, constant: -14).isActive = true
         view.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
-        
     }
     
     func centerRight(_ view: UIView, width: CGFloat, trailingConstraint: CGFloat) {

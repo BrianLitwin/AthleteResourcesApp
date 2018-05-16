@@ -128,7 +128,7 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 3
-        case 1: return collapsibleSectionModel?.sections.count ?? 0
+        case 1: return collapsibleSectionModel?.expandedSections.count ?? 0
         default: return 0
         }
     }
@@ -199,7 +199,7 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     func configureCollapsibleSectionCell(for indexPath: IndexPath) -> UITableViewCell {
         guard let sectionModel = collapsibleSectionModel else { return UITableViewCell() }
         let row = indexPath.row
-        let isSubsection = sectionModel.sections[row]
+        let isSubsection = sectionModel.expandedSections[row]
         let originalIndex = sectionModel.offsetIndexes[row]
         let cellDelegate = model?.pendingUpdateModels[originalIndex]
         
@@ -236,6 +236,7 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
 
 
 extension UpdateExerciseTableViewController: DropDownButtonDelegate {
+    
     func cellDropDownPressed(for cell: UITableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         guard let sectionModel = collapsibleSectionModel else { return }
@@ -247,7 +248,9 @@ extension UpdateExerciseTableViewController: DropDownButtonDelegate {
         } else {
             tableView.deleteRows(at: indexPaths, with: .automatic)
         }
+        
     }
+    
 }
 
 

@@ -55,11 +55,14 @@ extension WorkoutController {
         
         let sequenceCollectionView = SequenceCollectionView(model: model,
                                                             workoutController: self)
-            
-        scrollView.insertView(sequenceCollectionView, at: section)
-        sequenceCollectionView.updateFrame()
-        scrollView.updateFrames()
         
+        //call update frames after sequence collection view figures out what size it should be 
+        scrollView.insertView(sequenceCollectionView, at: section, updateFrames: false)
+        sequenceCollectionView.updateFrame()
+        
+        //update frames after sequence collection view figures out
+        //what size it should be, so that scrollview can adjust other sizes accordingly
+        scrollView.updateFrames()
     }
 
     func insertSequenceAlertAction(at sequenceNumber: Int) -> UIAlertAction {

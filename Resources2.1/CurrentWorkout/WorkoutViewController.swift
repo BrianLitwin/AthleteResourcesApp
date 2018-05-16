@@ -85,6 +85,10 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
         
         guard let workout = currentWorkout else { return }
         
+        //make sure array indexes don't crash
+        guard exercisePickerModel.exercises.indices.contains(indexPath.section) else { return }
+        guard exercisePickerModel.exercises[indexPath.section].indices.contains(indexPath.row) else { return }
+        
         let newEntry = exercisePickerModel.exercises[indexPath.section][indexPath.row]
         
         if let exercise = newEntry as? Exercises {
@@ -93,17 +97,12 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
             let sequenceModel = WorkoutSequenceModel(sequence: newSequence)
             addSequenceToView(at: sectionNumber, with: sequenceModel)
             
-            
-        }
-            
-        else if let compoundExercise = newEntry as? Multi_Exercise_Container_Types {
+        } else if let compoundExercise = newEntry as? Multi_Exercise_Container_Types {
             
             let newSequence = workout.addNewSequence(at: sectionNumber,
                                                      multiExerciseType: compoundExercise)
-            
             let sequenceModel = CompoundExerciseModel(sequence: newSequence)
             addSequenceToView(at: sectionNumber, with: sequenceModel)
-            
         }
         
     }

@@ -32,11 +32,28 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
         tableView.reloadData()
     }
     
-    //search bar delegate method
+    //search bar delegate methods
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         model.filterByExercise(with: searchBar.text ?? "")
         tableView.reloadData()
+    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        model.filterByExercise(with: searchBar.text ?? "")
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        //search w/ empty text i.e. clear search
+        model.filterByExercise(with: "")
     }
     
     func section(at section: Int) -> CategorySection {
@@ -94,16 +111,17 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchExerciseTableViewCell.reuseID, for: indexPath) as! SearchExerciseTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subtitleCell", for: indexPath) as! TableViewCellWithSubtitle
         let cellData = item(at: indexPath)
-        cell.cell.textLabel?.text = cellData.name
-        cell.cell.detailTextLabel?.text = cellData.variation
-        cell.checkBox.tintColor = cellData.isActive ? UIColor.brightTurquoise() : UIColor(white: 1, alpha: 0.5)
+        cell.textLabel?.text = cellData.name
+        cell.detailTextLabel?.text = cellData.variation
+        cell.accessoryType = .checkmark
+        cell.tintColor = cellData.isActive ? UIColor.brightTurquoise() : UIColor(white: 1, alpha: 0.5)
         return cell
     }
     
     //
-    //redundant
+    // redundant
     //
     
     func searchBarIsEmpty() -> Bool {

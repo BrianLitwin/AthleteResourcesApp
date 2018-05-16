@@ -10,6 +10,11 @@
 @testable import Resources_View2_1
 import XCTest
 
+
+//
+// WIP 
+//
+
 class Workout_Controller: XCTestCase {
     
     override func setUp() {
@@ -38,9 +43,6 @@ class Workout_Controller: XCTestCase {
         currentWorkoutController.viewDidLoad()
         
         XCTAssert(currentWorkoutController.view.subviews[0] is ScrollView)
-        
-        
-        
         
     }
 

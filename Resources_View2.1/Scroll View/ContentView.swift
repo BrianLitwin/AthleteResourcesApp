@@ -10,14 +10,22 @@ import UIKit
 
 public class ScrollViewContentView: UIView, LayoutGuide {
     
-    func updateSubviewFrames() {
+    func updateSubviewFrames(sectionSpacing: CGFloat, widthOfSuperview: CGFloat) {
         
-        for (i, subview) in subviews.enumerated() {
-            if i == 0 {
-                subview.frame.origin.y = 0
+        for (index, subview) in subviews.enumerated() {
+            if index == 0 {
+                subview.frame =
+                    ScrollView.calculateFrameOfSubview(prevViewMaxY: nil,
+                                                       widthOfSuperview: widthOfSuperview,
+                                                       height: subview.frame.height,
+                                                       sectionSpacing: sectionSpacing)
             } else {
-                let prevView = subviews[i-1]
-                subview.frame.origin.y = prevView.frame.maxY
+                let prevView = subviews[index - 1]
+                subview.frame =
+                    ScrollView.calculateFrameOfSubview(prevViewMaxY: prevView.frame.maxY,
+                                                       widthOfSuperview: widthOfSuperview,
+                                                       height: subview.frame.height,
+                                                       sectionSpacing: sectionSpacing)
             }
         }
         
@@ -30,6 +38,22 @@ public class ScrollViewContentView: UIView, LayoutGuide {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

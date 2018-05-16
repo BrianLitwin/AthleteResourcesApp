@@ -50,7 +50,7 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
     func setupTableView() {
         
         guard let tableViewModel = model else { return }
-        tableView.register(SearchExerciseTableViewCell.self, forCellReuseIdentifier: SearchExerciseTableViewCell.reuseID)
+        tableView.register(TableViewCellWithSubtitle.self, forCellReuseIdentifier: "subtitleCell")
         tableViewDataSource = SearchExercisesDataSource(model: tableViewModel,
                                                         tableView: tableView,
                                                         searchBar: searchBar)
@@ -64,5 +64,22 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
         self.navigationController?.navigationItem.titleView = nil
     }
     
+}
+
+
+
+//Githawk
+extension UISearchBar {
+    
+    func resignWhenKeyboardHides() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(resignFirstResponder),
+            name: .UIKeyboardWillHide,
+            object: nil
+        )
+    }
     
 }
+
+
