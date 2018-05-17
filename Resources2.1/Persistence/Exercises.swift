@@ -79,7 +79,6 @@ final class Exercises: NSManagedObject, HasAnalyticsController {
         let result = try? context.fetch(request)
         guard let exercises = result else { return [] }
         return exercises
-        
     }
     
 }

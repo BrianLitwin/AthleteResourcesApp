@@ -15,6 +15,9 @@ class MasterVC: UIViewController, ContainerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let ll = GetWorkoutsFromServer()
+        ll.getWorkoutsFromBackend()
+    
         let firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
         if firstLaunch != true {
             setupExercisesInDatabase()

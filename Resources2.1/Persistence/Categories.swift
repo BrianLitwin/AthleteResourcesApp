@@ -44,7 +44,6 @@ class Categories: NSManagedObject {
         guard let categories = result else { return [] }
         return categories
     }
-
 }
 
 

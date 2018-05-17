@@ -62,6 +62,7 @@ class Exercise_Metrics: NSManagedObject {
         guard let exerciseMetrics = result else { return [] }
         return exerciseMetrics
     }
+
     
     class func fetchLocalRecords(for exercise: Exercises, before date: Date) {
         

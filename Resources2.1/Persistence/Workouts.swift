@@ -23,6 +23,13 @@ class Workouts: NSManagedObject {
         return workout
     }
     
+    class func createNewWorkout(date: Date) -> Workouts {
+        let workout = Workouts(context: context)
+        workout.dateSV = date
+        saveContext()
+        return workout
+    }
+    
     var sequenceSet: Set<Sequences> {
         return (sequences as! Set<Sequences>)
     }

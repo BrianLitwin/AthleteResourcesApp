@@ -10,6 +10,8 @@
 		BD5404D420938E790092C9E9 /* Keyboard_Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */; };
 		BD6EE21D20AC927900DA9E68 /* Test_ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */; };
 		BD6EE22620ACAAE400DA9E68 /* Test_ContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */; };
+		BD6EE22A20ADFBAB00DA9E68 /* RestAPI_Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE22920ADFBAB00DA9E68 /* RestAPI_Get.swift */; };
+		BD6EE22D20AE48E000DA9E68 /* Get_Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE22C20AE48E000DA9E68 /* Get_Requests.swift */; };
 		BD75B170209777CA009392B3 /* Bodyweight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B16F209777CA009392B3 /* Bodyweight.swift */; };
 		BD75B1722097781C009392B3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B1712097781C009392B3 /* Settings.swift */; };
 		BD75B1802097803B009392B3 /* ReloadableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B17F2097803B009392B3 /* ReloadableModel.swift */; };
@@ -81,7 +83,7 @@
 		BDFE06B6207909B700F3024B /* Sorting_Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75820785899002FDC10 /* Sorting_Performance.swift */; };
 		BDFE06B7207909B700F3024B /* Exercise_List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75A20785899002FDC10 /* Exercise_List.swift */; };
 		BDFE06B8207909B700F3024B /* Test_Sorting_Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73A20785899002FDC10 /* Test_Sorting_Cases.swift */; };
-		BDFE06B9207909B700F3024B /* Tag_IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74920785899002FDC10 /* Tag_IDs.swift */; };
+		BDFE06B9207909B700F3024B /* Post_Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74920785899002FDC10 /* Post_Requests.swift */; };
 		BDFE06BA207909B700F3024B /* Exercise Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C76020785899002FDC10 /* Exercise Picker.swift */; };
 		BDFE06BB207909B700F3024B /* Cascade_Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73B20785899002FDC10 /* Cascade_Rules.swift */; };
 		BDFE06BC207909B700F3024B /* Exercise_Metrics_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */; };
@@ -149,6 +151,8 @@
 		BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard_Methods.swift; sourceTree = "<group>"; };
 		BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ScrollView.swift; sourceTree = "<group>"; };
 		BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ContextObserver.swift; sourceTree = "<group>"; };
+		BD6EE22920ADFBAB00DA9E68 /* RestAPI_Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI_Get.swift; sourceTree = "<group>"; };
+		BD6EE22C20AE48E000DA9E68 /* Get_Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get_Requests.swift; sourceTree = "<group>"; };
 		BD75B16F209777CA009392B3 /* Bodyweight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bodyweight.swift; sourceTree = "<group>"; };
 		BD75B1712097781C009392B3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		BD75B17F2097803B009392B3 /* ReloadableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadableModel.swift; sourceTree = "<group>"; };
@@ -168,7 +172,7 @@
 		BDF5C74320785899002FDC10 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		BDF5C74520785899002FDC10 /* Workouts Fetch test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workouts Fetch test.swift"; sourceTree = "<group>"; };
 		BDF5C74620785899002FDC10 /* delete_first_workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = delete_first_workout.swift; sourceTree = "<group>"; };
-		BDF5C74920785899002FDC10 /* Tag_IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag_IDs.swift; sourceTree = "<group>"; };
+		BDF5C74920785899002FDC10 /* Post_Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post_Requests.swift; sourceTree = "<group>"; };
 		BDF5C74A20785899002FDC10 /* Workout Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workout Controller.swift"; sourceTree = "<group>"; };
 		BDF5C74B20785899002FDC10 /* Exercise_Metrics_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise_Metrics_Test.swift; sourceTree = "<group>"; };
 		BDF5C74D20785899002FDC10 /* Create Exercises From Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Create Exercises From Database.swift"; sourceTree = "<group>"; };
@@ -351,6 +355,23 @@
 			path = Workouts;
 			sourceTree = "<group>";
 		};
+		BD6EE22820ADFB9400DA9E68 /* RestAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BD6EE22920ADFBAB00DA9E68 /* RestAPI_Get.swift */,
+			);
+			path = RestAPI;
+			sourceTree = "<group>";
+		};
+		BD6EE22B20AE48AB00DA9E68 /* RestAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C74920785899002FDC10 /* Post_Requests.swift */,
+				BD6EE22C20AE48E000DA9E68 /* Get_Requests.swift */,
+			);
+			path = RestAPI;
+			sourceTree = "<group>";
+		};
 		BD75B16C209776B9009392B3 /* Records */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +541,7 @@
 		BDF5C791207858AE002FDC10 /* Resources2.1 */ = {
 			isa = PBXGroup;
 			children = (
+				BD6EE22820ADFB9400DA9E68 /* RestAPI */,
 				BDF5C7D7207858AE002FDC10 /* Info.plist */,
 				BD75B16C209776B9009392B3 /* Records */,
 				BD75B17820977A2C009392B3 /* Exercise Detail */,
@@ -567,7 +589,7 @@
 				BD6EE22320ACA10600DA9E68 /* Dates */,
 				BD6EE22420ACA14800DA9E68 /* Workouts */,
 				BD6EE21F20ACA00A00DA9E68 /* AnalyticsAPI */,
-				BDF5C74920785899002FDC10 /* Tag_IDs.swift */,
+				BD6EE22B20AE48AB00DA9E68 /* RestAPI */,
 				BDF5C74A20785899002FDC10 /* Workout Controller.swift */,
 				BD6EE22020ACA03000DA9E68 /* ExerciseMetrics */,
 				BDF5C74D20785899002FDC10 /* Create Exercises From Database.swift */,
@@ -814,6 +836,7 @@
 				BDF5C7F7207858AE002FDC10 /* Exercise_Metrics.swift in Sources */,
 				BDF5C812207858AE002FDC10 /* Post.swift in Sources */,
 				BDF5C825207858AE002FDC10 /* Update Exercise.swift in Sources */,
+				BD6EE22A20ADFBAB00DA9E68 /* RestAPI_Get.swift in Sources */,
 				BDF5C7FC207858AE002FDC10 /* Workout history Segue Handler.swift in Sources */,
 				BDF5C7E9207858AE002FDC10 /* String.swift in Sources */,
 				BDF5C826207858AE002FDC10 /* WVC Reloadable Model.swift in Sources */,
@@ -871,9 +894,10 @@
 				BDFE06DA207909B700F3024B /* Setting_CD_Fields.swift in Sources */,
 				BDFE06C1207909B700F3024B /* delete_first_workout.swift in Sources */,
 				BDFE06C9207909B700F3024B /* Workouts Fetch test.swift in Sources */,
-				BDFE06B9207909B700F3024B /* Tag_IDs.swift in Sources */,
+				BDFE06B9207909B700F3024B /* Post_Requests.swift in Sources */,
 				BDFE06BD207909B700F3024B /* Workout Controller.swift in Sources */,
 				BDFE06B8207909B700F3024B /* Test_Sorting_Cases.swift in Sources */,
+				BD6EE22D20AE48E000DA9E68 /* Get_Requests.swift in Sources */,
 				BDFE06D3207909B700F3024B /* Compound ExerciseRecords.swift in Sources */,
 				BDFE06C6207909B700F3024B /* Metric_Info_Test.swift in Sources */,
 				BDFE06C7207909B700F3024B /* OneRM_Weeks.swift in Sources */,
@@ -1029,7 +1053,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GE9MEQXM5B;
 				INFOPLIST_FILE = Resources2.1/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1047,7 +1071,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GE9MEQXM5B;
 				INFOPLIST_FILE = Resources2.1/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";

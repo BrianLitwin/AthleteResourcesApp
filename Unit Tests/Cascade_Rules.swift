@@ -48,9 +48,6 @@ class Cascade_Rules: XCTestCase {
         let sequences = Sequences.fetchAll()
         
         XCTAssertEqual(sequences.count, 0)
-        
-        
-        
     }
     
 }
