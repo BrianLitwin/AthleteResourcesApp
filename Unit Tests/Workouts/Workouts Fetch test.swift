@@ -19,9 +19,7 @@ class Workouts_test: XCTestCase {
    
     
     func testFirst() {
-        
-       
-        
+
         let workout1 = Workouts.createNewWorkout()
         let workout2 = Workouts.createNewWorkout()
         let workout3 = Workouts.createNewWorkout()
@@ -41,8 +39,6 @@ class Workouts_test: XCTestCase {
      
         XCTAssert(lastWorkout == workout3)
         
-        
     }
-    
     
 }

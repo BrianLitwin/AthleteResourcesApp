@@ -35,7 +35,7 @@ class CollectionViewCell: BaseCollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: 18).isActive = true
         button.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        button.trailingAnchor.constraint(equalTo: btnTapArea.trailingAnchor, constant: -26).isActive = true
+        button.trailingAnchor.constraint(equalTo: btnTapArea.trailingAnchor, constant: -18).isActive = true
         button.centerYAnchor.constraint(equalTo: btnTapArea.centerYAnchor).isActive = true
         button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
         button.tintColor = UIColor.brightTurquoise()

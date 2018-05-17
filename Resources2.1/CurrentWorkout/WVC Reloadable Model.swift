@@ -44,17 +44,34 @@ class WorkoutReloadHandler: ContextObserver {
             }
         }
         
-        //if an exercise is updated, and workout contains the exercise, need to reload
-        if let exercise = entity as? Exercises {
-            //this is to say the workout contains the exercise that was changed.
-            guard let currentWorkout = delegate?.currentWorkout else { return }
-            if currentWorkout.exerciseMetricsSet.contains(where: {
-                $0.exercise == exercise
-            }) {
-                delegate?.setup(for: currentWorkout)
+        //if a metric info changes .e.g changes the unit of measurement, reload the workout UI 
+        if let metricInfo = entity as? Metric_Info {
+            if let exercise = metricInfo.exercise {
+                reloadWorkoutIfItContains(exercise: exercise)
             }
         }
         
+        
+        //if an exercise is updated, and workout contains the exercise, need to reload
+        if let exercise = entity as? Exercises {
+            
+//            check for containers first because every time you add or subtract an exercise from the workout,
+//            the container order changes, and this registers w/ the exercise, but shouldn't trigger a reload of the
+//            entire workout page
+            if changedValues["containers"] == nil {
+                //this is to say the workout contains the exercise that was changed.
+                reloadWorkoutIfItContains(exercise: exercise)
+            }
+        }
+    }
+    
+    func reloadWorkoutIfItContains(exercise: Exercises) {
+        guard let currentWorkout = delegate?.currentWorkout else { return }
+        if currentWorkout.exerciseMetricsSet.contains(where: {
+            $0.exercise == exercise
+        }) {
+            delegate?.setup(for: currentWorkout)
+        }
     }
     
 
