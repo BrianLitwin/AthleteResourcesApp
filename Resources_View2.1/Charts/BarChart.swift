@@ -63,7 +63,6 @@ class BarChart : UIView, CPTBarPlotDataSource {
         plotSpace.yRange = CPTPlotRange(location: yMin.NSNumber, length: (yMax - yMin).NSNumber)
         plotSpace.allowsUserInteraction = false
         
-        
         addSubview(hostingView)
         addConstraintsWithFormat("H:|[v0]|", views: hostingView)
         addConstraintsWithFormat("V:|[v0]|", views: hostingView)
@@ -111,7 +110,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
             let xAxisLineStyle = CPTMutableLineStyle()
             let px = 1 / UIScreen.main.scale
             xAxisLineStyle.lineWidth     = px
-            xAxisLineStyle.lineColor = CPTColor(cgColor: UIColor.darkGray.cgColor)
+            xAxisLineStyle.lineColor = CPTColor(cgColor: UIColor.clear.cgColor)
             
             x.axisLineStyle = xAxisLineStyle
             
@@ -121,7 +120,6 @@ class BarChart : UIView, CPTBarPlotDataSource {
             var labelLocation = 0
             var customLabels = Set<CPTAxisLabel>()
             for tickLocation in customTickLocations {
-                
                 
                 labelLocation += 1
                 
@@ -178,6 +176,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
             y.majorTickLineStyle  = nil
             y.minorTickLineStyle  = nil
             y.orthogonalPosition  = 0.0
+            y.labelFormatter = nil
         }
         
         // First bar plot

@@ -48,6 +48,7 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.lighterBlack()
+        layer.cornerRadius = 3
     }
     
     @objc func btnTap() {
@@ -84,6 +85,7 @@ class ScrollViewFooter: UIView, LayoutGuide  {
         centerInContainer(button)
         button.cornerRadius = 4
         backgroundColor = UIColor.lighterBlack()
+        layer.cornerRadius = 3 
     }
     
     @objc func btnTapped() {

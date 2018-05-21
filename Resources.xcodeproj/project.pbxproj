@@ -355,14 +355,6 @@
 			path = Workouts;
 			sourceTree = "<group>";
 		};
-		BD6EE22820ADFB9400DA9E68 /* RestAPI */ = {
-			isa = PBXGroup;
-			children = (
-				BD6EE22920ADFBAB00DA9E68 /* RestAPI_Get.swift */,
-			);
-			path = RestAPI;
-			sourceTree = "<group>";
-		};
 		BD6EE22B20AE48AB00DA9E68 /* RestAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,6 +510,7 @@
 		BD75B17D20977D68009392B3 /* NonEssential */ = {
 			isa = PBXGroup;
 			children = (
+				BD6EE22920ADFBAB00DA9E68 /* RestAPI_Get.swift */,
 				BDF5C7A4207858AE002FDC10 /* EMOM model.swift */,
 				BDF5C7CA207858AE002FDC10 /* Converting To Dict Values.swift */,
 				BDF5C796207858AE002FDC10 /* emom tableViewController.swift */,
@@ -541,7 +534,6 @@
 		BDF5C791207858AE002FDC10 /* Resources2.1 */ = {
 			isa = PBXGroup;
 			children = (
-				BD6EE22820ADFB9400DA9E68 /* RestAPI */,
 				BDF5C7D7207858AE002FDC10 /* Info.plist */,
 				BD75B16C209776B9009392B3 /* Records */,
 				BD75B17820977A2C009392B3 /* Exercise Detail */,

@@ -27,11 +27,11 @@ class ExerciseListModel: ContextObserver, Resources_View2_1.ExerciseListModel, R
         let activeMultiExerciseContainers: [ExerciseListItem] = Multi_Exercise_Container_Types.fetchAll(active: true) as [ExerciseListItem]
         
         var listItems: [ExerciseListItem] = activeExercises + activeMultiExerciseContainers
-        
-        listItems.sort(by: { $0.workoutsUsed < $1.workoutsUsed } )
-        
+
+        //no good 
+        listItems = listItems.filter({ $0.workoutsUsed > 0 })
+        listItems.sort(by: { $0.workoutsUsed > $1.workoutsUsed })
         self.listItems = listItems
-        
     }
     
     override func objectsDiDChange(type: ContextObserver.changeType, entity: NSManagedObject, changedValues: [String : Any]) {

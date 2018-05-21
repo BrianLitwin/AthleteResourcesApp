@@ -122,7 +122,6 @@ extension Exercise_Metrics {
     
     
     func displayValue(for metric: Metric) -> String {
-        
         if let nonStan = displayStringNonStandard(for: metric) {
             return nonStan
         }

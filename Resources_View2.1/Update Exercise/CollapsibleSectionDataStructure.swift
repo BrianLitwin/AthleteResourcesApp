@@ -14,7 +14,11 @@ public class CollapsibleModel {
     
     public var expandedSections = [Bool]()
     
-    public var offsetIndexes = [Int]()
+    public var offsetIndexes = [Int]() {
+        didSet {
+            print(offsetIndexes)
+        }
+    }
     
     public init(count: Int) {
         expandedSections = Array.init(repeating: false, count: count)

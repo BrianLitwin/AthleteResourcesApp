@@ -17,11 +17,8 @@ class CategoriesPicker: FetchedResultsTableViewController<NSManagedObject> {
     var categorySelected: ((Categories) -> Void)?
     
     init() {
-        
         let request: NSFetchRequest<Categories> = Categories.fetchRequest()
-        
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        
         let fetchedResultsController = NSFetchedResultsController<Categories>(
             fetchRequest: request,
             managedObjectContext: context,
@@ -32,9 +29,7 @@ class CategoriesPicker: FetchedResultsTableViewController<NSManagedObject> {
         try? fetchedResultsController.performFetch()
         
         super.init(fetchedResultsController: fetchedResultsController as! NSFetchedResultsController<NSManagedObject>)
-        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell" )
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

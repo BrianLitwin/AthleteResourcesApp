@@ -22,25 +22,11 @@ public class ExercisePickerTableView: TableWithDropDownHeaders, ExercisePicker, 
     public var resignSelf: (() -> Void)?
     
     public init(model: modelType) {
-        
         //Mark: initialize the dropDownTableView
         super.init(model: model)
-        
         register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.reuseID)
-        
         register(ExercisePickerHeader.self,
                  forHeaderFooterViewReuseIdentifier: ExercisePickerHeader.reuseID)
-        
-        //mark: Doesn't seem to be working 
-        configureSwipeGestureRecognizer()
-        
-    }
-    
-    func configureSwipeGestureRecognizer() {
-        let gr = UISwipeGestureRecognizer(target: self, action: #selector(swipeDown))
-        gr.direction = .down
-        isUserInteractionEnabled = true
-        addGestureRecognizer(gr)
     }
     
     @objc func swipeDown() {

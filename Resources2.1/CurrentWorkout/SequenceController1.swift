@@ -74,7 +74,25 @@
  
  //searchBar textcolor is dark
  
- //put searchBar in tableview header so you can escape it 
+ //detail text is not showing/ is black
+ 
+ //dropdown table didn't work correctly in exercise maker: no matrics selected; clicked on length, then reps, and reps had lengths uOM options 
+ 
+ //put a max width on picker for unit of measurement options
+ 
+ //important: can't segue to exercise info from workout history vc: crashses
+ 
+ //table view doesn't scroll to bottom in search
+ 
+ //don't see spinner on load
+ 
+ //personal records not working
+ 
+ // min:sec not working
+ 
+ //you really only want to know how many weeks since a particular date - the first date - when calculating weeks 
+ 
+ //do the category dropdowns without reloading the headers 
  
 */
 

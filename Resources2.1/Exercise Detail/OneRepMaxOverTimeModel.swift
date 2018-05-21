@@ -148,13 +148,12 @@ struct OneRMWeek: Resources_View2_1.OneRMWeek  {
         
         if value > 100 {
             
-            return "+" + String(value) + "%"
-        
+            return "+" + String(value - 100) + "%"
         }
         
         if value < 100 {
             
-            return "-" + String(100 - value) + "%"
+            return String(value) + "%"
             
         }
         

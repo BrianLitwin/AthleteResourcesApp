@@ -40,6 +40,8 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
     
     let headerView = UIView()
     
+    let scrollView = UIScrollView()
+    
     public var model: OneRepMaxTableViewModel?
     
     override public func viewDidLoad() {
@@ -50,11 +52,12 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
         tableView.tableHeaderView = headerView
         tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 220)
         
+        
         headerView.addSubview(graphHeader)
-        headerView.addSubview(progressGraph)
-        headerView.addConstraintsWithFormat("H:|[v0]|", views: graphHeader)
-        headerView.addConstraintsWithFormat("H:|[v0]|", views: progressGraph)
-        headerView.addConstraintsWithFormat("V:|[v0(55)]-20-[v1]-25-|", views: graphHeader, progressGraph)
+        scrollView.addSubview(progressGraph)
+        headerView.addSubview(scrollView)
+        graphHeader.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 55)
+        scrollView.frame = CGRect(x: 0, y: 80, width: view.frame.width, height: 220 - 80)
         
     }
 
@@ -63,6 +66,21 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
         if let model = self.model {
             if model.weeks.count > 1 {
                 progressGraph.setup(model.graphData)
+                
+                //configure width of scrollview
+                var maxWidth = CGFloat(model.weeks.count * 45)
+                let width = max(maxWidth, view.frame.width)
+                scrollView.contentSize = CGSize(width: width,
+                                                height: scrollView.contentSize.height)
+                
+                progressGraph.frame = CGRect(x: 0,
+                                             y: 0,
+                                             width:  width,
+                                             height: scrollView.frame.height - 25)
+                
+                let horizontalOffset = CGPoint(x: (scrollView.contentSize.width - scrollView.bounds.size.width) - 20, y: 0)
+                scrollView.setContentOffset(horizontalOffset, animated: false)
+                
                 tableView.reloadData()
                 return
             }

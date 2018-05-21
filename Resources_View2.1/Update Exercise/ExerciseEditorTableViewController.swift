@@ -50,15 +50,10 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     }
     
     override public func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnTap))
-        
         doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnTap))
-        
         self.navigationItem.leftBarButtonItem = cancelBtn
-
         self.navigationItem.rightBarButtonItem = doneBtn
         
     }
@@ -79,9 +74,8 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     }
     
     override public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+    
         guard section == 1 else { return nil }
-        
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: UpdateExerciseInstructionsHeader.reuseID) as! UpdateExerciseInstructionsHeader
         return header
 
@@ -92,15 +86,12 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     }
     
     @objc func doneBtnTap() {
-        
         if let unableToSequeReason = model?.incompleteInformation() {
-            
             let alert = UIAlertController(title: unableToSequeReason, message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default))
             present(alert, animated: true)
             
         } else {
-            
             model?.saveAllChanges()
             updateWorkoutUIAfterSave?()
             dismiss(animated: true)
@@ -149,33 +140,24 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
             switch indexPath.row {
                 
             case 0:
-                
                 cell.textfield.text = exerciseInfo.exerciseInfo.name
-                
                 cell.setTextfieldPlaceholder("Exercise Name")
-                
                 cell.saveText = {
                     text in
                     exerciseInfo.updateName(with: text)
                 }
                 
             case 1:
-                
                 cell.textfield.text = exerciseInfo.exerciseInfo.variation
-                
                 cell.setTextfieldPlaceholder("Exercise Variation")
-                
                 cell.saveText = {
                     text in
                     exerciseInfo.updateVariation(with: text)
                 }
                 
             case 2:
-                
                 cell.textfield.text = exerciseInfo.exerciseInfo.instructions
-                
                 cell.setTextfieldPlaceholder("Exercise Instructions")
-                
                 cell.saveText = {
                     text in
                     exerciseInfo.updateInstructions(with: text)
@@ -186,15 +168,12 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
                 break
                 
             }
-            
             return cell
             
         } else {
             return configureCollapsibleSectionCell(for: indexPath)
         }
-        
     }
-    
     
     func configureCollapsibleSectionCell(for indexPath: IndexPath) -> UITableViewCell {
         guard let sectionModel = collapsibleSectionModel else { return UITableViewCell() }
@@ -216,9 +195,7 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
             cell.delegate = cellDelegate
             cell.moreInfoDelegate = self
             return cell
-            
         }
-        
     }
     
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -230,7 +207,6 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
 }
 
 
@@ -248,9 +224,7 @@ extension UpdateExerciseTableViewController: DropDownButtonDelegate {
         } else {
             tableView.deleteRows(at: indexPaths, with: .automatic)
         }
-        
     }
-    
 }
 
 
