@@ -33,6 +33,17 @@ class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
             guard let model = delegate else { return }
             headerLabel.text = model.metricName
             metricSwitch.isOn = delegate?.selectedUnitIndex != nil
+            
+            //configure disclosure button state
+            //currently shouldn't have any more options for reps ands eets
+            //sets and reps have 1 unit option
+            if model.unitOptions.count == 1 {
+                disclosure.tintColor = UIColor.clear
+                moreInfoIcon.isUserInteractionEnabled = false
+            } else {
+                disclosure.tintColor = UIColor.brightTurquoise()
+                moreInfoIcon.isUserInteractionEnabled = true
+            }
         }
     }
     
