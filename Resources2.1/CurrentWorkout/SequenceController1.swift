@@ -74,7 +74,11 @@
  
  //searchBar textcolor is dark
  
- //put searchBar in tableview header so you can escape it 
+ //put searchBar in tableview header so you can escape it
+ 
+ //removing exercises
+ 
+ /coordinate it so that if you select a unit of measurement, the unit option turns on, and if you deselect a unit, the unit options swtich to none
  
 */
 
