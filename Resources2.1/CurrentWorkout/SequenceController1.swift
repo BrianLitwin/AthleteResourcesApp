@@ -59,26 +59,42 @@
  if you create an exercise, and go back to create another exercise, the exercise form will be populated with the prev exercise forms data
  
  there is a checkmark built into tableviewcell accessory type.. check into this for search exercise list/ activeOr not
- 
-<<<<<<< Updated upstream
+
  "Sets" and "Reps" should be lower-cased since the default unit of measurements are lowercased - in popup to enter
  
  put "extra buttons" .. missed reps, bw, etc.. on side of keyboard
  
  edit exercise should not be in popup.. it's in "exercise info" already 
-=======
- creating new exercise effectively doesn't work
- 
- add the BW button and the add missed reps button to the keyboard in a "more options" view 
->>>>>>> Stashed changes
+
  
  //searchBar textcolor is dark
+
+ //detail text is not showing/ is black
  
+ //dropdown table didn't work correctly in exercise maker: no matrics selected; clicked on length, then reps, and reps had lengths uOM options 
+ 
+ //put a max width on picker for unit of measurement options
+ 
+ //important: can't segue to exercise info from workout history vc: crashses
+ 
+ //table view doesn't scroll to bottom in search
+ 
+ //don't see spinner on load
+ 
+ //personal records not working
+ 
+ // min:sec not working
+ 
+ //you really only want to know how many weeks since a particular date - the first date - when calculating weeks 
+ 
+ //do the category dropdowns without reloading the headers 
+
  //put searchBar in tableview header so you can escape it
  
  //removing exercises
  
  /coordinate it so that if you select a unit of measurement, the unit option turns on, and if you deselect a unit, the unit options swtich to none
+
  
 */
 

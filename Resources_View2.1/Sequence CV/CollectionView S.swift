@@ -42,7 +42,7 @@ class SequenceCollectionView: UICollectionView, UICollectionViewDataSource, UICo
         register(CVFooter.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: CVFooter.reuseID)
         
         backgroundColor = UIColor.lighterBlack()
-        
+        layer.cornerRadius = 3
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -12,9 +12,11 @@ import Resources_View2_1
 
 class SearchExercisesModel: ExerciseSearchModel {
     
-    var sections: [CategorySection] = []
+    typealias CategoryViewSection = Resources_View2_1.CategorySection
     
-    var filteredSections: [CategorySection] = []
+    var sections: [CategoryViewSection] = []
+    
+    var filteredSections: [CategoryViewSection] = []
     
     init() {
         
@@ -22,12 +24,12 @@ class SearchExercisesModel: ExerciseSearchModel {
         var sections: [CategorySection] = []
         
         categories.forEach({
-            let exercises = $0.exerciseSet.sortedAlpabetically() as [CategorySection.ExerciseData]
+            let exercises = $0.exerciseSet.sortedAlpabetically() as [CategoryViewSection.ExerciseData]
             let compoundExercises = $0.compoundExerciseSet.sorted(by:
-            { ($0.name ?? "") < ($1.name ?? "")}) as [CategorySection.ExerciseData]
-            let allEx: [CategorySection.ExerciseData] = exercises + compoundExercises
+            { ($0.name ?? "") < ($1.name ?? "")}) as [CategoryViewSection.ExerciseData]
+            let allEx: [CategoryViewSection.ExerciseData] = exercises + compoundExercises
             if !allEx.isEmpty {
-                let section = CategorySectionClass($0, exercises: allEx)
+                let section = CategorySection($0, exercises: allEx)
                 sections.append(section)
             }
         })
@@ -53,7 +55,7 @@ class SearchExercisesModel: ExerciseSearchModel {
     }
 }
 
-class CategorySectionClass: CategorySection {
+class CategorySection: Resources_View2_1.CategorySection {
     
     let name: String
     

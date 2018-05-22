@@ -52,13 +52,20 @@ public extension ExerciseTableViewModel {
         
         //not an ideal implementation
         
-        guard let pickerHeader = header as? ExercisePickerHeader else { return }
+        guard let pickerHeader = header as? ExercisePickerHeader else {
+            
+            return
+        }
         
         let section = data[section]
+        
+        print(section)
         
         guard !section.isEmpty else { return  }
         
         pickerHeader.categoryLabel.text = section[0].categoryName
+        
+        print(section[0].categoryName)
 
     }
     

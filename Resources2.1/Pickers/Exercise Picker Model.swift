@@ -18,7 +18,11 @@ class ExerciseList {
 
 class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, ExerciseTableViewModel, TableDataPopulator, ReloadableModel  {
     
-    var data: [[ExerciseCellData]] = [[]]
+    var data: [[ExerciseCellData]] = [[]] {
+        didSet {
+            print(data)
+        }
+    }
     
     var exercises: [[Any]] = [[]]
     
@@ -26,6 +30,8 @@ class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, Exercise
     
     var needsReload = true
     
+    //in case you want to use this while building a compound exercise
+    //is prob any easier way to achieve this
     let includeMultiExerciseContainer: Bool
     
     init(includeMultiExerciseContainer: Bool) {
@@ -39,7 +45,6 @@ class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, Exercise
     }
     
     func loadModel() {
-        
         let data = returnExerciseCellData(includingCompoundExercises: includeMultiExerciseContainer)
         self.exercises = data
         self.data = data
@@ -48,18 +53,17 @@ class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, Exercise
     }
     
     override func objectsDiDChange(type: ContextObserver.changeType, entity: NSManagedObject, changedValues: [String : Any]) {
-        
         if entity is Exercises || entity is Multi_Exercise_Container_Types || entity is Categories {
             needsReload = true
-            //isActive is an update 
+            // isActive is an update 
         }
     }
-    
 }
 
 func returnExerciseCellData(includingCompoundExercises: Bool) -> [[ExerciseCellData]] {
     
-    let categories = Categories.activeCategories()
+    //temporary hack
+    let categories = Categories.activeCategories().filter({ $0.exerciseSet.isEmpty == false })
     
     switch includingCompoundExercises {
         

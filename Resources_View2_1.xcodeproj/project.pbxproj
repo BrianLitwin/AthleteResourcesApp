@@ -101,7 +101,6 @@
 		BDE69D5E20434F1900AEBC2C /* Edit ExerciseMetric Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE69D5D20434F1900AEBC2C /* Edit ExerciseMetric Keyboard.swift */; };
 		BDE69D6020434FCF00AEBC2C /* Keyboard Componenets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE69D5F20434FCF00AEBC2C /* Keyboard Componenets.swift */; };
 		BDE69D6220435AA900AEBC2C /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE69D6120435AA900AEBC2C /* Double.swift */; };
-		BDE69D6820437BDA00AEBC2C /* CategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE69D6720437BDA00AEBC2C /* CategoryPicker.swift */; };
 		BDE69D6A20437E7400AEBC2C /* FetchedResultsTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE69D6920437E7400AEBC2C /* FetchedResultsTVController.swift */; };
 		BDE92443207AB8FD00709020 /* GeneralInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE92442207AB8FD00709020 /* GeneralInfo.swift */; };
 		BDF091E6203BCAA400F223F0 /* ExercisePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF091E5203BCAA400F223F0 /* ExercisePickerModel.swift */; };
@@ -214,7 +213,6 @@
 		BDE69D5D20434F1900AEBC2C /* Edit ExerciseMetric Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit ExerciseMetric Keyboard.swift"; sourceTree = "<group>"; };
 		BDE69D5F20434FCF00AEBC2C /* Keyboard Componenets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard Componenets.swift"; sourceTree = "<group>"; };
 		BDE69D6120435AA900AEBC2C /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
-		BDE69D6720437BDA00AEBC2C /* CategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPicker.swift; sourceTree = "<group>"; };
 		BDE69D6920437E7400AEBC2C /* FetchedResultsTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTVController.swift; sourceTree = "<group>"; };
 		BDE92442207AB8FD00709020 /* GeneralInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfo.swift; sourceTree = "<group>"; };
 		BDF091E5203BCAA400F223F0 /* ExercisePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePickerModel.swift; sourceTree = "<group>"; };
@@ -281,7 +279,6 @@
 				BD06E5FE2052F73500B312AA /* Search Exercises */,
 				BDD21808204CC109006BAA70 /* Update Exercise */,
 				BD7F7CE0204383A600B5E5FC /* Fetched Results Controller */,
-				BDE69D6620437A6400AEBC2C /* CategoryPicker */,
 				BD89569120461F1000A81B9E /* Compound Exercise Creator */,
 				BD7F7CE92043B12C00B5E5FC /* Workout History */,
 				BDF091E4203BCA8A00F223F0 /* ExercisePicker */,
@@ -556,14 +553,6 @@
 			path = ExerciseInfoMenu;
 			sourceTree = "<group>";
 		};
-		BDE69D6620437A6400AEBC2C /* CategoryPicker */ = {
-			isa = PBXGroup;
-			children = (
-				BDE69D6720437BDA00AEBC2C /* CategoryPicker.swift */,
-			);
-			path = CategoryPicker;
-			sourceTree = "<group>";
-		};
 		BDF091E4203BCA8A00F223F0 /* ExercisePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -717,7 +706,6 @@
 				BD012F27203A58F700A4A351 /* Base Stack View.swift in Sources */,
 				BD64C49B207D9E230009AB91 /* Colors.swift in Sources */,
 				BD012F58203A59A900A4A351 /* ContentView.swift in Sources */,
-				BDE69D6820437BDA00AEBC2C /* CategoryPicker.swift in Sources */,
 				BD768B342048EF8B00803DC0 /* Int.swift in Sources */,
 				BDE3D459207A4740003C6A94 /* ExerciseInfoController.swift in Sources */,
 				BDFE06972079023200F3024B /* BWTableViewCells.swift in Sources */,

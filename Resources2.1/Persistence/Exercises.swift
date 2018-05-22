@@ -428,11 +428,12 @@ class ExerciseHistoryModel: ExerciseInfoController, ExerciseInfoModel {
         sections = []
         let workouts = Workouts.fetchAll()
         workouts.forEach({
-            let em = $0.exerciseMetricsSet.sorted(by: { $0.set_number < $1.set_number })
+            let em = $0.exerciseMetricsSet.filter({$0.exercise == exercise})
+                .sorted(by: { $0.set_number < $1.set_number })
+            guard !em.isEmpty else { return }
             let emDisplayStrings = em.map({ $0.displayString() })
             sections.append(ExerciseHistorySection(date: $0.date, exerciseMetrics: emDisplayStrings))
         })
-        
     }
     
     let exercise: Exercises
