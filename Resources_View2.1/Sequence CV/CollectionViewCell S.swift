@@ -38,9 +38,7 @@ class CollectionViewCell: BaseCollectionViewCell {
         button.trailingAnchor.constraint(equalTo: btnTapArea.trailingAnchor, constant: -18).isActive = true
         button.centerYAnchor.constraint(equalTo: btnTapArea.centerYAnchor).isActive = true
         button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
-        button.tintColor = UIColor.brightTurquoise()
-        
-        headerLabel.textColor = UIColor.init(white: 1, alpha: 0.8)
+        button.tintColor = Colors.CurrentWorkout.iconTint
     }
     
     @objc func btnTapped() {

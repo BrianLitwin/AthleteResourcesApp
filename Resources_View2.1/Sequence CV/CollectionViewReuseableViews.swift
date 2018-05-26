@@ -27,7 +27,6 @@ class CVHeader: BaseCollectionReusableView {
         cell.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         cell.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         cell.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -15).isActive = true
-        cell.textLabel?.textColor = UIColor.groupedTableText()
     }
     
     override func setupViews() {
@@ -35,7 +34,7 @@ class CVHeader: BaseCollectionReusableView {
         button.frame.size = CGSize(width: 25, height: 25)
         centerRight(button)
         button.widthAnchor.constraint(equalTo: button.heightAnchor).isActive = true
-        button.tintColor = UIColor.brightTurquoise()
+        button.tintColor = Colors.CurrentWorkout.iconTint
     }
     
     @objc func btnTapped() {
@@ -79,7 +78,7 @@ class CVFooter: BaseCollectionReusableView {
         button.centerYAnchor.constraint(equalTo: btnTapArea.centerYAnchor).isActive = true
         
         button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
-        button.tintColor = UIColor.brightTurquoise()
+        button.tintColor = Colors.CurrentWorkout.iconTint
     }
     
     @objc func btnTapped() {

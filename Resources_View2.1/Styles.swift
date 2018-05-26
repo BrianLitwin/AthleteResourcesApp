@@ -10,7 +10,7 @@ import UIKit
 
 public struct Colors {
     
-    public struct SequenceCV {
+    public struct CurrentWorkout {
         public static let iconTint = Color.Blue.medium.color
         public static let sectionBg = Color.Blue.light.color
         public static let workoutHeaderBg = Color.Blue.medium.color
