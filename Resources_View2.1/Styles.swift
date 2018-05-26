@@ -6,15 +6,21 @@
 //  Copyright © 2018 B_Litwin. All rights reserved.
 //
 
-
-
-
-
 import UIKit
 
-enum Colors {
+public struct Colors {
     
-    static let background = Colors.Gray.lighter.color
+    public struct SequenceCV {
+        public static let iconTint = Color.Blue.medium.color
+        public static let sectionBg = Color.Blue.light.color
+        public static let workoutHeaderBg = Color.Blue.medium.color
+        public static let addExerciseBg = Color.Blue.medium.color
+    }
+}
+
+enum Color {
+    
+    static let background = Color.Gray.lighter.color
     static let purple = "6f42c1"
     static let blueGray = "8697af"
     
