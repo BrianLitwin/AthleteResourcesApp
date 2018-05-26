@@ -77,7 +77,6 @@
  
  //important: can't segue to exercise info from workout history vc: crashses
  
-<<<<<<< Updated upstream
  //table view doesn't scroll to bottom in search
  
  //don't see spinner on load
@@ -95,15 +94,9 @@
  //removing exercises
  
  /coordinate it so that if you select a unit of measurement, the unit option turns on, and if you deselect a unit, the unit options swtich to none
-
- creating new exercise effectively doesn't work
-=======
- creating new exercise effectively doesn't work
  
  add the BW button and the add missed reps button to the keyboard in a "more options" view 
->>>>>>> Stashed changes
- 
- add the BW button and the add missed reps button to the keyboard in a "more options" view
+
 */
 
 
