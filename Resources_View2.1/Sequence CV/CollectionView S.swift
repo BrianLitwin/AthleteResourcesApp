@@ -40,8 +40,7 @@ class SequenceCollectionView: UICollectionView, UICollectionViewDataSource, UICo
         register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.reuseID)
         register(CVHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: CVHeader.reuseID)
         register(CVFooter.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: CVFooter.reuseID)
-        
-        backgroundColor = UIColor.lighterBlack()
+        backgroundColor = Colors.CurrentWorkout.sectionBg
         layer.cornerRadius = 3
     }
     

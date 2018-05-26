@@ -36,7 +36,6 @@ public class NavigationController: UINavigationController {
             NSAttributedStringKey.foregroundColor: UIColor.groupedTableText()
         ]
         UINavigationBar.appearance().titleTextAttributes = attrs
-        navigationBar.barTintColor = UIColor.lighterBlack()
     }
     
     @objc func showMenu() {

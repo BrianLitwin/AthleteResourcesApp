@@ -16,7 +16,7 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     
     lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.groupedTableText()
+        label.textColor = .white
         return label
     }()
     
@@ -47,7 +47,7 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.lighterBlack()
+        backgroundColor = Colors.CurrentWorkout.workoutHeaderBg
         layer.cornerRadius = 3
     }
     
@@ -57,7 +57,7 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     
     func configureSettingsButton() {
         addSubview(settingsButton)
-        settingsButton.tintColor = UIColor.brightTurquoise()
+        settingsButton.tintColor = .white 
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         settingsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
         settingsButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -80,11 +80,11 @@ class ScrollViewFooter: UIView, LayoutGuide  {
         super.init(frame: frame)
         let button = UIButton()
         button.setTitle("Add Exercise", for: .normal)
-        button.setTitleColor(UIColor.groupedTableText(), for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
         centerInContainer(button)
         button.cornerRadius = 4
-        backgroundColor = UIColor.lighterBlack()
+        backgroundColor = Colors.CurrentWorkout.addExerciseBg
         layer.cornerRadius = 3 
     }
     
