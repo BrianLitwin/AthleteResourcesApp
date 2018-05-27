@@ -132,7 +132,6 @@ struct EM_Container_JSON: Codable {
 
     var coreDataID: Int16
     var order: Int16
-    
     var id: Int16
     var exercise: Int16
     var sequence: Int16
@@ -155,10 +154,6 @@ struct EM_Container_JSON: Codable {
                 }
             }
             fatalError("coudln't find exercise with id \(id)")
-        }
-        
-        guard EM_Containers.checkIfExists(for: coreDataID) == nil else {
-            return 
         }
         
         if EM_Containers.checkIfExists(for: coreDataID) == nil {
@@ -195,7 +190,6 @@ struct Exercise_JSON: Codable {
         //tempory hack
         //
         
-        
         func findCategory(id: Int16) -> Category_JSON {
             for category in categories {
                 if category.id == id {
@@ -224,7 +218,7 @@ struct Exercise_JSON: Codable {
             exercise.category = Categories.checkIfExists(name: name)!
         }
         
-        //temporary 
+        // temporary 
         exercise.category?.isActive = true
         saveContext()
     }
@@ -238,12 +232,11 @@ struct Metric_Info_JSON: Codable {
     var output_label: String
     var sort_in_ascending_order: Bool
     var unit_of_measurement: String
-    
     var exercise: Int16
     
     func save(exercises: [Exercise_JSON]) {
         guard Metric_Info.checkIfExists(for: coreDataID) == nil else {
-            fatalError("metric_info already exists!")
+            return 
         }
         
         func findExercise(id: Int16) -> Exercises {
@@ -257,32 +250,27 @@ struct Metric_Info_JSON: Codable {
         
         let exercise = findExercise(id: self.exercise)
         
-        //ignores the idea of updating
+        // ignores the idea of updating
         guard !exercise.metricInfoSet.contains(where: { $0.metricSV == metric }) else {
             return
         }
         
         let metricInfo = Metric_Info(context: context)
-        
-        //Mark: Change metric if it = distance 
         var metricToSave = metric
         metricToSave = metricToSave == "Distance" ? "Length" : metricToSave
         metricInfo.metricSV = metricToSave
-        
-        
+        metricInfo.id = coreDataID
         metricInfo.output_label = output_label
         metricInfo.sort_in_ascending_order = sort_in_ascending_order
        
+        // Mark: Change metric if it = distance
         var uom = unit_of_measurement
-        
         if uom == "Distance" {
             uom = "length"
         }
         
         metricInfo.unit_of_measurement = uom
-        
         metricInfo.exercise = findExercise(id: self.exercise)
-        
     }
     
 }

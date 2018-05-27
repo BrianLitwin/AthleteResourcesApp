@@ -13,8 +13,9 @@ public struct Colors {
     static let navbarBtnTint = Color.Blue.medium.color 
     
     public struct CurrentWorkout {
+        public static let background = Color.Blue.light.color
         public static let iconTint = Color.Blue.medium.color
-        public static let sectionBg = Color.Blue.light.color
+        public static let sectionBg = UIColor.white
         public static let workoutHeaderBg = Color.Blue.medium.color
         public static let addExerciseBg = Color.Blue.medium.color
     }
@@ -30,9 +31,6 @@ public struct Colors {
     public struct UpdateExerciseInfo {
         public static let disclosureBtnTint = Color.Blue.medium.color
     }
-    
-    
-    
     
 }
 

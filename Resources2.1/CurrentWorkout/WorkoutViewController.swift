@@ -43,6 +43,7 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.CurrentWorkout.background 
         view.insertSubview(scrollView, at: 0)
         reloadWorkoutHandler = WorkoutReloadHandler(delegate: self)
         

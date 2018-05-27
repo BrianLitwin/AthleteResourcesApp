@@ -10,7 +10,6 @@ import UIKit
 
 
 class SideBar: BaseCollectionView {
-    
     var masterVC: SideBarDelegate?
     let resignSelf: () -> Void
     var currentlySelectedCellIndex = 0
@@ -23,6 +22,7 @@ class SideBar: BaseCollectionView {
     {
         self.resignSelf = resignSelf
         super.init()
+        backgroundColor = .white
         register(SideBarCell.self, forCellWithReuseIdentifier: reuseID)
         contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         configureSwipeGestureRecognizer()
@@ -47,7 +47,7 @@ class SideBar: BaseCollectionView {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! SideBarCell
         cell.headerText = masterVC?.header(for: indexPath) ?? ""
         cell.imageView.image = masterVC?.icon(for: indexPath)?.withRenderingMode(.alwaysTemplate)
-        cell.headerLabel.textColor = indexPath.row == currentlySelectedCellIndex ? cell.primaryColor : cell.secondaryColor
+        cell.setColor(isSelected: indexPath.row == currentlySelectedCellIndex)
         return cell
     }
     
@@ -60,13 +60,13 @@ class SideBar: BaseCollectionView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 class SideBarCell: BaseCollectionViewCell {
-    
-    let primaryColor = UIColor.init(white: 1, alpha: 0.95)
-    let secondaryColor = UIColor.init(white: 1, alpha: 0.7)
+    let primaryBgColor = UIColor.init(white: 0.0, alpha: 0.15)
+    let secondaryBgColor = UIColor.init(white: 0.0, alpha: 0.0)
+    let primaryIconColor = Color.Blue.medium.color
+    let secondaryIconColor = Color.Gray.light.color
     
     var imageView: UIImageView = {
         let iv = UIImageView()
@@ -74,20 +74,19 @@ class SideBarCell: BaseCollectionViewCell {
     }()
     
     override func setupViews() {
-        
         addSubview(imageView)
         addSubview(headerLabel)
-        
         addConstraintsWithFormat("H:|-15-[v0(20)]-25-[v1]|", views: imageView, headerLabel)
         addConstraintsWithFormat("V:|-15-[v0(20)]-15-|", views: imageView)
         addConstraintsWithFormat("V:|[v0]|", views: headerLabel)
-        
+    }
+    
+    func setColor(isSelected cellIsSelected: Bool) {
+        backgroundColor = cellIsSelected ? primaryBgColor : secondaryBgColor
+        imageView.tintColor = cellIsSelected ? primaryIconColor : secondaryIconColor
     }
     
     override var isSelected: Bool {
-        didSet {
-            headerLabel.textColor = isSelected ? primaryColor : secondaryColor
-        }
+        didSet { setColor(isSelected: isSelected) }
     }
-    
 }

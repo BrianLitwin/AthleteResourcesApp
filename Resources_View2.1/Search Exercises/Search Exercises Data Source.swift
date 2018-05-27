@@ -115,7 +115,7 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
         cell.textLabel?.text = cellData.name
         cell.detailTextLabel?.text = cellData.variation
         cell.accessoryType = .checkmark
-        cell.tintColor = cellData.isActive ? Color.Blue.medium.color : UIColor(white: 1, alpha: 0.4)
+        cell.tintColor = cellData.isActive ? Color.Blue.medium.color : Color.Gray.light.color
         return cell
     }
     

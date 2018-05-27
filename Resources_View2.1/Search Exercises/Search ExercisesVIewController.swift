@@ -13,13 +13,11 @@ import UIKit
 
 public class ExerciseSearchViewController: UIViewController, UITableViewDelegate {
     
-    // MARK: - Properties
     var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
     public var model: ExerciseSearchModel?
     var tableViewDataSource: SearchExercisesDataSource?
     private let searchBar = UISearchBar()
-    
-    // MARK: - View Setup
+
     override public func viewDidLoad() {
         
         super.viewDidLoad()
@@ -66,7 +64,6 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
 
 
 
-//Githawk
 extension UISearchBar {
     
     func resignWhenKeyboardHides() {

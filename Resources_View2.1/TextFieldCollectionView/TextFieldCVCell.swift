@@ -17,21 +17,18 @@ class TextFieldCollectionViewCell: BaseCollectionViewCell, UITextFieldDelegate {
 
     var label: UILabel = {
         let l = UILabel()
-        l.textColor = UIColor.white
         l.font = UIFont.systemFont(ofSize: 13)
         return l
     }()
     
     let icon: UIImageView = {
         let iv = UIImageView()
-        iv.tintColor = UIColor.white
         return iv
     }()
     
     
     var textField: UITextField = {
         let tf = UITextField()
-        tf.textColor = UIColor.white
         tf.layer.borderColor = UIColor.darkGray.cgColor
         tf.layer.cornerRadius = 2
         tf.layer.borderWidth = 1
@@ -82,7 +79,6 @@ class TextFieldCollectionViewCell: BaseCollectionViewCell, UITextFieldDelegate {
     
     override var isSelected: Bool {
         didSet {
-            
             if isSelected {
                 textField.becomeFirstResponder()
             } else {

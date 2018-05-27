@@ -38,13 +38,9 @@ class TextfieldCollectionView: BaseCollectionView {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TextFieldCollectionViewCell.reuseID, for: indexPath) as! TextFieldCollectionViewCell
-        
         guard let textFieldInfo = model?.textFieldInfos[indexPath.row] else { return cell }
-        
         cell.onTap = textFieldInfo.onTap
-        
         cell.setup(with: textFieldInfo.image, headerText: textFieldInfo.headerText, textFieldText: textFieldInfo.textFieldText)
         
         return cell
