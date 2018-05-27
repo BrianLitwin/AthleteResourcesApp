@@ -10,12 +10,30 @@ import UIKit
 
 public struct Colors {
     
+    static let navbarBtnTint = Color.Blue.medium.color 
+    
     public struct CurrentWorkout {
         public static let iconTint = Color.Blue.medium.color
         public static let sectionBg = Color.Blue.light.color
         public static let workoutHeaderBg = Color.Blue.medium.color
         public static let addExerciseBg = Color.Blue.medium.color
     }
+    
+    public struct BarChart {
+        public static let barTint = Color.Blue.medium.color
+    }
+    
+    public struct ScatterPlot {
+        public static let primaryColor = Color.Blue.medium.color 
+    }
+    
+    public struct UpdateExerciseInfo {
+        public static let disclosureBtnTint = Color.Blue.medium.color
+    }
+    
+    
+    
+    
 }
 
 enum Color {
@@ -64,6 +82,11 @@ extension String {
 }
 
 extension UIColor {
+    
+    public class func color(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) -> UIColor {
+        return UIColor(red: red / 255.0, green:  green / 255.0, blue: blue / 255.0, alpha: 1.0)
+    }
+    
     public static func fromHex(_ hex: String) -> UIColor {
         var cString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

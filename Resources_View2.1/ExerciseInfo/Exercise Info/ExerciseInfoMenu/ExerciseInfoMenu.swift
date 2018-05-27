@@ -20,7 +20,6 @@ class ExerciseInfoMenu: UICollectionView, UICollectionViewDelegate, UICollection
         delegate = self
         dataSource = self 
         register(Cell.self, forCellWithReuseIdentifier: Cell.reuseID)
-        backgroundColor =  UIColor.color(18, 234, 199)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

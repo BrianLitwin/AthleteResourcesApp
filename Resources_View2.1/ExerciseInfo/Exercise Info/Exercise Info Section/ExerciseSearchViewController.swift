@@ -38,7 +38,6 @@ public class ExerciseSortableTableViewController: UIViewController, ReloadableVi
         cv.delegate = cv
         cv.dataSource = cv
         cv.register(MenuCell.self, forCellWithReuseIdentifier: MenuCell.reuseID)
-        cv.backgroundColor = UIColor.lighterBlack()
         return cv
     }()
     
@@ -52,7 +51,6 @@ public class ExerciseSortableTableViewController: UIViewController, ReloadableVi
         cv.dataSource = cv
         cv.register(MenuCell.self, forCellWithReuseIdentifier: MenuCell.reuseID)
         cv.sortingDelegate = self
-        cv.backgroundColor = UIColor.lighterBlack()
         return cv
     }()
     
@@ -167,7 +165,6 @@ private class MenuCell: BaseCollectionViewCell {
     static var reuseID = "MCell"
     
     override func setupViews() {
-        label.textColor = UIColor.groupedTableText()
         centerInContainer(label)
     }
     

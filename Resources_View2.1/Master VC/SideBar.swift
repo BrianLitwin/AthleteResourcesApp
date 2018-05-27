@@ -23,7 +23,6 @@ class SideBar: BaseCollectionView {
     {
         self.resignSelf = resignSelf
         super.init()
-        backgroundColor = UIColor.lighterBlack()
         register(SideBarCell.self, forCellWithReuseIdentifier: reuseID)
         contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         configureSwipeGestureRecognizer()
@@ -71,7 +70,6 @@ class SideBarCell: BaseCollectionViewCell {
     
     var imageView: UIImageView = {
         let iv = UIImageView()
-        iv.tintColor = UIColor.brightTurquoise()
         return iv
     }()
     

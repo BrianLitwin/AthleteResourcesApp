@@ -32,7 +32,6 @@ public class WorkoutHistoryTableViewController: DefaultTableViewController, Relo
     override public func viewWillAppear(_ animated: Bool) {
         trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(trashButtonPress))
         self.navigationController?.navigationItem.leftBarButtonItem = trashButton
-        trashButton?.tintColor = UIColor.brightTurquoise()
         trashButtonColor = trashButton?.tintColor
     }
     
@@ -47,7 +46,7 @@ public class WorkoutHistoryTableViewController: DefaultTableViewController, Relo
     }
     
     func setTrashButtonTintColor(for isEditing: Bool) {
-        trashButton?.tintColor = isEditing ? UIColor.red : trashButtonColor ?? UIColor.brightTurquoise()
+        trashButton?.tintColor = isEditing ? UIColor.red : trashButtonColor ?? Color.Blue.medium.color
     }
     
     

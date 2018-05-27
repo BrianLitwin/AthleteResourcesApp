@@ -48,7 +48,6 @@ class CreateMenuTableViewController: UITableViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseID)
-        tableView.backgroundColor = UIColor.lighterBlack()
         tableView.separatorColor = UIColor.init(white: 1, alpha: 0.3)
     }
     
@@ -59,8 +58,6 @@ class CreateMenuTableViewController: UITableViewController {
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
         cell.textLabel?.text = headers[indexPath.row]
-        cell.textLabel?.textColor = UIColor.groupedTableText()
-        cell.backgroundColor = UIColor.lighterBlack()
         return cell
     }
  

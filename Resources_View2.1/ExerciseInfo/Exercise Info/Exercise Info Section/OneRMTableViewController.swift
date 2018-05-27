@@ -93,7 +93,6 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
     
     override public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = UIColor.brightTurquoise()
     }
     
     override public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -130,10 +129,6 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
             
             guard let model = self.model else { return cell }
             
-            cell.backgroundColor = UIColor.lighterBlack()
-            cell.leftLabel.textColor = UIColor.groupedTableText()
-            cell.rightLabel.textColor = UIColor.brightTurquoise()
-            
             switch indexPath.row {
                 
             case 0:
@@ -167,24 +162,15 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: OneRMWeekTableViewCell.reuseID, for: indexPath) as! OneRMWeekTableViewCell
             
-            cell.backgroundColor = UIColor.lighterBlack()
         
             guard let week = model?.weeks[indexPath.row] else { return cell }
-        
             cell.titleLabel.text = "Wk " + String(week.weekNumber)
-        
             cell.detailLabel.text = week.oneRMString ?? ""
-            
             cell.metric1.text = week.percentageChange ?? "-"
-            
             if let absoluteChange = week.absoluteChange?.rounded(toPlaces: 2) {
-                
               cell.metric2.text =  String(absoluteChange)
-                
             } else {
-                
                 cell.metric2.text = "-"
-                
             }
         
             return cell
@@ -211,7 +197,6 @@ class OneRMWeekTableViewCell: BaseTableViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.brightTurquoise()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         label.minimumScaleFactor = 0.5
@@ -224,7 +209,6 @@ class OneRMWeekTableViewCell: BaseTableViewCell {
     
     var metric1: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.groupedTableText()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -232,7 +216,6 @@ class OneRMWeekTableViewCell: BaseTableViewCell {
     var metric2: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.brightTurquoise()
         return label
     }()
     
@@ -267,7 +250,6 @@ class OneRMGraphHeader: BaseView {
         let l = UILabel()
         l.text = "One Rep Max Progress"
         l.textAlignment = .center
-        l.textColor = UIColor.groupedTableText()
         return l
     }()
     

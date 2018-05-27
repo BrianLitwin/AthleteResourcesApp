@@ -17,15 +17,10 @@ protocol DropDownButtonDelegate {
 class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
     
     static var reuseID = "metricCell"
-    
     let disclosure = UITableViewCell()
-    
     let moreInfoIcon = UIButton()
-    
     var moreInfoDelegate: DropDownButtonDelegate?
-    
     let headerLabel = UILabel()
-    
     let metricSwitch = UISwitch()
     
     weak var delegate: UpdateExerciseModelSection? {
@@ -41,7 +36,7 @@ class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
                 disclosure.tintColor = UIColor.clear
                 moreInfoIcon.isUserInteractionEnabled = false
             } else {
-                disclosure.tintColor = UIColor.brightTurquoise()
+                disclosure.tintColor = Colors.UpdateExerciseInfo.disclosureBtnTint
                 moreInfoIcon.isUserInteractionEnabled = true
             }
         }
@@ -49,13 +44,10 @@ class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
     
     override func setupViews() {
         
-        backgroundColor = UIColor.lighterBlack()
-        headerLabel.textColor = UIColor.groupedTableText()
-        
         //configure disclosure TVC
         disclosure.accessoryType = .detailButton
         disclosure.isUserInteractionEnabled = false
-        disclosure.tintColor = UIColor.brightTurquoise()
+        disclosure.tintColor = Colors.UpdateExerciseInfo.disclosureBtnTint
         
         //add disclosure tvc to button
         moreInfoIcon.addSubview(disclosure)
@@ -74,7 +66,6 @@ class UpdateExerciseMetricTableViewCell: BaseTableViewCell {
         //configure metric switch
         centerRight(metricSwitch)
         metricSwitch.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
-        metricSwitch.onTintColor = UIColor.brightTurquoise()
         
     }
     
@@ -99,7 +90,6 @@ class UpdateExerciseMetricDropdownTableViewCell: BaseTableViewCell {
     
     let segmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl()
-        sc.tintColor = UIColor.brightTurquoise()
         return sc
     }()
     
@@ -117,7 +107,6 @@ class UpdateExerciseMetricDropdownTableViewCell: BaseTableViewCell {
         segmentedControl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         segmentedControl.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 35).isActive = true
-        backgroundColor = UIColor.lighterBlack()
     }
     
     func setupSegmentedControl(with items: [String]) {

@@ -160,32 +160,25 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
             setCellBackground(cell)
             cell.isUserInteractionEnabled = false
             cell.selectionStyle = .none
-            cell.leftLabel.textColor = UIColor.groupedTableText()
-            cell.rightLabel.textColor = UIColor.brightTurquoise()
-            
+
             switch indexPath.row {
-                
             case 0:
-                
                 cell.leftLabel.text = "Change From Seven Days Ago"
                 cell.rightLabel.text = dataModel.changeFrom(daysAgo: 7).withDeltaSymbol
                 return cell
                 
             case 1:
-                
                 cell.leftLabel.text = "Change From Thirty Days Ago"
                 cell.rightLabel.text = dataModel.changeFrom(daysAgo: 30).withDeltaSymbol
                 return cell
                 
             case 2:
-                
                 cell.leftLabel.text = "Min Bodyweight"
                 let minBodyweight = dataModel.minBW?.bodyweight ?? 0.00
                 cell.rightLabel.text = String(minBodyweight)
                 return cell
                 
             case 3:
-                
                 cell.leftLabel.text = "Max Bodyweight"
                 let maxBodyweight = dataModel.maxBW?.bodyweight ?? 0.00
                 cell.rightLabel.text = String(maxBodyweight)

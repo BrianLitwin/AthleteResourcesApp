@@ -32,11 +32,9 @@ class TextFieldCollectionViewCell: BaseCollectionViewCell, UITextFieldDelegate {
     var textField: UITextField = {
         let tf = UITextField()
         tf.textColor = UIColor.white
-        //tf.backgroundColor = UIColor.lighterBlack()
         tf.layer.borderColor = UIColor.darkGray.cgColor
         tf.layer.cornerRadius = 2
         tf.layer.borderWidth = 1
-        //tf.tintColor = UIColor.brightTurquoise()
         return tf
     }()
     
@@ -87,35 +85,19 @@ class TextFieldCollectionViewCell: BaseCollectionViewCell, UITextFieldDelegate {
             
             if isSelected {
                 textField.becomeFirstResponder()
-                //textField.layer.borderColor = UIColor.brightTurquoise().cgColor
             } else {
-                
                 textField.layer.borderColor = UIColor.darkGray.cgColor
                 textField.resignFirstResponder()
-                
             }
         }
     }
     
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         onTap?()
-        
-        //textField.layer.borderColor = UIColor.brightTurquoise().cgColor
-        //modelDelegate.setSelectedTextFieldIndex(index: index)
-        //collectionViewDelegate.selectCell()
-        
     }
-    
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.darkGray.cgColor
-        
-        //if let string = textField.text {
-            //modelDelegate.saveValue(string, index: index)
-        //}
-        
     }
     
 }

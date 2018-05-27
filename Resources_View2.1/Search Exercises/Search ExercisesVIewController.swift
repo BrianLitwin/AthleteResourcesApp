@@ -26,7 +26,6 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
         //setupSearchBar()
         setupTableView() 
         
-        tableView.backgroundColor = UIColor.lighterBlack()
         tableView.separatorColor = UIColor.init(white: 1, alpha: 0.3)
         //give a little cushion in bottom
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 200))
@@ -34,7 +33,6 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
         //configure search bar
         searchBar.delegate = tableViewDataSource
         searchBar.placeholder = "Search Exercises"
-        searchBar.tintColor = UIColor.brightTurquoise()
         searchBar.backgroundColor = .clear
         searchBar.searchBarStyle = .minimal
         

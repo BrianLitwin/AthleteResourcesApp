@@ -103,7 +103,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
             x.labelRotation  = CGFloat(M_PI_4)
             x.labelingPolicy = .none
             
-            let labelColor = CPTColor(cgColor: UIColor.groupedTableText().cgColor)
+            let labelColor = CPTColor(cgColor: UIColor.white.cgColor)
             let textStyle = CPTMutableTextStyle()
             textStyle.color = labelColor
             
@@ -131,7 +131,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
                 let style = CPTMutableTextStyle()
                 style.fontSize = 12.0
                 style.fontName = "Helvetica"
-                style.color = CPTColor(cgColor: UIColor.groupedTableText().cgColor)
+                style.color = CPTColor(cgColor: UIColor.white.cgColor)
                 let rounded = margin.rounded(toPlaces: 2).withDeltaSymbol
                 let textLayer = CPTTextLayer(text: rounded, style: style)
                 marginAnnotation.contentLayer = textLayer
@@ -147,7 +147,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
                     let style2 = CPTMutableTextStyle()
                     style2.fontSize = 12.0
                     style2.fontName = "Helvetica"
-                    style2.color = CPTColor(cgColor: UIColor.groupedTableText().cgColor)
+                    style2.color = CPTColor(cgColor: UIColor.white.cgColor)
                     let text = xAxisLabels[labelLocation - 1]
                     let textLayer2 = CPTTextLayer(text: text, style: style)
                     xAxisLabel.contentLayer = textLayer2
@@ -181,8 +181,9 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         // First bar plot
         
-        let color = UIColor.brightTurquoise().withAlphaComponent(0.5).cgColor
-        let fColor = UIColor.brightTurquoise().withAlphaComponent(0.15).cgColor
+        let baseColor = Colors.BarChart.barTint
+        let color = baseColor.withAlphaComponent(0.5).cgColor
+        let fColor = baseColor.withAlphaComponent(0.15).cgColor
         let areaColor    = CPTColor.init(cgColor: color)
         let finalColor = CPTColor.init(cgColor: fColor)
         let areaGradient = CPTGradient(beginning: areaColor, ending: finalColor)

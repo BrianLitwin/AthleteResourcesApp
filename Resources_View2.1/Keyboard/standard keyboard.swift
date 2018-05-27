@@ -19,8 +19,6 @@ class KeyboardView: UIView, DoneButtonDelegate {
         
         super.init(frame: .zero)
         
-        backgroundColor = UIColor.color(59, 60, 71)
-        
         let row1 = KeyboardRow()
         let row2 = KeyboardRow()
         let row3 = KeyboardRow()
