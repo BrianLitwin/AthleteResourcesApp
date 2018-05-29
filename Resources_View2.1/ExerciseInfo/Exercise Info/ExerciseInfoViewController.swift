@@ -23,6 +23,7 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
             menuBar.infoControllers = exerciseInfo.infoControllers
             menuBar.reloadData()
             changeViewController(index: 0)
+            menuBar.selectItem(at: [0,0], animated: false, scrollPosition: .bottom)
         }
     }
     

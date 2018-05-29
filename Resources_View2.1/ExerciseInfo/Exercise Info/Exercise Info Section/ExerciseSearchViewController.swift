@@ -38,6 +38,7 @@ public class ExerciseSortableTableViewController: UIViewController, ReloadableVi
         cv.delegate = cv
         cv.dataSource = cv
         cv.register(MenuCell.self, forCellWithReuseIdentifier: MenuCell.reuseID)
+        cv.backgroundColor = UIColor.clear
         return cv
     }()
     
@@ -51,6 +52,7 @@ public class ExerciseSortableTableViewController: UIViewController, ReloadableVi
         cv.dataSource = cv
         cv.register(MenuCell.self, forCellWithReuseIdentifier: MenuCell.reuseID)
         cv.sortingDelegate = self
+        cv.backgroundColor = UIColor.clear
         return cv
     }()
     
@@ -111,7 +113,6 @@ class ExerciseTableMenu: UICollectionView, UICollectionViewDelegate, UICollectio
 }
 
 class ExerciseTableData: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     var model: ExerciseSortableTableModel?
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -127,36 +128,22 @@ class ExerciseTableData: UICollectionView, UICollectionViewDelegate, UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCell.reuseID, for: indexPath) as! MenuCell
         
         guard let rowData = model?.tableData[indexPath.section] else { return cell }
-        
         switch indexPath.row {
-            
         case 0:
             cell.label.text = rowData.date.monthDayYear
-            
         default:
             let item = rowData.dataItems[indexPath.row - 1]
             cell.label.text = String(item)
-            
         }
         
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = frame.width / CGFloat((model?.tableMenuHeaders.count ?? 0))
         return CGSize(width: width, height: 50)
     }
-    
-    
 }
-
-
-
-
-
-
-
 
 private class MenuCell: BaseCollectionViewCell {
     

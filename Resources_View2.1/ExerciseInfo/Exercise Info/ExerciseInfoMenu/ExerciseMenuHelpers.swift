@@ -9,30 +9,13 @@
 import UIKit
 
 class CircleGraphicView: BaseView {
-    
     var outline1 = UIView()
-    
-    var label: UILabel = {
-        let label = UILabel()
-        //label.textColor = UIColor.workoutBackground2()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let imageView: UIImageView = {
-        let iv = UIImageView()
-        return iv
-    }()
     
     override func setupViews() {
         addSubview(outline1)
-        
         outline1.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         outline1.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-        
-        
     }
-
 }
 
 struct ExerciseInfoMenuCellSize {

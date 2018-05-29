@@ -46,7 +46,7 @@ public class WorkoutHistoryTableViewController: DefaultTableViewController, Relo
     }
     
     func setTrashButtonTintColor(for isEditing: Bool) {
-        trashButton?.tintColor = isEditing ? UIColor.red : trashButtonColor ?? Color.Blue.medium.color
+        trashButton?.tintColor = Colors.WorkoutHistory.trashbarTint(highlighted: isEditing)
     }
     
     

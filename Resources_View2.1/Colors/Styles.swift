@@ -12,8 +12,30 @@ public struct Colors {
     
     static let navbarBtnTint = Color.Blue.medium.color 
     
+    public struct TableView {
+        public static let sectionHeader = Color.Blue.medium.color
+    }
+    
+    public struct WorkoutHistory {
+        static func trashbarTint(highlighted: Bool) -> UIColor {
+            return highlighted ? Color.Red.medium.color : Color.Blue.medium.color
+        }
+    }
+    
+    public struct ExerciseInfoMenu {
+        static let background = Color.Gray.lighter.color
+        static let unhighlightedIcon =  Color.Gray.light.color
+        static let highlightedIcon = Color.Blue.medium.color
+    }
+    
+    public struct SearchExercises {
+        static func checkmarkTint(highlighted: Bool) -> UIColor {
+            return highlighted ? Color.Blue.medium.color : Color.Gray.light.color
+        }
+    }
+    
     public struct CurrentWorkout {
-        public static let background = Color.Blue.light.color
+        public static let background: UIColor = .groupTableViewBackground
         public static let iconTint = Color.Blue.medium.color
         public static let sectionBg = UIColor.white
         public static let workoutHeaderBg = Color.Blue.medium.color

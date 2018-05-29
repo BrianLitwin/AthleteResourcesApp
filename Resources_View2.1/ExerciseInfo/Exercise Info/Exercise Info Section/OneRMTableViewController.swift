@@ -52,7 +52,6 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
         tableView.tableHeaderView = headerView
         tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 220)
         
-        
         headerView.addSubview(graphHeader)
         scrollView.addSubview(progressGraph)
         headerView.addSubview(scrollView)
@@ -162,17 +161,12 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: OneRMWeekTableViewCell.reuseID, for: indexPath) as! OneRMWeekTableViewCell
             
-        
             guard let week = model?.weeks[indexPath.row] else { return cell }
             cell.titleLabel.text = "Wk " + String(week.weekNumber)
             cell.detailLabel.text = week.oneRMString ?? ""
             cell.metric1.text = week.percentageChange ?? "-"
-            if let absoluteChange = week.absoluteChange?.rounded(toPlaces: 2) {
-              cell.metric2.text =  String(absoluteChange)
-            } else {
-                cell.metric2.text = "-"
-            }
-        
+            cell.metric2.text = week.absoluteChange?.withDeltaSymbol ?? "-"
+            cell.metric2.textAlignment = .left
             return cell
             
         }
@@ -189,7 +183,9 @@ class OneRMWeekTableViewCell: BaseTableViewCell {
     
     var detailLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.init(white: 1, alpha: 0.8)
+        
+        //move this to color api
+        label.textColor = Color.Gray.light.color
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
         return label

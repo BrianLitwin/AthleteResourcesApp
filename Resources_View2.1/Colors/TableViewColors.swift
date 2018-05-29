@@ -14,15 +14,14 @@ import UIKit
 public extension UITableViewController {
     
     func setupDefaultColorScheme() {
-//        tableView.backgroundColor = UIColor.lighterBlack()
-//        tableView.separatorColor = UIColor.init(white: 1, alpha: 0.3)
+        //tableView.backgroundColor = UIColor.lighterBlack()
+        //tableView.separatorColor = UIColor.init(white: 1, alpha: 0.3)
     }
     
 }
 
 public extension UITableView {
     
-    //todo: remove this class
     func setupDefaultColorScheme() {
     }
     
@@ -46,7 +45,7 @@ public class DefaultTableViewController: UITableViewController {
     
     override public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
-        //header.textLabel?.textColor = UIColor.brightTurquoise()
+        header.textLabel?.textColor = Colors.TableView.sectionHeader 
     }
     
     func setCellBackground(_ cell: UITableViewCell) {
