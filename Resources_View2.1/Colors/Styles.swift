@@ -9,11 +9,31 @@
 import UIKit
 
 public struct Colors {
+    static let navbarBtnTint = Color.Blue.medium.color
+    static let navBarBgTint = UIColor.white
     
-    static let navbarBtnTint = Color.Blue.medium.color 
+    public struct Keyboard {
+        public static let primaryBg = UIColor.white 
+        public static let secondaryBg = UIColor.init(white: 0.00, alpha: 0.15)
+    }
+    
+    public struct EditExerciseMetricPopup {
+        public static let doneBtnTint = Color.Blue.medium.color
+    }
     
     public struct TableView {
         public static let sectionHeader = Color.Blue.medium.color
+    }
+    
+    public struct Sidebar {
+        public struct Primary {
+            static let icon = Color.Blue.medium.color
+            static let bg = UIColor.groupTableViewBackground
+        }
+        public struct Secondary {
+            static let icon = Color.Blue.medium.color
+            static let bg = UIColor.init(white: 0.0, alpha: 0.0)
+        }
     }
     
     public struct WorkoutHistory {
@@ -38,8 +58,11 @@ public struct Colors {
         public static let background: UIColor = .groupTableViewBackground
         public static let iconTint = Color.Blue.medium.color
         public static let sectionBg = UIColor.white
-        public static let workoutHeaderBg = Color.Blue.medium.color
-        public static let addExerciseBg = Color.Blue.medium.color
+        public static let workoutHeaderBg = UIColor.clear
+        public static let addExerciseBg = UIColor.clear
+        public static let editDateIcon = Color.Blue.medium.color
+        public static let dateLabel = Color.Blue.medium.color
+        public static let addExerciseLabel = Color.Blue.medium.color
     }
     
     public struct BarChart {
@@ -54,9 +77,24 @@ public struct Colors {
         public static let disclosureBtnTint = Color.Blue.medium.color
     }
     
+    public struct CreateMenus {
+        public struct CompoundExercise {
+            public static let navbarTint = Color.Blue.medium.color
+        }
+    }
+    
+    public struct OneRMWeekCell {
+        public static let detailText = Color.Gray.light.color
+    }
+    
+    public struct ExercisePicker {
+        public static let headerBg = Color.Blue.light.color
+    }
+    
 }
 
-enum Color {
+
+fileprivate enum Color {
     
     static let background = Color.Gray.lighter.color
     static let purple = "6f42c1"

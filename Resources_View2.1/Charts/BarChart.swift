@@ -35,11 +35,12 @@ class BarChart : UIView, CPTBarPlotDataSource {
         //note sure why removing from superview doens't work
         emptyView.removeFromSuperview()
         
+        backgroundColor = UIColor.yellow
+        
         self.graphData = data.reversed()
         
         //remove the first entry becuase it will always be zero (start on wk 2 and replace it with 0 because the graph seems to not show the first entry well (bug)
         self.graphData[0] = 0.0
-        // Create graph from theme
         var tickerLocations: [Int] = []
         var tickerHeadings: [String] = []
         
@@ -52,12 +53,10 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         let xMin = 0.0
         let xMax = Double(graphData.count)
+        let yMin = graphData.min(by: { $0 < $1 })! - 7
+        let yMax = graphData.max(by: { $0 < $1 })! + 7
         
-        let yMin = graphData.min(by: { $0 < $1 })!
-        let maxYValue = graphData.max(by: { $0 < $1 })!
-        let yMax = max(maxYValue, 10.0)
-        
-        
+
         guard let plotSpace = newGraph.defaultPlotSpace as? CPTXYPlotSpace else { return }
         plotSpace.xRange = CPTPlotRange(location: xMin.NSNumber, length: (xMax - xMin).NSNumber)
         plotSpace.yRange = CPTPlotRange(location: yMin.NSNumber, length: (yMax - yMin).NSNumber)
@@ -103,7 +102,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
             x.labelRotation  = CGFloat(M_PI_4)
             x.labelingPolicy = .none
             
-            let labelColor = CPTColor(cgColor: UIColor.white.cgColor)
+            let labelColor = CPTColor(cgColor: UIColor.black.cgColor)
             let textStyle = CPTMutableTextStyle()
             textStyle.color = labelColor
             
@@ -124,6 +123,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
                 labelLocation += 1
                 
                 let margin = graphData[labelLocation]
+                print(margin)
                 let cushion: Double = 1.60
                 var yPosition = margin > 0.00 ? (margin + cushion).NSNumber : cushion.NSNumber
                 let xPosition = labelLocation.NSNumber
@@ -131,7 +131,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
                 let style = CPTMutableTextStyle()
                 style.fontSize = 12.0
                 style.fontName = "Helvetica"
-                style.color = CPTColor(cgColor: UIColor.white.cgColor)
+                style.color = CPTColor(cgColor: UIColor.black.cgColor)
                 let rounded = margin.rounded(toPlaces: 2).withDeltaSymbol
                 let textLayer = CPTTextLayer(text: rounded, style: style)
                 marginAnnotation.contentLayer = textLayer
@@ -147,7 +147,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
                     let style2 = CPTMutableTextStyle()
                     style2.fontSize = 12.0
                     style2.fontName = "Helvetica"
-                    style2.color = CPTColor(cgColor: UIColor.white.cgColor)
+                    style2.color = CPTColor(cgColor: UIColor.black.cgColor)
                     let text = xAxisLabels[labelLocation - 1]
                     let textLayer2 = CPTTextLayer(text: text, style: style)
                     xAxisLabel.contentLayer = textLayer2

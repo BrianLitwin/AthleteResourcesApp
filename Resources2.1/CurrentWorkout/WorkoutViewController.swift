@@ -15,11 +15,8 @@ import Resources_View2_1
 class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutDelegate {
     
     var reloadWorkoutHandler: WorkoutReloadHandler?
-    
     var updateUIHandler: ReloadsWorkoutUI?
-    
     var currentWorkout: Workouts?
-    
     var currentlySelectedMasterInfoController: MasterInfoController?
     
     lazy var scrollView: ScrollView =
@@ -43,6 +40,7 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = Colors.CurrentWorkout.background 
         view.insertSubview(scrollView, at: 0)
         reloadWorkoutHandler = WorkoutReloadHandler(delegate: self)
@@ -52,15 +50,11 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
             Workouts.createNewWorkout()
        
         setup(for: workout)
-        
     }
     
     func setup(for workout: Workouts) {
-        
         currentWorkout = workout
-        
         scrollView.removeAllSubviewsFromContentView()
-        
         let newHeaderModel = WorkoutHeaderModel(workout: workout,
                                                 delegate: scrollView.header)
         
@@ -78,17 +72,13 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
         })
     }
     
-    
     func insertSequence(withSelection: IndexPath, at sectionNumber: Int) {
-        
         let indexPath = withSelection
-        
         guard let workout = currentWorkout else { return }
         
         //make sure array indexes don't crash
         guard exercisePickerModel.exercises.indices.contains(indexPath.section) else { return }
         guard exercisePickerModel.exercises[indexPath.section].indices.contains(indexPath.row) else { return }
-        
         let newEntry = exercisePickerModel.exercises[indexPath.section][indexPath.row]
         
         if let exercise = newEntry as? Exercises {
@@ -118,14 +108,17 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
             currentlySelectedMasterInfoController = nil 
         }
     }
-    
-    
 }
 
 
-
-
-
+func twoLineNavBarTitle(firstLine: String, secondLine: String) -> UILabel {
+    let label = UILabel()
+    label.font = UIFont.boldSystemFont(ofSize: 16)
+    label.textAlignment = .center
+    label.text = "\(firstLine) \(secondLine)"
+    
+    return label
+}
 
 
 

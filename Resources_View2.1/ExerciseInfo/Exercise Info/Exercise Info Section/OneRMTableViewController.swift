@@ -52,11 +52,15 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
         tableView.tableHeaderView = headerView
         tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 220)
         
+        //canUndo
+        headerView.setBorder()
+        graphHeader.setBorder()
+        
         headerView.addSubview(graphHeader)
         scrollView.addSubview(progressGraph)
         headerView.addSubview(scrollView)
         graphHeader.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 55)
-        scrollView.frame = CGRect(x: 0, y: 80, width: view.frame.width, height: 220 - 80)
+        scrollView.frame = CGRect(x: 0, y: graphHeader.frame.maxY, width: view.frame.width, height: headerView.frame.maxY - graphHeader.frame.maxY)
         
     }
 
@@ -185,7 +189,7 @@ class OneRMWeekTableViewCell: BaseTableViewCell {
         let label = UILabel()
         
         //move this to color api
-        label.textColor = Color.Gray.light.color
+        label.textColor = Colors.OneRMWeekCell.detailText
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
         return label
@@ -201,7 +205,7 @@ class OneRMWeekTableViewCell: BaseTableViewCell {
         return label
     }()
     
-    static var reuseID = "OneRMExerciseMetricCell"
+    static var reuseID = "OneRMExeMetCell"
     
     var metric1: UILabel = {
         let label = UILabel()

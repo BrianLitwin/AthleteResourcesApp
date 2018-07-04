@@ -63,10 +63,6 @@ class SideBar: BaseCollectionView {
 }
 
 class SideBarCell: BaseCollectionViewCell {
-    let primaryBgColor = UIColor.init(white: 0.0, alpha: 0.15)
-    let secondaryBgColor = UIColor.init(white: 0.0, alpha: 0.0)
-    let primaryIconColor = Color.Blue.medium.color
-    let secondaryIconColor = Color.Gray.light.color
     
     var imageView: UIImageView = {
         let iv = UIImageView()
@@ -82,8 +78,8 @@ class SideBarCell: BaseCollectionViewCell {
     }
     
     func setColor(isSelected cellIsSelected: Bool) {
-        backgroundColor = cellIsSelected ? primaryBgColor : secondaryBgColor
-        imageView.tintColor = cellIsSelected ? primaryIconColor : secondaryIconColor
+        backgroundColor = cellIsSelected ? Colors.Sidebar.Primary.bg : Colors.Sidebar.Secondary.bg
+        imageView.tintColor = cellIsSelected ? Colors.Sidebar.Primary.icon : Colors.Sidebar.Secondary.icon
     }
     
     override var isSelected: Bool {

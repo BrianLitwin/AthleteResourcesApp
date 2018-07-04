@@ -16,7 +16,8 @@ public class NavigationController: UINavigationController {
     
     override public func viewDidLoad() {
         configureRightBarButton()
-        self.navigationBar.isTranslucent = false 
+        self.navigationBar.isTranslucent = false
+        UINavigationBar.appearance().barTintColor = Colors.navBarBgTint
     }
     
     func configureRightBarButton() {

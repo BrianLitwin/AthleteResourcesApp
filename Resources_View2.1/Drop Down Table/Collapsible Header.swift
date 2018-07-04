@@ -22,7 +22,6 @@ extension TableWithDropDownHeaders: CollapsibleHeaderDelegate {
 
 
 public class CollapsibleHeader: BaseTableViewHeaderFooterView {
-    
     static var reuseID = "header"
     var section: Int = 0
     

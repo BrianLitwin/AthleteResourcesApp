@@ -16,9 +16,7 @@ class KeyboardView: UIView, DoneButtonDelegate {
     var doneBtnTap: (() -> Void)?
     
     init() {
-        
         super.init(frame: .zero)
-        
         let row1 = KeyboardRow()
         let row2 = KeyboardRow()
         let row3 = KeyboardRow()
@@ -55,8 +53,8 @@ class KeyboardView: UIView, DoneButtonDelegate {
         
         let masterStackView = MasterKeyboardStackView(rows: row1, row2, row3, row4)
         
+        //not sure doneBtn is active
         let doneBtn = KeyboardDoneButton(delegate: self)
-        
         let doneBtnView = UIView()
         doneBtnView.backgroundColor = UIColor.clear
         doneBtnView.addSubview(doneBtn)
@@ -68,8 +66,6 @@ class KeyboardView: UIView, DoneButtonDelegate {
         addConstraintsWithFormat("H:|[v0]|", views: doneBtnView)
         addConstraintsWithFormat("H:|[v0]|", views: masterStackView)
         addConstraintsWithFormat("V:|[v0(40)]-1.5-[v1]-1.5-|", views: doneBtnView, masterStackView)
-        
-        
     }
     
     func btnTapAction(type: KeyboardButtonType) -> () -> Void {
@@ -80,7 +76,5 @@ class KeyboardView: UIView, DoneButtonDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 

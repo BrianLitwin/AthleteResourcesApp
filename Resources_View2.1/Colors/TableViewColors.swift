@@ -8,32 +8,24 @@
 
 import UIKit
 
-
-
-
 public extension UITableViewController {
-    
     func setupDefaultColorScheme() {
         //tableView.backgroundColor = UIColor.lighterBlack()
         //tableView.separatorColor = UIColor.init(white: 1, alpha: 0.3)
     }
-    
 }
 
 public extension UITableView {
     
-    func setupDefaultColorScheme() {
-    }
+    func setupDefaultColorScheme() { }
     
     @objc public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         //header.textLabel?.textColor = UIColor.brightTurquoise()
     }
-    
 }
 
 public class DefaultTableViewController: UITableViewController {
-    
     override public init(style: UITableViewStyle) {
         super.init(style: style)
         setupDefaultColorScheme()
@@ -52,12 +44,7 @@ public class DefaultTableViewController: UITableViewController {
         cell.backgroundColor = self.tableView.backgroundColor
         //cell.textLabel?.textColor = UIColor.groupedTableText()
     }
-    
 }
-
-
-
-
 
 public extension UIColor {
     

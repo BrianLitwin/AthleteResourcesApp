@@ -51,6 +51,14 @@ class CreateMenuTableViewController: UITableViewController {
         tableView.separatorColor = UIColor.init(white: 1, alpha: 0.3)
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: return "Create"
+        case 1: return "Delete"
+        default: return ""
+        }
+    }
+    
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return headers.count
     }
@@ -100,8 +108,7 @@ class CreateMenuTableViewController: UITableViewController {
             
             let navControl = CompoundExerciseBuilderNavivagationController()
             navControl.setup(windowManager: WindowManager(), preExistingType: nil)
-            navControl.navigationBar.tintColor = UIColor.red
-            
+            navControl.navigationBar.tintColor = Colors.CreateMenus.CompoundExercise.navbarTint 
             present(navControl, animated: true)
             
         case 2:
