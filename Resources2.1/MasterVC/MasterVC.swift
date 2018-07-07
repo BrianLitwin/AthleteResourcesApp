@@ -12,11 +12,17 @@ import Resources_View2_1
 
 class MasterVC: UIViewController, ContainerViewController {
     
+    var currentVCIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ll = GetWorkoutsFromServer()
-        ll.getWorkoutsFromBackend()
+        let exampleData = ExampleData()
+        
+        
+//        let ll = GetWorkoutsFromServer()
+//        ll.getWorkoutsFromBackend()
+        
     
         let firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
         if firstLaunch != true {
@@ -37,8 +43,7 @@ class MasterVC: UIViewController, ContainerViewController {
         }
          */
         
-        changeViewController(index: 0)
-        
+        changeViewController(index: currentVCIndex)
     }
     
     func childVCs() -> [UIViewController] {
@@ -127,6 +132,21 @@ class MasterVC: UIViewController, ContainerViewController {
         // Pass the selected object to the new view controller.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let vc = childViewControllers.first, let child = vc as? ChildVC {
+            self.navigationController?.title = child.name
+        } else {
+            self.navigationController?.title = ""
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.title = ""
+    }
+    
 }
 
 

@@ -10,6 +10,7 @@ import UIKit
 
 
 public protocol OneRepMaxTableViewModel: ReloadableModel {
+    func loadMainQueueItems()
     var numberOfWeeks: Int { get }
     var beginningEstOneRM: Double { get }
     var currentEstOneRM: Double { get }
@@ -28,50 +29,58 @@ public protocol OneRMWeek {
 }
 
 
-public class OneRMTableViewController: UITableViewController, ReloadableView {
-    
-    public var reloadableModel: ReloadableModel? {
-        return model
-    }
-    
+public class OneRMTableViewController: UITableViewController {
     let graphHeader = OneRMGraphHeader()
-    
     let progressGraph = BarChart()
-    
     let headerView = UIView()
-    
     let scrollView = UIScrollView()
-    
     public var model: OneRepMaxTableViewModel?
     
     override public func viewDidLoad() {
         super.viewDidLoad()
         setupDefaultColorScheme()
+        
         tableView.register(TableViewCellWithRightAndLeftLabel.self, forCellReuseIdentifier: TableViewCellWithRightAndLeftLabel.reuseID)
         tableView.register(OneRMWeekTableViewCell.self, forCellReuseIdentifier: OneRMWeekTableViewCell.reuseID)
-        tableView.tableHeaderView = headerView
-        tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 220)
         
-        //canUndo
-        headerView.setBorder()
-        graphHeader.setBorder()
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 220)
+        tableView.tableHeaderView = headerView
         
         headerView.addSubview(graphHeader)
         scrollView.addSubview(progressGraph)
         headerView.addSubview(scrollView)
         graphHeader.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 55)
         scrollView.frame = CGRect(x: 0, y: graphHeader.frame.maxY, width: view.frame.width, height: headerView.frame.maxY - graphHeader.frame.maxY)
-        
+
     }
 
+    public override func viewWillAppear(_ animated: Bool) {
+        guard let model = model else { return }
+        if model.needsReload {
+            model.loadMainQueueItems()
+            
+            let spinner = getActivityIndicator()
+            spinner.frame = view.frame
+            view.addSubview(spinner)
+            spinner.startAnimating()
+            
+            Queue.userInitiated.execute() {
+                model.loadModel()
+                Queue.main.execute { [weak self] in
+                    spinner.removeFromSuperview()
+                    self?.reloadView()
+                }
+            }
+        }
+    }
+    
     public func reloadView() {
-        
         if let model = self.model {
             if model.weeks.count > 1 {
                 progressGraph.setup(model.graphData)
                 
                 //configure width of scrollview
-                var maxWidth = CGFloat(model.weeks.count * 45)
+                let maxWidth = CGFloat(model.weeks.count * 45)
                 let width = max(maxWidth, view.frame.width)
                 scrollView.contentSize = CGSize(width: width,
                                                 height: scrollView.contentSize.height)
@@ -93,9 +102,9 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
         tableView.reloadData()
     }
     
-    
     override public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = Colors.TableView.sectionHeader
     }
     
     override public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -121,9 +130,7 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
         }
     }
 
-    
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section {
             
         case 0:
@@ -177,7 +184,13 @@ public class OneRMTableViewController: UITableViewController, ReloadableView {
     
     }
 
-    
+    func getActivityIndicator() -> UIActivityIndicatorView {
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        spinner.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        spinner.color = UIColor.black
+        spinner.hidesWhenStopped = true
+        return spinner
+    }
 }
 
 
@@ -250,6 +263,7 @@ class OneRMGraphHeader: BaseView {
         let l = UILabel()
         l.text = "One Rep Max Progress"
         l.textAlignment = .center
+        l.textColor = UIColor.black
         return l
     }()
     

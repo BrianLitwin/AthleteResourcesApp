@@ -27,7 +27,6 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
         }
     }
     
-    
     lazy var menuBar: ExerciseInfoMenu = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -45,8 +44,8 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Exercise Info"
         setupMenuBar()
-        
         //keep view from going under navigation bar
         edgesForExtendedLayout = []
         
@@ -61,7 +60,6 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
     }
     
     func setupMenuBar() {
-        
         view.addSubview(menuBar)
         menuBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: menuBarHeight)
         
@@ -70,9 +68,6 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
         if diff > 0 {
             menuBar.contentInset = UIEdgeInsets(top: 0, left: diff / 2, bottom: 0, right: diff / 2)
         }
-        
     }
-    
-    
 }
 

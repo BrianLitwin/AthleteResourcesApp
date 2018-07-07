@@ -44,7 +44,7 @@ class HeaderForBodyweightTable: BaseView {
     
     var leftHandLabel: UILabel = {
         let l = UILabel()
-        l.textColor = UIColor.init(white: 1, alpha: 0.75)
+        l.textColor = UIColor.black
         l.font = UIFont.systemFont(ofSize: 12.5)
         l.text = "Current"
         return l
@@ -52,7 +52,7 @@ class HeaderForBodyweightTable: BaseView {
     
     var rightHandLabel: UILabel = {
         let l = UILabel()
-        l.textColor = UIColor.init(white: 1, alpha: 0.75)
+        l.textColor = UIColor.black
         l.font = UIFont.systemFont(ofSize: 12.5)
         l.text = "Change"
         return l

@@ -42,6 +42,7 @@ class TextfieldCollectionView: BaseCollectionView {
         guard let textFieldInfo = model?.textFieldInfos[indexPath.row] else { return cell }
         cell.onTap = textFieldInfo.onTap
         cell.setup(with: textFieldInfo.image, headerText: textFieldInfo.headerText, textFieldText: textFieldInfo.textFieldText)
+        cell.textField.backgroundColor = UIColor.white 
         
         return cell
     }

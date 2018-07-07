@@ -95,7 +95,6 @@
 		BDD2181A204CF153006BAA70 /* UpdateExercise NVI TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD21819204CF153006BAA70 /* UpdateExercise NVI TableViewCell.swift */; };
 		BDE3D43F207998DC003C6A94 /* ExerciseInfoMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3D43E207998DC003C6A94 /* ExerciseInfoMenuCell.swift */; };
 		BDE3D44120799989003C6A94 /* ExerciseMenuHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3D44020799989003C6A94 /* ExerciseMenuHelpers.swift */; };
-		BDE3D459207A4740003C6A94 /* ExerciseInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3D458207A4740003C6A94 /* ExerciseInfoController.swift */; };
 		BDE3D45B207A51E7003C6A94 /* PersonalRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3D45A207A51E7003C6A94 /* PersonalRecords.swift */; };
 		BDE69D5C20434A9200AEBC2C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE69D5B20434A9200AEBC2C /* String.swift */; };
 		BDE69D5E20434F1900AEBC2C /* Edit ExerciseMetric Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE69D5D20434F1900AEBC2C /* Edit ExerciseMetric Keyboard.swift */; };
@@ -207,7 +206,6 @@
 		BDD21819204CF153006BAA70 /* UpdateExercise NVI TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpdateExercise NVI TableViewCell.swift"; sourceTree = "<group>"; };
 		BDE3D43E207998DC003C6A94 /* ExerciseInfoMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoMenuCell.swift; sourceTree = "<group>"; };
 		BDE3D44020799989003C6A94 /* ExerciseMenuHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMenuHelpers.swift; sourceTree = "<group>"; };
-		BDE3D458207A4740003C6A94 /* ExerciseInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoController.swift; sourceTree = "<group>"; };
 		BDE3D45A207A51E7003C6A94 /* PersonalRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecords.swift; sourceTree = "<group>"; };
 		BDE69D5B20434A9200AEBC2C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BDE69D5D20434F1900AEBC2C /* Edit ExerciseMetric Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit ExerciseMetric Keyboard.swift"; sourceTree = "<group>"; };
@@ -523,7 +521,6 @@
 			isa = PBXGroup;
 			children = (
 				BDAA112120770648008A8EB4 /* ExerciseInfoViewController.swift */,
-				BDE3D458207A4740003C6A94 /* ExerciseInfoController.swift */,
 				BD768B3A2049A1D700803DC0 /* Exercise Info Section */,
 				BDE3D43D207998B3003C6A94 /* ExerciseInfoMenu */,
 			);
@@ -707,7 +704,6 @@
 				BD64C49B207D9E230009AB91 /* TableViewColors.swift in Sources */,
 				BD012F58203A59A900A4A351 /* ContentView.swift in Sources */,
 				BD768B342048EF8B00803DC0 /* Int.swift in Sources */,
-				BDE3D459207A4740003C6A94 /* ExerciseInfoController.swift in Sources */,
 				BDFE06972079023200F3024B /* BWTableViewCells.swift in Sources */,
 				BDE69D5C20434A9200AEBC2C /* String.swift in Sources */,
 				BDF091E6203BCAA400F223F0 /* ExercisePickerModel.swift in Sources */,

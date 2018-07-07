@@ -9,7 +9,7 @@
 import UIKit
 
 public struct Colors {
-    static let navbarBtnTint = Color.Blue.medium.color
+    static let navbarBtnTint = UIColor.black
     static let navBarBgTint = UIColor.white
     
     public struct Keyboard {
@@ -38,14 +38,14 @@ public struct Colors {
     
     public struct WorkoutHistory {
         static func trashbarTint(highlighted: Bool) -> UIColor {
-            return highlighted ? Color.Red.medium.color : Color.Blue.medium.color
+            return highlighted ? Color.Red.medium.color : UIColor.black
         }
     }
     
     public struct ExerciseInfoMenu {
-        static let background = Color.Gray.lighter.color
+        static let background = Color.background
         static let unhighlightedIcon =  Color.Gray.light.color
-        static let highlightedIcon = Color.Blue.medium.color
+        static let highlightedIcon = UIColor.black
     }
     
     public struct SearchExercises {
@@ -63,6 +63,7 @@ public struct Colors {
         public static let editDateIcon = Color.Blue.medium.color
         public static let dateLabel = Color.Blue.medium.color
         public static let addExerciseLabel = Color.Blue.medium.color
+        public static let settingsNavBarBtn = UIColor.black
     }
     
     public struct BarChart {
@@ -74,7 +75,9 @@ public struct Colors {
     }
     
     public struct UpdateExerciseInfo {
-        public static let disclosureBtnTint = Color.Blue.medium.color
+        public static let disclosureBtnTint = UIColor.black
+        public static let doneBtnTint = UIColor.black
+        public static let cancelBtnTint = UIColor.black
     }
     
     public struct CreateMenus {
@@ -91,17 +94,26 @@ public struct Colors {
         public static let headerBg = Color.Blue.light.color
     }
     
+    public struct BodyweightVC {
+        public static let addBtn = UIColor.black 
+    }
 }
 
 
 fileprivate enum Color {
-    
+
     static let background = Color.Gray.lighter.color
     static let purple = "6f42c1"
     static let blueGray = "8697af"
+    static let orange =  "f9bd5f"
+    
+    //UIColor.color(95, 11, 44)
+    
+    static let offGren = "ad1457"
     
     enum Red {
-        static let medium = "cb2431"
+        //static let medium = "cb2431"
+        static let medium = "53162f"
         static let light = "ffeef0"
     }
     
@@ -136,7 +148,6 @@ extension String {
     public var color: UIColor {
         return UIColor.fromHex(self)
     }
-    
 }
 
 extension UIColor {

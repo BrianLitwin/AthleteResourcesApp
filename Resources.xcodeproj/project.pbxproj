@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD4E783E20ED606400E36F5F /* LoadExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4E783D20ED606400E36F5F /* LoadExampleData.swift */; };
 		BD5404D420938E790092C9E9 /* Keyboard_Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */; };
 		BD6EE21D20AC927900DA9E68 /* Test_ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */; };
 		BD6EE22620ACAAE400DA9E68 /* Test_ContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */; };
@@ -147,6 +148,7 @@
 		812A1EBA6371768F8EAD748A /* Pods-Resources2.1-Unit Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1-Unit Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1-Unit Tests/Pods-Resources2.1-Unit Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B9A13C26032FD947FBA5305F /* Pods-Resources2.1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1/Pods-Resources2.1.debug.xcconfig"; sourceTree = "<group>"; };
 		BD012F7E203A621C00A4A351 /* Resources_View2_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Resources_View2_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4E783D20ED606400E36F5F /* LoadExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadExampleData.swift; sourceTree = "<group>"; };
 		BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard_Methods.swift; sourceTree = "<group>"; };
 		BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ScrollView.swift; sourceTree = "<group>"; };
 		BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ContextObserver.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 			children = (
 				BD6EE22920ADFBAB00DA9E68 /* RestAPI_Get.swift */,
 				BDF5C7A4207858AE002FDC10 /* EMOM model.swift */,
+				BD4E783D20ED606400E36F5F /* LoadExampleData.swift */,
 				BDF5C7CA207858AE002FDC10 /* Converting To Dict Values.swift */,
 				BDF5C796207858AE002FDC10 /* emom tableViewController.swift */,
 				BDF5C7AC207858AE002FDC10 /* TimerModel.swift */,
@@ -846,6 +849,7 @@
 				BDF5C7E3207858AE002FDC10 /* CreateOreditExerciseModel.swift in Sources */,
 				BDF5C816207858AE002FDC10 /* Exercise Picker Model.swift in Sources */,
 				BDF5C818207858AE002FDC10 /* CategoriesPicker.swift in Sources */,
+				BD4E783E20ED606400E36F5F /* LoadExampleData.swift in Sources */,
 				BDF5C7F6207858AE002FDC10 /* TimerModel.swift in Sources */,
 				BDF5C7DE207858AE002FDC10 /* RecordsDisplayModel.swift in Sources */,
 				BDF5C7F3207858AE002FDC10 /* EM_Containers.swift in Sources */,

@@ -42,14 +42,15 @@ public class BodyweightEntryViewController: UIViewController, TextFieldCollectio
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.groupTableViewBackground
         navigationController?.setDefaultColorScheme()
         self.navigationItem.rightBarButtonItem = doneBtn
         
         view.addSubview(textfieldCV)
         textfieldCV.model = self
         textfieldCV.frame = view.bounds
-        view.backgroundColor = UIColor.white
-        textfieldCV.backgroundColor = UIColor.white 
+        textfieldCV.backgroundColor = UIColor.clear 
     }
 
     @objc func doneBtnTap() {

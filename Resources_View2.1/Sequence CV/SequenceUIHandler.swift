@@ -53,9 +53,8 @@ public class SequenceUIHandler {
             showExMetricEditor(for: indexPath, insertRow: false)
             
         case .footerBtnTap:
-            showExMetricEditor(for: indexPath, insertRow: true)
+            updateView(for: .insertRow, at: indexPath)
         }
-        
     }
     
     public func updateView(for update: UIUpdate, at indexPath: IndexPath) {

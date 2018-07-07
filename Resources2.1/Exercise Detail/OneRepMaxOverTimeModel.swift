@@ -9,20 +9,33 @@
 import UIKit
 import Resources_View2_1
 
+struct ExerciseMetricsContainers {
+    let em: Exercise_Metrics
+    let date: Date
+    init(_ em: Exercise_Metrics) {
+        self.em = em
+        self.date = em.container?.sequence?.workout?.date ?? Date()
+    }
+}
 
 class OneRepMaxOverTimeModel {
     var needsReload: Bool = true
     var oneRMWeeks: [OneRMWeek] = []
     let exercise: Exercises
+    var exerciseMetrics = [ExerciseMetricsContainers]()
 
     init(exercise: Exercises) {
         self.exercise = exercise
     }
     
+    func loadMainQueueItems() {
+        let em = exercise.exerciseMetrics()
+        exerciseMetrics = em.map { ExerciseMetricsContainers($0) }
+    }
+    
     func loadModel() {
         
         let weeks = workoutDateManager.activeWeeks
-        let exerciseMetrics = exercise.exerciseMetrics()
         var numberOfWeeks = weeks.count
         
         oneRMWeeks = weeks.enumerated().reduce([OneRMWeek](), { weeksArray, value in
@@ -30,12 +43,9 @@ class OneRepMaxOverTimeModel {
             let week = value.element
             let index = value.offset
             
-            let ems = exerciseMetrics.filter({
-                guard let date = $0.container?.sequence?.workout?.date else { return false }
-                return week.interval().contains(date)
-            })
+            let ems = exerciseMetrics.filter({ return week.interval().contains($0.date) })
             
-            let oneRM = ems.getMaxOneRM()
+            let oneRM = ems.map{ $0.em }.getMaxOneRM()
             
             var bestPriorMax: OneRepMax? {
                 guard let prev = weeksArray.lastItem else { return nil }
@@ -46,10 +56,9 @@ class OneRepMaxOverTimeModel {
                         return priorBest
                     }
                 }
-                
+
                 return nil
             }
-            
 
             return weeksArray + [OneRMWeek(activeWeek: !ems.isEmpty,
                                            oneRepMax: oneRM,
@@ -57,9 +66,7 @@ class OneRepMaxOverTimeModel {
                                            bestPriorOneRM: bestPriorMax
                 )]
         }).reversed().filter{ $0.activeWeek }
-        
     }
-    
 }
     
     

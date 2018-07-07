@@ -18,6 +18,7 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
     var updateUIHandler: ReloadsWorkoutUI?
     var currentWorkout: Workouts?
     var currentlySelectedMasterInfoController: MasterInfoController?
+    var lefthandNavbarBtn: UIBarButtonItem?
     
     lazy var scrollView: ScrollView =
         ScrollView(frame: view.bounds,
@@ -41,6 +42,20 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //setup lefthand bar btn item
+        let image = #imageLiteral(resourceName: "settings").withRenderingMode(.alwaysTemplate)
+        let settingsBtn = UIButton()
+        settingsBtn.setImage(image, for: .normal)
+        settingsBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+        settingsBtn.addTarget(self, action: #selector(currentWorkoutSettings), for: .touchDown)
+        settingsBtn.tintColor = Colors.CurrentWorkout.settingsNavBarBtn
+        
+        lefthandNavbarBtn = UIBarButtonItem(customView: settingsBtn)
+        let currWidth = lefthandNavbarBtn!.customView?.widthAnchor.constraint(equalToConstant: 24)
+        currWidth?.isActive = true
+        let currHeight = lefthandNavbarBtn!.customView?.heightAnchor.constraint(equalToConstant: 24)
+        currHeight?.isActive = true
+        
         view.backgroundColor = Colors.CurrentWorkout.background 
         view.insertSubview(scrollView, at: 0)
         reloadWorkoutHandler = WorkoutReloadHandler(delegate: self)
@@ -58,6 +73,7 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
         let newHeaderModel = WorkoutHeaderModel(workout: workout,
                                                 delegate: scrollView.header)
         
+        //send the header the delegate so that it will update when you change the workout date .
         workoutHeaderModel = newHeaderModel
         scrollView.header.setup(info: newHeaderModel)
         
@@ -108,6 +124,23 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
             currentlySelectedMasterInfoController = nil 
         }
     }
+    
+    @objc func currentWorkoutSettings() {
+        workoutHeaderModel?.showEditOptions()
+    }
+    
+    //setup and tear down the navigationBar lefthand item
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationItem.leftBarButtonItem = lefthandNavbarBtn
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationItem.leftBarButtonItem = nil
+    }
+    
 }
 
 

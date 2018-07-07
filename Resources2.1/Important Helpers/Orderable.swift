@@ -9,7 +9,6 @@
 import UIKit
 
 protocol Orderable: Equatable {
-    
     func setOrder(order: Int)
     var order: Int { get }
     static func ==(lhs: Self, rhs: Self) -> Bool

@@ -12,17 +12,11 @@ import UIKit
 //toggling doesn't work exactly right 
 
 public class BodyweightViewController: DefaultTableViewController, ReloadableView {
-    
     lazy var graphView = ScatterPlotView()
-    
     public var model: BodyweightTableViewModel?
-    
     let tableHeader = UIView()
-    
     let graphHeader = HeaderForBodyweightTable()
-    
     let emptyGraphHeader = UIView()
-    
     var userIsInPopoverView = false
     
     public var reloadableModel: ReloadableModel? {
@@ -38,14 +32,11 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
     }()
     
     public override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         bodyweightEntryVC.reloadBodyweightView = {
             [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.loadModelOffTheMainQueueIfNeeded(spinnerFrame: strongSelf.view.frame)
-            
         }
         
         tableView.register(BodyweightTVCell.self, forCellReuseIdentifier: BodyweightTVCell.reuseID)
@@ -93,6 +84,7 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
         let plusImage = #imageLiteral(resourceName: "add").withRenderingMode(.alwaysTemplate)
         let leftBarBtn = UIBarButtonItem(image: plusImage, style: .plain, target: self, action: #selector(addBtnTap))
         self.navigationController?.navigationItem.leftBarButtonItem = leftBarBtn
+        leftBarBtn.tintColor = Colors.BodyweightVC.addBtn
     }
     
     @objc func addBtnTap() {
@@ -121,7 +113,6 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
         } else {
             self.navigationController?.navigationItem.leftBarButtonItem = nil
         }
-        
     }
     
     override public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -214,8 +205,4 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showUpdateBodyweightView(for: indexPath)
     }
-    
-
-    
-
 }

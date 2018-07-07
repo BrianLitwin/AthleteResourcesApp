@@ -123,6 +123,11 @@ class CreateMenuTableViewController: UITableViewController {
         }
 
     }
+    
+    override public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = Colors.TableView.sectionHeader
+    }
 
 }
 

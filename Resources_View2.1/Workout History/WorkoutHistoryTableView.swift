@@ -30,6 +30,10 @@ public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableV
         register(EmptyWorkoutHistoryCell.self, forCellReuseIdentifier: EmptyWorkoutHistoryCell.reuseID)
     }
     
+    override public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = Colors.TableView.sectionHeader
+    }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if model.sections.count > 0 {

@@ -8,10 +8,11 @@
 
 import UIKit
 
+//Todo: don't need to pass in anything but date here
+
 public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     
     var infoDelegate: WorkoutHeaderInfo?   //using struct
-
     lazy var settingsButton = ButtonWithImage(type: .settings)
     
     lazy var dateLabel: UILabel = {
@@ -23,7 +24,7 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     public func setup(info: WorkoutHeaderInfo) {
         infoDelegate = info
         setupHeaderInfo()
-        configureSettingsButton()
+        //configureSettingsButton()
     }
         
     public func setupHeaderInfo() {

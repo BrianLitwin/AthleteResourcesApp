@@ -59,7 +59,7 @@ class BodyweightTVCell: BaseTableViewCell {
         
         bodyweight.textAlignment = .right
         wChange.textAlignment = .left
-        date.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
+        date.leftAnchor.constraint(equalTo: leftAnchor, constant: 15).isActive = true
         bodyweight.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         wChange.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         date.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
