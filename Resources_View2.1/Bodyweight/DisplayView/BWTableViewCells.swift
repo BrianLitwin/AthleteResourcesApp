@@ -34,21 +34,18 @@ class BodyweightTVCell: BaseTableViewCell {
     var date: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.groupedTableText()
         return label
     }()
     
     var bodyweight: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.groupedTableText()
         return label
     }()
     
     var wChange: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.brightTurquoise()
         return label
     }()
     

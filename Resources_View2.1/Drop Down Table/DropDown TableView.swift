@@ -9,7 +9,6 @@
 import UIKit
 
 public class TableWithDropDownHeaders: UITableView, UITableViewDataSource, UITableViewDelegate {
-
     public typealias modelType = DropDownTableModel & TableDataPopulator & ReloadableModel
     
     var model: modelType
@@ -27,7 +26,6 @@ public class TableWithDropDownHeaders: UITableView, UITableViewDataSource, UITab
         estimatedRowHeight = 0;
         estimatedSectionHeaderHeight = 0;
         estimatedSectionFooterHeight = 0;
-        
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,7 +36,7 @@ public class TableWithDropDownHeaders: UITableView, UITableViewDataSource, UITab
         if model.collapsedSections.isEmpty {
             return 0
             
-        }  //Fix Me Laster: Crashes w/ no sections
+        }  //Fix Me Later: Crashes w/ no sections
         return model.numberOfItemsToDisplay(in: section)
     }
 
@@ -54,20 +52,19 @@ public class TableWithDropDownHeaders: UITableView, UITableViewDataSource, UITab
         return 44
     }
     
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.00001
+    }
+    
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let header = dequeueReusableHeaderFooterView(withIdentifier: CollapsibleHeader.reuseID) as! CollapsibleHeader
-        
         model.configure(header: header, at: section)
         header.delegate = self
         header.section = section
-        
         return header
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }

@@ -14,9 +14,6 @@ class ExerciseListCell: TableViewCellWithSubtitle {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor.lighterBlack()
-        textLabel?.textColor = UIColor.groupedTableText()
-        detailTextLabel?.textColor = UIColor.groupedTableText()
     }
     
     func setup(with exercise: ExerciseListItem) {

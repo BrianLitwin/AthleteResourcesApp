@@ -82,7 +82,7 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
     
     public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = UIColor.brightTurquoise()
+        header.textLabel?.textColor = Colors.TableView.sectionHeader
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -116,7 +116,7 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
         cell.textLabel?.text = cellData.name
         cell.detailTextLabel?.text = cellData.variation
         cell.accessoryType = .checkmark
-        cell.tintColor = cellData.isActive ? UIColor.brightTurquoise() : UIColor(white: 1, alpha: 0.5)
+        cell.tintColor = Colors.SearchExercises.checkmarkTint(highlighted: cellData.isActive)
         return cell
     }
     

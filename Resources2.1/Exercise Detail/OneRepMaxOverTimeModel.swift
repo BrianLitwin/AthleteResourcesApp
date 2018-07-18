@@ -11,13 +11,10 @@ import Resources_View2_1
 
 
 class OneRepMaxOverTimeModel {
-    
     var needsReload: Bool = true
-    
     var oneRMWeeks: [OneRMWeek] = []
-    
     let exercise: Exercises
-    
+
     init(exercise: Exercises) {
         self.exercise = exercise
     }
@@ -25,9 +22,7 @@ class OneRepMaxOverTimeModel {
     func loadModel() {
         
         let weeks = workoutDateManager.activeWeeks
-        
         let exerciseMetrics = exercise.exerciseMetrics()
-        
         var numberOfWeeks = weeks.count
         
         oneRMWeeks = weeks.enumerated().reduce([OneRMWeek](), { weeksArray, value in
@@ -43,9 +38,7 @@ class OneRepMaxOverTimeModel {
             let oneRM = ems.getMaxOneRM()
             
             var bestPriorMax: OneRepMax? {
-                
                 guard let prev = weeksArray.lastItem else { return nil }
-                
                 if let priorWeeksBest = prev.bestOneRM() { return priorWeeksBest }
                 
                 for week in weeksArray {
@@ -57,15 +50,13 @@ class OneRepMaxOverTimeModel {
                 return nil
             }
             
-            
-            
-            
-            
-            return weeksArray + [OneRMWeek(oneRepMax: oneRM,
+
+            return weeksArray + [OneRMWeek(activeWeek: !ems.isEmpty,
+                                           oneRepMax: oneRM,
                                            weekNumber: index + 1,
                                            bestPriorOneRM: bestPriorMax
                 )]
-        }).reversed()
+        }).reversed().filter{ $0.activeWeek }
         
     }
     
@@ -107,7 +98,6 @@ extension OneRepMaxOverTimeModel: OneRepMaxTableViewModel {
     var weeks: [Resources_View2_1.OneRMWeek] {
         return oneRMWeeks
     }
-    
 }
 
 
@@ -168,17 +158,16 @@ struct OneRMWeek: Resources_View2_1.OneRMWeek  {
         return improvement()
     }
     
+    let activeWeek: Bool
     let weekNumber: Int
-    
     let oneRepMax: OneRepMax?
-    
     let bestPriorOneRM: OneRepMax?
     
-    init(oneRepMax: OneRepMax?, weekNumber: Int, bestPriorOneRM: OneRepMax?) {
+    init(activeWeek: Bool, oneRepMax: OneRepMax?, weekNumber: Int, bestPriorOneRM: OneRepMax?) {
         self.oneRepMax = oneRepMax
         self.bestPriorOneRM = bestPriorOneRM
         self.weekNumber = weekNumber
-        
+        self.activeWeek = activeWeek
     }
     
     func improvement() -> Double? {
@@ -204,6 +193,7 @@ struct OneRMWeek: Resources_View2_1.OneRMWeek  {
             
         }
     }
+    
 }
 
 

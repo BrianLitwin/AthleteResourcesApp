@@ -149,7 +149,7 @@ extension CreateMenuTableViewController: ChildVC {
     }
     
     public var name: String {
-        return "Create Exercises"
+        return "Manage Exercises"
     }
 }
 

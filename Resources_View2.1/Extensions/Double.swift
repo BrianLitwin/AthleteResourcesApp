@@ -27,12 +27,13 @@ public extension Double {
     }
     
     var withDeltaSymbol: String {
-        if self < 0.0 {
+        let n = self.rounded(toPlaces: 2)
+        if n < 0.0 {
             let minus = "- "
-            return minus + String(abs(self))
+            return minus + String(abs(n))
         } else {
             let add = "+ "
-            return add + String(self)
+            return add + String(n)
         }
     }
     

@@ -13,15 +13,10 @@ public class WindowManager {
     public init() { }
     
     public enum Popup {
-        
         case sideBar(delegate: SideBarDelegate)
-        
         case exercisePicker(view: ExercisePickerTableView, showTintScreen: Bool, addSwipeDownGestureRecognizer: Bool)
-        
         case editExerciseMetric(updateModel: ModelUpdater, reloadHandler: () -> Void )
-        
         case standardKeyboard(keyboardDelegate: KeyboardDelegate)
-        
     }
     
     var currentView: WindowAnimation? {
@@ -51,7 +46,6 @@ public class WindowManager {
         switch popup {
             
         case .sideBar(delegate: let delegate):
-            
             sidebar.masterVC = delegate
             let width = keyWindowWidth * 0.8
             let animation = WindowAnimation.fromRight(width: width, view: sidebar )
@@ -94,23 +88,21 @@ public class WindowManager {
                 exercisePicker.addGestureRecognizer(gr)
             }
             
-            
             display(animation, showTintScreen: showTintScreen)
         
         case .editExerciseMetric(let model, let reloadHandler):
-            
             let tableView = ExerciseMetricEditingTableView(modelUpdater: model)
             let keyboardDelegate = EditExerciseMetricTextFieldManager(textFields: tableView.textFields)
-            
             editExerciseMetricKeyboard.delegate = keyboardDelegate
             editExerciseMetricKeyboard.modelUpdater = model
-            
             let keyboardHeight = keyWindowHeight * 0.4
-            
             let view = EditExerciseMetricView(keyboard: editExerciseMetricKeyboard,
                                               tableView: tableView,
                                               width: keyWindowWidth,
-                                              keyboardHeight: keyboardHeight)
+                                              keyboardHeight: keyboardHeight,
+                                              doneBtnTap: { [weak self] in
+                                                self?.resignCurrentView() }
+            )
             
             let animation = WindowAnimation.fromBottom(height: view.frame.height, view: view)
             

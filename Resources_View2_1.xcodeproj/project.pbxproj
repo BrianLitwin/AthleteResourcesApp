@@ -57,7 +57,7 @@
 		BD50ACFD2053243100009E73 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD50ACFC2053243100009E73 /* Media.xcassets */; };
 		BD59292E207ADED100119E97 /* RepMaxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD59292D207ADED100119E97 /* RepMaxes.swift */; };
 		BD64C498207D98060009AB91 /* ExerciseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64C497207D98060009AB91 /* ExerciseHistory.swift */; };
-		BD64C49B207D9E230009AB91 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64C49A207D9E230009AB91 /* Colors.swift */; };
+		BD64C49B207D9E230009AB91 /* TableViewColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64C49A207D9E230009AB91 /* TableViewColors.swift */; };
 		BD6EE21720AA2F8000DA9E68 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE21620AA2F8000DA9E68 /* Styles.swift */; };
 		BD72684D205C7B2100625F0C /* Workout Header Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD72684C205C7B2100625F0C /* Workout Header Model.swift */; };
 		BD72684F205C83BF00625F0C /* Date Picker View Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD72684E205C83BF00625F0C /* Date Picker View Controller.swift */; };
@@ -169,7 +169,7 @@
 		BD50ACFC2053243100009E73 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		BD59292D207ADED100119E97 /* RepMaxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepMaxes.swift; sourceTree = "<group>"; };
 		BD64C497207D98060009AB91 /* ExerciseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseHistory.swift; sourceTree = "<group>"; };
-		BD64C49A207D9E230009AB91 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BD64C49A207D9E230009AB91 /* TableViewColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewColors.swift; sourceTree = "<group>"; };
 		BD6EE21620AA2F8000DA9E68 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		BD72684C205C7B2100625F0C /* Workout Header Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout Header Model.swift"; sourceTree = "<group>"; };
 		BD72684E205C83BF00625F0C /* Date Picker View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Picker View Controller.swift"; sourceTree = "<group>"; };
@@ -260,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				BD012F4A203A598400A4A351 /* LayoutGuide.swift */,
-				BD6EE21620AA2F8000DA9E68 /* Styles.swift */,
 				BD64C499207D9E0E0009AB91 /* Colors */,
 				BDA9593D20746B2F001BE931 /* ExerciseInfo */,
 				BD726850205C846900625F0C /* DatePickerVC */,
@@ -424,7 +423,8 @@
 		BD64C499207D9E0E0009AB91 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				BD64C49A207D9E230009AB91 /* Colors.swift */,
+				BD6EE21620AA2F8000DA9E68 /* Styles.swift */,
+				BD64C49A207D9E230009AB91 /* TableViewColors.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -704,7 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD012F27203A58F700A4A351 /* Base Stack View.swift in Sources */,
-				BD64C49B207D9E230009AB91 /* Colors.swift in Sources */,
+				BD64C49B207D9E230009AB91 /* TableViewColors.swift in Sources */,
 				BD012F58203A59A900A4A351 /* ContentView.swift in Sources */,
 				BD768B342048EF8B00803DC0 /* Int.swift in Sources */,
 				BDE3D459207A4740003C6A94 /* ExerciseInfoController.swift in Sources */,

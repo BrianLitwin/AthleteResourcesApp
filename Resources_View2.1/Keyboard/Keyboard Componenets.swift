@@ -21,7 +21,6 @@ class KeyboardRow: BaseStackView {
 }
 
 class MasterKeyboardStackView: BaseStackView {
-    
     var rows = [KeyboardRow]()
     
     override func setupViews() {
@@ -41,25 +40,20 @@ class MasterKeyboardStackView: BaseStackView {
             rows[toRow].addArrangedSubview(button)
         }
     }
-    
-    
 }
 
 
 
 public class KeyboardButton: ButtonWithAction {
     
-    var primaryBackgroundColor: UIColor = UIColor.init(white: 1, alpha: 0.94)
-    
-    var secondaryBackgroundColor: UIColor = UIColor.init(white: 1, alpha: 0.64)
+    var primaryBackgroundColor = Colors.Keyboard.primaryBg
+    var secondaryBackgroundColor = Colors.Keyboard.secondaryBg
     
     var isPrimaryColor = true {
         didSet {
             //switch primary and secondary colors if btn is secondary color
-            if isPrimaryColor == false {
-                secondaryBackgroundColor = UIColor.init(white: 1, alpha: 0.94)
-                primaryBackgroundColor = UIColor.init(white: 1, alpha: 0.64)
-                backgroundColor = primaryBackgroundColor
+            if !isPrimaryColor {
+                backgroundColor = Colors.Keyboard.secondaryBg
             }
         }
     }
@@ -68,7 +62,7 @@ public class KeyboardButton: ButtonWithAction {
         super.init(btnTap: btnTap)
         setTitleColor(UIColor.black, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        backgroundColor = UIColor.init(white: 1, alpha: 0.94)
+        backgroundColor = Colors.Keyboard.primaryBg
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -77,7 +71,11 @@ public class KeyboardButton: ButtonWithAction {
     
     override open var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? secondaryBackgroundColor : primaryBackgroundColor
+            if isPrimaryColor {
+                backgroundColor = isHighlighted ? secondaryBackgroundColor : primaryBackgroundColor
+            } else {
+                backgroundColor = isHighlighted ? primaryBackgroundColor : secondaryBackgroundColor
+            }
         }
     }
     

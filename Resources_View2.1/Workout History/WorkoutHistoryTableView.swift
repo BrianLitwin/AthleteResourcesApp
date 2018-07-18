@@ -28,7 +28,6 @@ public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableV
         self.trashButtonDelegate = trashButtonDelegate
         register(WorkoutHistoryCell.self, forCellReuseIdentifier: WorkoutHistoryCell.reuseID)
         register(EmptyWorkoutHistoryCell.self, forCellReuseIdentifier: EmptyWorkoutHistoryCell.reuseID)
-        backgroundColor = UIColor.lighterBlack()
     }
     
     
@@ -67,9 +66,6 @@ public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableV
         let item = section.items[indexPath.row]
         cell.textLabel?.text = item.date.weekdayDay
         cell.accessoryType = .disclosureIndicator
-        cell.backgroundColor = tableView.backgroundColor
-        cell.textLabel?.textColor = UIColor.groupedTableText()
-        
         return cell
         
     }

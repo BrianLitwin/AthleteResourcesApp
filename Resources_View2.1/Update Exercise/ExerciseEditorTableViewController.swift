@@ -131,8 +131,6 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: UpdateExerciseNVITableViewCell.reuseID, for: indexPath) as! UpdateExerciseNVITableViewCell
             
-            cell.backgroundColor = UIColor.lighterBlack()
-            
             cell.selectionStyle = .none
             
             guard let exerciseInfo = model?.exerciseInfo else { return cell }

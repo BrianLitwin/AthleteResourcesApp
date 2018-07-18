@@ -12,7 +12,6 @@ protocol ExercisePicker {
     var insertHandler: ((IndexPath) -> Void)? { get set }
 }
 
-
 public class ExercisePickerTableView: TableWithDropDownHeaders, ExercisePicker, Resignable {
     
     public typealias modelType = TableWithDropDownHeaders.modelType
@@ -45,7 +44,6 @@ public class ExercisePickerTableView: TableWithDropDownHeaders, ExercisePicker, 
     deinit {
         print(  "Deinited"  )
     }
-    
 }
 
 
