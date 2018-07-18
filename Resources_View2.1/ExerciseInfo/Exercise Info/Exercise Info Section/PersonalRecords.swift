@@ -47,9 +47,7 @@ public class PersonalRecordsSection: ExerciseAnalyticsSectionUIPopulator, Parent
             self.displayString = displayString
             self.date = date
         }
-        
     }
-    
 }
 
 

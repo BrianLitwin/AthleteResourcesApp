@@ -22,15 +22,10 @@ public class BodyweightEntryViewController: UIViewController, TextFieldCollectio
     //todo: resign first responder on textfield when data picker shows up
     
     let textfieldCV = TextfieldCollectionView()
-    
     let windowManager = WindowManager()
-    
     let datePicker = DatePickerAlertController()
-    
-    var textFieldInfos: [TextFieldCollectionViewCellInfo] = [] 
-    
+    var textFieldInfos: [TextFieldCollectionViewCellInfo] = []
     var model: UpdatesBodyweight?
-    
     var reloadBodyweightView: (()-> Void)?
     
     lazy var cancelBtn: UIBarButtonItem = {
@@ -46,30 +41,26 @@ public class BodyweightEntryViewController: UIViewController, TextFieldCollectio
     }()
     
     public override func viewDidLoad() {
-        
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.groupTableViewBackground
         navigationController?.setDefaultColorScheme()
-        
         self.navigationItem.rightBarButtonItem = doneBtn
         
         view.addSubview(textfieldCV)
         textfieldCV.model = self
-        textfieldCV.frame = view.bounds 
-        
+        textfieldCV.frame = view.bounds
+        textfieldCV.backgroundColor = UIColor.clear 
     }
 
     @objc func doneBtnTap() {
-        
         if let strongModel = model {
             if strongModel.readyToSave() {
                 strongModel.save()
             }
         }
-        
         dismiss(animated: true)
         reloadBodyweightView?()
-        
     }
     
     @objc func trashBtnTap() {
@@ -84,9 +75,7 @@ public class BodyweightEntryViewController: UIViewController, TextFieldCollectio
         })
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
         present(ac, animated: true)
- 
     }
     
     @objc func cancelBtnTap() {
@@ -101,11 +90,9 @@ public class BodyweightEntryViewController: UIViewController, TextFieldCollectio
     }
     
     func setupViews() {
-        
         guard let model = self.model else { return }
         
         textFieldInfos = [
-            
             TextFieldCollectionViewCellInfo(image: #imageLiteral(resourceName: "schedule"),
                                             headerText: "Date",
                                             onTap: showDatePicker,
@@ -115,9 +102,7 @@ public class BodyweightEntryViewController: UIViewController, TextFieldCollectio
                                             headerText: "Bodyweight",
                                             onTap: showNumericKeyboard,
                                             textFieldText: String(model.bodyweightValue)),
-            
         ]
-        
         textfieldCV.reloadData()
     }
     

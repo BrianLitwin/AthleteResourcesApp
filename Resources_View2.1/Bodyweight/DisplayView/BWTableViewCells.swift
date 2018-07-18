@@ -21,7 +21,14 @@ class TableViewCellWithRightAndLeftLabel: BaseTableViewCell {
     }()
     
     override func setupViews() {
-        centerLeft(leftLabel)
+        //configure left label
+        leftLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(leftLabel)
+        leftLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        leftLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18).isActive = true
+        leftLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+        
         centerRight(rightLabel)
     }
     
@@ -34,21 +41,19 @@ class BodyweightTVCell: BaseTableViewCell {
     var date: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.groupedTableText()
         return label
     }()
     
     var bodyweight: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.groupedTableText()
         return label
     }()
     
     var wChange: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.brightTurquoise()
+        label.textColor = Colors.BodyweightVC.weightChangeBtn
         return label
     }()
     
@@ -62,13 +67,13 @@ class BodyweightTVCell: BaseTableViewCell {
         
         bodyweight.textAlignment = .right
         wChange.textAlignment = .left
-        date.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
+        date.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         bodyweight.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         wChange.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         date.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         bodyweight.rightAnchor.constraint(equalTo: rightAnchor, constant: -75).isActive = true
-        wChange.leftAnchor.constraint(equalTo: rightAnchor, constant: -65).isActive = true
+        wChange.leftAnchor.constraint(equalTo: rightAnchor, constant: -55).isActive = true
         
     }
     

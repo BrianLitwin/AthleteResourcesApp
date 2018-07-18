@@ -112,47 +112,21 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
             y.delegate = self
         }
         
-        // Create a blue plot area
-        /*
-         let boundLinePlot = CPTScatterPlot(frame: .zero)
-         let blueLineStyle = CPTMutableLineStyle()
-         blueLineStyle.miterLimit    = 0.0
-         blueLineStyle.lineWidth     = 1.0
-         blueLineStyle.lineColor     = CPTColor.init(cgColor: UIColor.brightTurquoise().cgColor)
-         boundLinePlot.dataLineStyle = blueLineStyle
-         boundLinePlot.identifier    = NSString.init(string: "Blue Plot")
-         boundLinePlot.dataSource    = self
-         newGraph.add(boundLinePlot)
-         
-         
-         //let fillImage = CPTImage(named:"BlueTexture")
-         //fillImage.isTiled = true
-         //boundLinePlot.areaFill      = CPTFill(image: fillImage)
-         //boundLinePlot.areaBaseValue = 0.0
-         
-         // Add plot symbols
-         let symbolLineStyle = CPTMutableLineStyle()
-         symbolLineStyle.lineColor = .black()
-         let plotSymbol = CPTPlotSymbol.ellipse()
-         plotSymbol.fill          = CPTFill(color: .blue())
-         plotSymbol.lineStyle     = symbolLineStyle
-         plotSymbol.size          = CGSize(width: 10.0, height: 10.0)
-         boundLinePlot.plotSymbol = plotSymbol
-         */
-        
-        // Create a green plot area
+        // Create a colored plot area
         let dataSourceLinePlot = CPTScatterPlot(frame: .zero)
         let greenLineStyle               = CPTMutableLineStyle()
         greenLineStyle.lineWidth         = 1.0
-        greenLineStyle.lineColor         = CPTColor.init(cgColor: UIColor.brightTurquoise().withAlphaComponent(0.75).cgColor)
+        greenLineStyle.lineColor         = CPTColor.init(cgColor: Colors.ScatterPlot.primaryColor.withAlphaComponent(0.75).cgColor)
         //greenLineStyle.dashPattern       = [5.0, 5.0]
         dataSourceLinePlot.dataLineStyle = greenLineStyle
         dataSourceLinePlot.identifier    = NSString.init(string: "Green Plot")
         dataSourceLinePlot.dataSource    = self
         
         // Put an area gradient under the plot above
-        let color = UIColor.brightTurquoise().withAlphaComponent(0.25).cgColor
-        let fColor = UIColor.brightTurquoise().withAlphaComponent(0.01).cgColor
+        //let color = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.25).cgColor
+        //let fColor = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.01).cgColor
+        let color = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.55).cgColor
+        let fColor = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.25).cgColor
         let areaColor    = CPTColor.init(cgColor: color)
         let finalColor = CPTColor.init(cgColor: fColor)
         let areaGradient = CPTGradient(beginning: areaColor, ending: finalColor)

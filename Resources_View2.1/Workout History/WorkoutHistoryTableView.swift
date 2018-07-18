@@ -28,9 +28,12 @@ public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableV
         self.trashButtonDelegate = trashButtonDelegate
         register(WorkoutHistoryCell.self, forCellReuseIdentifier: WorkoutHistoryCell.reuseID)
         register(EmptyWorkoutHistoryCell.self, forCellReuseIdentifier: EmptyWorkoutHistoryCell.reuseID)
-        backgroundColor = UIColor.lighterBlack()
     }
     
+    override public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = Colors.TableView.sectionHeader
+    }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if model.sections.count > 0 {
@@ -67,9 +70,6 @@ public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableV
         let item = section.items[indexPath.row]
         cell.textLabel?.text = item.date.weekdayDay
         cell.accessoryType = .disclosureIndicator
-        cell.backgroundColor = tableView.backgroundColor
-        cell.textLabel?.textColor = UIColor.groupedTableText()
-        
         return cell
         
     }

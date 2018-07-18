@@ -16,22 +16,17 @@ class ExercisePickerHeader: CollapsibleHeader {
     
     lazy var categoryLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
         return label
     }()
     
     override func setupViews() {
         super.setupViews()
-        contentView.backgroundColor = UIColor.black
-        
+        contentView.backgroundColor = Colors.ExercisePicker.headerBg
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         marginGuideView.addSubview(categoryLabel)
         categoryLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
-        categoryLabel.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor).isActive = true 
-        
-
+        categoryLabel.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor).isActive = true
     }
-    
 }
 
 class ExercisePickerFooter: BaseView {

@@ -30,7 +30,6 @@ public protocol ExerciseInfoController {
 //this is key: that the views know to reload, because they inherit reloadable view
 
 public protocol ExerciseAnalyticsView: ReloadableView {
-    
     var model: ExerciseInfoModel { get }
     
 }
@@ -40,10 +39,6 @@ public extension ExerciseAnalyticsView {
         return model
     }
 }
-
-
-
-
 
 public class ExerciseAnalyticsTableViewController: DefaultTableViewController, ExerciseAnalyticsView {
     

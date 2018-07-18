@@ -15,11 +15,10 @@ public class NavigationController: UINavigationController {
     }()
     
     override public func viewDidLoad() {
-        UINavigationBar.appearance().tintColor = UIColor.groupedTableText()
-        navigationBar.backgroundColor = UIColor.lighterBlack()
         configureRightBarButton()
-        setupColors()
-        self.navigationBar.isTranslucent = false 
+        self.navigationBar.isTranslucent = false
+        UINavigationBar.appearance().barTintColor = Colors.navBarBgTint
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : Colors.navBarTitle]
     }
     
     func configureRightBarButton() {
@@ -27,15 +26,7 @@ public class NavigationController: UINavigationController {
         let rightBarButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showMenu))
         navigationItem.rightBarButtonItem = rightBarButton
         navigationBar.items = [navigationItem]
-        rightBarButton.tintColor = UIColor.brightTurquoise()
-    }
-    
-    func setupColors() {
-        UINavigationBar.appearance().tintColor = UIColor.groupedTableText()
-        let attrs = [
-            NSAttributedStringKey.foregroundColor: UIColor.groupedTableText()
-        ]
-        UINavigationBar.appearance().titleTextAttributes = attrs
+        rightBarButton.tintColor = Colors.navbarBtnTint 
     }
     
     @objc func showMenu() {

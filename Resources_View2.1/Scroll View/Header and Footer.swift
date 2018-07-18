@@ -8,22 +8,23 @@
 
 import UIKit
 
+//Todo: don't need to pass in anything but date here
+
 public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     
     var infoDelegate: WorkoutHeaderInfo?   //using struct
-
     lazy var settingsButton = ButtonWithImage(type: .settings)
     
     lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = Colors.CurrentWorkout.dateLabel
         return label
     }()
     
     public func setup(info: WorkoutHeaderInfo) {
         infoDelegate = info
         setupHeaderInfo()
-        configureSettingsButton()
+        //configureSettingsButton()
     }
         
     public func setupHeaderInfo() {
@@ -57,7 +58,7 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     
     func configureSettingsButton() {
         addSubview(settingsButton)
-        settingsButton.tintColor = .white 
+        settingsButton.tintColor = Colors.CurrentWorkout.editDateIcon
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         settingsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
         settingsButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -80,7 +81,7 @@ class ScrollViewFooter: UIView, LayoutGuide  {
         super.init(frame: frame)
         let button = UIButton()
         button.setTitle("Add Exercise", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(Colors.CurrentWorkout.addExerciseLabel, for: .normal)
         button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
         centerInContainer(button)
         button.cornerRadius = 4

@@ -34,9 +34,7 @@ class ExerciseInfoMenuCell: BaseCollectionViewCell {
                                  y: 8,
                                  width: outline1.frame.width - 16,
                                  height: outline1.frame.width - 16)
-        
         backgroundColor = UIColor.clear
-        
     }
     
     func setup(with icon: UIImage, menuLabel: String) {
@@ -50,15 +48,15 @@ class ExerciseInfoMenuCell: BaseCollectionViewCell {
     
     let imageView: UIImageView = {
         let iv = UIImageView()
-        //iv.tintColor = UIColor.workoutBackground2()
+        iv.tintColor = Colors.ExerciseInfoMenu.unhighlightedIcon
         return iv
     }()
     
     var label: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 11)
-        label.textColor = UIColor.black
         label.textAlignment = .center
+        label.textColor = Colors.ExerciseInfoMenu.unhighlightedIcon
         return label
     }()
     
@@ -66,10 +64,9 @@ class ExerciseInfoMenuCell: BaseCollectionViewCell {
     
     var outline1: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.red
         //view.layer.cornerRadius = 33
+        view.layer.borderColor = Colors.ExerciseInfoMenu.unhighlightedIcon.cgColor
         view.backgroundColor = UIColor.clear
-        view.layer.borderColor = UIColor.black.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.borderWidth = 3
         return view
@@ -77,9 +74,10 @@ class ExerciseInfoMenuCell: BaseCollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            
+            let color = isSelected ? Colors.ExerciseInfoMenu.highlightedIcon : Colors.ExerciseInfoMenu.unhighlightedIcon
+            outline1.layer.borderColor = color.cgColor
+            label.textColor = color
+            imageView.tintColor = color
         }
     }
-    
-
 }

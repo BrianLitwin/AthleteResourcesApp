@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 enum WindowAnimation {
     
     case fromTop(height: CGFloat, view: UIView)

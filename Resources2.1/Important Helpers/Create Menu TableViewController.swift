@@ -48,8 +48,15 @@ class CreateMenuTableViewController: UITableViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseID)
-        tableView.backgroundColor = UIColor.lighterBlack()
         tableView.separatorColor = UIColor.init(white: 1, alpha: 0.3)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: return "Create"
+        case 1: return "Delete"
+        default: return ""
+        }
     }
     
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,8 +66,6 @@ class CreateMenuTableViewController: UITableViewController {
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
         cell.textLabel?.text = headers[indexPath.row]
-        cell.textLabel?.textColor = UIColor.groupedTableText()
-        cell.backgroundColor = UIColor.lighterBlack()
         return cell
     }
  
@@ -103,8 +108,7 @@ class CreateMenuTableViewController: UITableViewController {
             
             let navControl = CompoundExerciseBuilderNavivagationController()
             navControl.setup(windowManager: WindowManager(), preExistingType: nil)
-            navControl.navigationBar.tintColor = UIColor.red
-            
+            navControl.navigationBar.tintColor = Colors.CreateMenus.CompoundExercise.navbarTint 
             present(navControl, animated: true)
             
         case 2:
@@ -118,6 +122,11 @@ class CreateMenuTableViewController: UITableViewController {
             
         }
 
+    }
+    
+    override public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = Colors.TableView.sectionHeader
     }
 
 }

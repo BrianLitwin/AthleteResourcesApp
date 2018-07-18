@@ -16,16 +16,13 @@ class UpdateExerciseNVITableViewCell: BaseTableViewCell, UITextFieldDelegate {
     
     lazy var textfield: UITextField = {
         let tf = UITextField()
-        tf.tintColor = UIColor.brightTurquoise()
         tf.delegate = self
-        tf.textColor = UIColor.groupedTableText()
         return tf
     }()
     
     let icon: UIImageView = {
         let image = #imageLiteral(resourceName: "create").withRenderingMode(.alwaysTemplate)
         let iv = UIImageView(image: image)
-        iv.tintColor = UIColor.groupedTableText()
         return iv
     }()
     

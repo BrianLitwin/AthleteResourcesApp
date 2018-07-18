@@ -55,20 +55,11 @@ class BaseCollectionViewCell: UICollectionViewCell, LayoutGuide {
     
 }
 
-
 extension UINavigationController {
-    
     func setDefaultColorScheme() {
-        
-        navigationBar.tintColor = UIColor.groupedTableText()
-        navigationBar.barTintColor = UIColor.lighterBlack()
         navigationBar.isTranslucent = false
-        
     }
-    
 }
-
-
 
 open class BaseView: UIView, LayoutGuide {
     

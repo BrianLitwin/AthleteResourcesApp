@@ -18,6 +18,8 @@ public protocol ChildVC {
     var menuBarImage: UIImage { get }
 }
 
+
+
 public protocol UpdateableModel {
     func update(with update: SequenceUIHandler.UIUpdate, at indexPath: IndexPath)
 }

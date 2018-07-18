@@ -23,9 +23,9 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
             menuBar.infoControllers = exerciseInfo.infoControllers
             menuBar.reloadData()
             changeViewController(index: 0)
+            menuBar.selectItem(at: [0,0], animated: false, scrollPosition: .bottom)
         }
     }
-    
     
     lazy var menuBar: ExerciseInfoMenu = {
         let layout = UICollectionViewFlowLayout()
@@ -44,11 +44,15 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Exercise Info"
         setupMenuBar()
-        
         //keep view from going under navigation bar
         edgesForExtendedLayout = []
-        
+    }
+    
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        navigationController?.navigationBar.tintColor = .white
     }
     
     public func setupViewControllerFrame(for viewController: UIViewController) {
@@ -60,7 +64,6 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
     }
     
     func setupMenuBar() {
-        
         view.addSubview(menuBar)
         menuBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: menuBarHeight)
         
@@ -69,9 +72,6 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
         if diff > 0 {
             menuBar.contentInset = UIEdgeInsets(top: 0, left: diff / 2, bottom: 0, right: diff / 2)
         }
-        
     }
-    
-    
 }
 

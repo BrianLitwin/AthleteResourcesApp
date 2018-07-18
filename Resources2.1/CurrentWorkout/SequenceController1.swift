@@ -97,6 +97,16 @@
  
  add the BW button and the add missed reps button to the keyboard in a "more options" view 
 
+ keyboard btns make a color when you press them
+ 
+ use a tabman
+ 
+ figure out the graphs
+ 
+ fix 'can highlight row' on tables 
+ 
+ getting oneRMChart craches a lot - 
+ 
 */
 
 

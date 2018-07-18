@@ -11,13 +11,9 @@ import UIKit
 
 
 public class MultiExerciseBuilderTableViewController: UITableViewController {
-    
     var model: CompoundExerciseCreatorModel!
-    
     var doneBtn: UIBarButtonItem?
-    
     var cellLabel: UILabel?
-    
     var stepBackButton: UIButton?
     
     public init(model: CompoundExerciseCreatorModel) {
@@ -61,7 +57,6 @@ public class MultiExerciseBuilderTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
    
-   
 }
 
 public protocol TableUIUpdateHandler: class {
@@ -69,15 +64,11 @@ public protocol TableUIUpdateHandler: class {
 }
 
 extension MultiExerciseBuilderTableViewController: TableUIUpdateHandler {
-    
     public func update() {
-        
         guard let label = cellLabel else { return }
         label.text = model.displayString ?? ""
         setStepBackButtonEnabledState(with: label)
-        
     }
-    
 }
 
 

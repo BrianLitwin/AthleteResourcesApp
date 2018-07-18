@@ -30,9 +30,14 @@ public extension ContainerViewController where Self: UIViewController {
         }
         
         reloadViewControllerIfNeeded(vc: viewController)
-        
         add(asChildViewController: viewController)
         
+        //also doing this in viewWillAppear of VC's for when they return from seguing 
+        if let vc = viewController as? ChildVC {
+            navigationController?.title = vc.name
+        } else {
+             navigationController?.title = ""
+        }
     }
     
     //

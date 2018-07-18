@@ -30,11 +30,9 @@ public extension ReloadableView where Self: UIViewController {
     }
     
     func loadModelOffTheMainQueueIfNeeded(spinnerFrame: CGRect) {
-        
         guard let model = reloadableModel else { return }
         
         if model.needsReload {
-            
             let spinner = getActivityIndicator()
             spinner.frame = spinnerFrame
             view.addSubview(spinner)
@@ -54,7 +52,6 @@ public extension ReloadableView where Self: UIViewController {
             }
         }
     }
-    
 }
 
 public extension ReloadableView where Self: UITableViewController {
@@ -62,7 +59,6 @@ public extension ReloadableView where Self: UITableViewController {
     public func reloadView() {
         tableView.reloadData()
     }
-    
 }
 
 

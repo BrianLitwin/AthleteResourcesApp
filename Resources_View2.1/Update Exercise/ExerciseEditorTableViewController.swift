@@ -53,8 +53,10 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
         super.viewDidLoad()
         let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnTap))
         doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnTap))
-        self.navigationItem.leftBarButtonItem = cancelBtn
-        self.navigationItem.rightBarButtonItem = doneBtn
+        navigationItem.leftBarButtonItem = cancelBtn
+        navigationItem.rightBarButtonItem = doneBtn
+        cancelBtn.tintColor = Colors.UpdateExerciseInfo.cancelBtnTint
+        doneBtn?.tintColor = Colors.UpdateExerciseInfo.doneBtnTint 
         
     }
     
@@ -130,8 +132,6 @@ public class UpdateExerciseTableViewController: DefaultTableViewController {
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: UpdateExerciseNVITableViewCell.reuseID, for: indexPath) as! UpdateExerciseNVITableViewCell
-            
-            cell.backgroundColor = UIColor.lighterBlack()
             
             cell.selectionStyle = .none
             

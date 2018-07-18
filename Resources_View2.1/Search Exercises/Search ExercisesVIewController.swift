@@ -13,20 +13,17 @@ import UIKit
 
 public class ExerciseSearchViewController: UIViewController, UITableViewDelegate {
     
-    // MARK: - Properties
     var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
     public var model: ExerciseSearchModel?
     var tableViewDataSource: SearchExercisesDataSource?
     private let searchBar = UISearchBar()
-    
-    // MARK: - View Setup
+
     override public func viewDidLoad() {
         
         super.viewDidLoad()
         //setupSearchBar()
         setupTableView() 
         
-        tableView.backgroundColor = UIColor.lighterBlack()
         tableView.separatorColor = UIColor.init(white: 1, alpha: 0.3)
         //give a little cushion in bottom
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 200))
@@ -34,10 +31,15 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
         //configure search bar
         searchBar.delegate = tableViewDataSource
         searchBar.placeholder = "Search Exercises"
-        searchBar.tintColor = UIColor.brightTurquoise()
         searchBar.backgroundColor = .clear
         searchBar.searchBarStyle = .minimal
         
+        //set searchBar's text color
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.white
+        
+        //set search bar's cancel button color
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.white
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -63,12 +65,10 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
         super.viewWillDisappear(animated)
         self.navigationController?.navigationItem.titleView = nil
     }
-    
 }
 
 
 
-//Githawk
 extension UISearchBar {
     
     func resignWhenKeyboardHides() {

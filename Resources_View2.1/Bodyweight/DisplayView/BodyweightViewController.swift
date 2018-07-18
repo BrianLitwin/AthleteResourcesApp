@@ -12,17 +12,11 @@ import UIKit
 //toggling doesn't work exactly right 
 
 public class BodyweightViewController: DefaultTableViewController, ReloadableView {
-    
     lazy var graphView = ScatterPlotView()
-    
     public var model: BodyweightTableViewModel?
-    
     let tableHeader = UIView()
-    
     let graphHeader = HeaderForBodyweightTable()
-    
     let emptyGraphHeader = UIView()
-    
     var userIsInPopoverView = false
     
     public var reloadableModel: ReloadableModel? {
@@ -38,14 +32,11 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
     }()
     
     public override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         bodyweightEntryVC.reloadBodyweightView = {
             [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.loadModelOffTheMainQueueIfNeeded(spinnerFrame: strongSelf.view.frame)
-            
         }
         
         tableView.register(BodyweightTVCell.self, forCellReuseIdentifier: BodyweightTVCell.reuseID)
@@ -57,6 +48,7 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
         graphHeader.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 65)
         graphView.frame = CGRect(x: 0, y: 65, width: view.frame.width, height: 100)
         setupGraph()
+        
     }
     
     func setupGraph() {
@@ -93,6 +85,7 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
         let plusImage = #imageLiteral(resourceName: "add").withRenderingMode(.alwaysTemplate)
         let leftBarBtn = UIBarButtonItem(image: plusImage, style: .plain, target: self, action: #selector(addBtnTap))
         self.navigationController?.navigationItem.leftBarButtonItem = leftBarBtn
+        leftBarBtn.tintColor = Colors.BodyweightVC.addBtn
     }
     
     @objc func addBtnTap() {
@@ -121,7 +114,6 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
         } else {
             self.navigationController?.navigationItem.leftBarButtonItem = nil
         }
-        
     }
     
     override public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -160,32 +152,25 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
             setCellBackground(cell)
             cell.isUserInteractionEnabled = false
             cell.selectionStyle = .none
-            cell.leftLabel.textColor = UIColor.groupedTableText()
-            cell.rightLabel.textColor = UIColor.brightTurquoise()
-            
+
             switch indexPath.row {
-                
             case 0:
-                
                 cell.leftLabel.text = "Change From Seven Days Ago"
                 cell.rightLabel.text = dataModel.changeFrom(daysAgo: 7).withDeltaSymbol
                 return cell
                 
             case 1:
-                
                 cell.leftLabel.text = "Change From Thirty Days Ago"
                 cell.rightLabel.text = dataModel.changeFrom(daysAgo: 30).withDeltaSymbol
                 return cell
                 
             case 2:
-                
                 cell.leftLabel.text = "Min Bodyweight"
                 let minBodyweight = dataModel.minBW?.bodyweight ?? 0.00
                 cell.rightLabel.text = String(minBodyweight)
                 return cell
                 
             case 3:
-                
                 cell.leftLabel.text = "Max Bodyweight"
                 let maxBodyweight = dataModel.maxBW?.bodyweight ?? 0.00
                 cell.rightLabel.text = String(maxBodyweight)
@@ -221,8 +206,4 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showUpdateBodyweightView(for: indexPath)
     }
-    
-
-    
-
 }

@@ -93,7 +93,8 @@ enum Metric: String {
         Metric.Time: [UnitDuration.minutes,
                       UnitDuration.seconds],
         
-        Metric.Length: [UnitLength.feet,
+        Metric.Length: [UnitLength.yards,
+                        UnitLength.feet,
                         UnitLength.inches],
         
         Metric.Velocity: [UnitSpeed.milesPerHour,

@@ -74,6 +74,7 @@ class OneRM_Weeks: XCTestCase {
         let oneRM1 = em1.calculateOneRM()
         
         let manager = OneRepMaxOverTimeModel(exercise: exercise)
+        manager.loadMainQueueItems()
         manager.loadModel()
         let weeks = manager.oneRMWeeks
         

@@ -16,32 +16,24 @@ extension Multi_Exercise_Container_Types: HasRecords {
     typealias RecordType = CompoundRecordClass
     
     func fetchAll() -> [RecordType] {
-        
         let request: NSFetchRequest<Sequences> = Sequences.fetchRequest()
         request.predicate = NSPredicate(format: "multi_exercise_container_type = %@", self)
         let results = try? context.fetch(request)
         guard let sequences = results else { return [] }
         guard !sequences.isEmpty else { return [] }
-        
         let rowCount = orderedExerciseContainers.count
-        
         var recordContainers = [CompoundRecordClass]()
         
         for sequence in sequences {
-            
             for row in 0..<rowCount {
-                
                 let ems: [Exercise_Metrics] = sequence.orderedContainers.flatMap({
                     guard $0.exerciseMetrics.indices.contains(row) else { return nil }
                     return $0.exerciseMetrics[row]
                 })
                 
                 guard !ems.isEmpty else { continue }
-                
                 recordContainers.append(CompoundRecordClass(exerciseMetrics: ems))
-                
             }
-            
         }
         
         return recordContainers

@@ -10,7 +10,6 @@ import UIKit
 
 
 class SideBar: BaseCollectionView {
-    
     var masterVC: SideBarDelegate?
     let resignSelf: () -> Void
     var currentlySelectedCellIndex = 0
@@ -23,7 +22,7 @@ class SideBar: BaseCollectionView {
     {
         self.resignSelf = resignSelf
         super.init()
-        backgroundColor = UIColor.lighterBlack()
+        backgroundColor = .white
         register(SideBarCell.self, forCellWithReuseIdentifier: reuseID)
         contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         configureSwipeGestureRecognizer()
@@ -48,7 +47,7 @@ class SideBar: BaseCollectionView {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! SideBarCell
         cell.headerText = masterVC?.header(for: indexPath) ?? ""
         cell.imageView.image = masterVC?.icon(for: indexPath)?.withRenderingMode(.alwaysTemplate)
-        cell.headerLabel.textColor = indexPath.row == currentlySelectedCellIndex ? cell.primaryColor : cell.secondaryColor
+        cell.setColor(isSelected: indexPath.row == currentlySelectedCellIndex)
         return cell
     }
     
@@ -61,35 +60,29 @@ class SideBar: BaseCollectionView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 class SideBarCell: BaseCollectionViewCell {
     
-    let primaryColor = UIColor.init(white: 1, alpha: 0.95)
-    let secondaryColor = UIColor.init(white: 1, alpha: 0.7)
-    
     var imageView: UIImageView = {
         let iv = UIImageView()
-        iv.tintColor = UIColor.brightTurquoise()
         return iv
     }()
     
     override func setupViews() {
-        
         addSubview(imageView)
         addSubview(headerLabel)
-        
         addConstraintsWithFormat("H:|-15-[v0(20)]-25-[v1]|", views: imageView, headerLabel)
         addConstraintsWithFormat("V:|-15-[v0(20)]-15-|", views: imageView)
         addConstraintsWithFormat("V:|[v0]|", views: headerLabel)
-        
+    }
+    
+    func setColor(isSelected cellIsSelected: Bool) {
+        backgroundColor = cellIsSelected ? Colors.Sidebar.Primary.bg : Colors.Sidebar.Secondary.bg
+        imageView.tintColor = cellIsSelected ? Colors.Sidebar.Primary.icon : Colors.Sidebar.Secondary.icon
     }
     
     override var isSelected: Bool {
-        didSet {
-            headerLabel.textColor = isSelected ? primaryColor : secondaryColor
-        }
+        didSet { setColor(isSelected: isSelected) }
     }
-    
 }

@@ -34,12 +34,10 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         //note sure why removing from superview doens't work
         emptyView.removeFromSuperview()
-        
         self.graphData = data.reversed()
         
         //remove the first entry becuase it will always be zero (start on wk 2 and replace it with 0 because the graph seems to not show the first entry well (bug)
         self.graphData[0] = 0.0
-        // Create graph from theme
         var tickerLocations: [Int] = []
         var tickerHeadings: [String] = []
         
@@ -52,12 +50,13 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         let xMin = 0.0
         let xMax = Double(graphData.count)
+        let yMin = graphData.min(by: { $0 < $1 })! * 1.20
+        let yMax = graphData.max(by: { $0 < $1 })! * 1.20
         
-        let yMin = graphData.min(by: { $0 < $1 })!
-        let maxYValue = graphData.max(by: { $0 < $1 })!
-        let yMax = max(maxYValue, 10.0)
+        print(yMin)
+        print(yMax)
         
-        
+
         guard let plotSpace = newGraph.defaultPlotSpace as? CPTXYPlotSpace else { return }
         plotSpace.xRange = CPTPlotRange(location: xMin.NSNumber, length: (xMax - xMin).NSNumber)
         plotSpace.yRange = CPTPlotRange(location: yMin.NSNumber, length: (yMax - yMin).NSNumber)
@@ -79,7 +78,6 @@ class BarChart : UIView, CPTBarPlotDataSource {
             newGraph.paddingRight  = 0.0
             newGraph.paddingTop    = 0.0
             newGraph.paddingBottom = 0.0
-            
         }
         
         // Graph title
@@ -103,7 +101,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
             x.labelRotation  = CGFloat(M_PI_4)
             x.labelingPolicy = .none
             
-            let labelColor = CPTColor(cgColor: UIColor.groupedTableText().cgColor)
+            let labelColor = CPTColor(cgColor: UIColor.black.cgColor)
             let textStyle = CPTMutableTextStyle()
             textStyle.color = labelColor
             
@@ -124,14 +122,14 @@ class BarChart : UIView, CPTBarPlotDataSource {
                 labelLocation += 1
                 
                 let margin = graphData[labelLocation]
-                let cushion: Double = 1.60
+                let cushion: Double = yMax * 0.06
                 var yPosition = margin > 0.00 ? (margin + cushion).NSNumber : cushion.NSNumber
                 let xPosition = labelLocation.NSNumber
                 let marginAnnotation = CPTPlotSpaceAnnotation(plotSpace: plotSpace, anchorPlotPoint: [xPosition, yPosition])
                 let style = CPTMutableTextStyle()
                 style.fontSize = 12.0
                 style.fontName = "Helvetica"
-                style.color = CPTColor(cgColor: UIColor.groupedTableText().cgColor)
+                style.color = CPTColor(cgColor: UIColor.black.cgColor)
                 let rounded = margin.rounded(toPlaces: 2).withDeltaSymbol
                 let textLayer = CPTTextLayer(text: rounded, style: style)
                 marginAnnotation.contentLayer = textLayer
@@ -142,12 +140,12 @@ class BarChart : UIView, CPTBarPlotDataSource {
                 
                 if yMin < 0.00 {
                     
-                    yPosition = (yMin * 1.5).NSNumber
+                    yPosition = (yMin * 1.1).NSNumber
                     let xAxisLabel = CPTPlotSpaceAnnotation(plotSpace: plotSpace, anchorPlotPoint: [xPosition, yPosition])
                     let style2 = CPTMutableTextStyle()
                     style2.fontSize = 12.0
                     style2.fontName = "Helvetica"
-                    style2.color = CPTColor(cgColor: UIColor.groupedTableText().cgColor)
+                    style2.color = CPTColor(cgColor: UIColor.black.cgColor)
                     let text = xAxisLabels[labelLocation - 1]
                     let textLayer2 = CPTTextLayer(text: text, style: style)
                     xAxisLabel.contentLayer = textLayer2
@@ -164,8 +162,6 @@ class BarChart : UIView, CPTBarPlotDataSource {
                     customLabels.insert(newLabel)
                     
                 }
-                
-                
             }
             
             x.axisLabels = customLabels
@@ -181,8 +177,9 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         // First bar plot
         
-        let color = UIColor.brightTurquoise().withAlphaComponent(0.5).cgColor
-        let fColor = UIColor.brightTurquoise().withAlphaComponent(0.15).cgColor
+        let baseColor = Colors.BarChart.barTint
+        let color = baseColor.withAlphaComponent(1.0).cgColor //0.5
+        let fColor = baseColor.withAlphaComponent(1.0).cgColor  //0.15
         let areaColor    = CPTColor.init(cgColor: color)
         let finalColor = CPTColor.init(cgColor: fColor)
         let areaGradient = CPTGradient(beginning: areaColor, ending: finalColor)
@@ -211,6 +208,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         switch CPTBarPlotField(rawValue: Int(field))! {
         case .barLocation:
+            print(record)
             return record as NSNumber
             
         case .barTip:

@@ -11,9 +11,7 @@ import UIKit
 //Figure out
 
 class ExerciseMetricEditingTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-    
     typealias Cell = EditExerciseMetricTableViewCell
-    
     typealias TextFields = [EditExerciseMetricTextField]
     
     let textFields: TextFields

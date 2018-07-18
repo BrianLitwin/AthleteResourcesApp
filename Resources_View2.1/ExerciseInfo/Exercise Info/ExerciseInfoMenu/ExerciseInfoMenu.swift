@@ -20,7 +20,7 @@ class ExerciseInfoMenu: UICollectionView, UICollectionViewDelegate, UICollection
         delegate = self
         dataSource = self 
         register(Cell.self, forCellWithReuseIdentifier: Cell.reuseID)
-        backgroundColor =  UIColor.color(18, 234, 199)
+        backgroundColor = Colors.ExerciseInfoMenu.background
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -30,12 +30,11 @@ class ExerciseInfoMenu: UICollectionView, UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.reuseID, for: indexPath) as! Cell
         let controller = infoControllers[indexPath.row]
-        cell.setup(with: controller.menuIcon, menuLabel: controller.menuTitle)
+        cell.setup(with: controller.menuIcon.withRenderingMode(.alwaysTemplate), menuLabel: controller.menuTitle)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: Cell.size.width, height: Cell.size.height)
         
     }

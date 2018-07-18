@@ -64,13 +64,11 @@ private class RepMaxTableViewCell: BaseTableViewCell {
     var repMax: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.textColor = UIColor.brightTurquoise()
         return label
     }()
     
     var repMaxLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.groupedTableText()
         label.textAlignment = .left
         return label
     }()
@@ -78,13 +76,11 @@ private class RepMaxTableViewCell: BaseTableViewCell {
     var percentage: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.textColor = UIColor.brightTurquoise()
         return label
     }()
     
     var percentageLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.groupedTableText()
         label.textAlignment = .left
         return label
     }()

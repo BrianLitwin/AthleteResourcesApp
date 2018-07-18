@@ -43,11 +43,8 @@ class UpdateExercise: UpdateExerciseModel {
     }
     
     init(exercise: Exercises?, category: Categories) {
-        
         self.exercise = exercise
-        
         self.category = category
-        
         pendingNVI = PendingNVIUpdate(exercise: exercise)
         
         self.pendingUpdates = Metric.orderedMetrics.map({
