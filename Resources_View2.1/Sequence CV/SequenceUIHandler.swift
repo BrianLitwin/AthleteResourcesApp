@@ -235,9 +235,7 @@ public class SequenceUIHandler {
             [weak self] in
             self?.updateView(for: .editRow, at: indexPath)
         })
-        
     }
-
 }
 
 

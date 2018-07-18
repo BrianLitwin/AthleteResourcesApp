@@ -96,23 +96,23 @@ public class WindowManager {
             editExerciseMetricKeyboard.delegate = keyboardDelegate
             editExerciseMetricKeyboard.modelUpdater = model
             let keyboardHeight = keyWindowHeight * 0.4
-            let view = EditExerciseMetricView(keyboard: editExerciseMetricKeyboard,
-                                              tableView: tableView,
-                                              width: keyWindowWidth,
-                                              keyboardHeight: keyboardHeight,
-                                              doneBtnTap: { [weak self] in
-                                                self?.resignCurrentView() }
-            )
             
-            let animation = WindowAnimation.fromBottom(height: view.frame.height, view: view)
-            
-            editExerciseMetricKeyboard.doneBtnTap = {
+            let doneBtnTap = {
                 [weak self] in
                 self?.editExerciseMetricKeyboard.delegate?.resignLastResponder()
                 reloadHandler()
                 self?.resignCurrentView()
                 self?.editExerciseMetricKeyboard.doneBtnTap = nil
             }
+            
+            let view = EditExerciseMetricView(keyboard: editExerciseMetricKeyboard,
+                                              tableView: tableView,
+                                              width: keyWindowWidth,
+                                              keyboardHeight: keyboardHeight,
+                                              doneBtnTap: doneBtnTap
+            )
+            
+            let animation = WindowAnimation.fromBottom(height: view.frame.height, view: view)
             
             display(animation)
         

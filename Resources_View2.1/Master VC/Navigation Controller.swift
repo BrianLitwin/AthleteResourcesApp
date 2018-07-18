@@ -18,6 +18,7 @@ public class NavigationController: UINavigationController {
         configureRightBarButton()
         self.navigationBar.isTranslucent = false
         UINavigationBar.appearance().barTintColor = Colors.navBarBgTint
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : Colors.navBarTitle]
     }
     
     func configureRightBarButton() {

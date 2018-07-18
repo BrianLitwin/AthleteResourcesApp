@@ -34,6 +34,12 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
         searchBar.backgroundColor = .clear
         searchBar.searchBarStyle = .minimal
         
+        //set searchBar's text color
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.white
+        
+        //set search bar's cancel button color
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.white
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -59,7 +65,6 @@ public class ExerciseSearchViewController: UIViewController, UITableViewDelegate
         super.viewWillDisappear(animated)
         self.navigationController?.navigationItem.titleView = nil
     }
-    
 }
 
 

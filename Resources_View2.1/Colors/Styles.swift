@@ -8,9 +8,12 @@
 
 import UIKit
 
+
 public struct Colors {
-    static let navbarBtnTint = UIColor.black
-    static let navBarBgTint = UIColor.white
+    //try to keep this where all the navbar btn tints are tied
+    static let navbarBtnTint = UIColor.white
+    static let navBarBgTint =  Color.darkBlue  //UIColor.color(53, 71, 88)
+    static let navBarTitle = UIColor.white
     
     public struct Keyboard {
         public static let primaryBg = UIColor.white 
@@ -23,6 +26,7 @@ public struct Colors {
     
     public struct TableView {
         public static let sectionHeader = Color.Blue.medium.color
+        public static let background = UIColor.white
     }
     
     public struct Sidebar {
@@ -38,14 +42,14 @@ public struct Colors {
     
     public struct WorkoutHistory {
         static func trashbarTint(highlighted: Bool) -> UIColor {
-            return highlighted ? Color.Red.medium.color : UIColor.black
+            return highlighted ? Color.Red.medium.color : Colors.navbarBtnTint
         }
     }
     
     public struct ExerciseInfoMenu {
-        static let background = Color.background
+        static let background = Color.darkBlue
         static let unhighlightedIcon =  Color.Gray.light.color
-        static let highlightedIcon = UIColor.black
+        static let highlightedIcon = UIColor.white
     }
     
     public struct SearchExercises {
@@ -56,33 +60,34 @@ public struct Colors {
     
     public struct CurrentWorkout {
         public static let background: UIColor = .groupTableViewBackground
-        public static let iconTint = Color.Blue.medium.color
+        public static let iconTint = Color.brightBlue.color
         public static let sectionBg = UIColor.white
-        public static let workoutHeaderBg = UIColor.clear
-        public static let addExerciseBg = UIColor.clear
+        public static let workoutHeaderBg = Color.green
+        public static let addExerciseBg = Color.green
+        public static let dateLabel = UIColor.white
+        public static let addExerciseLabel = UIColor.white
         public static let editDateIcon = Color.Blue.medium.color
-        public static let dateLabel = Color.Blue.medium.color
-        public static let addExerciseLabel = Color.Blue.medium.color
-        public static let settingsNavBarBtn = UIColor.black
+        public static let settingsNavBarBtn = Colors.navbarBtnTint
     }
     
     public struct BarChart {
-        public static let barTint = Color.Blue.medium.color
+        public static let barTint = Color.green 
     }
     
     public struct ScatterPlot {
-        public static let primaryColor = Color.Blue.medium.color 
+        //public static let primaryColor = "3f88f7".color
+        public static let primaryColor = Color.green
     }
     
     public struct UpdateExerciseInfo {
-        public static let disclosureBtnTint = UIColor.black
-        public static let doneBtnTint = UIColor.black
-        public static let cancelBtnTint = UIColor.black
+        public static let disclosureBtnTint = Color.Blue.medium.color 
+        public static let doneBtnTint = Colors.navbarBtnTint
+        public static let cancelBtnTint = Colors.navbarBtnTint
     }
     
     public struct CreateMenus {
         public struct CompoundExercise {
-            public static let navbarTint = Color.Blue.medium.color
+            public static let navbarTint = UIColor.white
         }
     }
     
@@ -91,11 +96,15 @@ public struct Colors {
     }
     
     public struct ExercisePicker {
-        public static let headerBg = Color.Blue.light.color
+        public static let headerBg = UIColor.clear
     }
     
     public struct BodyweightVC {
-        public static let addBtn = UIColor.black 
+        public static let addBtn = Colors.navbarBtnTint
+        public static let weightChangeBtn = Color.Blue.medium.color
+        public static let headerTabBG = Color.darkBlue
+        public static let headerTabTitle = UIColor.white
+        public static let headerTabSubtitle = Color.offWhite
     }
 }
 
@@ -106,6 +115,12 @@ fileprivate enum Color {
     static let purple = "6f42c1"
     static let blueGray = "8697af"
     static let orange =  "f9bd5f"
+    
+    static let teal = "107e7d"
+    static let brightBlue = "04457f"
+    static let green = UIColor.color(32, 181, 88)
+    static let darkBlue = UIColor.color(25, 45, 70)
+    static let offWhite = UIColor.color(231, 231, 239)
     
     //UIColor.color(95, 11, 44)
     

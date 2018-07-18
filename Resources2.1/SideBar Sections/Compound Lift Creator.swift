@@ -11,7 +11,6 @@ import Resources_View2_1
 
 
 class CompoundExerciseBuilderModel: CompoundExerciseCreatorModel {
-    
     weak var uiUpdateHandler: TableUIUpdateHandler?
     
     var displayString: String? {
@@ -42,9 +41,8 @@ class CompoundExerciseBuilderModel: CompoundExerciseCreatorModel {
         guard !exercises.isEmpty else { return } //FIX ME: PUT UP AN ALERT HERE
         let container = Multi_Exercise_Container_Types.create(category: cat, with: exercises)
         container.typeSV = MultiExerciseContainerType.compoundExercise.rawValue
-        
+        cat.isActive = true
     }
-    
 }
 
 

@@ -123,8 +123,10 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
         dataSourceLinePlot.dataSource    = self
         
         // Put an area gradient under the plot above
-        let color = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.25).cgColor
-        let fColor = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.01).cgColor
+        //let color = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.25).cgColor
+        //let fColor = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.01).cgColor
+        let color = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.55).cgColor
+        let fColor = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.25).cgColor
         let areaColor    = CPTColor.init(cgColor: color)
         let finalColor = CPTColor.init(cgColor: fColor)
         let areaGradient = CPTGradient(beginning: areaColor, ending: finalColor)

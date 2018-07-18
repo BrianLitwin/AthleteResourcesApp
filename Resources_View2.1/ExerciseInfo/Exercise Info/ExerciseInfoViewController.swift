@@ -48,7 +48,11 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
         setupMenuBar()
         //keep view from going under navigation bar
         edgesForExtendedLayout = []
-        
+    }
+    
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        navigationController?.navigationBar.tintColor = .white
     }
     
     public func setupViewControllerFrame(for viewController: UIViewController) {

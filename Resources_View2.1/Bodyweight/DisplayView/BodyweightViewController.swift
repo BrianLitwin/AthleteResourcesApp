@@ -48,6 +48,7 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
         graphHeader.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 65)
         graphView.frame = CGRect(x: 0, y: 65, width: view.frame.width, height: 100)
         setupGraph()
+        
     }
     
     func setupGraph() {

@@ -9,11 +9,9 @@
 import UIKit
 
 public protocol CompoundExerciseCreatorModel: class {
-
     var uiUpdateHandler: TableUIUpdateHandler? { get set }
     var displayString: String? { get }
-    func stepBack() 
-    
+    func stepBack()
 }
 
 

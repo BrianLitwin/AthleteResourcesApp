@@ -41,7 +41,7 @@ public class DefaultTableViewController: UITableViewController {
     }
     
     func setCellBackground(_ cell: UITableViewCell) {
-        cell.backgroundColor = self.tableView.backgroundColor
+        cell.backgroundColor = Colors.TableView.background
         //cell.textLabel?.textColor = UIColor.groupedTableText()
     }
 }

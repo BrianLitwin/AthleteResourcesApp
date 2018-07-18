@@ -23,17 +23,12 @@ extension Exercises: HasRecords {
         if let em = entity as? Exercise_Metrics {
             
             if em.exercise === self {
-                
                 return .addToPendingComparisonList
-                
             }
             
             if changeType == .delete {
-                
                 return .recalculateAll
-                
             }
-            
         }
 
         return .noAction
@@ -41,15 +36,14 @@ extension Exercises: HasRecords {
     }
     
     func sortByIsRecordOver(items: [Exercise_Metrics]) -> [Exercise_Metrics] {
-        
-        return items.sorted(by: { sortValuesForRecords(firstGroup: $0.valuesSortedByMetricPriority,
-                                                       secondGroup: $1.valuesSortedByMetricPriority
+        return items.sorted(by: { sortValuesForRecords(
+            firstGroup: $0.valuesSortedByMetricPriority,
+            secondGroup: $1.valuesSortedByMetricPriority
         )})
         
     }
     
     func firstIsRecordOverSecond(first: Exercise_Metrics, second: Exercise_Metrics) -> Bool {
-        
         let metricInfo = metricInfoSet.sortedByMetricPriority
         let sortDescriptors = metricInfo.map({ $0.sort_in_ascending_order })
         var firstGroup = first.valuesSortedByMetricPriority

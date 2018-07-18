@@ -17,7 +17,7 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
     
     lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Colors.CurrentWorkout.addExerciseLabel
+        label.textColor = Colors.CurrentWorkout.dateLabel
         return label
     }()
     
@@ -81,7 +81,7 @@ class ScrollViewFooter: UIView, LayoutGuide  {
         super.init(frame: frame)
         let button = UIButton()
         button.setTitle("Add Exercise", for: .normal)
-        button.setTitleColor(Colors.CurrentWorkout.dateLabel, for: .normal)
+        button.setTitleColor(Colors.CurrentWorkout.addExerciseLabel, for: .normal)
         button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
         centerInContainer(button)
         button.cornerRadius = 4

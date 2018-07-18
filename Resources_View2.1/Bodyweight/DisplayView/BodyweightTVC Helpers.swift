@@ -33,18 +33,20 @@ class HeaderForBodyweightTable: BaseView {
     var leftHandView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = Colors.BodyweightVC.headerTabBG
         return view
     }()
     
     var rightHandView: UIView = {
         let view = UIView()
+        view.backgroundColor = Colors.BodyweightVC.headerTabBG
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     var leftHandLabel: UILabel = {
         let l = UILabel()
-        l.textColor = UIColor.black
+        l.textColor = Colors.BodyweightVC.headerTabSubtitle
         l.font = UIFont.systemFont(ofSize: 12.5)
         l.text = "Current"
         return l
@@ -52,7 +54,7 @@ class HeaderForBodyweightTable: BaseView {
     
     var rightHandLabel: UILabel = {
         let l = UILabel()
-        l.textColor = UIColor.black
+        l.textColor = Colors.BodyweightVC.headerTabSubtitle
         l.font = UIFont.systemFont(ofSize: 12.5)
         l.text = "Change"
         return l
@@ -61,6 +63,7 @@ class HeaderForBodyweightTable: BaseView {
     
     var currentBodyWeight: UILabel = {
         let l = UILabel()
+        l.textColor = Colors.BodyweightVC.headerTabTitle
         l.font = UIFont.systemFont(ofSize: 28.5)
         return l
     }()
@@ -68,6 +71,7 @@ class HeaderForBodyweightTable: BaseView {
     
     var marginFromPrevious: UILabel = {
         let l = UILabel()
+        l.textColor = Colors.BodyweightVC.headerTabTitle
         l.font = UIFont.systemFont(ofSize: 28.5)
         return l
     }()
