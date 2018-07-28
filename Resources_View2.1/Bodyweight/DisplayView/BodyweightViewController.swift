@@ -42,13 +42,16 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
         tableView.register(BodyweightTVCell.self, forCellReuseIdentifier: BodyweightTVCell.reuseID)
         tableView.register(TableViewCellWithRightAndLeftLabel.self, forCellReuseIdentifier: TableViewCellWithRightAndLeftLabel.reuseID)
         tableView.tableHeaderView = tableHeader
+        tableHeader.backgroundColor = .white
         tableHeader.addSubview(graphHeader)
         tableHeader.addSubview(graphView)
-        tableHeader.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 170)
-        graphHeader.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 65)
-        graphView.frame = CGRect(x: 0, y: 65, width: view.frame.width, height: 100)
-        setupGraph()
         
+        //for some reason there is extra space above the graph..
+        tableHeader.frame = CGRect(x: view.frame.minX, y: -30, width: view.frame.width, height: 140)
+        graphHeader.frame = CGRect(x: tableHeader.frame.minX, y: tableHeader.frame.minY, width: view.frame.width, height: 65)
+        graphView.frame = CGRect(x: tableHeader.frame.minX, y: 40, width: view.frame.width, height: 100)
+        setupGraph()
+        view.backgroundColor = UIColor.white 
     }
     
     func setupGraph() {

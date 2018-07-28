@@ -9,19 +9,22 @@
 import UIKit
 
 public protocol WorkoutController: class {
-
     var windowManager: WindowManager { get }
-    
     var scrollView: ScrollView { get }
-    
     var exercisePicker: ExercisePickerTableView { get }
-    
     var updateUIHandler: ReloadsWorkoutUI? { get }
-    
     func insertSequence(withSelection: IndexPath, at sectionNumber: Int)
-    
     func segueToExerciseDetail(with exerciseInfo: MasterInfoController)
     
+    //workout history needs help when you segue back to it 
+    var resetdWorkoutHistoryManager: ResetWorkoutHistoryHelper { get }
+}
+
+public protocol ResetWorkoutHistoryHelper {
+    var delegate: Resources_View2_1.WorkoutHistoryResetDelegate? { get set }
+    //log initial date, and if it changes, reload workout history 
+    func logDate()
+    var lastLoggedDate: Date? { get set }
 }
 
 extension WorkoutController {

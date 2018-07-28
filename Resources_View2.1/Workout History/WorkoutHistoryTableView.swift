@@ -9,11 +9,8 @@
 import UIKit
 
 public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-    
     let model: WorkoutHistoryModel
-    
     var viewController: UIViewController?
-    
     var trashButtonDelegate: TrashButtonTableViewDelegate?
     
     override public var isEditing: Bool {
@@ -57,7 +54,6 @@ public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableV
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let section = model.sections[indexPath.section]
         
         if section.items.isEmpty {
@@ -66,7 +62,6 @@ public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableV
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: WorkoutHistoryCell.reuseID) as! WorkoutHistoryCell
-        
         let item = section.items[indexPath.row]
         cell.textLabel?.text = item.date.weekdayDay
         cell.accessoryType = .disclosureIndicator
@@ -84,20 +79,18 @@ public class WorkouthistoryTableView: UITableView, UITableViewDelegate, UITableV
                                           message: nil,
                                           preferredStyle: .alert)
             
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default){
+                action in tableView.isEditing = false
+                
+            })
+            
             alert.addAction(UIAlertAction(title: "Delete",
                                           style: .destructive) {
                                             [weak self] action in
                                             self?.model.deletItem(at: indexPath)
                                             self?.deleteRows(at: [indexPath], with: .automatic)
             })
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .default){
-                action in tableView.isEditing = false
-                
-            })
-            
             alert.show()
-            
         }
     }
     

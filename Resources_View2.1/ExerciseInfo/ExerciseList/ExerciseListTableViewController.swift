@@ -74,7 +74,11 @@ public class ExerciseListTableViewController: DefaultTableViewController, Reload
     }
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedListItem = model?.listItems[indexPath.row]
+        switch sortType {
+        case .byFrequency: selectedListItem = model?.listItems[indexPath.row]
+        case .byCategory: selectedListItem = model?.sections[indexPath.section].items[indexPath.row]
+        }
+        
         performSegue(withIdentifier: "segueToExerciseDetail", sender: self)
     }
 

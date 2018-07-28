@@ -67,17 +67,14 @@ public class BodyweightEntryViewController: UIViewController, TextFieldCollectio
     }
     
     @objc func trashBtnTap() {
-        
         let ac = UIAlertController(title: "Delete Bodyweight Entry?", message: nil, preferredStyle: .alert)
-        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self] action in
             guard let strongSelf = self else { return }
             strongSelf.model?.deleteBWEntry()
             strongSelf.dismiss(animated: true)
             strongSelf.reloadBodyweightView?()
         })
-        
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
     

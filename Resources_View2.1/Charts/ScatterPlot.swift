@@ -28,21 +28,15 @@ public protocol ScatterPlotDataItem {
 
 
 class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
-    
     private var scatterGraph : CPTXYGraph? = nil
-    
     typealias plotDataType = [CPTScatterPlotField : Double]
     private var dataForPlot = [plotDataType]()
-    
-    
     
     // MARK: Initialization
     var contentArray = [plotDataType]()
     var graph = CPTXYGraph(frame: .zero)
     var hostingView = CPTGraphHostingView()
-    
     var graphData: [Double] = []
-    
     var emptyView = emptyGraphView()
     
     func setupEmptyGraph(message: String) {
@@ -50,7 +44,6 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
     }
     
     func setup(dataSource: ScatterPlotDataSource) {
-        
         emptyView.removeFromSuperview()
         graphData = []
         contentArray = [plotDataType]()
@@ -69,7 +62,6 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
             contentArray.append(dataPoint)
         }
         
-        
         // Create graph from theme
         //graph.apply(CPTTheme(named: .darkGradientTheme))
         
@@ -78,7 +70,6 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
         graph.paddingRight  = 0
         graph.paddingTop    = 0
         graph.paddingBottom = 0
-        
         graph.plotAreaFrame?.masksToBorder = true
         
         // Plot space
@@ -99,7 +90,7 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
         
         if let x = axisSet.xAxis {
             x.majorIntervalLength   = 1
-            x.orthogonalPosition    = yMin.NSNumber
+            x.orthogonalPosition    = yMin.NSNumber //wat? Why?
             x.labelingPolicy = .fixedInterval
             
         }
@@ -116,7 +107,7 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
         let dataSourceLinePlot = CPTScatterPlot(frame: .zero)
         let greenLineStyle               = CPTMutableLineStyle()
         greenLineStyle.lineWidth         = 1.0
-        greenLineStyle.lineColor         = CPTColor.init(cgColor: Colors.ScatterPlot.primaryColor.withAlphaComponent(0.75).cgColor)
+        greenLineStyle.lineColor         = CPTColor.init(cgColor: Colors.BodyweightVC.LineChart.lineColor.cgColor)
         //greenLineStyle.dashPattern       = [5.0, 5.0]
         dataSourceLinePlot.dataLineStyle = greenLineStyle
         dataSourceLinePlot.identifier    = NSString.init(string: "Green Plot")
@@ -125,8 +116,8 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
         // Put an area gradient under the plot above
         //let color = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.25).cgColor
         //let fColor = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.01).cgColor
-        let color = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.55).cgColor
-        let fColor = Colors.ScatterPlot.primaryColor.withAlphaComponent(0.25).cgColor
+        let color = Colors.BodyweightVC.LineChart.fillColor.cgColor
+        let fColor = Colors.BodyweightVC.LineChart.fillColor.cgColor
         let areaColor    = CPTColor.init(cgColor: color)
         let finalColor = CPTColor.init(cgColor: fColor)
         let areaGradient = CPTGradient(beginning: areaColor, ending: finalColor)
@@ -134,7 +125,7 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
         let areaGradientFill = CPTFill(gradient: areaGradient)
         dataSourceLinePlot.areaFill      = areaGradientFill
         
-        dataSourceLinePlot.areaBaseValue = (yMin * 0.995).NSNumber
+        dataSourceLinePlot.areaBaseValue = (yMin).NSNumber
         
         // Animate in the new plot, as an example
         dataSourceLinePlot.opacity = 0.0
@@ -147,10 +138,7 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
         fadeInAnimation.toValue             = 1.0
         dataSourceLinePlot.add(fadeInAnimation, forKey: "animateOpacity")
         
-        // Add some initial data
-        
         self.dataForPlot = contentArray
-        
         self.scatterGraph = graph
         
     }

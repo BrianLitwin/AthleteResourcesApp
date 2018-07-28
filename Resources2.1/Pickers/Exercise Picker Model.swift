@@ -17,13 +17,9 @@ class ExerciseList {
 
 
 class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, ExerciseTableViewModel, TableDataPopulator, ReloadableModel  {
-    
-    var data: [[ExerciseCellData]] = [[]] 
-    
+    var data: [[ExerciseCellData]] = [[]]
     var exercises: [[Any]] = [[]]
-    
     var collapsedSections: [Bool] = []
-    
     var needsReload = true
     
     //in case you want to use this while building a compound exercise
@@ -76,15 +72,15 @@ func returnExerciseCellData(includingCompoundExercises: Bool) -> [[ExerciseCellD
         
         let qualifiedMetricInfoSet: Set<Metric> = [Metric.Weight, Metric.Reps, Metric.Sets]
         
-        return categories.map( {
-            
+        let categoryData: [[ExerciseCellData]] = categories.map( {
             let exercises = $0.exerciseSet.filter({
                 Set($0.metricInfoSet.map({$0.metric})) == qualifiedMetricInfoSet
             })
-            
             return exercises.active().sortedAlpabetically()
-            
         })
+        
+        //filter out categories with no valid exercises 
+        return categoryData.filter { !$0.isEmpty }
     }
 }
 

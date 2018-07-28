@@ -90,11 +90,6 @@ public struct Colors {
         public static let barTint = Color.Blue.medium.color
     }
     
-    public struct ScatterPlot {
-        //public static let primaryColor = "3f88f7".color
-        public static let primaryColor = Color.green
-    }
-    
     public struct UpdateExerciseInfo {
         public static let disclosureBtnTint = Color.Blue.medium.color 
         public static let doneBtnTint = Colors.navbarBtnTint
@@ -108,6 +103,7 @@ public struct Colors {
     }
     
     public struct OneRMWeekCell {
+        public static let percentageImprovement = Color.Blue.medium.color 
         public static let detailText = Color.Gray.light.color
     }
     
@@ -123,9 +119,13 @@ public struct Colors {
         public static let headerTabBG = Color.darkBlue
         public static let headerTabTitle = UIColor.white
         public static let headerTabSubtitle = Color.offWhite
+        
+        public struct LineChart {
+            //public static let primaryColor = "3f88f7".color
+            public static let lineColor = Color.Blue.medium.color
+            public static let fillColor = Color.Blue.light.color
+        }
     }
-    
-    
 }
 
 

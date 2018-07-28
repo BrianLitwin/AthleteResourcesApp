@@ -135,15 +135,10 @@ class CreateMenuTableViewController: UITableViewController {
 
 
 class CompoundExerciseBuilderNavivagationController: UINavigationController {
-    
     var preExistingType: Multi_Exercise_Container_Types?
-    
     weak public var reloadUIDelegate: ReloadsWorkoutUI?
-    
     var windowManager: WindowManager?
-    
     var doneBtn: UIBarButtonItem?
-    
     lazy var categoriesPicker = CategoriesPicker()
     
     lazy var tableViewController =
@@ -176,11 +171,9 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
             strongSelf.compoundExerciseBuilderModel.add(exercise: exercise)
             strongSelf.exercisePicker.resignSelf = nil
         }
-        
     }
     
     func setupNavBarBtns() {
-        
         doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnTap))
         let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(doneBtnTap))
         tableViewController.navigationItem.rightBarButtonItem = doneBtn
@@ -189,7 +182,6 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         if preExistingType != nil {
             setupForPreExistingType()
         } else {
@@ -198,7 +190,6 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
     }
     
     func setupForNewType() {
-        
         let alert = UIAlertController(title: "Select a category", message: nil, preferredStyle: .alert)
         alert.set(vc: categoriesPicker, height: 400)
         alert.addAction(UIAlertAction(title: "Cancel",
@@ -242,7 +233,6 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
         dismiss(animated: true)
         
     }
-    
 }
 
 

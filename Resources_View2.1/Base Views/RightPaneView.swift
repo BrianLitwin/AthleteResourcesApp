@@ -123,7 +123,7 @@ class ViewRightPane: UIView {
 
 
 class RightPaneButton: UIButton {
-    var extraYHitTarget: CGFloat = 0
+    var extraYHitTarget: CGFloat = 500
     let defColor: UIColor
     
     init(color: UIColor) {

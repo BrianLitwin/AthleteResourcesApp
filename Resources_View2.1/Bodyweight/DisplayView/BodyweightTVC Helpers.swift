@@ -34,6 +34,7 @@ class HeaderForBodyweightTable: BaseView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Colors.BodyweightVC.headerTabBG
+        view.layer.cornerRadius = 4
         return view
     }()
     
@@ -41,6 +42,7 @@ class HeaderForBodyweightTable: BaseView {
         let view = UIView()
         view.backgroundColor = Colors.BodyweightVC.headerTabBG
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 4
         return view
     }()
     

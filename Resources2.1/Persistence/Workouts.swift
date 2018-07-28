@@ -12,8 +12,8 @@ import CoreData
 
 class Workouts: NSManagedObject {
     
-    var date: Date {
-        return dateSV! as Date 
+    var date: Date? {
+        return dateSV
     }
     
     class func createNewWorkout() -> Workouts {
@@ -74,7 +74,6 @@ class Workouts: NSManagedObject {
         let newEM = Exercise_Metrics(context: context)
         newEM.container = newContainer
         newEM.set_number = 0
-        
         saveContext()
         
         return newSequence

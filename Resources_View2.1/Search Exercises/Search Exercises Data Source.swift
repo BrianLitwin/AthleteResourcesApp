@@ -11,15 +11,10 @@
 import UIKit
 
 class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-    
     let model: ExerciseSearchModel
-    
     let tableView: UITableView
-    
     let searchBar: UISearchBar
-    
     private var exerciseSearchText = "Exercises"
-    
     private var categorySearchText = "Categories"
     
     init(model: ExerciseSearchModel, tableView: UITableView, searchBar: UISearchBar) {
@@ -119,11 +114,7 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
         cell.tintColor = Colors.SearchExercises.checkmarkTint(highlighted: cellData.isActive)
         return cell
     }
-    
-    //
-    // redundant
-    //
-    
+
     func searchBarIsEmpty() -> Bool {
         return searchBar.text?.isEmpty ?? true
     }
@@ -132,34 +123,11 @@ class SearchExercisesDataSource: NSObject, UITableViewDataSource, UITableViewDel
         return !searchBarIsEmpty()
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellData = item(at: indexPath)
         cellData.setExerciseIsActive(to: !cellData.isActive)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
-    
-    /*
-     func checkIfExerciseIsLastActiveInCategory(exercise: Exercises) {
-     if !exercise.isActive {
-     
-     var categoryActive = true
-     
-     DispatchQueue.global(qos: .userInitiated).async {
-     
-     let activeExs = exercise.category!.exerciseSet.active()
-     if activeExs.count < 1 {
-     categoryActive = false
-     }
-     
-     DispatchQueue.main.sync {
-     exercise.category!.isActive = categoryActive
-     }
-     }
-     }
-     }
-     */
-    
 }
 
 

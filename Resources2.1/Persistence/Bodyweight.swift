@@ -25,9 +25,8 @@ class Bodyweight: NSManagedObject {
     }
     
     var date: Date {
-        return dateSV! as Date
+        return dateSV!
     }
-    
     
     class func fetchAll(ascending: Bool = false) -> [Bodyweight] {
         let request: NSFetchRequest<Bodyweight> = Bodyweight.fetchRequest()
