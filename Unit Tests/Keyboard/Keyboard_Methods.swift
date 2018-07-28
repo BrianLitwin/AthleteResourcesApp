@@ -107,10 +107,7 @@ class Keyboard_Methods: XCTestCase {
         KeyboardButtonType.number(2).editTextField(textField)
         XCTAssertEqual(textField.text, "52")
         
-        
         //test
-        
-        
     }
     
     func test_possible_mistakes() {

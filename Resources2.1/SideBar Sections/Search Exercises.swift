@@ -80,9 +80,7 @@ class CategorySection: Resources_View2_1.CategorySection {
 }
 
 class SearchExerciseCellDataModel: ExerciseCellData {
-    
     let cellData: ExerciseCellData
-    
     let type: DataType
     
     var name: String? {
@@ -116,13 +114,8 @@ class SearchExerciseCellDataModel: ExerciseCellData {
             case .compoundExercise(let containerType):
                 break
                 
-                
             }
-            
         }
-        
     }
-    
-    
 }
 

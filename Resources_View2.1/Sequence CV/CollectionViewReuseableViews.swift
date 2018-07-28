@@ -11,13 +11,24 @@ import UIKit
 
 class CVHeader: BaseCollectionReusableView {
     
-    static let reuseID = "header"  
-    
+    static let reuseID = "header"
     weak var delegate: SubviewUIHander?
+    let extraHitTarget = UIView()
     
-    let button = ButtonWithImage(type: .expandMore)
+    lazy var tableViewCell: UITableViewCell = {
+        let cell = TableViewCellWithSubtitle()
+        cell.backgroundColor = UIColor.clear
+        return cell
+    }()
+    
     
     func setupLabels(name: String, variation: String) {
+        
+        //configure right pane
+        let rightPane = ViewRightPane(image: .more, tapAction: { [weak self] in self?.btnTapped() })
+        rightPane.addToRightPane(superview: self)
+        rightPane.expandHitTarget()
+        
         let cell = tableViewCell
         cell.textLabel?.text = name
         cell.detailTextLabel?.text = variation
@@ -26,63 +37,46 @@ class CVHeader: BaseCollectionReusableView {
         cell.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
         cell.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         cell.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        cell.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -15).isActive = true
+        cell.trailingAnchor.constraint(equalTo: rightPane.leadingAnchor, constant: -15).isActive = true
     }
     
-    override func setupViews() {
-        button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
-        button.frame.size = CGSize(width: 25, height: 25)
-        centerRight(button)
-        button.widthAnchor.constraint(equalTo: button.heightAnchor).isActive = true
-        button.tintColor = Colors.CurrentWorkout.iconTint
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        //add a little extra space to tap
+        //could not do this conventionally b/c the cell was screwing it up?
+        
+//        addSubview(extraHitTarget)
+//        extraHitTarget.addGestureRecognizer(gr)
+//        extraHitTarget.frame = CGRect(x: frame.width - 80, y: 0, width: 80, height: frame.height)
     }
     
+
     @objc func btnTapped() {
         delegate?.headerBtnTap(self)
     }
-    
-    lazy var tableViewCell: UITableViewCell = {
-        let cell = TableViewCellWithSubtitle()
-        cell.backgroundColor = UIColor.clear
-        return cell
-    }()
-    
 }
 
 class CVFooter: BaseCollectionReusableView {
-    
     static let reuseID = "footer"
-    
     weak var delegate: SubviewUIHander?
     
-    var button = ButtonWithImage(type: .add)
-    
-    let btnTapArea = UIView()
-    
     override func setupViews() {
-        
-        //configure tap label
-        //add label behind btn that triggers button tap so that btn can be small but easy to press
-        addSubview(btnTapArea)
-        addConstraintsWithFormat("H:|[v0(95)]", views: btnTapArea)
-        addConstraintsWithFormat("V:|[v0]|", views: btnTapArea)
-        btnTapArea.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(btnTapped)))
-        btnTapArea.isUserInteractionEnabled = true
-        
-        //configure plus btn
-        button.translatesAutoresizingMaskIntoConstraints = false
-        btnTapArea.addSubview(button)
-        button.heightAnchor.constraint(equalToConstant:24).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        button.leadingAnchor.constraint(equalTo: btnTapArea.leadingAnchor, constant: 9).isActive = true
-        button.centerYAnchor.constraint(equalTo: btnTapArea.centerYAnchor).isActive = true
-        
-        button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
-        button.tintColor = Colors.CurrentWorkout.iconTint
+        let rightPane = ViewRightPane(image: .add, tapAction: { [weak self] in self?.btnTapped() })
+        rightPane.addToRightPane(superview: self)
+        rightPane.expandHitTarget(by: -50)
     }
     
     @objc func btnTapped() {
         delegate?.footerBtnTap(self)
     }
-    
 }
+
+
+
+
+
+
+
+
+

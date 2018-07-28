@@ -79,11 +79,11 @@ extension Exercises: HasRecords {
 extension Exercise_Metrics {
     
     var valuesSortedByMetricPriority: [Double] {
-        return metricInfoSet.sortedByMetricPriority.map({ value(for: $0 )})
+        return metricInfoSet.sortedByMetricPriority.map({ value(for: $0 ).converted })
     }
     
     var valuesSortedByDefaultOrder: [Double] {
-        return metricInfoSet.sortedByDefaultOrder.map({ value(for: $0 )})
+        return metricInfoSet.sortedByDefaultOrder.map({ value(for: $0 ).converted })
     }
     
 }
@@ -139,13 +139,10 @@ func secondValuesAreRecordOverFirst(firstGroup: [Double], secondGroup: [Double])
 
 
 func sortValuesForRecords(firstGroup: [Double], secondGroup: [Double]) -> Bool {
-    
     for (x1, x2) in zip(firstGroup, secondGroup) {
-        
         if x1 > x2 { return true }
         if x1 == x2 { continue }
         if x1 < x2 { return false }
-        
     }
     
     return false

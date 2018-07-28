@@ -13,9 +13,7 @@ import UIKit
 class ExerciseMetricEditingTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     typealias Cell = EditExerciseMetricTableViewCell
     typealias TextFields = [EditExerciseMetricTextField]
-    
     let textFields: TextFields
-    
     let modelUpdater: ModelUpdater
     
     init(modelUpdater: ModelUpdater)
@@ -39,7 +37,7 @@ class ExerciseMetricEditingTableView: UITableView, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: Cell.reuseID) as! Cell
-        cell.textfieldLabel.text = modelUpdater.textfieldLabels[indexPath.row]
+        cell.label.text = modelUpdater.textfieldLabels[indexPath.row]
         let textField = textFields[indexPath.row]
         cell.setupTextField(with: textField)
         if indexPath.row == 0 { cell.textField?.becomeFirstResponder() }
@@ -50,7 +48,6 @@ class ExerciseMetricEditingTableView: UITableView, UITableViewDelegate, UITableV
         guard let cell = cellForRow(at: indexPath) as? Cell else { return }
         cell.textField?.becomeFirstResponder()
     }
-    
     
     
     required init?(coder aDecoder: NSCoder) {

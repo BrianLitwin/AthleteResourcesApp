@@ -23,7 +23,6 @@ extension Exercise_Metrics: Orderable {
     
     func setOrder(order: Int) {
         setNumber = order
-        print(weightSV)
     }
     
     static func ==(lhs: Exercise_Metrics, rhs: Exercise_Metrics) -> Bool {

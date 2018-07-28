@@ -9,25 +9,33 @@
 import UIKit
 
 class EditExerciseMetricTableViewCell: BaseTableViewCell {
-    
     typealias TextField = EditExerciseMetricTextField
-    
-    lazy var textfieldLabel: UILabel = {
-       return UILabel()
-    }()
-    
+    let label = UILabel()
     var textField: TextField?
     
     func setupTextField(with textField: TextField) {
         self.textField = textField
-        centerRight(textField, width: 150, trailingConstraint: 12)
+        //configure textfield
+        contentView.addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
+        textField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        textField.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        //set labels trailing constraint
+        label.trailingAnchor.constraint(lessThanOrEqualTo: textField.leadingAnchor, constant: -15).isActive = true
     }
     
     static var reuseID = "cell"
     
     override func setupViews() {
-        centerLeft(textfieldLabel)
+        //configure text label
+        contentView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        label.adjustsFontSizeToFitWidth = true 
     }
-
-    
 }

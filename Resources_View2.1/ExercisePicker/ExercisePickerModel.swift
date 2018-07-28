@@ -10,11 +10,9 @@ import UIKit
 
 
 public protocol ExerciseCellData {
-    
     var name: String? { get }
     var variation: String? { get }
     var categoryName: String { get }
-    
 }
 
 public protocol ExerciseHeaderData {
@@ -51,13 +49,12 @@ public extension ExerciseTableViewModel {
     public func configure(header: CollapsibleHeader, at section: Int) {
         
         //not an ideal implementation
-        
+        let sectionNumber = section
         guard let pickerHeader = header as? ExercisePickerHeader else { return }
         let section = data[section]
-        print(section)
         guard !section.isEmpty else { return  }
         pickerHeader.categoryLabel.text = section[0].categoryName
-        print(section[0].categoryName)
+        pickerHeader.setCollapsed(collapsedSections[sectionNumber])
     }
 }
 

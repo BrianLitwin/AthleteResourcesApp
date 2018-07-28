@@ -9,30 +9,34 @@
 import UIKit
 
 public protocol CollapsibleHeaderDelegate: class {
-    func toggleSection(_ section: Int)
+    func toggleSection(_ section: Int, header: CollapsibleHeader)
 }
 
-extension TableWithDropDownHeaders: CollapsibleHeaderDelegate {
-    public func toggleSection(_ section: Int) {
-        let collapsed = model.collapsedSections[section]
-        model.collapsedSections[section] = !collapsed
-        reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
-    }
-}
 
 
 public class CollapsibleHeader: BaseTableViewHeaderFooterView {
-    static var reuseID = "header"
-    var section: Int = 0
-    
     weak var delegate: CollapsibleHeaderDelegate?
+    var section: Int = 0
     
     override func setupViews() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selfTapped) ) )
     }
     
     @objc func selfTapped() {
-        delegate?.toggleSection(section)
+        delegate?.toggleSection(section, header: self)
     }
+}
+
+extension UIView {
     
+    func rotate(_ toValue: CGFloat, duration: CFTimeInterval = 0.2) {
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        
+        animation.toValue = toValue
+        animation.duration = duration
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = kCAFillModeForwards
+        
+        self.layer.add(animation, forKey: nil)
+    }
 }

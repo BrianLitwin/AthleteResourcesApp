@@ -17,13 +17,12 @@ class Metric_Info: NSManagedObject {
         set { metricSV = newValue.rawValue }
     }
     
-    
     func saveExerciseMetricValue(_ exerciseMetric: Exercise_Metrics,
                                  nonStandardValue: NonStandardSaveValue? = nil) -> (String) -> Void
     {
-        
         if nonStandardValue != nil {
             func saveNonStandard(text: String) {
+                print(text)
                 saveNonStandardExerciseMetricValue(nonStandardValue!,
                                                    exerciseMetric: exerciseMetric,
                                                    saveValue: text)
@@ -32,13 +31,11 @@ class Metric_Info: NSManagedObject {
             return saveNonStandard
             
         } else {
-        
-        func saveValue(text: String) { exerciseMetric.save(string: text, metricInfo: self)}
-        return saveValue
             
+            func saveValue(text: String) { exerciseMetric.save(string: text, metricInfo: self)}
+            return saveValue
         }
     }
-    
     
     //if saving in feet, want to be able to input feet and inches; same with minutes/minutes/seconds
     func saveNonStandardExerciseMetricValue(_ nonStandardValue: NonStandardSaveValue,
@@ -60,21 +57,20 @@ class Metric_Info: NSManagedObject {
             case .minutes: exerciseMetric.wholeMinutes = value
             case .seconds: exerciseMetric.remainderSeconds = value
             }
-            
         }
-        
     }
     
     enum NonStandardSaveValue {
-    case feet(feetUnit)
-    case minutes(minuteUnit)
+        case feet(feetUnit)
+        case minutes(minuteUnit)
+        
         enum feetUnit {
-        case feet
-        case inches
+            case feet
+            case inches
         }
         enum minuteUnit {
-        case minutes
-        case seconds
+            case minutes
+            case seconds
         }
     }
     
@@ -87,15 +83,15 @@ class Metric_Info: NSManagedObject {
     }
     
     class func create(metric: Metric,
-                unitOfM: Dimension,
-                exercise: Exercises,
-                sortInAscendingOrder: Bool = false) {
+                      unitOfM: Dimension,
+                      exercise: Exercises,
+                      sortInAscendingOrder: Bool = false)
+    {
         let newMetricInfo = Metric_Info(context: context)
         newMetricInfo.metric = metric
         newMetricInfo.unit_of_measurement = unitOfM.symbol
         newMetricInfo.exercise = exercise
         newMetricInfo.sort_in_ascending_order = sortInAscendingOrder
-        
     }
     
     class func fetchAll() -> [Metric_Info] {

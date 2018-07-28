@@ -9,15 +9,10 @@
 import UIKit
 
 public protocol TableDataPopulator {
-    
-    func numberOfSections() -> Int 
-    
+    func numberOfSections() -> Int
     func numberOfItems(in section: Int) -> Int
-    
     func configureCell(at indexPath: IndexPath, for tableView: UITableView) -> UITableViewCell
-    
     func configure(header: CollapsibleHeader, at section: Int)
-    
 }
 
 

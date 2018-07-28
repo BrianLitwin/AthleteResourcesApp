@@ -84,16 +84,6 @@ final class Exercises: NSManagedObject, HasAnalyticsController {
 }
 
 
-extension Exercises: ExerciseCellData {
-    
-    //mark: allow exercisePicker model to pick up name, variation data
-    
-    var categoryName: String {
-        return category?.name ?? "" 
-    }
-}
-
-
 extension Exercises: CanSetIsActive {
     
     func setExerciseIsActive(to bool: Bool) {
@@ -134,6 +124,7 @@ func setCategoryActiveState(itemisActive: Bool, category: Categories) {
 
 class ExerciseController: MasterInfoController {
     
+    var info: ExerciseCellData { return exercise }
     let exercise: Exercises
     
     let updateExerciseAlertTitle = "Edit Exercise"

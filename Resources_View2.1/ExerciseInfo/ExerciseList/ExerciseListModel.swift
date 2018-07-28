@@ -10,6 +10,13 @@ import UIKit
 
 public protocol ExerciseListModel: ReloadableModel {
     var listItems: [ExerciseListItem] { get set }
+    var sections: [ExerciseListSectionsByCategory] { get set }
+    func sortByCategory()
+}
+
+public protocol ExerciseListSectionsByCategory {
+    var category: String { get }
+    var items: [ExerciseListItem] { get }
 }
 
 public protocol HasAnalyticsController {

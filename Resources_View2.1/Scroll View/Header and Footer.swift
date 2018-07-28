@@ -33,7 +33,6 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
         
         if let date = info.date {
             dateLabel.text = date.weekdayMonthDay
-            centerInContainer(dateLabel)
         }
         
         //if let bodyweight = info.bodyweight {
@@ -50,6 +49,23 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
         super.init(frame: frame)
         backgroundColor = Colors.CurrentWorkout.workoutHeaderBg
         layer.cornerRadius = 3
+        
+        //configure right pane
+        let rightIconPane = ViewRightPane(image: .expandMore,
+                                          backgroundColor: Colors.CurrentWorkout.addExerciseBg,
+                                          imageTintColor: .white,
+                                          borderColor: .white,
+                                          tapAction: { [weak self] in self?.btnTap() }
+        )
+        rightIconPane.addToRightPane(superview: self)
+        
+        //configure date label
+        addSubview(dateLabel)
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.trailingAnchor.constraint(equalTo: rightIconPane.leadingAnchor).isActive = true
+        dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        dateLabel.textAlignment = .center
     }
     
     @objc func btnTap() {
@@ -76,15 +92,37 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
 class ScrollViewFooter: UIView, LayoutGuide  {
     
     var btnTap: (() -> Void)?
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let button = UIButton()
-        button.setTitle("Add Exercise", for: .normal)
-        button.setTitleColor(Colors.CurrentWorkout.addExerciseLabel, for: .normal)
-        button.addTarget(self, action: #selector(btnTapped), for: .touchDown)
-        centerInContainer(button)
-        button.cornerRadius = 4
+        
+        //add image in right corner
+        
+        let rightIconPane = ViewRightPane(image: .add,
+                                          backgroundColor: Colors.CurrentWorkout.addExerciseBg,
+                                          imageTintColor: .white,
+                                          borderColor: .white,
+                                          tapAction: { [weak self] in self?.btnTapped() }
+        )
+        rightIconPane.addToRightPane(superview: self)
+        
+        
+        //add label
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(btnTapped)))
+        let label = UILabel()
+        label.text = "Add Exercise"
+        label.textAlignment = .center
+        addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: rightIconPane.leadingAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true 
+        label.textColor = .white
+        
+        //adding an extra gesture recognizer so that you can tap anywhere and pull up the add exercise list
+        let gr2 = UITapGestureRecognizer(target: self, action: #selector(btnTapped))
+        addGestureRecognizer(gr2)
         backgroundColor = Colors.CurrentWorkout.addExerciseBg
         layer.cornerRadius = 3 
     }
@@ -102,8 +140,5 @@ class ScrollViewFooter: UIView, LayoutGuide  {
     }
     
 }
-
-
-
 
 

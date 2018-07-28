@@ -68,6 +68,13 @@ extension UILabel {
         numberOfLines = 1
     }
     
+    func addCharSpace(value: CGFloat) {
+        let attributedString = NSMutableAttributedString(string: self.text ?? "")
+        attributedString.addAttribute(NSAttributedStringKey.kern,
+                                      value: value,
+                                      range: NSRange(location: 0, length: attributedString.length))
+        self.attributedText = attributedString
+    }
 }
 
 

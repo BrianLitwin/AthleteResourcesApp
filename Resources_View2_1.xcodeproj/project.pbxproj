@@ -106,6 +106,7 @@
 		BDF091E8203C93F600F223F0 /* Header And Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF091E7203C93F600F223F0 /* Header And Cell.swift */; };
 		BDF5C83020785BC0002FDC10 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF5C83120785BC0002FDC10 /* CorePlot.framework */; };
 		BDF5C87A2078F269002FDC10 /* ScatterPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C8792078F269002FDC10 /* ScatterPlot.swift */; };
+		BDF6596E210A37A600A0F4D1 /* RightPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF6596D210A37A600A0F4D1 /* RightPaneView.swift */; };
 		BDFE0694207901D800F3024B /* BodyweightTVC Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE0693207901D800F3024B /* BodyweightTVC Helpers.swift */; };
 		BDFE06972079023200F3024B /* BWTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE06962079023200F3024B /* BWTableViewCells.swift */; };
 		BDFE06992079027800F3024B /* BWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFE06982079027800F3024B /* BWViewModel.swift */; };
@@ -217,6 +218,7 @@
 		BDF091E7203C93F600F223F0 /* Header And Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Header And Cell.swift"; sourceTree = "<group>"; };
 		BDF5C83120785BC0002FDC10 /* CorePlot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CorePlot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF5C8792078F269002FDC10 /* ScatterPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterPlot.swift; sourceTree = "<group>"; };
+		BDF6596D210A37A600A0F4D1 /* RightPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightPaneView.swift; sourceTree = "<group>"; };
 		BDFE0693207901D800F3024B /* BodyweightTVC Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyweightTVC Helpers.swift"; sourceTree = "<group>"; };
 		BDFE06962079023200F3024B /* BWTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWTableViewCells.swift; sourceTree = "<group>"; };
 		BDFE06982079027800F3024B /* BWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWViewModel.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				BD012F24203A58F700A4A351 /* Base Classes.swift */,
+				BDF6596D210A37A600A0F4D1 /* RightPaneView.swift */,
 				BD012F23203A58F700A4A351 /* Base Stack View.swift */,
 				BD012F25203A58F700A4A351 /* Base TableViewCells.swift */,
 				BD012F22203A58F700A4A351 /* ButtonWithAction.swift */,
@@ -725,6 +728,7 @@
 				BD012F8C203BA57100A4A351 /* Window Manager.swift in Sources */,
 				BD72684D205C7B2100625F0C /* Workout Header Model.swift in Sources */,
 				BD012F4B203A598400A4A351 /* LayoutGuide.swift in Sources */,
+				BDF6596E210A37A600A0F4D1 /* RightPaneView.swift in Sources */,
 				BDAA111D2076543D008A8EB4 /* TextfieldCollectionViewCollectionView.swift in Sources */,
 				BD012F97203BADD000A4A351 /* base CollectionView.swift in Sources */,
 				BD76C1F82049C5F3003305CC /* DispatchQeue.swift in Sources */,

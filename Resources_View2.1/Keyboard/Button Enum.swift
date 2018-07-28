@@ -90,7 +90,7 @@ public enum KeyboardButtonType: Hashable {
                 var returnString = ""
                 
                 if let s = text.removeNonNumericValues() {
-                    returnString = String(s.displayString)
+                    returnString = String(s.displayString())
                 }
                 
                 switch self {

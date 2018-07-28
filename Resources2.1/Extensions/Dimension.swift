@@ -10,26 +10,19 @@ import Foundation
 
 
 extension Dimension {
-    
     @objc var saveUnit: Dimension {
         return self
     }
     
-    func convertToDisplayUnit(_ value: Double) -> Double {
-        
+    func convertToDisplayUnit(_ value: Double) -> Exercise_Metrics.Value {
         let y = Measurement(value: value, unit: saveUnit)
-        return y.converted(to: self).value
-        
+        return Exercise_Metrics.Value(saved: value, converted: y.converted(to: self).value)
     }
     
     func convertToSaveUnit(_ value: Double) -> Double {
-        
         let y = Measurement(value: value, unit: self)
         return y.converted(to: saveUnit).value
-        
     }
-
-
 }
 
 

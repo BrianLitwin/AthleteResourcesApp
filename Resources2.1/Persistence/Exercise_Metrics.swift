@@ -20,6 +20,11 @@ import CoreData
 
 class Exercise_Metrics: NSManagedObject {
     
+    struct Value {
+        let saved: Double
+        let converted: Double
+    }
+    
     static func dateSortDescriptor(ascending: Bool = false) -> NSSortDescriptor {
         return NSSortDescriptor(key: "container.sequence.workout.dateSV", ascending: ascending)
     }
@@ -92,11 +97,13 @@ extension Exercise_Metrics {
     // Mark: retrieval methods
     //
     
-    func value(for metric: Metric) -> Double {
+    func value(for metric: Metric) -> Exercise_Metrics.Value {
         if let mi = metricInfos.containsMetric(metric) {
             return value(for: mi)
         } else {
-            return value(forKey: metric.searchKey) as! Double
+            let saveValue = value(forKey: metric.searchKey) as! Double
+            //this means there is not unit to convert it to/ the exercise doesn't have that unit of measurement
+            return Exercise_Metrics.Value(saved: saveValue, converted: saveValue)
         }
     }
     
@@ -105,13 +112,13 @@ extension Exercise_Metrics {
         return mi
     }
     
-    func value(for metricInfo: Metric_Info) -> Double {
+    func value(for metricInfo: Metric_Info) -> Exercise_Metrics.Value {
         let searchKey = metricInfo.metric.searchKey
         let unit = metricInfo.unitOfMeasurement
         return value(for: searchKey, unit: unit)
     }
     
-    func value(for searchKey: String, unit: Dimension) -> Double {
+    func value(for searchKey: String, unit: Dimension) -> Exercise_Metrics.Value {
         let val = value(forKey: searchKey) as! Double
         return unit.convertToDisplayUnit(val)
     }
@@ -127,7 +134,39 @@ extension Exercise_Metrics {
         }
         
         let val = value(for: metric)
-        return val.displayString
+        
+        switch metric {
+        
+        case .Length:
+        guard let unitOfMeasurement = metricInfo(for: .Length)?.unitOfMeasurement else { break }
+        if unitOfMeasurement == UnitLength.feet {
+            let feet = Int(wholeFeet)
+            let inches = Int(remainderInches)
+            return "\(feet)' \(inches)\""
+        } else {
+            return val.converted.displayString()
+        }
+        
+        case .Time:
+        guard let unitOfMeasurement = metricInfo(for: .Time)?.unitOfMeasurement else { break }
+        if unitOfMeasurement == UnitDuration.minutes {
+            let minutes = Int(wholeMinutes)
+            let seconds = Int(remainderSeconds)
+            if seconds <= 9 {
+                 return "\(minutes):0\(seconds)"
+            } else {
+                return "\(minutes):\(seconds)"
+            }
+        } else {
+            
+            return val.converted.displayString(rounded: 2)
+        }
+        
+        default:
+            break
+        }
+        
+        return val.converted.displayString()
     }
     
     func displayValue(for metricInfo: Metric_Info) -> String {
@@ -136,9 +175,8 @@ extension Exercise_Metrics {
     
     
     func displayString(for metric: Metric) -> String? {
-        
         let value = displayValue(for: metric)
-        
+
         switch metric {
             
         case .Reps:
@@ -148,30 +186,17 @@ extension Exercise_Metrics {
             if value == "0" || value == "1" { return nil }
             return value //Mark: Don't show sets if they equal 1
             
-        case .Weight:
-            if used_bodyweight {
-                return "BW"
-            } else {
-                fallthrough
-            }
-            
-        default:
-            
-            let unitOfMeasurement = metricInfo(for: metric)?.unitOfMeasurement.symbol ?? ""
-            
-            return value + " " + unitOfMeasurement
-            
+        default: break
         }
         
+        let unitOfMeasurement = metricInfo(for: metric)?.unitOfMeasurement.symbol ?? ""
+        return value + " " + unitOfMeasurement
     }
 
     
     func displayString() -> String {
-    
-        let strings = metricInfos.flatMap({
-            displayString(for: $0.metric)
-        })
-        
+        let mi = metricInfoSet.sortedByMetricPriority
+        let strings = mi.flatMap { displayString(for: $0.metric) }
         return strings.joined(separator: " x ")
     }
     
@@ -182,7 +207,6 @@ extension Exercise_Metrics {
     //
     
     func save(string: String, metricInfo: Metric_Info) {
-        
         if customSaveForNonstand(string, metric: metricInfo.metric) {
             return
         }
@@ -208,12 +232,10 @@ extension Exercise_Metrics {
         saveContext()
     }
     
-    
     //
     //Mark: CHecking for nonstandard values
     //
     //
-    
     
     func displayStringNonStandard(for metric: Metric) -> String? {
         
@@ -228,7 +250,7 @@ extension Exercise_Metrics {
             
             if missed_reps {
                 if repsSV > 0 {
-                    return repsSV.displayString + " + X"
+                    return repsSV.displayString() + " + X"
                 } else {
                     return "X"
                 }
@@ -236,7 +258,6 @@ extension Exercise_Metrics {
             
         default:
             break
-            
         }
 
         return nil
@@ -245,9 +266,7 @@ extension Exercise_Metrics {
     func customSaveForNonstand(_ string: String, metric: Metric) -> Bool {
         
         switch metric {
-      
         case .Weight:
-            
             if string == "BW" {
                 used_bodyweight = true
                 weightSV = 0
@@ -256,7 +275,6 @@ extension Exercise_Metrics {
             }
             
         case .Reps:
-            
             if string.characters.contains("X") {
                 
                 missed_reps = true
@@ -270,13 +288,10 @@ extension Exercise_Metrics {
                 
                 saveContext()
                 return true
-                
             }
             
         default:
             break
-            
-            
         }
         
         return false
@@ -291,7 +306,7 @@ extension Exercise_Metrics {
     
     var weight: Double {
         get {
-            return value(for: .Weight)
+            return value(for: .Weight).converted
         }
         set {
             save(double: newValue, metric: .Weight)
@@ -310,22 +325,34 @@ extension Exercise_Metrics {
     
     var wholeMinutes: Double {
         get { return Double(Int(timeSV / 60)) }
-        set { timeSV = (newValue * 60) + remainderSeconds; saveContext()  }
+        set {
+            timeSV = (newValue * 60) + remainderSeconds
+            saveContext()
+        }
     }
     
     var remainderSeconds: Double {
         get { return timeSV.truncatingRemainder(dividingBy: 60) }
-        set { timeSV = newValue + (wholeMinutes * 60); saveContext() }
+        set {
+            timeSV = newValue + (wholeMinutes * 60)
+            saveContext()
+        }
     }
     
     var wholeFeet: Double {
         get { return Double(Int(lengthSV / 12 )) }
-        set { lengthSV = (newValue * 12) + remainderInches; saveContext() }
+        set {
+            lengthSV = (newValue * 12) + remainderInches
+            saveContext()
+        }
     }
     
     var remainderInches: Double {
         get { return lengthSV.truncatingRemainder(dividingBy: 12) }
-        set { lengthSV = newValue + (wholeFeet * 12); saveContext() }
+        set {
+            lengthSV = newValue + (wholeFeet * 12)
+            saveContext()
+        }
     }
     
 }

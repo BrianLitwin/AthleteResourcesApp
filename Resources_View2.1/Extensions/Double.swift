@@ -15,15 +15,13 @@ public extension Double {
         return (self * divisor).rounded() / divisor
     }
     
-    var displayString: String {
-        
-        let value = self.rounded(toPlaces: 1)
+    func displayString(rounded toPlaces: Int = 1) -> String {
+        let value = self.rounded(toPlaces: toPlaces)
         if value.truncatingRemainder(dividingBy: 1) == 0 {
             return String(Int(value))
         } else {
             return String(value)
         }
-        
     }
     
     var withDeltaSymbol: String {

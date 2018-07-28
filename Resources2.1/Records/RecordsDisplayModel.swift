@@ -17,6 +17,8 @@ class RecordsDisplayModel<T: HasRecords>: ExerciseInfoModel {
     
     let type: T
     
+    var sections: [ExerciseAnalyticsSectionUIPopulator] = []
+    
     var needsReload: Bool {
         return type.personalRecordsManager.needsReload
     }
@@ -26,7 +28,6 @@ class RecordsDisplayModel<T: HasRecords>: ExerciseInfoModel {
     }
     
     func loadModel() {
-        
         type.personalRecordsManager.updateRecords()
         let sectionData = type.personalRecordsManager.personalRecords
         let rows: [PersonalRecordsSection.PersonalRecordsRowData] = sectionData.map({
@@ -35,12 +36,7 @@ class RecordsDisplayModel<T: HasRecords>: ExerciseInfoModel {
         })
         
         sections = [PersonalRecordsSection(rows: rows)]
-        
     }
-    
-    
-    var sections: [ExerciseAnalyticsSectionUIPopulator] = []
-    
 }
 
 /*
