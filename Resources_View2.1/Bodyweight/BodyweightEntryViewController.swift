@@ -45,7 +45,10 @@ public class BodyweightEntryViewController: UIViewController, TextFieldCollectio
         
         view.backgroundColor = UIColor.groupTableViewBackground
         navigationController?.setDefaultColorScheme()
-        self.navigationItem.rightBarButtonItem = doneBtn
+        navigationItem.rightBarButtonItem = doneBtn
+        navigationItem.leftBarButtonItem?.tintColor = Colors.navbarBtnTint
+        navigationItem.rightBarButtonItem?.tintColor = Colors.navbarBtnTint
+        title = "Bodyweight Entry"
         
         view.addSubview(textfieldCV)
         textfieldCV.model = self

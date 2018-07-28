@@ -10,7 +10,6 @@ import UIKit
 import CoreData 
 import Resources_View2_1
 
-//overkill after realizing that isActive isn't relevant
 
 class CategoriesPicker: FetchedResultsTableViewController<NSManagedObject> {
     

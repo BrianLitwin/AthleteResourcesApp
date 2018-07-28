@@ -20,6 +20,7 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
     public var exerciseInfo: MasterInfoController? {
         didSet {
             guard let exerciseInfo = self.exerciseInfo else { return }
+            setNavTitle(name: exerciseInfo.info.name, variation: exerciseInfo.info.variation)
             menuBar.infoControllers = exerciseInfo.infoControllers
             menuBar.reloadData()
             changeViewController(index: 0)
@@ -44,15 +45,25 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Exercise Info"
         setupMenuBar()
         //keep view from going under navigation bar
         edgesForExtendedLayout = []
     }
     
+    func setNavTitle(name: String?, variation: String?) {
+        guard let name = name else {
+            title = "Exercise Info"
+            return
+        }
+        
+        let titleLabel = NavBarTitle()
+        titleLabel.setupWith(title: name, subtitle: variation)
+        navigationItem.titleView = titleLabel
+    }
+    
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .black 
     }
     
     public func setupViewControllerFrame(for viewController: UIViewController) {
@@ -74,4 +85,73 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
         }
     }
 }
+
+
+
+
+
+class NavBarTitle: UIView {
+    
+    private let label = UILabel()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        label.backgroundColor = .clear
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.lineBreakMode = .byTruncatingMiddle
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.75
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        label.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        
+        
+        addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    }
+    
+    func setupWith(title: String, subtitle: String?) {
+        let titleAttributes: [NSAttributedStringKey: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: 16),
+            .foregroundColor: Colors.ExerciseInfo.navbarTitle
+        ]
+        
+        let attributedTitle = NSMutableAttributedString(string: title, attributes: titleAttributes)
+        if let subtitle = subtitle, subtitle.IsEmptyString == false {
+            attributedTitle.append(NSAttributedString(string: "\n"))
+            attributedTitle.append(NSAttributedString(string: subtitle, attributes: [
+                .font: UIFont.boldSystemFont(ofSize: 13),
+                .foregroundColor: Colors.ExerciseInfo.navbarSubtitle
+            ]))
+        }
+        
+        label.attributedText = attributedTitle
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

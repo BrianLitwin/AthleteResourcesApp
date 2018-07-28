@@ -50,7 +50,7 @@ class SequenceModelUpdater: ModelUpdater {
             
         }
         
-        weightTextField.text = exerciseMetrics[0].value(for: .Weight).displayString
+        weightTextField.text = exerciseMetrics[0].value(for: .Weight).converted.displayString()
         textfields.append(weightTextField)
         textfieldLabels.append("Weight")
         
@@ -68,10 +68,16 @@ class SequenceModelUpdater: ModelUpdater {
             repsTextField.setTextForEditingState = setTextFieldText(repsTextField, metric: .Reps)
             
             textfields.append(repsTextField)
+            let name = exerciseMetric.exercise?.name ?? ""
+            let lastChar = name[name.index(before: name.endIndex)]
+            var reps = "Reps"
+            if lastChar != " " {
+                reps = " Reps"
+            }
             
-            let header = (exerciseMetric.exercise?.name ?? "") + " Reps"
+            let header = name + reps
             textfieldLabels.append(header)
-            repsTextField.text = exerciseMetrics[index].value(for: .Reps).displayString
+            repsTextField.text = exerciseMetrics[index].value(for: .Reps).saved.displayString()
             
         }
         
@@ -94,18 +100,15 @@ class SequenceModelUpdater: ModelUpdater {
         
         textfields.append(setsTextField)
         textfieldLabels.append("Sets")
-        setsTextField.text = exerciseMetrics[0].value(for: .Sets).displayString
+        setsTextField.text = exerciseMetrics[0].value(for: .Sets).converted.displayString()
         
     }
     
-    
-
     func loadTextFieldContainers(exerciseMetric: Exercise_Metrics) {
         
         for metricInfo in exerciseMetric.metricInfos {
                 setTextFieldFunctions(metricInfo: metricInfo, exerciseMetric: exerciseMetric)
             }
-        
     }
     
     func setTextFieldFunctions( metricInfo: Metric_Info,
@@ -114,9 +117,7 @@ class SequenceModelUpdater: ModelUpdater {
             //TODO: CHeck for retain cycles using self
             
             let textField = TextField()
-        
             textField.setTextForEditingState = setTextFieldText(textField, metric: metricInfo.metric)
-        
             setTextFieldSaveValue(textField,
                                  exerciseMetric: exerciseMetric,
                                  metricInfo: metricInfo)
@@ -128,13 +129,12 @@ class SequenceModelUpdater: ModelUpdater {
                                    metricInfo: Metric_Info)
         {
             
-            
             switch metricInfo.unitOfMeasurement {
                 
             case UnitLength.feet:
                 
                 textField.saveValue =
-                metricInfo.saveExerciseMetricValue(exerciseMetric, nonStandardValue: .feet(.feet))
+                    metricInfo.saveExerciseMetricValue(exerciseMetric, nonStandardValue: .feet(.feet))
                 textField.text = String(exerciseMetric.wholeFeet)
                 textfieldLabels.append(UnitLength.feet.symbol)
                 textfields.append(textField)
@@ -142,15 +142,16 @@ class SequenceModelUpdater: ModelUpdater {
                 let textField2 = TextField()
 
                 textField2.saveValue =
-                metricInfo.saveExerciseMetricValue(exerciseMetric, nonStandardValue: .feet(.inches))
+                    metricInfo.saveExerciseMetricValue(exerciseMetric, nonStandardValue: .feet(.inches))
                 textField2.text = String(exerciseMetric.remainderInches)
                 textfieldLabels.append(UnitLength.inches.symbol)
+                textField2.setTextForEditingState = setTextFieldText(textField2, metric: metricInfo.metric)
                 textfields.append(textField2)
                 
             case UnitDuration.minutes:
                 
                 textField.saveValue =
-                metricInfo.saveExerciseMetricValue(exerciseMetric, nonStandardValue: .minutes(.minutes))
+                    metricInfo.saveExerciseMetricValue(exerciseMetric, nonStandardValue: .minutes(.minutes))
                 textField.text = String(exerciseMetric.wholeMinutes)
                 textfieldLabels.append(UnitDuration.minutes.symbol)
                 textfields.append(textField)
@@ -158,9 +159,10 @@ class SequenceModelUpdater: ModelUpdater {
                 let textField2 = TextField()
                 
                 textField2.saveValue =
-                metricInfo.saveExerciseMetricValue(exerciseMetric, nonStandardValue: .minutes(.seconds))
+                    metricInfo.saveExerciseMetricValue(exerciseMetric, nonStandardValue: .minutes(.seconds))
                 textField2.text = String(exerciseMetric.remainderSeconds)
                 textfieldLabels.append(UnitDuration.seconds.symbol)
+                textField2.setTextForEditingState = setTextFieldText(textField2, metric: metricInfo.metric)
                 textfields.append(textField2)
                 
             default:
@@ -206,6 +208,8 @@ class SequenceModelUpdater: ModelUpdater {
         return setState
     }
     
+    
+    //This isn't necessary anymore
     func setButtonStates(for metric: Metric) {
         
         if let bwBtn = nonstandardKeyboardButtons[KeyboardButtonType.bodyweight] {
@@ -215,10 +219,7 @@ class SequenceModelUpdater: ModelUpdater {
         if let addMissedRepBtn = nonstandardKeyboardButtons[KeyboardButtonType.addMissedRep] {
             addMissedRepBtn.isEnabled = metric == .Reps
         }
-        
     }
-    
-    
 }
 
 

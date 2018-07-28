@@ -25,17 +25,26 @@ public class EditExerciseMetricTextField: UITextField, UITextFieldDelegate {
         delegate = self
         inputView = UIView()
         textAlignment = .center
-        setBorder()
+        layer.borderWidth = 2/UIScreen.main.scale
+        
+        setBorder(highlighted: false)
     }
     
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        setBorder(highlighted: true)
         text = setTextForEditingState?(.beginning)
         return true
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        setBorder(highlighted: false)
         text = setTextForEditingState?(.ending)
         saveValue?(text ?? "")
+    }
+    
+    func setBorder(highlighted: Bool) {
+        layer.borderColor = highlighted ? Colors.Textfield.borderHighlight.cgColor : Colors.Textfield.borderDefault.cgColor
+        backgroundColor = highlighted ? Colors.blueHighlight : .clear
     }
     
     public required init?(coder aDecoder: NSCoder) {

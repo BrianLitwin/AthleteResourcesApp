@@ -12,7 +12,7 @@ public class TableWithDropDownHeaders: UITableView, UITableViewDataSource, UITab
     public typealias modelType = DropDownTableModel & TableDataPopulator & ReloadableModel
     
     var model: modelType
-    
+
     init(model: modelType, style: UITableViewStyle = .grouped) {
         self.model = model
         super.init(frame: .zero, style: style)
@@ -35,8 +35,7 @@ public class TableWithDropDownHeaders: UITableView, UITableViewDataSource, UITab
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if model.collapsedSections.isEmpty {
             return 0
-            
-        }  //Fix Me Later: Crashes w/ no sections
+        }
         return model.numberOfItemsToDisplay(in: section)
     }
 
@@ -57,14 +56,31 @@ public class TableWithDropDownHeaders: UITableView, UITableViewDataSource, UITab
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = dequeueReusableHeaderFooterView(withIdentifier: CollapsibleHeader.reuseID) as! CollapsibleHeader
-        model.configure(header: header, at: section)
+        //tempoorary hack
+        if headers[section] == nil {
+            headers[section] = ExercisePickerHeader()
+        }
+        
+        let header: ExercisePickerHeader = headers[section]!
         header.delegate = self
         header.section = section
+        model.configure(header: header, at: section)
         return header
     }
     
+    var headers: [Int: ExercisePickerHeader] = [:]
+    
+    var headersDict: [String: Bool] = [:]
+    
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension TableWithDropDownHeaders: CollapsibleHeaderDelegate {
+    public func toggleSection(_ section: Int, header: CollapsibleHeader) {
+        let collapsed = model.collapsedSections[section]
+        model.collapsedSections[section] = !collapsed
+        reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
     }
 }

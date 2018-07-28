@@ -14,6 +14,9 @@
 import UIKit
 
 public protocol MasterInfoController {
+    //probably a misnamed protocol .. just want the display info ie name and variation
+    var info: ExerciseCellData { get }
+    
     var infoControllers: [ExerciseInfoController] { get }
 }
 

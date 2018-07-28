@@ -12,30 +12,52 @@ import Resources_View2_1
 
 private enum URLS: String {
     case production = "http://django-env.m5brm3c9jn.us-east-1.elasticbeanstalk.com/data/getWorkoutData/2/"
-    case dev = "http://localhost:8000/data/getWorkoutData/2/"
+    case dev = "http://localhost:8000/api/getWorkoutData/2/"
 }
 
 class GetWorkoutsFromServer {
+    var dataLoaded = false
     
     //
     //Mark: Keeping a strong reference for right now, may not be the tight thing to do
     //
 
+    func loadPreviousWorkouts() -> Data? {
+        if let path = Bundle.main.path(forResource: "PreviousWorkouts", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                return data
+                    
+                
+            } catch {
+                
+            }
+        }
+        return nil
+    }
+    
     func getWorkoutsFromBackend() {
-        let urlString = URLS.production.rawValue
+        guard !dataLoaded else { return }
+        if let data = loadPreviousWorkouts() {
+            handleResponse(data)
+            dataLoaded = true
+        }
+        return
+        
+        let urlString = URLS.dev.rawValue
         guard let url = URL(string: urlString) else { return }
         let config = URLSessionConfiguration.default
         config.waitsForConnectivity = true
         let defaultSession = URLSession(configuration: config)
         let task = defaultSession.dataTask(with: url) { data, response, error in
             if let error = error {
-                
+                print(error.localizedDescription)
             } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 Queue.main.execute {
                     self.handleResponse(data)
                 }
             } else {
-                print(response)
+                print(response.debugDescription)
             }
         }
         task.resume()
@@ -129,7 +151,6 @@ struct Sequence_JSON: Codable {
 }
 
 struct EM_Container_JSON: Codable {
-
     var coreDataID: Int16
     var order: Int16
     var id: Int16
@@ -137,7 +158,6 @@ struct EM_Container_JSON: Codable {
     var sequence: Int16
     
     func save(exercises: [Exercise_JSON], sequences: [Sequence_JSON]) {
-        
         func findExercise(id: Int16) -> Exercises {
             for exercise in exercises {
                 if exercise.id == id {
@@ -255,6 +275,10 @@ struct Metric_Info_JSON: Codable {
             return
         }
         
+        if exercise.name == "Back Squat" {
+            
+        }
+        
         let metricInfo = Metric_Info(context: context)
         var metricToSave = metric
         metricToSave = metricToSave == "Distance" ? "Length" : metricToSave
@@ -270,9 +294,8 @@ struct Metric_Info_JSON: Codable {
         }
         
         metricInfo.unit_of_measurement = uom
-        metricInfo.exercise = findExercise(id: self.exercise)
+        metricInfo.exercise = exercise
     }
-    
 }
 
 struct Exercise_Metrics_JSON: Codable {
@@ -302,6 +325,10 @@ struct Exercise_Metrics_JSON: Codable {
         newEM.timeSV = time
         newEM.lengthSV = length
         newEM.velocitySV = velocity
+        
+        if time > 0 {
+            
+        }
         
         func findContainer(id: Int16) -> EM_Containers {
             for container in containers {

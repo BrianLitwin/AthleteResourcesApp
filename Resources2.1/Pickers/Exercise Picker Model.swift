@@ -18,11 +18,7 @@ class ExerciseList {
 
 class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, ExerciseTableViewModel, TableDataPopulator, ReloadableModel  {
     
-    var data: [[ExerciseCellData]] = [[]] {
-        didSet {
-            print(data)
-        }
-    }
+    var data: [[ExerciseCellData]] = [[]] 
     
     var exercises: [[Any]] = [[]]
     

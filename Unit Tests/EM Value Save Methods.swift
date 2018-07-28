@@ -44,8 +44,6 @@ class EMValueSaveMethods: XCTestCase {
         
         weightMetric.unit_of_measurement = UnitMass.pounds.symbol
         XCTAssert( weight == 200.0 )
-        
-        
     }
     
     func test_displaying_nonStandardValues() {

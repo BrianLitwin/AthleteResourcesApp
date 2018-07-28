@@ -205,6 +205,7 @@ class OneRMWeekTableViewCell: BaseTableViewCell {
         label.textColor = Colors.OneRMWeekCell.detailText
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
+        label.font = UIFont.systemFont(ofSize: 13)
         return label
     }()
     

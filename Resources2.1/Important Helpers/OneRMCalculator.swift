@@ -44,8 +44,8 @@ extension Exercise_Metrics {
         guard let primaryMetric: Metric = exercise?.metricInfoSet.primaryMetric.metric else { return 0 }
         
         func OneRepMax() -> Double {
-            let weight = value(for: .Weight)
-            let reps = value(for: .Reps)
+            let weight = value(for: .Weight).converted
+            let reps = value(for: .Reps).converted
             guard reps > 0 else { return 0 }
             guard reps != 1 else { return weight }
             return weight * ( 1.0 + (reps / 30.0) )
@@ -57,7 +57,7 @@ extension Exercise_Metrics {
             return OneRepMax()
             
         default:
-            return value(for: primaryMetric)
+            return value(for: primaryMetric).converted
             
         }
         

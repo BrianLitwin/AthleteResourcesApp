@@ -159,7 +159,7 @@ public class SequenceUIHandler {
     
             alert.addAction(UIAlertAction(title: "Insert Row Above", style: .default, handler: {
                 [weak self] action in
-                self?.showExMetricEditor(for: indexPath, insertRow: true)
+                self?.updateView(for: .insertRow, at: indexPath)
             }))
             
             alert.addAction(UIAlertAction(title: "Remove Row", style: .destructive, handler: {

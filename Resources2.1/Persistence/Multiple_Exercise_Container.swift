@@ -16,7 +16,6 @@ enum MultiExerciseContainerType: Int16 {
 }
 
 
-
 final class Multi_Exercise_Container_Types: NSManagedObject, HasAnalyticsController {
     
     lazy var infoController: MasterInfoController = {
@@ -93,13 +92,13 @@ extension Multi_Exercise_Container_Types: ExerciseCellData {
     var categoryName: String {
         return category?.name ?? ""
     }
-    
 }
 
 
 
 
 class MultiExerciseContainerController: MasterInfoController {
+    var info: ExerciseCellData { return containerType }
     
     let containerType: Multi_Exercise_Container_Types
     
@@ -112,7 +111,6 @@ class MultiExerciseContainerController: MasterInfoController {
             CompoundExerciseRecordsController(containerType: containerType)
         ]
     }()
-    
 }
 
 class CompoundExerciseRecordsController: ExerciseInfoController {

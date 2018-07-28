@@ -8,10 +8,6 @@
 
 import UIKit
 
-
-
-
-
 class CompoundExerciseMetricComparisonContainer {
     
     init(ems: [Exercise_Metrics], sequence: Sequences) {
@@ -24,12 +20,12 @@ class CompoundExerciseMetricComparisonContainer {
     let sequence: Sequences
     
     var reps: [Double] {
-        return exerciseMetrics.map({ $0.value(for: .Reps )})
+        return exerciseMetrics.map({ $0.value(for: .Reps ).converted })
     }
     
     var weight: Double {
         guard !exerciseMetrics.isEmpty else { return 0 }
-        return exerciseMetrics[0].value(for: .Weight)
+        return exerciseMetrics[0].value(for: .Weight).converted
     }
     
     var sets: Double {

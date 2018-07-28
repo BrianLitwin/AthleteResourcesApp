@@ -29,6 +29,11 @@ class SequenceCollectionView: UICollectionView, UICollectionViewDataSource, UICo
         let layout = UICollectionViewFlowLayout()
         super.init(frame: .zero, collectionViewLayout: layout)
         
+        //set border
+        layer.borderWidth = 1/UIScreen.main.scale
+        layer.borderColor = Colors.CurrentWorkout.border.cgColor
+        layer.cornerRadius = 6
+        
         self.uiHandler = SequenceUIHandler(collectionView: self,
                                             model: model,
                                             delegate: workoutController)
@@ -41,7 +46,6 @@ class SequenceCollectionView: UICollectionView, UICollectionViewDataSource, UICo
         register(CVHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: CVHeader.reuseID)
         register(CVFooter.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: CVFooter.reuseID)
         backgroundColor = Colors.CurrentWorkout.sectionBg
-        layer.cornerRadius = 3
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

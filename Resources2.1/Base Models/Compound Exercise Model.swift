@@ -12,17 +12,11 @@ import Resources_View2_1
 
 
 class CompoundExerciseModel: SequenceModel {
-    
     let containerType: Multi_Exercise_Container_Types
-    
     let sequence: Sequences
-    
     var sections: [SequenceSectionData]
-    
     let section: CompoundExerciseSections
-    
     let exerciseContainers: [Multi_Exercise_Container]
-    
     let exercises: [Exercises]
     
     //
@@ -207,7 +201,7 @@ class CompoundExerciseSection: Hashable {
 func displayStringForCompoundExerciseMetrics(ems: [Exercise_Metrics]) -> String {
     guard !ems.isEmpty else { return "" }
     let weight = ems[0].displayString(for: .Weight)
-    let reps: String? = "(" + ems.map({ $0.repsSV.displayString }).joined(separator: " + ") + ")"
+    let reps: String? = "(" + ems.map({ $0.repsSV.displayString() }).joined(separator: " + ") + ")"
     let sets = ems[0].displayString(for: .Sets)
     return [weight, reps, sets].compactMap({$0}).joined(separator: " x ")
 }

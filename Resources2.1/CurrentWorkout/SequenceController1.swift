@@ -165,7 +165,6 @@ class WorkoutSequenceModel: SequenceModel {
     }
     
     deinit {
-        print("deallocated")
     }
         
 }

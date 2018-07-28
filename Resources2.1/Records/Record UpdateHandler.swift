@@ -43,13 +43,9 @@ enum RecordsManagerUpdate {
 class RecordsManager<T: HasRecords>: ContextObserver {
     
     typealias RecordType = T.RecordType
-    
     let parentClass: T
-    
     var personalRecords: [RecordType] = []
-    
     var pendingItemsToCompare: [RecordType] = []
-    
     var recalculateAll = true
     
     init(parentClass: T) {
@@ -82,15 +78,11 @@ class RecordsManager<T: HasRecords>: ContextObserver {
     func updateCoreDataObjectsOnMainThread(newRecords: [RecordType], oldRecords: [RecordType]) {
         
         func updateRecords() {
-            
             parentClass.setObjectsAsPersonalRecord(forObjects: newRecords)
-            
             let removedRecords = oldRecords.filter({
                 return newRecords.contains($0) == false
             })
-            
             parentClass.setObjectsAsLocalRecordsOnly(forObjects: oldRecords)
-        
         }
         
         if Thread.isMainThread {
@@ -102,7 +94,6 @@ class RecordsManager<T: HasRecords>: ContextObserver {
         }
     }
 
-    
     func recalculateAllRecords() -> [RecordType] {
         let allItems = parentClass.fetchAll()
         let sortedItems = parentClass.sortByIsRecordOver(items: allItems)
@@ -111,7 +102,6 @@ class RecordsManager<T: HasRecords>: ContextObserver {
     }
     
     func comparePendingItems() -> [RecordType] {
-        
         let items = personalRecords + pendingItemsToCompare
         let uniqueItems: Set<RecordType> = Set(items)
         let sortedItems = parentClass.sortByIsRecordOver(items: Array(uniqueItems))
@@ -120,25 +110,25 @@ class RecordsManager<T: HasRecords>: ContextObserver {
     }
     
     func recordsFromSortedList(_ sortedItems: [RecordType]) -> [RecordType] {
-        
         var list = sortedItems
         guard !list.isEmpty else { return [] }
         let first = list.removeFirst()
         
         return list.reduce([first], {
-            
             list, item in
             let firstIsRecord = parentClass.firstIsRecordOverSecond(first: list.last!, second: item)
-            if firstIsRecord { return list }
-            return list + [item]
-            
+            if firstIsRecord {
+                return list
+            } else {
+                return list + [item]
+            }
         })
     }
     
     override func objectsDiDChange(type: ContextObserver.changeType, entity: NSManagedObject, changedValues: [String : Any]) {
         
         if type == .delete {
-            print(changedValues)
+
         }
         
         let update = parentClass.returnUpdate(for: entity, changeType: type)
@@ -156,9 +146,7 @@ class RecordsManager<T: HasRecords>: ContextObserver {
             break
             
         }
-        
     }
-    
 }
 
 

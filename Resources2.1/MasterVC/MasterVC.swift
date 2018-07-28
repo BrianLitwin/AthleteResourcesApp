@@ -11,24 +11,22 @@ import UIKit
 import Resources_View2_1
 
 class MasterVC: UIViewController, ContainerViewController {
-    
     var currentVCIndex = 0
+    let exampleData =  GetWorkoutsFromServer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let exampleData = ExampleData()
+        //let exampleData = ExampleData()
         
-        
-//        let ll = GetWorkoutsFromServer()
-//        ll.getWorkoutsFromBackend()
-        
-    
         let firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
         if firstLaunch != true {
             setupExercisesInDatabase()
             UserDefaults.standard.set(true, forKey: "firstLaunch")
         }
+        
+//
+//        exampleData.getWorkoutsFromBackend()
         
         //setupExercisePickerWithCompoundExercise()
         
@@ -199,7 +197,7 @@ extension CreateNewWorkoutAlertController: ChildVC {
     }
     
     public var name: String {
-        return "Create New Workout"
+        return "New Workout"
     }
 }
 

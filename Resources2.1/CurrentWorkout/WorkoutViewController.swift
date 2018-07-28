@@ -13,12 +13,15 @@ import Resources_View2_1
 
 
 class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutDelegate {
-    
     var reloadWorkoutHandler: WorkoutReloadHandler?
     var updateUIHandler: ReloadsWorkoutUI?
     var currentWorkout: Workouts?
     var currentlySelectedMasterInfoController: MasterInfoController?
     var lefthandNavbarBtn: UIBarButtonItem?
+    
+    lazy var floatingDumbell: FloatingDumbellView = {
+        return FloatingDumbellView()
+    }()
     
     lazy var scrollView: ScrollView =
         ScrollView(frame: view.bounds,
@@ -29,32 +32,14 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
                         strongSelf.showExercisePicker(for: workout.sequenceSet.count) }
     )
     
-    lazy var windowManager: WindowManager = {
-        getWindowManagerFromNavControl() ?? WindowManager()
-    }()
-    
+    lazy var windowManager: WindowManager = { getWindowManagerFromNavControl() ?? WindowManager() }()
     lazy var exercisePickerModel = ExercisePickerDropDownModel(includeMultiExerciseContainer: true)
-    
     lazy var exercisePicker = ExercisePickerTableView(model: exercisePickerModel)
     
     var workoutHeaderModel: WorkoutHeaderModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //setup lefthand bar btn item
-        let image = #imageLiteral(resourceName: "settings").withRenderingMode(.alwaysTemplate)
-        let settingsBtn = UIButton()
-        settingsBtn.setImage(image, for: .normal)
-        settingsBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
-        settingsBtn.addTarget(self, action: #selector(currentWorkoutSettings), for: .touchDown)
-        settingsBtn.tintColor = Colors.CurrentWorkout.settingsNavBarBtn
-        
-        lefthandNavbarBtn = UIBarButtonItem(customView: settingsBtn)
-        let currWidth = lefthandNavbarBtn!.customView?.widthAnchor.constraint(equalToConstant: 24)
-        currWidth?.isActive = true
-        let currHeight = lefthandNavbarBtn!.customView?.heightAnchor.constraint(equalToConstant: 24)
-        currHeight?.isActive = true
         
         view.backgroundColor = Colors.CurrentWorkout.background 
         view.insertSubview(scrollView, at: 0)
@@ -75,8 +60,9 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
         
         //send the header the delegate so that it will update when you change the workout date .
         workoutHeaderModel = newHeaderModel
+        let header = scrollView.header
         scrollView.header.setup(info: newHeaderModel)
-        
+
         workout.orderedSequences.forEach({
             if $0.multi_exercise_container_type == nil {
                 let model = WorkoutSequenceModel(sequence: $0)
@@ -86,7 +72,36 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
                 addSequenceToView(at: $0.workoutOrder, with: model)
             }
         })
+        
+        
+        if let sequences = workout.sequences, sequences.count == 0 {
+            setEmptyView(add: true)
+        }
     }
+    
+    
+    func setEmptyView(add: Bool = false) {
+        
+        func addView() {
+            view.addSubview(floatingDumbell)
+            floatingDumbell.translatesAutoresizingMaskIntoConstraints = false
+            floatingDumbell.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            floatingDumbell.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            floatingDumbell.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+            floatingDumbell.heightAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        }
+        
+        if !add {
+            if scrollView.subviews.count <= 3 {
+                addView()
+            } else {
+                floatingDumbell.removeFromSuperview()
+            }
+        } else {
+            addView()
+        }
+    }
+
     
     func insertSequence(withSelection: IndexPath, at sectionNumber: Int) {
         let indexPath = withSelection
@@ -111,6 +126,7 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
             addSequenceToView(at: sectionNumber, with: sequenceModel)
         }
         
+        setEmptyView()
     }
     
     func segueToExerciseDetail(with exerciseInfo: MasterInfoController) {
@@ -140,7 +156,6 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
         super.viewWillDisappear(animated)
         navigationController?.navigationItem.leftBarButtonItem = nil
     }
-    
 }
 
 
@@ -149,7 +164,6 @@ func twoLineNavBarTitle(firstLine: String, secondLine: String) -> UILabel {
     label.font = UIFont.boldSystemFont(ofSize: 16)
     label.textAlignment = .center
     label.text = "\(firstLine) \(secondLine)"
-    
     return label
 }
 
