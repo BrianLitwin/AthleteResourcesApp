@@ -12,7 +12,7 @@ import Resources_View2_1
 
 class MasterVC: UIViewController, ContainerViewController {
     var currentVCIndex = 0
-    //let exampleD =  GetWorkoutsFromServer()
+    let exampleD =  GetWorkoutsFromServer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +23,8 @@ class MasterVC: UIViewController, ContainerViewController {
             UserDefaults.standard.set(true, forKey: "firstLaunch")
         }
         
-//
-//        exampleData.getWorkoutsFromBackend()
-        
-        //setupExercisePickerWithCompoundExercise()
-        
-        
-        //let exampleData = ExampleData()
-        
-        
-        
+        //exampleD.getWorkoutsFromBackend()
+        let exampleData = ExampleData()
         changeViewController(index: currentVCIndex)
     }
     

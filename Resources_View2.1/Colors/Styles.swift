@@ -62,6 +62,11 @@ public struct Colors {
             static let unhighlightedIcon =  Color.Gray.light.color
             static let highlightedIcon = Color.Blue.medium.color
         }
+        
+        public struct RepMaxTable {
+            static let percentage = Color.Blue.medium.color
+        }
+        
     }
     
 

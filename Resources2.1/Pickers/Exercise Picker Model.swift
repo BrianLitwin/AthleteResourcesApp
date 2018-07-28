@@ -55,7 +55,8 @@ class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, Exercise
 func returnExerciseCellData(includingCompoundExercises: Bool) -> [[ExerciseCellData]] {
     
     //temporary hack
-    let categories = Categories.activeCategories().filter({ $0.exerciseSet.isEmpty == false })
+    //unit test that compound exercises are included in categories that ret, especially if category only has compound exercsies 
+    let categories = Categories.activeCategories().filter({ !$0.exerciseSet.isEmpty || !$0.compoundExerciseSet.isEmpty })
     
     switch includingCompoundExercises {
         

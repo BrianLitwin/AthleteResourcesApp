@@ -99,9 +99,7 @@ class CreateMenuTableViewController: UITableViewController {
                     let model = UpdateExercise(exercise: nil, category: category)
                     strongSelf.updateExerciseTableViewController.model = model
                     strongSelf.present(strongSelf.updateExerciseNavControl, animated: true)
-                    
                 }
-
             }
             
         case 1:
@@ -158,9 +156,7 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
     }
     
     override func viewDidLoad() {
-        
         setupNavBarBtns()
-        
         viewControllers = [tableViewController]
         
         exercisePicker.insertHandler = {

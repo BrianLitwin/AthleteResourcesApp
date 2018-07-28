@@ -51,7 +51,17 @@ public class BodyweightViewController: DefaultTableViewController, ReloadableVie
         graphHeader.frame = CGRect(x: tableHeader.frame.minX, y: tableHeader.frame.minY, width: view.frame.width, height: 65)
         graphView.frame = CGRect(x: tableHeader.frame.minX, y: 40, width: view.frame.width, height: 100)
         setupGraph()
-        view.backgroundColor = UIColor.white 
+        view.backgroundColor = UIColor.white
+        
+        
+        //add divider to tableHeader
+        let divider = UIView()
+        view.addSubview(divider)
+        divider.backgroundColor = UIColor.black.withAlphaComponent(0.25)
+        divider.frame = CGRect(x: 0,
+                               y: 175, //this is a touchy value
+                               width: view.frame.width,
+                               height: 1/UIScreen.main.scale)
     }
     
     func setupGraph() {

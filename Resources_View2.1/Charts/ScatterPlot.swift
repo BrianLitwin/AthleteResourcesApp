@@ -9,8 +9,6 @@
 import UIKit
 import CorePlot
 
-
-
 public protocol ScatterPlotDataSource {
     var data: [ScatterPlotDataItem] { get }
     var maxY: Double { get }
@@ -85,23 +83,8 @@ class ScatterPlotView: UIView, CPTScatterPlotDataSource, CPTAxisDelegate {
         plotSpace.yRange = CPTPlotRange(location: yMin.NSNumber, length: (yMax - yMin).NSNumber)
         plotSpace.allowsUserInteraction = false
         
-        // Axes
-        let axisSet = graph.axisSet as! CPTXYAxisSet
-        
-        if let x = axisSet.xAxis {
-            x.majorIntervalLength   = 1
-            x.orthogonalPosition    = yMin.NSNumber //wat? Why?
-            x.labelingPolicy = .fixedInterval
-            
-        }
-        
-        if let y = axisSet.yAxis {
-            y.majorIntervalLength   = 50
-            y.orthogonalPosition    = 0
-            y.minorTickLength = 50
-            y.labelingPolicy = .fixedInterval
-            y.delegate = self
-        }
+        // Dont show Axes
+        graph.axisSet = nil
         
         // Create a colored plot area
         let dataSourceLinePlot = CPTScatterPlot(frame: .zero)
