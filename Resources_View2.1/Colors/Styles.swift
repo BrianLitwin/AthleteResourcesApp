@@ -17,6 +17,17 @@ public struct Colors {
     
     static let blueHighlight = Color.Blue.light.color
     
+    public struct Sidebar {
+        public struct Primary {
+            static let icon = Color.Blue.medium.color
+            static let bg = Color.Blue.light.color
+        }
+        public struct Secondary {
+            static let icon = Color.Gray.light.color 
+            static let bg = UIColor.init(white: 0.0, alpha: 0.0)
+        }
+    }
+    
     public struct Textfield {
         public static let borderDefault = Color.Gray.light.color 
         public static let borderHighlight = Color.Blue.medium.color
@@ -34,9 +45,7 @@ public struct Colors {
     public struct TableView {
         public static let sectionHeader = Color.Blue.medium.color
         public static let background = UIColor.white
-    }
     
-    public struct Sidebar {
         public struct Primary {
             static let icon = Color.Blue.medium.color
             static let bg = UIColor.groupTableViewBackground
@@ -132,6 +141,7 @@ public struct Colors {
         }
     }
 }
+
 
 
 fileprivate enum Color {

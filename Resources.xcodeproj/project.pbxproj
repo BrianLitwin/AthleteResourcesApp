@@ -81,7 +81,6 @@
 		BDF5C825207858AE002FDC10 /* Update Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7DC207858AE002FDC10 /* Update Exercise.swift */; };
 		BDF5C826207858AE002FDC10 /* WVC Reloadable Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C7DD207858AE002FDC10 /* WVC Reloadable Model.swift */; };
 		BDF65972210AAFCC00A0F4D1 /* FloatingDumbellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF65971210AAFCC00A0F4D1 /* FloatingDumbellView.swift */; };
-		BDF65974210BB36D00A0F4D1 /* PreviousWorkouts.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF65973210BB36D00A0F4D1 /* PreviousWorkouts.json */; };
 		BDFE06B6207909B700F3024B /* Sorting_Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75820785899002FDC10 /* Sorting_Performance.swift */; };
 		BDFE06B7207909B700F3024B /* Exercise_List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C75A20785899002FDC10 /* Exercise_List.swift */; };
 		BDFE06B8207909B700F3024B /* Test_Sorting_Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C73A20785899002FDC10 /* Test_Sorting_Cases.swift */; };
@@ -255,7 +254,6 @@
 		BDF5C7DD207858AE002FDC10 /* WVC Reloadable Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WVC Reloadable Model.swift"; sourceTree = "<group>"; };
 		BDF5C83320785F5A002FDC10 /* Resources2.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resources2.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF65971210AAFCC00A0F4D1 /* FloatingDumbellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingDumbellView.swift; sourceTree = "<group>"; };
-		BDF65973210BB36D00A0F4D1 /* PreviousWorkouts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PreviousWorkouts.json; sourceTree = "<group>"; };
 		BDFE06AC2079095500F3024B /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDFE06B02079095500F3024B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E230E99B0B461E50F34FEFB8 /* Pods_Resources2_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resources2_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -522,7 +520,6 @@
 				BDF5C7CA207858AE002FDC10 /* Converting To Dict Values.swift */,
 				BDF5C796207858AE002FDC10 /* emom tableViewController.swift */,
 				BDF5C7AC207858AE002FDC10 /* TimerModel.swift */,
-				BDF65973210BB36D00A0F4D1 /* PreviousWorkouts.json */,
 			);
 			path = NonEssential;
 			sourceTree = "<group>";
@@ -713,7 +710,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDF65974210BB36D00A0F4D1 /* PreviousWorkouts.json in Resources */,
 				BDF5C800207858AE002FDC10 /* LaunchScreen.storyboard in Resources */,
 				BDF5C7F9207858AE002FDC10 /* Assets.xcassets in Resources */,
 				BDF5C7382078588C002FDC10 /* Main.storyboard in Resources */,

@@ -12,7 +12,7 @@ import Resources_View2_1
 
 class MasterVC: UIViewController, ContainerViewController {
     var currentVCIndex = 0
-    let exampleD =  GetWorkoutsFromServer()
+    //let exampleD =  GetWorkoutsFromServer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,8 @@ class MasterVC: UIViewController, ContainerViewController {
         }
         
         //exampleD.getWorkoutsFromBackend()
-        let exampleData = ExampleData()
+        //let exampleData = ExampleData()
+        
         changeViewController(index: currentVCIndex)
     }
     

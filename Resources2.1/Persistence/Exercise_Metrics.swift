@@ -136,7 +136,7 @@ extension Exercise_Metrics {
         let val = value(for: metric)
         
         switch metric {
-        
+
         case .Length:
         guard let unitOfMeasurement = metricInfo(for: .Length)?.unitOfMeasurement else { break }
         if unitOfMeasurement == UnitLength.feet {
@@ -158,7 +158,6 @@ extension Exercise_Metrics {
                 return "\(minutes):\(seconds)"
             }
         } else {
-            
             return val.converted.displayString(rounded: 2)
         }
         
@@ -178,6 +177,8 @@ extension Exercise_Metrics {
         let value = displayValue(for: metric)
 
         switch metric {
+        case .Weight:
+            if used_bodyweight { return "BW" }
             
         case .Reps:
             return value

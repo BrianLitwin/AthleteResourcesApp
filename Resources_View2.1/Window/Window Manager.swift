@@ -46,9 +46,9 @@ public class WindowManager {
         switch popup {
             
         case .sideBar(delegate: let delegate):
-            sidebar.masterVC = delegate
+            sidebarView.collectionView.masterVC = delegate
             let width = keyWindowWidth * 0.8
-            let animation = WindowAnimation.fromRight(width: width, view: sidebar )
+            let animation = WindowAnimation.fromRight(width: width, view: sidebarView )
             display(animation)
             
         case .exercisePicker(let exercisePicker, let showTintScreen, let addSwipeDownGestureRecognizer):
@@ -131,9 +131,7 @@ public class WindowManager {
             
             let animation = WindowAnimation.fromBottom(height: 250, view: standardKeyboard)
             display(animation)
-            
         }
-        
     }
     
     lazy var tintScreen: UIView = {
@@ -164,9 +162,13 @@ public class WindowManager {
     //    currentView?.resign(completion: completion)
     //}
     
-    lazy var sidebar: SideBar = {
-        return SideBar(resignSelf: {
-            [weak self] in self?.resignCurrentView() } )
+    lazy var sidebarView: SideBarView = {
+        
+        let sidebar = SideBar(resignSelf: {
+            [weak self] in self?.resignCurrentView() }
+        )
+        
+        return SideBarView(sidebar: sidebar)
     }()
 
     lazy var standardKeyboard: KeyboardView = {

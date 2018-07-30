@@ -280,10 +280,7 @@ class Tag_IDs: XCTestCase {
         XCTAssertEqual(sequences[0]["workout"] as! Int16, 1)
         XCTAssertEqual(workouts[0]["coreDataID"] as! Int16, 1)
         
-        
     }
-    
-    
 }
 
 

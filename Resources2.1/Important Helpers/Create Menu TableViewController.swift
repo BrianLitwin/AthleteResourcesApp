@@ -33,7 +33,7 @@ class CreateMenuTableViewController: UITableViewController {
     
     let reuseID = "cell"
     
-    var headers = ["Exercise", "Compound Exercise"]
+    var headers = ["Exercise", "Compound Exercise", "Category"]
     
     lazy var categoriesPicker = CategoriesPicker()
     
@@ -54,7 +54,7 @@ class CreateMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "Create"
-        case 1: return "Delete"
+        case 1: return "Remove"
         default: return ""
         }
     }
@@ -110,10 +110,8 @@ class CreateMenuTableViewController: UITableViewController {
             present(navControl, animated: true)
             
         case 2:
-            postData() {
-                response in
-                return 
-            }
+
+            break
             
         default:
             break 

@@ -129,7 +129,7 @@ class NavBarTitle: UIView {
                 .foregroundColor: Colors.ExerciseInfo.navbarSubtitle
             ]))
         }
-        
+            
         label.attributedText = attributedTitle
     }
     

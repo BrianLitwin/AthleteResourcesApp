@@ -122,10 +122,5 @@ class Exercise_List: XCTestCase {
         XCTAssertEqual(model.listItems.count, 5)
         
         
-        
-        
-        
     }
-    
-    
 }
