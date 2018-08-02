@@ -108,7 +108,6 @@ class ViewRightPane: UIView {
     }
     
     @objc func btnTapped() {
-        print("btn tapped called")
         btnTap?()
     }
     

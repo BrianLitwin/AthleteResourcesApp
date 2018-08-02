@@ -95,11 +95,12 @@ class ScrollViewFooter: UIView, LayoutGuide  {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        layer.cornerRadius = 3
+        backgroundColor = Colors.CurrentWorkout.addExerciseBg
         
         //add image in right corner
-        
         let rightIconPane = ViewRightPane(image: .add,
-                                          backgroundColor: Colors.CurrentWorkout.addExerciseBg,
+                                          backgroundColor: .clear,
                                           imageTintColor: .white,
                                           borderColor: .white,
                                           tapAction: { [weak self] in self?.btnTapped() }
@@ -107,24 +108,18 @@ class ScrollViewFooter: UIView, LayoutGuide  {
         rightIconPane.addToRightPane(superview: self)
         
         
-        //add label
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(btnTapped)))
-        let label = UILabel()
-        label.text = "Add Exercise"
-        label.textAlignment = .center
-        addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: rightIconPane.leadingAnchor).isActive = true
-        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true 
-        label.textColor = .white
-        
-        //adding an extra gesture recognizer so that you can tap anywhere and pull up the add exercise list
-        let gr2 = UITapGestureRecognizer(target: self, action: #selector(btnTapped))
-        addGestureRecognizer(gr2)
-        backgroundColor = Colors.CurrentWorkout.addExerciseBg
-        layer.cornerRadius = 3 
+        //add button
+        let button = AddExerciseButton()
+        button.setTitle("Add Exercise", for: .normal)
+        button.backgroundColor = .clear
+        addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        button.trailingAnchor.constraint(equalTo: rightIconPane.leadingAnchor).isActive = true
+        button.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        button.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
+        button.setTitleColor(UIColor.white, for: .normal)
     }
     
     @objc func btnTapped() {
@@ -134,11 +129,15 @@ class ScrollViewFooter: UIView, LayoutGuide  {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    deinit {
-        print("footer deinited")
+}
+
+class AddExerciseButton: UIButton {
+    override var isHighlighted: Bool {
+        didSet {
+            let titleColor = isHighlighted ? UIColor.white.withAlphaComponent(0.5) : UIColor.white
+            setTitleColor(titleColor, for: .normal)
+        }
     }
-    
 }
 
 

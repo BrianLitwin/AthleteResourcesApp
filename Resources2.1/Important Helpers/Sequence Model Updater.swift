@@ -191,7 +191,7 @@ class SequenceModelUpdater: ModelUpdater {
                 setButtonStates(for: metric)
                 
                 switch text {
-                case "0": return ""
+                case "0", "0.0": return ""
                 default: return text
                 }
                 

@@ -40,7 +40,6 @@ extension Exercises: HasRecords {
             firstGroup: $0.valuesSortedByMetricPriority,
             secondGroup: $1.valuesSortedByMetricPriority
         )})
-        
     }
     
     func firstIsRecordOverSecond(first: Exercise_Metrics, second: Exercise_Metrics) -> Bool {
@@ -57,8 +56,7 @@ extension Exercises: HasRecords {
             }
         }
         
-        return secondValuesAreRecordOverFirst(firstGroup: firstGroup, secondGroup: secondGroup)
-        
+        return secondValuesAreRecordOverFirst(firstGroup, secondGroup)
     }
     
     func displayInfo(for object: Exercise_Metrics) -> (displayString: String, date: Date) {
@@ -90,52 +88,14 @@ extension Exercise_Metrics {
 
 
 
-func secondValuesAreRecordOverFirst(firstGroup: [Double], secondGroup: [Double]) -> Bool {
-    
-    let metricCount = firstGroup.count
-    
-    for (i,(firstValue,secondValue)) in zip(firstGroup, secondGroup).enumerated() {
-        
-        if i > metricCount { break }
-        
-        let a = firstValue
-        let c = secondValue
-        
-        switch (a,c) {
-            
-        case let (a,c) where a > c:
-            
-            guard i < metricCount - 1 else {
-                return true
-            }
-            
-            if firstGroup[i+1] >= secondGroup[i+1] {
-                return true
-            }
-            
-        case let(a,c) where a == c:
-            
-            guard i < metricCount - 1 else {
-                return false
-            }
-            
-            if firstGroup[i+1] > secondGroup[i+1] {
-                return true
-            }
-            
-            
-        case let (a,c) where a < c: return false
-            
-        default:
-            continue
-            
-        }
-        
-    }
 
-    return false
 
-}
+
+
+
+
+
+
 
 
 func sortValuesForRecords(firstGroup: [Double], secondGroup: [Double]) -> Bool {
@@ -151,3 +111,48 @@ func sortValuesForRecords(firstGroup: [Double], secondGroup: [Double]) -> Bool {
 
 
 
+
+
+/*
+    for (i,(firstValue,secondValue)) in zip(firstGroup, secondGroup).enumerated() {
+
+
+        if i > metricCount { break }
+
+        let a = firstValue
+        let c = secondValue
+
+        switch (a,c) {
+
+        case let (a,c) where a > c:
+
+            guard i < metricCount - 1 else {
+                return true
+            }
+
+            if firstGroup[i+1] >= secondGroup[i+1] {
+                return true
+            }
+
+        case let(a,c) where a == c:
+
+            guard i < metricCount - 1 else {
+                return false
+            }
+
+            if firstGroup[i+1] > secondGroup[i+1] {
+                return true
+            }
+
+        case let (a,c) where a < c: return false
+
+        default:
+            continue
+
+        }
+
+    }
+
+    return false
+ 
+ */

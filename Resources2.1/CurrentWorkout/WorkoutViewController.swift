@@ -10,8 +10,6 @@ import UIKit
 import Resources_View2_1
 
 
-
-
 class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutDelegate {
     
     var reloadWorkoutHandler: WorkoutReloadHandler?
@@ -85,7 +83,6 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
                 addSequenceToView(at: $0.workoutOrder, with: model)
             }
         })
-        
         
         if let sequences = workout.sequences, sequences.count == 0 {
             setEmptyView(add: true)

@@ -74,7 +74,7 @@ TrashButtonTableViewDelegate {
         
         //setup segue back stuff
         if let vc = segue.destination as? WorkoutController {
-            let resetHelper = vc.resetdWorkoutHistoryManager
+            //let resetHelper = vc.resetdWorkoutHistoryManager
             //reload a single cell if need be, not the whole data source
         }
     }

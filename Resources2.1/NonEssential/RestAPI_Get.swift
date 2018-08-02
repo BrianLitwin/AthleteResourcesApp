@@ -21,6 +21,29 @@ class GetWorkoutsFromServer {
     //
     //Mark: Keeping a strong reference for right now, may not be the tight thing to do
     //
+    
+//    func loadBodyweights() {
+////        let bodyweights = oldBodyweightsArray
+////        for b in bodyweights {
+////            let newBW = Bodyweight(context: context)
+////            let value = b["value"]
+////            if let v = value as? Double {
+////                 newBW.bodyweight = v
+////            } else if let v = value as? Int {
+////                newBW.bodyweight = Double(v)
+////            } else {
+////                fatalError()
+////            }
+////
+////            let dateFormatter = DateFormatter()
+////            dateFormatter.dateFormat = "MM/dd/yy"
+////            let date = dateFormatter.date(from: b["date"] as! String)
+////            newBW.dateSV = date
+////        }
+////
+////        saveContext()
+//    }
+
 
     func loadPreviousWorkouts() -> Data? {
         if let path = Bundle.main.path(forResource: "PreviousWorkouts", ofType: "json") {

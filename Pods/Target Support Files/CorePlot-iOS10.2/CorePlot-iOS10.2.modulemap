@@ -1,0 +1,6 @@
+framework module CorePlot {
+  umbrella header "CorePlot-iOS10.2-umbrella.h"
+
+  export *
+  module * { export * }
+}

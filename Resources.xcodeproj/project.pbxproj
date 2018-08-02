@@ -21,6 +21,12 @@
 		BDE3D4362079799C003C6A94 /* RepMaxesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3D4352079799C003C6A94 /* RepMaxesModel.swift */; };
 		BDE3D43820797ED5003C6A94 /* RepMaxesModel_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3D43720797ED5003C6A94 /* RepMaxesModel_Test.swift */; };
 		BDE92441207A8F1100709020 /* PersonalRecords_DeletionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE92440207A8F1100709020 /* PersonalRecords_DeletionTest.swift */; };
+		BDF596FC2110075700D5BDD8 /* oldBOdyweights.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF596FB2110075700D5BDD8 /* oldBOdyweights.swift */; };
+		BDF596FF2110DF2000D5BDD8 /* ExerciseMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF596FE2110DF2000D5BDD8 /* ExerciseMetrics.swift */; };
+		BDF597022110E20F00D5BDD8 /* MetricInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF597012110E20F00D5BDD8 /* MetricInfo.swift */; };
+		BDF597062111275000D5BDD8 /* RecordManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF597052111275000D5BDD8 /* RecordManager2.swift */; };
+		BDF597082112275500D5BDD8 /* ArrayGreatestElementLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF597072112275500D5BDD8 /* ArrayGreatestElementLessThan.swift */; };
+		BDF5970A2112977800D5BDD8 /* TestPersonalRecordsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF597092112977800D5BDD8 /* TestPersonalRecordsContainer.swift */; };
 		BDF5C0DA207CFADE007F198E /* UpdateBodyweight_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C0D9207CFADE007F198E /* UpdateBodyweight_Test.swift */; };
 		BDF5C7382078588C002FDC10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF5C7372078588B002FDC10 /* Main.storyboard */; };
 		BDF5C7DE207858AE002FDC10 /* RecordsDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5C792207858AE002FDC10 /* RecordsDisplayModel.swift */; };
@@ -162,6 +168,12 @@
 		BDE3D4352079799C003C6A94 /* RepMaxesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepMaxesModel.swift; sourceTree = "<group>"; };
 		BDE3D43720797ED5003C6A94 /* RepMaxesModel_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepMaxesModel_Test.swift; sourceTree = "<group>"; };
 		BDE92440207A8F1100709020 /* PersonalRecords_DeletionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecords_DeletionTest.swift; sourceTree = "<group>"; };
+		BDF596FB2110075700D5BDD8 /* oldBOdyweights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oldBOdyweights.swift; sourceTree = "<group>"; };
+		BDF596FE2110DF2000D5BDD8 /* ExerciseMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMetrics.swift; sourceTree = "<group>"; };
+		BDF597012110E20F00D5BDD8 /* MetricInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricInfo.swift; sourceTree = "<group>"; };
+		BDF597052111275000D5BDD8 /* RecordManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager2.swift; sourceTree = "<group>"; };
+		BDF597072112275500D5BDD8 /* ArrayGreatestElementLessThan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayGreatestElementLessThan.swift; sourceTree = "<group>"; };
+		BDF597092112977800D5BDD8 /* TestPersonalRecordsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPersonalRecordsContainer.swift; sourceTree = "<group>"; };
 		BDF5C0D9207CFADE007F198E /* UpdateBodyweight_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBodyweight_Test.swift; sourceTree = "<group>"; };
 		BDF5C7372078588B002FDC10 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BDF5C73A20785899002FDC10 /* Test_Sorting_Cases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Sorting_Cases.swift; sourceTree = "<group>"; };
@@ -300,6 +312,7 @@
 				BDF5C73E20785899002FDC10 /* Compound ExerciseRecords.swift */,
 				BDE92440207A8F1100709020 /* PersonalRecords_DeletionTest.swift */,
 				BDF5C74020785899002FDC10 /* Test Record Sorter.swift */,
+				BDF597092112977800D5BDD8 /* TestPersonalRecordsContainer.swift */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -375,6 +388,7 @@
 				BDF5C792207858AE002FDC10 /* RecordsDisplayModel.swift */,
 				BDF5C7C3207858AE002FDC10 /* Compound Exercise Records.swift */,
 				BDF5C7AE207858AE002FDC10 /* Record UpdateHandler.swift */,
+				BDF597052111275000D5BDD8 /* RecordManager2.swift */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -397,15 +411,14 @@
 			children = (
 				BDF5C79C207858AE002FDC10 /* Multiple_Exercise_Container.swift */,
 				BDF5C79B207858AE002FDC10 /* Sequences.swift */,
-				BDF5C7AD207858AE002FDC10 /* Exercise_Metrics.swift */,
+				BDF596FD2110DF0400D5BDD8 /* ExerciseMetrics */,
 				BDF5C7A8207858AE002FDC10 /* EM_Containers.swift */,
 				BDF5C7A6207858AE002FDC10 /* Categories.swift */,
 				BD75B1712097781C009392B3 /* Settings.swift */,
 				BD75B16F209777CA009392B3 /* Bodyweight.swift */,
 				BDF5C7B1207858AE002FDC10 /* CreateDatabase.swift */,
 				BDF5C7BF207858AE002FDC10 /* Workouts.swift */,
-				BDF5C795207858AE002FDC10 /* Metric.swift */,
-				BDF5C7D5207858AE002FDC10 /* Metric_Info.swift */,
+				BDF597002110E1EC00D5BDD8 /* MetricInfo */,
 				BDF5C7C9207858AE002FDC10 /* Post.swift */,
 				BDF5C7D3207858AE002FDC10 /* Exercises.swift */,
 				BDF5C7C6207858AE002FDC10 /* dataModel.xcdatamodel */,
@@ -520,6 +533,7 @@
 				BDF5C7CA207858AE002FDC10 /* Converting To Dict Values.swift */,
 				BDF5C796207858AE002FDC10 /* emom tableViewController.swift */,
 				BDF5C7AC207858AE002FDC10 /* TimerModel.swift */,
+				BDF596FB2110075700D5BDD8 /* oldBOdyweights.swift */,
 			);
 			path = NonEssential;
 			sourceTree = "<group>";
@@ -534,6 +548,25 @@
 				BDF5C7B9207858AE002FDC10 /* Orderable.swift */,
 			);
 			path = "Important Helpers";
+			sourceTree = "<group>";
+		};
+		BDF596FD2110DF0400D5BDD8 /* ExerciseMetrics */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7AD207858AE002FDC10 /* Exercise_Metrics.swift */,
+				BDF596FE2110DF2000D5BDD8 /* ExerciseMetrics.swift */,
+			);
+			path = ExerciseMetrics;
+			sourceTree = "<group>";
+		};
+		BDF597002110E1EC00D5BDD8 /* MetricInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5C7D5207858AE002FDC10 /* Metric_Info.swift */,
+				BDF597012110E20F00D5BDD8 /* MetricInfo.swift */,
+				BDF5C795207858AE002FDC10 /* Metric.swift */,
+			);
+			path = MetricInfo;
 			sourceTree = "<group>";
 		};
 		BDF5C791207858AE002FDC10 /* Resources2.1 */ = {
@@ -578,6 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF5C75A20785899002FDC10 /* Exercise_List.swift */,
+				BDF597072112275500D5BDD8 /* ArrayGreatestElementLessThan.swift */,
 				BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */,
 				BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */,
 				BD6EE22220ACA0DB00DA9E68 /* Keyboard */,
@@ -733,11 +767,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Resources2.1/Pods-Resources2.1-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CorePlot/CorePlot.framework",
+				"${BUILT_PRODUCTS_DIR}/CorePlot-iOS11.0/CorePlot.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CorePlot.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -787,11 +823,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Resources2.1-Unit Tests/Pods-Resources2.1-Unit Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CorePlot/CorePlot.framework",
+				"${BUILT_PRODUCTS_DIR}/CorePlot-iOS11.0/CorePlot.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CorePlot.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -826,6 +864,7 @@
 				BDF5C819207858AE002FDC10 /* Sequence Model Updater.swift in Sources */,
 				BDF5C801207858AE002FDC10 /* Extensions.swift in Sources */,
 				BDF5C806207858AE002FDC10 /* Notifications.swift in Sources */,
+				BDF597022110E20F00D5BDD8 /* MetricInfo.swift in Sources */,
 				BD75B1722097781C009392B3 /* Settings.swift in Sources */,
 				BDE3D4362079799C003C6A94 /* RepMaxesModel.swift in Sources */,
 				BDF5C7EE207858AE002FDC10 /* WorkoutViewController.swift in Sources */,
@@ -839,6 +878,7 @@
 				BDF5C808207858AE002FDC10 /* Workouts.swift in Sources */,
 				BDF5C7F1207858AE002FDC10 /* Categories.swift in Sources */,
 				BDF5C7F8207858AE002FDC10 /* Record UpdateHandler.swift in Sources */,
+				BDF596FC2110075700D5BDD8 /* oldBOdyweights.swift in Sources */,
 				BDF5C81C207858AE002FDC10 /* Exercises.swift in Sources */,
 				BDF5C823207858AE002FDC10 /* ExerciseListModel.swift in Sources */,
 				BDF5C7F5207858AE002FDC10 /* Workout Header Model.swift in Sources */,
@@ -848,6 +888,7 @@
 				BDF5C804207858AE002FDC10 /* MasterVC.swift in Sources */,
 				BDF5C80F207858AE002FDC10 /* dataModel.xcdatamodel in Sources */,
 				BDF5C7E2207858AE002FDC10 /* emom tableViewController.swift in Sources */,
+				BDF597062111275000D5BDD8 /* RecordManager2.swift in Sources */,
 				BDF5C7FB207858AE002FDC10 /* CreateDatabase.swift in Sources */,
 				BDF5C814207858AE002FDC10 /* Update Name Variation Instructions.swift in Sources */,
 				BDF5C7E3207858AE002FDC10 /* CreateOreditExerciseModel.swift in Sources */,
@@ -867,6 +908,7 @@
 				BDF5C824207858AE002FDC10 /* WorkoutHistory.swift in Sources */,
 				BDF5C7EF207858AE002FDC10 /* EMOM model.swift in Sources */,
 				BDF5C7DF207858AE002FDC10 /* Constants.swift in Sources */,
+				BDF596FF2110DF2000D5BDD8 /* ExerciseMetrics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +923,7 @@
 				BDFE06CB207909B700F3024B /* Helper Method.swift in Sources */,
 				BDFE06D6207909B700F3024B /* Workout_HistoryModel.swift in Sources */,
 				BDFE06D5207909B700F3024B /* Test Record Sorter.swift in Sources */,
+				BDF5970A2112977800D5BDD8 /* TestPersonalRecordsContainer.swift in Sources */,
 				BDFE06CA207909B700F3024B /* Sequence model.swift in Sources */,
 				BDFE06C2207909B700F3024B /* Create Exercises From Database.swift in Sources */,
 				BDFE06C0207909B700F3024B /* One_RMCalculator.swift in Sources */,
@@ -895,6 +938,7 @@
 				BDFE06B9207909B700F3024B /* Post_Requests.swift in Sources */,
 				BDFE06BD207909B700F3024B /* Workout Controller.swift in Sources */,
 				BDFE06B8207909B700F3024B /* Test_Sorting_Cases.swift in Sources */,
+				BDF597082112275500D5BDD8 /* ArrayGreatestElementLessThan.swift in Sources */,
 				BD6EE22D20AE48E000DA9E68 /* Get_Requests.swift in Sources */,
 				BDFE06D3207909B700F3024B /* Compound ExerciseRecords.swift in Sources */,
 				BDFE06C6207909B700F3024B /* Metric_Info_Test.swift in Sources */,
@@ -1057,7 +1101,7 @@
 				INFOPLIST_FILE = Resources2.1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = briansbundle;
+				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -1075,7 +1119,7 @@
 				INFOPLIST_FILE = Resources2.1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = briansbundle;
+				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

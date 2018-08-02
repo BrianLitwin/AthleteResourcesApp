@@ -89,8 +89,5 @@ class EMValueSaveMethods: XCTestCase {
         em.save(string: string, metricInfo: weightMetric)
         XCTAssertTrue(em.used_bodyweight)
         XCTAssertEqual(em.weightSV, 0)
-        
-        
     }
-    
 }

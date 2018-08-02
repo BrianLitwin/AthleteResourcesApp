@@ -1,16 +1,24 @@
 PODS:
   - CorePlot (2.2)
+  - IGListKit (3.4.0):
+    - IGListKit/Default (= 3.4.0)
+  - IGListKit/Default (3.4.0):
+    - IGListKit/Diffing
+  - IGListKit/Diffing (3.4.0)
 
 DEPENDENCIES:
   - CorePlot (~> 2.2)
+  - IGListKit (~> 3.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - CorePlot
+    - IGListKit
 
 SPEC CHECKSUMS:
   CorePlot: cbe0c6e14220705e32e06a89c7d6a5a908b7d7d8
+  IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
 
-PODFILE CHECKSUM: e0429d279739a2b994c8bb08ae9e29e216c4411f
+PODFILE CHECKSUM: 55cea3719a3b30f4e993035d656d68b1eccbf3b4
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

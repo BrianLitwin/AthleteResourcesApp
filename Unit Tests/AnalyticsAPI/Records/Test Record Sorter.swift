@@ -31,10 +31,6 @@ class TestRecordSorter: XCTestCase {
         
         //var data: [comparison] = []
         var result: Bool!
-        
-        
-        
-        
     }
     
     
@@ -206,9 +202,6 @@ func testMetricCombinations() {
     record = exercise.personalRecordsManager.personalRecords[0]
     XCTAssertEqual(record, em.0)
     clearRecords()
-        
-        
-        
         
     
     //

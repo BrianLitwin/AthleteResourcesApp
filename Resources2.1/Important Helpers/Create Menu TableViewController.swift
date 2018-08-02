@@ -33,7 +33,7 @@ class CreateMenuTableViewController: UITableViewController {
     
     let reuseID = "cell"
     
-    var headers = ["Exercise", "Compound Exercise", "Category"]
+    var headers = ["Exercise", "Compound Exercise"] //add category here 
     
     lazy var categoriesPicker = CategoriesPicker()
     

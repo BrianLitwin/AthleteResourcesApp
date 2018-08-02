@@ -10,13 +10,10 @@ import XCTest
 @testable import Resources2_1
 
 class PersonalRecords_DeletionTest: XCTestCase {
-    
     override func setUp() {
         super.setUp()
         context = setUpInMemoryManagedObjectContext()
     }
-    
-    
     
     func test_personalRecordsAreDeleted() {
         
@@ -56,9 +53,6 @@ class PersonalRecords_DeletionTest: XCTestCase {
         //Pending: don't know how to implement this yet 
         
         XCTAssertFalse(model2.needsReload)
-        
-        
+    
     }
-    
-    
 }
