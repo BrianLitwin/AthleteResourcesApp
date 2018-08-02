@@ -171,13 +171,13 @@ class WorkoutSequenceModel: SequenceModel {
 
 
 class SequenceSectionDataClass: SequenceSectionData {
+    var data: [String] = []
+    let emContainer: EM_Containers
     
     init(container: EM_Containers) {
         self.emContainer = container
         loadSectionData()
     }
-    
-    let emContainer: EM_Containers
     
     var name: String {
         return emContainer.exercise?.name ?? ""
@@ -187,12 +187,9 @@ class SequenceSectionDataClass: SequenceSectionData {
         return emContainer.exercise?.variation ?? ""
     }
     
-    var data: [String] = []
-    
     func loadSectionData() {
         data = emContainer.exerciseMetrics.map({ $0.displayString() })
     }
-    
 }
 
 

@@ -38,7 +38,7 @@ public class OneRMTableViewController: UITableViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        setupDefaultColorScheme()
+        view.backgroundColor = .white 
         
         tableView.register(TableViewCellWithRightAndLeftLabel.self, forCellReuseIdentifier: TableViewCellWithRightAndLeftLabel.reuseID)
         tableView.register(OneRMWeekTableViewCell.self, forCellReuseIdentifier: OneRMWeekTableViewCell.reuseID)
@@ -224,6 +224,7 @@ class OneRMWeekTableViewCell: BaseTableViewCell {
     var metric1: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.OneRMWeekCell.percentageImprovement
         return label
     }()
     

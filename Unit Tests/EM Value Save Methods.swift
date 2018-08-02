@@ -33,7 +33,7 @@ class EMValueSaveMethods: XCTestCase {
         var backsquat = makeExercise()
         em = makeEM(with: backsquat )
         
-        var weight: Double { return em.value(for: .Weight) }
+        var weight: Double { return em.value(for: .Weight).converted }
         
         em.save(double: 200, metric: .Weight)
         XCTAssert(weight == 200.0)
@@ -69,8 +69,6 @@ class EMValueSaveMethods: XCTestCase {
         XCTAssertEqual(em.displayValue(for: weightMetric), "BW")
         
         XCTAssertEqual(em.displayString(), "BW x 5 + X")
-        
-        
     }
     
     func test_saving_nonStandardValues() {
@@ -91,8 +89,5 @@ class EMValueSaveMethods: XCTestCase {
         em.save(string: string, metricInfo: weightMetric)
         XCTAssertTrue(em.used_bodyweight)
         XCTAssertEqual(em.weightSV, 0)
-        
-        
     }
-    
 }

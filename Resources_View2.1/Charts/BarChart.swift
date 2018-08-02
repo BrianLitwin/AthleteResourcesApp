@@ -53,10 +53,6 @@ class BarChart : UIView, CPTBarPlotDataSource {
         let yMin = graphData.min(by: { $0 < $1 })! * 1.20
         let yMax = graphData.max(by: { $0 < $1 })! * 1.20
         
-        print(yMin)
-        print(yMax)
-        
-
         guard let plotSpace = newGraph.defaultPlotSpace as? CPTXYPlotSpace else { return }
         plotSpace.xRange = CPTPlotRange(location: xMin.NSNumber, length: (xMax - xMin).NSNumber)
         plotSpace.yRange = CPTPlotRange(location: yMin.NSNumber, length: (yMax - yMin).NSNumber)
@@ -177,6 +173,17 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         // First bar plot
         
+        var barWidth: NSNumber = {
+            //just guessing here
+            switch data.count {
+            case 4: return 0.5
+            case 3: return 0.4
+            case 2: return 0.2
+            case 1: return 0.1
+            default: return 0.8
+            }
+        }()
+        
         let baseColor = Colors.BarChart.barTint
         let color = baseColor.withAlphaComponent(1.0).cgColor //0.5
         let fColor = baseColor.withAlphaComponent(1.0).cgColor  //0.15
@@ -191,10 +198,10 @@ class BarChart : UIView, CPTBarPlotDataSource {
         barPlot1.baseValue  = 0
         barPlot1.lineStyle = nil
         barPlot1.dataSource = self
+        barPlot1.barWidth = barWidth
         newGraph.add(barPlot1, to:plotSpace)
         
         self.barGraph = newGraph
-        
     }
     
     // MARK: - Plot Data Source Methods
@@ -208,7 +215,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         switch CPTBarPlotField(rawValue: Int(field))! {
         case .barLocation:
-            print(record)
+
             return record as NSNumber
             
         case .barTip:

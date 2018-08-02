@@ -15,7 +15,7 @@ class ExampleData {
     var startingWeight = 200.0
     
     init() {
-        exercise = createExercise(name: "Back Squa w/ pause")
+        exercise = createExercise(name: "Back Squat", variation: "With pause")
         exercise.isActive = true
         
         for i in 0...300 {

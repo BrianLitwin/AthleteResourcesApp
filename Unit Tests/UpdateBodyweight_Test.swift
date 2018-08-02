@@ -53,7 +53,5 @@ class UpdateBodyweight_Test: XCTestCase {
         
         XCTAssertEqual(bodyweight.bodyweight, BW)
         
-        
     }
-    
 }

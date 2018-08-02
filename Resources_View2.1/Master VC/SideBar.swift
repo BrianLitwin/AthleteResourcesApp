@@ -9,6 +9,68 @@
 import UIKit
 
 
+class SideBarView: UIView {
+    let collectionView: SideBar
+    let resignSelf: () -> Void
+    
+    init(sidebar: SideBar) {
+        self.resignSelf = sidebar.resignSelf
+        self.collectionView = sidebar
+        super.init(frame: .zero)
+        backgroundColor = .white
+        
+        //setupheader
+        let label = UILabel()
+        addSubview(label)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+
+        let titleAttributes: [NSAttributedStringKey: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: 18)
+        ]
+        
+        let attributedTitle = NSMutableAttributedString(string: "Athlete ", attributes: titleAttributes)
+
+        let subtitle = NSMutableAttributedString(string: "Resources")
+        let subtitleRange = NSRange(location: 0, length: subtitle.length - 1)
+        subtitle.addAttribute(NSAttributedStringKey.kern, value: 1.15, range: subtitleRange)
+        attributedTitle.append(subtitle)
+        label.attributedText = attributedTitle
+        
+        //configure label size
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: topAnchor, constant: 25).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        //configure sidebar collectionView
+        addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        isUserInteractionEnabled = true
+        
+        //configure swipe gesture 
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
+        swipe.direction = .right
+        addGestureRecognizer(swipe)
+        isUserInteractionEnabled = true
+    }
+    
+    @objc func swipeRight() {
+        resignSelf()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
 class SideBar: BaseCollectionView {
     var masterVC: SideBarDelegate?
     let resignSelf: () -> Void
@@ -24,11 +86,8 @@ class SideBar: BaseCollectionView {
         super.init()
         backgroundColor = .white
         register(SideBarCell.self, forCellWithReuseIdentifier: reuseID)
-        contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-        configureSwipeGestureRecognizer()
-    }
-    
-    func configureSwipeGestureRecognizer() {
+
+        //configure swipe gesture recognizer
         let gr = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
         gr.direction = .right
         isUserInteractionEnabled = true
@@ -72,8 +131,8 @@ class SideBarCell: BaseCollectionViewCell {
     override func setupViews() {
         addSubview(imageView)
         addSubview(headerLabel)
-        addConstraintsWithFormat("H:|-15-[v0(20)]-25-[v1]|", views: imageView, headerLabel)
-        addConstraintsWithFormat("V:|-15-[v0(20)]-15-|", views: imageView)
+        addConstraintsWithFormat("H:|-20-[v0(25)]-20-[v1]|", views: imageView, headerLabel)
+        addConstraintsWithFormat("V:|-12.5-[v0(25)]-12.5-|", views: imageView)
         addConstraintsWithFormat("V:|[v0]|", views: headerLabel)
     }
     

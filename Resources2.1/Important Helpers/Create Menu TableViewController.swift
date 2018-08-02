@@ -33,7 +33,7 @@ class CreateMenuTableViewController: UITableViewController {
     
     let reuseID = "cell"
     
-    var headers = ["Exercise", "Compound Exercise"]
+    var headers = ["Exercise", "Compound Exercise"] //add category here 
     
     lazy var categoriesPicker = CategoriesPicker()
     
@@ -54,7 +54,7 @@ class CreateMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "Create"
-        case 1: return "Delete"
+        case 1: return "Remove"
         default: return ""
         }
     }
@@ -99,9 +99,7 @@ class CreateMenuTableViewController: UITableViewController {
                     let model = UpdateExercise(exercise: nil, category: category)
                     strongSelf.updateExerciseTableViewController.model = model
                     strongSelf.present(strongSelf.updateExerciseNavControl, animated: true)
-                    
                 }
-
             }
             
         case 1:
@@ -112,10 +110,8 @@ class CreateMenuTableViewController: UITableViewController {
             present(navControl, animated: true)
             
         case 2:
-            postData() {
-                response in
-                return 
-            }
+
+            break
             
         default:
             break 
@@ -135,15 +131,10 @@ class CreateMenuTableViewController: UITableViewController {
 
 
 class CompoundExerciseBuilderNavivagationController: UINavigationController {
-    
     var preExistingType: Multi_Exercise_Container_Types?
-    
     weak public var reloadUIDelegate: ReloadsWorkoutUI?
-    
     var windowManager: WindowManager?
-    
     var doneBtn: UIBarButtonItem?
-    
     lazy var categoriesPicker = CategoriesPicker()
     
     lazy var tableViewController =
@@ -163,9 +154,7 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
     }
     
     override func viewDidLoad() {
-        
         setupNavBarBtns()
-        
         viewControllers = [tableViewController]
         
         exercisePicker.insertHandler = {
@@ -176,11 +165,9 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
             strongSelf.compoundExerciseBuilderModel.add(exercise: exercise)
             strongSelf.exercisePicker.resignSelf = nil
         }
-        
     }
     
     func setupNavBarBtns() {
-        
         doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnTap))
         let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(doneBtnTap))
         tableViewController.navigationItem.rightBarButtonItem = doneBtn
@@ -189,7 +176,6 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         if preExistingType != nil {
             setupForPreExistingType()
         } else {
@@ -198,7 +184,6 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
     }
     
     func setupForNewType() {
-        
         let alert = UIAlertController(title: "Select a category", message: nil, preferredStyle: .alert)
         alert.set(vc: categoriesPicker, height: 400)
         alert.addAction(UIAlertAction(title: "Cancel",
@@ -242,7 +227,6 @@ class CompoundExerciseBuilderNavivagationController: UINavigationController {
         dismiss(animated: true)
         
     }
-    
 }
 
 

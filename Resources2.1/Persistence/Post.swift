@@ -546,10 +546,10 @@ extension Workouts: Postable {
         var dict = [String: Any]()
         dict["coreDataID"] = id
         dict["name"] = name ?? ""
+        guard let date = self.date else { fatalError() }
         dict["date"] = pythonDateFormat(date: date)
         return dict
     }
-    
 }
 
 

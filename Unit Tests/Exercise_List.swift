@@ -111,21 +111,12 @@ class Exercise_List: XCTestCase {
             let _ = Sequences.createNewSequence(workout: workout, workoutOrder: i, type: container)
         }
         
-        
         let exercise4 = makeExercise()
         let workout = Workouts.createNewWorkout()
         let em = makeEM(with: exercise4)
         em.container?.sequence?.workout = workout
         
         let model = ExerciseListModel()
-        
         XCTAssertEqual(model.listItems.count, 5)
-        
-        
-        
-        
-        
     }
-    
-    
 }

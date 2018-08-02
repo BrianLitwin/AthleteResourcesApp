@@ -9,11 +9,8 @@ import UIKit
 import Resources_View2_1
 
 class WorkoutHeaderModel: WorkoutHeaderInfo {
-    
     var workout: Workouts
-    
     weak var reloadDelegate: ReloadsWorkoutHeader?
-    
     let workoutDatePicker = DatePickerAlertController()
     
     init(workout: Workouts, delegate: ReloadsWorkoutHeader) {
@@ -39,7 +36,8 @@ class WorkoutHeaderModel: WorkoutHeaderInfo {
         let alert = UIAlertController()
         alert.addAction(UIAlertAction(title: "Change Workout Date", style: .default) {
             action in
-            self.workoutDatePicker.configure(with: self.workout.date, delegate: self)
+            guard let date = self.date else { fatalError() }
+            self.workoutDatePicker.configure(with: date, delegate: self)
             self.workoutDatePicker.show()
         })
         

@@ -10,14 +10,24 @@ import UIKit
 import Resources_View2_1
 
 
-
-
 class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutDelegate {
+    
     var reloadWorkoutHandler: WorkoutReloadHandler?
     var updateUIHandler: ReloadsWorkoutUI?
     var currentWorkout: Workouts?
     var currentlySelectedMasterInfoController: MasterInfoController?
     var lefthandNavbarBtn: UIBarButtonItem?
+    
+    //if you segue here from workout history, workout history needs a little help
+    //afterwards when you segue back
+    lazy var resetdWorkoutHistoryManager: Resources_View2_1.ResetWorkoutHistoryHelper = {
+        return ReloadingWorkoutHistoryManager(
+            getCurrentWorkoutDate: { [weak self] in
+                return self?.currentWorkout?.date
+            }
+        )
+    }()
+    
     
     lazy var floatingDumbell: FloatingDumbellView = {
         return FloatingDumbellView()
@@ -29,7 +39,8 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
                         [weak self] in
                         guard let strongSelf = self else { return }
                         guard let workout = strongSelf.currentWorkout else { return }
-                        strongSelf.showExercisePicker(for: workout.sequenceSet.count) }
+                        strongSelf.showExercisePicker(for: workout.sequenceSet.count)
+        }
     )
     
     lazy var windowManager: WindowManager = { getWindowManagerFromNavControl() ?? WindowManager() }()
@@ -72,7 +83,6 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
                 addSequenceToView(at: $0.workoutOrder, with: model)
             }
         })
-        
         
         if let sequences = workout.sequences, sequences.count == 0 {
             setEmptyView(add: true)
@@ -155,7 +165,20 @@ class WorkoutViewController: UIViewController, WorkoutController, ReloadWorkoutD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationItem.leftBarButtonItem = nil
+        
+        //reset workout history if you segued from there
+        let resetManager = resetdWorkoutHistoryManager
+        resetManager.delegate?.setupNavbar()
+        if let lastLoggedDate = resetManager.lastLoggedDate,
+            let workoutDate = currentWorkout?.date,
+            lastLoggedDate != workoutDate
+        {
+            resetManager.delegate?.reloadWorkoutHistory()
+        }
+        
+        resetdWorkoutHistoryManager.delegate = nil
     }
+    
 }
 
 
@@ -168,6 +191,19 @@ func twoLineNavBarTitle(firstLine: String, secondLine: String) -> UILabel {
 }
 
 
+class ReloadingWorkoutHistoryManager: Resources_View2_1.ResetWorkoutHistoryHelper {
+    weak var delegate: Resources_View2_1.WorkoutHistoryResetDelegate?
+    var lastLoggedDate: Date?
+    var getCurrentWorkoutDate: (()->Date?)?
+    
+    init(getCurrentWorkoutDate: (()->Date?)?) {
+        self.getCurrentWorkoutDate = getCurrentWorkoutDate
+    }
+    
+    func logDate() {
+        lastLoggedDate = getCurrentWorkoutDate?()
+    }
+}
 
 
 

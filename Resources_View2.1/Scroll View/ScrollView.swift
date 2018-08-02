@@ -78,7 +78,6 @@ public class ScrollView: UIScrollView {
     }
     
     static func calculateFrameOfSubview(prevViewMaxY: CGFloat?, widthOfSuperview: CGFloat, height: CGFloat, sectionSpacing: CGFloat) -> CGRect {
-        
         var y: CGFloat
         
         if let maxY = prevViewMaxY {

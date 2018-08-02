@@ -12,12 +12,10 @@ import Resources_View2_1
 
 class MasterVC: UIViewController, ContainerViewController {
     var currentVCIndex = 0
-    let exampleData =  GetWorkoutsFromServer()
+    //let exampleD =  GetWorkoutsFromServer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //let exampleData = ExampleData()
         
         let firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
         if firstLaunch != true {
@@ -25,21 +23,8 @@ class MasterVC: UIViewController, ContainerViewController {
             UserDefaults.standard.set(true, forKey: "firstLaunch")
         }
         
-//
-//        exampleData.getWorkoutsFromBackend()
-        
-        //setupExercisePickerWithCompoundExercise()
-        
-        /*
-        createExercisesInDatabase()
-        let exercises = Exercises.fetch(.all)
-        
-        for (i, exercise) in exercises.enumerated() {
-            guard i % 3 == 0 else { continue }
-            exercise.isActive = true
-            exercise.category!.isActive = true //fix these !!!!
-        }
-         */
+        //exampleD.getWorkoutsFromBackend()
+        //let exampleData = ExampleData()
         
         changeViewController(index: currentVCIndex)
     }

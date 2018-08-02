@@ -88,7 +88,6 @@ extension UIImageView {
 }
 
 extension Array {
-    
     func returnCount(_ count: Int) -> [Element] {
         let c = self.count > count ? self.count : count
         var ret = [Element]()
@@ -98,7 +97,6 @@ extension Array {
         }
         return ret
     }
-    
     var lastItem: Element? {
         guard !self.isEmpty else { return nil }
         return self[self.endIndex - 1]
@@ -142,10 +140,7 @@ extension Array where Iterator.Element: Exercises {
     
 }
 
-
-
 private func matches(for regex: String, in text: String) -> [String] {
-    
     do {
         let regex = try NSRegularExpression(pattern: regex)
         let nsString = text as NSString
@@ -158,11 +153,7 @@ private func matches(for regex: String, in text: String) -> [String] {
     
 }
 
-
-
-
 extension String {
-    
     var double: Double? {
         if let value = Double(self) {
             return value
@@ -175,10 +166,7 @@ extension String {
 
 
 extension Date {
-    
-    
     struct Week: Hashable {
-        
         init(monday: Date) {
             self.monday = monday
             sunday = monday.add(days: 7).addSeconds(-1)
@@ -210,7 +198,6 @@ extension Date {
         return Calendar.current.date(byAdding: .day, value: days, to: self)!
     }
     
-    
     var mondaysDate: Date {
         return Calendar(identifier: .iso8601).date(from: Calendar(identifier: .iso8601).dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))!
     }
@@ -233,7 +220,6 @@ extension Date {
     }
     
     static func weeksBetween(currentDate: Date, startDate: Date) -> [Week] {
-        
         let firstMonday = startDate.mondaysDate.startOfDay
         var weeks = [Week(monday: firstMonday)]
         

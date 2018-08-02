@@ -6,7 +6,8 @@
 //  Copyright © 2018 B_Litwin. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import IGListKit
 
 class CompoundExerciseMetricComparisonContainer {
     

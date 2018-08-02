@@ -11,16 +11,13 @@ import CoreData
 import Resources_View2_1
 
 class WorkoutHistoryModel: ContextObserver, Resources_View2_1.WorkoutHistoryModel {
-    
+    var workoutSections: [WorkoutHistoryWeek] = []
+    var needsReload = true
     var segueHandler: WorkoutHistorySegueHandler?
     
-    var sections: [WorkoutHistoryModelSection] { //comprimise to satisfy protocol 
+    var sections: [WorkoutHistoryModelSection] { //compromise to satisfy protocol ?? is this necessary
         return workoutSections
     }
-    
-    var workoutSections: [WorkoutHistoryWeek] = []
-    
-    var needsReload = true
     
     init() {
         super.init(context: context)
@@ -28,17 +25,15 @@ class WorkoutHistoryModel: ContextObserver, Resources_View2_1.WorkoutHistoryMode
     }
     
     func seperateWorkoutsByWeek(workouts: [Workouts], weeks: [Date.Week]) -> [WorkoutHistoryWeek]  {
-        
         return weeks.reduce(into: [WorkoutHistoryWeek]() ) { weeks, week in
-            
             let workouts = workouts.filter() {
-                week.interval().contains($0.date)
+                guard let date = $0.date else { fatalError() }
+                return week.interval().contains(date)
             }
             
             let newWeek = WorkoutHistoryWeek(week: week, workouts: workouts)
             newWeek.workouts = workouts
             weeks.append(newWeek)
-            
         } 
     }
     
@@ -54,10 +49,11 @@ class WorkoutHistoryModel: ContextObserver, Resources_View2_1.WorkoutHistoryMode
         return workout
     }
     
-    
     func deletItem(at indexPath: IndexPath) {
-        workoutSections[indexPath.section].items.remove(at: indexPath.row)
-        workoutSections[indexPath.section].workouts[indexPath.row].delete()
+        let section = workoutSections[indexPath.section]
+        section.items.remove(at: indexPath.row)
+        returnWorkout(for: indexPath).delete()
+        section.workouts.remove(at: indexPath.row)
     }
     
     func prepareWorkoutViewController(for indexPath: IndexPath, with viewController: UIViewController) {
@@ -85,37 +81,27 @@ class WorkoutHistoryModel: ContextObserver, Resources_View2_1.WorkoutHistoryMode
             }
         }
     }
-    
-    
 }
 
 class WorkoutHistoryWeek: WorkoutHistoryModelSection {
+    let dateInterval: DateInterval
+    var items: [WorkoutHistoryItem] = []
+    var workouts: [Workouts] = []
     
     init(week: Date.Week, workouts: [Workouts]) {
         dateInterval = week.interval()
-        
         items = workouts.map({
-            WorkoutItem(date: $0.date)
+            return WorkoutItem(date: $0.date!)
         })
     }
-    
-    let dateInterval: DateInterval
-    
-    var items: [WorkoutHistoryItem] = []
-    
-    var workouts: [Workouts] = []
-
 }
 
 
 class WorkoutItem: WorkoutHistoryItem {
-    
+    let date: Date
     init(date: Date) {
         self.date = date
     }
-    
-    let date: Date
-    
 }
 
 

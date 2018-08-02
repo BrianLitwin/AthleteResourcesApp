@@ -78,10 +78,7 @@ class Sequence_Model: XCTestCase {
             
             sequence.removeExerciseMetric(at: [Num, 1])
             XCTAssertEqual(weightsAt(Num), [200])
-        
         }
-        
-        
         
         insertAndRemoveExerciseMetrics(from: 0)
         
@@ -92,7 +89,6 @@ class Sequence_Model: XCTestCase {
         sequence.insertContainer(exercise: newExercise, section: 1)
         XCTAssertEqual(exercises(), [exercise, newExercise])
         insertAndRemoveExerciseMetrics(from: 1)
-        
         
         //add container to beginning
         

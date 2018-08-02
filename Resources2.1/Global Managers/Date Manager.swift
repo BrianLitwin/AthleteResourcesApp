@@ -14,21 +14,33 @@ typealias DateManageableType = DateManageable & NSManagedObject
 
 
 protocol DateManageable {
-    
-    var date: Date { get }
+    func getDate() -> Date
     static func getFirstEntry() -> DateManageableType?
-    
+}
+
+//workoutaround because date is optional in Workouts Class 
+extension DateManageable {
+    var date: Date {
+        return getDate()
+    }
 }
 
 extension Bodyweight: DateManageable {
     class func getFirstEntry() -> DateManageableType? {
         return Bodyweight.first()
     }
+    func getDate() -> Date {
+        return date
+    }
 }
 
 extension Workouts: DateManageable {
     class func getFirstEntry() -> DateManageableType? {
         return Workouts.fetchFirst() ?? Workouts.createNewWorkout()
+    }
+    func getDate() -> Date {
+        guard let date = self.date else { fatalError() }
+        return date
     }
 }
 

@@ -16,6 +16,8 @@ class FloatingDumbellView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        isUserInteractionEnabled = true
+        
         let image = #imageLiteral(resourceName: "dumbell").withRenderingMode(.alwaysTemplate)
         messageLabel.text = "New Workout!"
         
@@ -105,5 +107,9 @@ class FloatingDumbellView: UIView {
         shadowScale.timingFunction = timingFunction
         
         shadow.add(shadowScale, forKey: "nonewnotificationscell.shadow")
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        return nil
     }
 }

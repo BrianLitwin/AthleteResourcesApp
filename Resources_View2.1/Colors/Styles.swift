@@ -17,6 +17,17 @@ public struct Colors {
     
     static let blueHighlight = Color.Blue.light.color
     
+    public struct Sidebar {
+        public struct Primary {
+            static let icon = Color.Blue.medium.color
+            static let bg = Color.Blue.light.color
+        }
+        public struct Secondary {
+            static let icon = Color.Gray.light.color 
+            static let bg = UIColor.init(white: 0.0, alpha: 0.0)
+        }
+    }
+    
     public struct Textfield {
         public static let borderDefault = Color.Gray.light.color 
         public static let borderHighlight = Color.Blue.medium.color
@@ -34,9 +45,7 @@ public struct Colors {
     public struct TableView {
         public static let sectionHeader = Color.Blue.medium.color
         public static let background = UIColor.white
-    }
     
-    public struct Sidebar {
         public struct Primary {
             static let icon = Color.Blue.medium.color
             static let bg = UIColor.groupTableViewBackground
@@ -62,6 +71,11 @@ public struct Colors {
             static let unhighlightedIcon =  Color.Gray.light.color
             static let highlightedIcon = Color.Blue.medium.color
         }
+        
+        public struct RepMaxTable {
+            static let percentage = Color.Blue.medium.color
+        }
+        
     }
     
 
@@ -90,11 +104,6 @@ public struct Colors {
         public static let barTint = Color.Blue.medium.color
     }
     
-    public struct ScatterPlot {
-        //public static let primaryColor = "3f88f7".color
-        public static let primaryColor = Color.green
-    }
-    
     public struct UpdateExerciseInfo {
         public static let disclosureBtnTint = Color.Blue.medium.color 
         public static let doneBtnTint = Colors.navbarBtnTint
@@ -108,6 +117,7 @@ public struct Colors {
     }
     
     public struct OneRMWeekCell {
+        public static let percentageImprovement = Color.Blue.medium.color 
         public static let detailText = Color.Gray.light.color
     }
     
@@ -123,10 +133,15 @@ public struct Colors {
         public static let headerTabBG = Color.darkBlue
         public static let headerTabTitle = UIColor.white
         public static let headerTabSubtitle = Color.offWhite
+        
+        public struct LineChart {
+            //public static let primaryColor = "3f88f7".color
+            public static let lineColor = Color.Blue.medium.color
+            public static let fillColor = Color.Blue.light.color
+        }
     }
-    
-    
 }
+
 
 
 fileprivate enum Color {

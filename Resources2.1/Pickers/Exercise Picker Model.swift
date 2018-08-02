@@ -17,13 +17,9 @@ class ExerciseList {
 
 
 class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, ExerciseTableViewModel, TableDataPopulator, ReloadableModel  {
-    
-    var data: [[ExerciseCellData]] = [[]] 
-    
+    var data: [[ExerciseCellData]] = [[]]
     var exercises: [[Any]] = [[]]
-    
     var collapsedSections: [Bool] = []
-    
     var needsReload = true
     
     //in case you want to use this while building a compound exercise
@@ -59,7 +55,8 @@ class ExercisePickerDropDownModel: ContextObserver, DropDownTableModel, Exercise
 func returnExerciseCellData(includingCompoundExercises: Bool) -> [[ExerciseCellData]] {
     
     //temporary hack
-    let categories = Categories.activeCategories().filter({ $0.exerciseSet.isEmpty == false })
+    //unit test that compound exercises are included in categories that ret, especially if category only has compound exercsies 
+    let categories = Categories.activeCategories().filter({ !$0.exerciseSet.isEmpty || !$0.compoundExerciseSet.isEmpty })
     
     switch includingCompoundExercises {
         
@@ -76,15 +73,15 @@ func returnExerciseCellData(includingCompoundExercises: Bool) -> [[ExerciseCellD
         
         let qualifiedMetricInfoSet: Set<Metric> = [Metric.Weight, Metric.Reps, Metric.Sets]
         
-        return categories.map( {
-            
+        let categoryData: [[ExerciseCellData]] = categories.map( {
             let exercises = $0.exerciseSet.filter({
                 Set($0.metricInfoSet.map({$0.metric})) == qualifiedMetricInfoSet
             })
-            
             return exercises.active().sortedAlpabetically()
-            
         })
+        
+        //filter out categories with no valid exercises 
+        return categoryData.filter { !$0.isEmpty }
     }
 }
 

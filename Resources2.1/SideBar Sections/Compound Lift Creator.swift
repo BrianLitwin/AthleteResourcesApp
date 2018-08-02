@@ -36,7 +36,6 @@ class CompoundExerciseBuilderModel: CompoundExerciseCreatorModel {
     }
     
     func saveCompoundExercise() {
-        
         guard let cat = category else { return }
         guard !exercises.isEmpty else { return } //FIX ME: PUT UP AN ALERT HERE
         let container = Multi_Exercise_Container_Types.create(category: cat, with: exercises)

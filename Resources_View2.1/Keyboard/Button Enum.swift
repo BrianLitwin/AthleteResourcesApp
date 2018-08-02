@@ -111,11 +111,8 @@ public enum KeyboardButtonType: Hashable {
         return nil
     }
     
-    
-    
-    var bw: String {
-        return "BW"
-    }
+
+    var bw: String { return "BW" }
     
     public var hashValue: Int {
         switch self {
@@ -142,6 +139,5 @@ public enum KeyboardButtonType: Hashable {
             return false
         }
     }
-    
 }
 

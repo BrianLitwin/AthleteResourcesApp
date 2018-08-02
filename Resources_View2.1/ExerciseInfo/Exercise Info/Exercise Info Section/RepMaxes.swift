@@ -70,6 +70,7 @@ private class RepMaxTableViewCell: BaseTableViewCell {
     var repMaxLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
+        label.textColor = Colors.ExerciseInfo.RepMaxTable.percentage
         return label
     }()
     
@@ -82,6 +83,7 @@ private class RepMaxTableViewCell: BaseTableViewCell {
     var percentageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
+        label.textColor = Colors.ExerciseInfo.RepMaxTable.percentage
         return label
     }()
     

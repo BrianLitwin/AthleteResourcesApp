@@ -33,11 +33,13 @@ protocol HasRecords {
     
 }
 
+
 enum RecordsManagerUpdate {
     case recalculateAll
     case addToPendingComparisonList
     case noAction
 }
+
 
 
 class RecordsManager<T: HasRecords>: ContextObserver {
@@ -110,6 +112,7 @@ class RecordsManager<T: HasRecords>: ContextObserver {
     }
     
     func recordsFromSortedList(_ sortedItems: [RecordType]) -> [RecordType] {
+        
         var list = sortedItems
         guard !list.isEmpty else { return [] }
         let first = list.removeFirst()

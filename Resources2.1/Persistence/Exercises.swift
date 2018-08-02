@@ -109,7 +109,7 @@ extension Multi_Exercise_Container_Types: CanSetIsActive {
 func setCategoryActiveState(itemisActive: Bool, category: Categories) {
     
     if !itemisActive {
-        if category.exerciseSet.isEmpty {
+        if category.exerciseSet.filter({ $0.isActive }).isEmpty {
             if category.compoundExerciseSet.isEmpty {
                 category.isActive = false
             }
@@ -396,23 +396,14 @@ class ExerciseSortableTable: ExerciseInfoController, ExerciseSortableTableModel 
 }
 
 class ExerciseHistoryModel: ExerciseInfoController, ExerciseInfoModel {
-    
     var model: ExerciseInfoModel? { return self }
-
     lazy var viewController: UIViewController = { ExerciseAnalyticsTableViewController(model: self) }()
-    
     var alertTitle: String = "Exercise History"
-    
     var menuIcon: UIImage = #imageLiteral(resourceName: "history")
-    
     var menuTitle: String = "History"
-    
     var displaysInAlertOptions: Bool = false
-    
     var displaysInExerciseInfo: Bool = true
-    
     var sections: [ExerciseAnalyticsSectionUIPopulator] = []
-    
     var needsReload: Bool = true
     
     func loadModel() {
@@ -423,7 +414,8 @@ class ExerciseHistoryModel: ExerciseInfoController, ExerciseInfoModel {
                 .sorted(by: { $0.set_number < $1.set_number })
             guard !em.isEmpty else { return }
             let emDisplayStrings = em.map({ $0.displayString() })
-            sections.append(ExerciseHistorySection(date: $0.date, exerciseMetrics: emDisplayStrings))
+            guard let workoutDate = $0.date else { fatalError() }
+            sections.append(ExerciseHistorySection(date: workoutDate, exerciseMetrics: emDisplayStrings))
         })
     }
     
