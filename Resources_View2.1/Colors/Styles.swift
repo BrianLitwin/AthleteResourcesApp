@@ -29,8 +29,8 @@ public struct Colors {
     }
     
     public struct Textfield {
-        public static let borderDefault = Color.Gray.light.color 
-        public static let borderHighlight = Color.Blue.medium.color
+        public static let underlineDefault = Color.Gray.light.color
+        public static let underlineHighlight = Color.Blue.medium.color
     }
     
     public struct Keyboard {

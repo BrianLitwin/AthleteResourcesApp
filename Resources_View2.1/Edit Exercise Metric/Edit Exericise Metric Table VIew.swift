@@ -28,7 +28,7 @@ class ExerciseMetricEditingTableView: UITableView, UITableViewDelegate, UITableV
         delegate = self
         dataSource = self
         rowHeight = 50
-        
+        separatorColor = .clear
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

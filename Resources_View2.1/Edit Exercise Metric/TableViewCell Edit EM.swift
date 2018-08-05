@@ -12,6 +12,7 @@ class EditExerciseMetricTableViewCell: BaseTableViewCell {
     typealias TextField = EditExerciseMetricTextField
     let label = UILabel()
     var textField: TextField?
+    let underline = UIView()
     
     func setupTextField(with textField: TextField) {
         self.textField = textField
@@ -22,6 +23,9 @@ class EditExerciseMetricTableViewCell: BaseTableViewCell {
         textField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 35).isActive = true
         textField.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        textField.textAlignment = .right
+        textField.underline = underline
+        textField.setBorder(highlighted: false)
         
         //set labels trailing constraint
         label.trailingAnchor.constraint(lessThanOrEqualTo: textField.leadingAnchor, constant: -15).isActive = true
@@ -36,6 +40,15 @@ class EditExerciseMetricTableViewCell: BaseTableViewCell {
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
         label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        label.adjustsFontSizeToFitWidth = true 
+        label.adjustsFontSizeToFitWidth = true
+        label.textColor = UIColor.black.withAlphaComponent(0.5)
+        
+        //configure underline
+        contentView.addSubview(underline)
+        underline.translatesAutoresizingMaskIntoConstraints = false
+        underline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        underline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
+        underline.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1).isActive = true
+        underline.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
     }
 }

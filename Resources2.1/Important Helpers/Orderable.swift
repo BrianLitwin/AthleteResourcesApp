@@ -60,8 +60,8 @@ extension EM_Containers: Orderable {
     static func ==(lhs: EM_Containers, rhs: EM_Containers) -> Bool {
         return lhs === rhs
     }
-    
 }
+
 
 enum Reorder {
     case insert
@@ -75,9 +75,7 @@ extension Array where Iterator.Element: Orderable {
         return self[index..<self.endIndex]
     }
     
-    
     func reorder(from item: Element, type: Reorder) {
-        
         var index = item.order
         let slice = self[index..<self.endIndex]
         if type == .remove { index -= 1 }
@@ -87,9 +85,7 @@ extension Array where Iterator.Element: Orderable {
             index +=  1
             i.setOrder(order: index)
         }
-        
     }
-    
 }
 
 

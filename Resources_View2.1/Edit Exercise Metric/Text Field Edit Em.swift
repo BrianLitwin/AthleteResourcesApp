@@ -19,15 +19,12 @@ public class EditExerciseMetricTextField: UITextField, UITextFieldDelegate {
     
     public var setTextForEditingState: ((TextFieldEditingState) -> String)?
     public var saveValue: ((String) -> Void)?
+    public var underline: UIView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         delegate = self
         inputView = UIView()
-        textAlignment = .center
-        layer.borderWidth = 2/UIScreen.main.scale
-        
-        setBorder(highlighted: false)
     }
     
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -43,8 +40,7 @@ public class EditExerciseMetricTextField: UITextField, UITextFieldDelegate {
     }
     
     func setBorder(highlighted: Bool) {
-        layer.borderColor = highlighted ? Colors.Textfield.borderHighlight.cgColor : Colors.Textfield.borderDefault.cgColor
-        backgroundColor = highlighted ? Colors.blueHighlight : .clear
+        underline?.backgroundColor = highlighted ? Colors.Textfield.underlineHighlight : Colors.Textfield.underlineDefault
     }
     
     public required init?(coder aDecoder: NSCoder) {
