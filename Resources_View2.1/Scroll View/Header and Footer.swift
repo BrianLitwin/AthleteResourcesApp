@@ -49,6 +49,7 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
         super.init(frame: frame)
         backgroundColor = Colors.CurrentWorkout.workoutHeaderBg
         layer.cornerRadius = 3
+        addGreenGradientLayer()
         
         //configure right pane
         let rightIconPane = ViewRightPane(image: .expandMore,
@@ -90,13 +91,14 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
 }
 
 class ScrollViewFooter: UIView, LayoutGuide  {
-    
     var btnTap: (() -> Void)?
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 3
-        backgroundColor = Colors.CurrentWorkout.addExerciseBg
+        addGreenGradientLayer()
+        
+        //backgroundColor = Colors.CurrentWorkout.addExerciseBg
         
         //add image in right corner
         let rightIconPane = ViewRightPane(image: .add,

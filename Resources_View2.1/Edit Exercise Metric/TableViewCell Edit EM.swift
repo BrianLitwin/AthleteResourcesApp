@@ -13,13 +13,14 @@ class EditExerciseMetricTableViewCell: BaseTableViewCell {
     let label = UILabel()
     var textField: TextField?
     let underline = UIView()
+    let sideMargin: CGFloat = 20
     
     func setupTextField(with textField: TextField) {
         self.textField = textField
         //configure textfield
         contentView.addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
+        textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -sideMargin).isActive = true
         textField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 35).isActive = true
         textField.widthAnchor.constraint(equalToConstant: 150).isActive = true
@@ -37,7 +38,7 @@ class EditExerciseMetricTableViewCell: BaseTableViewCell {
         //configure text label
         contentView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: sideMargin).isActive = true
         label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.adjustsFontSizeToFitWidth = true
@@ -46,8 +47,8 @@ class EditExerciseMetricTableViewCell: BaseTableViewCell {
         //configure underline
         contentView.addSubview(underline)
         underline.translatesAutoresizingMaskIntoConstraints = false
-        underline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
-        underline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
+        underline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: sideMargin).isActive = true
+        underline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -sideMargin).isActive = true
         underline.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1).isActive = true
         underline.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
     }

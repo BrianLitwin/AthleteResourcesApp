@@ -20,8 +20,7 @@ class ExerciseMetricEditingTableView: UITableView, UITableViewDelegate, UITableV
     {
         self.modelUpdater = modelUpdater
         self.textFields = modelUpdater.textfields
-        
-        super.init(frame: .zero, style: .grouped)
+        super.init(frame: .zero, style: .plain)
         
         isScrollEnabled = false
         register(Cell.self, forCellReuseIdentifier: Cell.reuseID)
@@ -41,6 +40,7 @@ class ExerciseMetricEditingTableView: UITableView, UITableViewDelegate, UITableV
         let textField = textFields[indexPath.row]
         cell.setupTextField(with: textField)
         if indexPath.row == 0 { cell.textField?.becomeFirstResponder() }
+        cell.selectionStyle = .none 
         return cell
     }
     
@@ -49,13 +49,8 @@ class ExerciseMetricEditingTableView: UITableView, UITableViewDelegate, UITableV
         cell.textField?.becomeFirstResponder()
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        print("InputTableView  Deacollocated")
     }
     
 }
