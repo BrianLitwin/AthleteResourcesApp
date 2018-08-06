@@ -55,7 +55,6 @@ class ViewRightPane: UIView {
     convenience init(image: PaneImage, tapAction: @escaping ()->Void ) {
         //Mark: This is meant as the default in the main collection views
         self.init(image: image,
-                  backgroundColor: .clear,
                   imageTintColor: UIColor.black.withAlphaComponent(0.25),
                   borderColor: .clear,
                   tapAction: tapAction
@@ -63,7 +62,6 @@ class ViewRightPane: UIView {
     }
     
     init(image: PaneImage,
-         backgroundColor: UIColor,
          imageTintColor: UIColor,
          borderColor: UIColor,
          size: ViewRightPane.Size = .small,
@@ -88,14 +86,12 @@ class ViewRightPane: UIView {
         let border = UIView()
         addSubview(border)
         border.translatesAutoresizingMaskIntoConstraints = false
-        border.alpha = 0.7
-        border.topAnchor.constraint(equalTo: button.topAnchor).isActive = true
-        border.bottomAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
+        border.alpha = 0.5
+        border.topAnchor.constraint(equalTo: button.topAnchor, constant: -2).isActive = true
+        border.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 2).isActive = true
         border.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -5).isActive = true
         border.widthAnchor.constraint(equalToConstant: 1/UIScreen.main.scale).isActive = true
         border.backgroundColor = borderColor
-        
-        self.backgroundColor = backgroundColor
     }
 
     func addToRightPane(superview: UIView) {
@@ -133,7 +129,7 @@ class RightPaneButton: UIButton {
     
     override var isHighlighted: Bool {
         didSet {
-            tintColor = isHighlighted ? UIColor.black.withAlphaComponent(0.5) : defColor
+            tintColor = isHighlighted ? UIColor.black.withAlphaComponent(0.2) : defColor
         }
     }
     

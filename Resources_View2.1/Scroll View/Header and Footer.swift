@@ -53,7 +53,6 @@ public class ScrollViewHeader: UIView, ReloadsWorkoutHeader, LayoutGuide {
         
         //configure right pane
         let rightIconPane = ViewRightPane(image: .expandMore,
-                                          backgroundColor: Colors.CurrentWorkout.addExerciseBg,
                                           imageTintColor: .white,
                                           borderColor: .white,
                                           tapAction: { [weak self] in self?.btnTap() }
@@ -102,7 +101,6 @@ class ScrollViewFooter: UIView, LayoutGuide  {
         
         //add image in right corner
         let rightIconPane = ViewRightPane(image: .add,
-                                          backgroundColor: .clear,
                                           imageTintColor: .white,
                                           borderColor: .white,
                                           tapAction: { [weak self] in self?.btnTapped() }
