@@ -32,12 +32,12 @@ class EditExerciseMetricView: UIView {
         backgroundColor = UIColor.white 
         addSubview(keyboard)
         addSubview(tableView)
-        let tableHeight = CGFloat(tableView.textFields.count) * tableView.rowHeight + 70
+        let tableHeight = CGFloat(tableView.textFields.count) * tableView.rowHeight + 20
         let height = keyboardHeight + tableHeight
-        frame.size = CGSize(width: width, height: height)
+        frame.size = CGSize(width: width, height: height + 20)
         
         tableView.frame = CGRect(x: 0,
-                                 y: 0,
+                                 y: 20,
                                  width: frame.width,
                                  height: tableHeight)
 

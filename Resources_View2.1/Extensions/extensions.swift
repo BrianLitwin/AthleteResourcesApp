@@ -95,6 +95,17 @@ extension UIImageView {
 
 extension UIView {
     
+    func addGreenGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.cornerRadius = layer.cornerRadius
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [
+            UIColor.fromHex("34d058").cgColor,
+            Colors.CurrentWorkout.addExerciseBg.cgColor
+        ]
+        layer.addSublayer(gradientLayer)
+    }
+    
     var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
         set { layer.cornerRadius = newValue }
