@@ -38,14 +38,14 @@ public extension ReloadableView where Self: UIViewController {
             view.addSubview(spinner)
             spinner.startAnimating()
             
-            Queue.userInitiated.execute() {
+            DispatchQueue.global(qos: .userInitiated).async {
                 model.loadModel()
                 
                 //for _ in 0...100_000_000 {
                     //let x = 5 + 1
                 //}
                 
-                Queue.main.execute { [weak self] in
+                DispatchQueue.main.async { [weak self] in
                     spinner.removeFromSuperview()
                     self?.reloadView()
                 }
@@ -53,6 +53,7 @@ public extension ReloadableView where Self: UIViewController {
         }
     }
 }
+
 
 public extension ReloadableView where Self: UITableViewController {
     

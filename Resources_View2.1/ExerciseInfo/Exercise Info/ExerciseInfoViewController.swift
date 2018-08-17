@@ -10,8 +10,7 @@ import UIKit
 
 public class ExerciseInfoViewController: UIViewController, ContainerViewController {
     
-    //fix me: this is inefficient; needs to be a let constant; gets called like 6 times 
-    
+    //fix me: this is inefficient; needs to be a let constant; gets called 61 times
     public func childVCs() -> [UIViewController] {
         guard let exerciseInfo = self.exerciseInfo else { return [] }
         return exerciseInfo.infoControllers.map({ $0.viewController })
@@ -71,7 +70,6 @@ public class ExerciseInfoViewController: UIViewController, ContainerViewControll
                                            y: menuBarHeight,
                                            width: view.frame.width,
                                            height: view.frame.height - menuBarHeight)
-        
     }
     
     func setupMenuBar() {

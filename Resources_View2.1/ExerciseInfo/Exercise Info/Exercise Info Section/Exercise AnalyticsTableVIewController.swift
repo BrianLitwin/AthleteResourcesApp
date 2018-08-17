@@ -21,6 +21,7 @@ public protocol MasterInfoController {
 }
 
 
+
 public protocol ExerciseInfoController {
     var model: ExerciseInfoModel? { get }
     var viewController: UIViewController { get }
@@ -34,8 +35,8 @@ public protocol ExerciseInfoController {
 
 public protocol ExerciseAnalyticsView: ReloadableView {
     var model: ExerciseInfoModel { get }
-    
 }
+
 
 public extension ExerciseAnalyticsView {
     public var reloadableModel: ReloadableModel? {

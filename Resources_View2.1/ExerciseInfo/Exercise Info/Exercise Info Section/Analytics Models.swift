@@ -16,8 +16,6 @@ import UIKit
 // Update: Can't get this to work: i.e. can't put a tableViewController in a UIAlertController and then use it elsewhere 
 //
 
-
-
 //
 //conform to this protocol to populate the ExerciseAnalytics TableViewController
 //
@@ -48,9 +46,7 @@ public protocol ExerciseAnalyticsSectionUIPopulator {
 }
 
 
-
 public extension ExerciseAnalyticsSectionUIPopulator {
-    
     func registerCells(for tableView: UITableView) {
         uiPopulator.registerCells(for: tableView)
     }
@@ -58,7 +54,6 @@ public extension ExerciseAnalyticsSectionUIPopulator {
     func returnCell(at indexPath: IndexPath, for tableView: UITableView) -> UITableViewCell {
         return uiPopulator.returnCell(at: indexPath, for: tableView)
     }
-    
 }
 
 
@@ -70,9 +65,7 @@ public class ExerciseAnalyticsCellSetupHandler {
     //
     
     let cellTypes: [TableViewCellinfo]
-    
     var parentModel: ParentExerciseInfoModel?
-    
     var cellsRegistered = false
     
     public func registerCells(for tableView: UITableView) {
@@ -92,7 +85,6 @@ public class ExerciseAnalyticsCellSetupHandler {
     
         return parentModel?.configureCell(tableView: tableView, at: indexPath) ?? UITableViewCell()
     }
-    
 }
 
 struct TableViewCellinfo {
