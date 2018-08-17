@@ -75,6 +75,12 @@ class OneRepMaxOverTimeModel {
 
 
 extension OneRepMaxOverTimeModel: OneRepMaxTableViewModel {
+    var graphData: BarCharDataSource {
+        let changeAmts = Array(weeks.map { $0.absoluteChange ?? 0 }.reversed())
+        let wkLabels = Array(weeks.map { String($0.weekNumber) }.reversed())
+        return BarCharDataSource(values: changeAmts, xAxisLabels: wkLabels)
+    }
+    
     
     var numberOfWeeks: Int {
         return oneRMWeeks.count
@@ -96,10 +102,6 @@ extension OneRepMaxOverTimeModel: OneRepMaxTableViewModel {
     var averageWeeklyImprovement: Double {
         let totalImprovement = (exercise.oneRepMaxManager.oneRM?.oneRM ?? 0) - beginningEstOneRM
         return totalImprovement / Double(numberOfWeeks)
-    }
-    
-    var graphData: [Double] {
-        return weeks.map({ $0.absoluteChange ?? 0 })
     }
     
     var weeks: [Resources_View2_1.OneRMWeek] {

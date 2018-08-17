@@ -11,6 +11,28 @@ import UIKit
 import CorePlot
 
 //todolist: if you change a workout date and segue back to workout history, date won't be updated
+//todo list: move this into same framework 
+
+public struct BarCharDataSource {
+    let data: [Data]
+    
+    public init(values: [Double], xAxisLabels: [String]) {
+        self.data = zip(values, xAxisLabels).map { a in
+            let value = a.0
+            let xAxisLabel = a.1
+            return Data(value: value, xAxisLabel: xAxisLabel)
+        }
+    }
+    
+    
+    public struct Data {
+        let value: Double
+        let xAxisLabel: String
+    }
+}
+
+
+
 
 class BarChart : UIView, CPTBarPlotDataSource {
     
@@ -29,21 +51,28 @@ class BarChart : UIView, CPTBarPlotDataSource {
     }
     
     // MARK: Initialization
-    func setup(_ data: [Double])
+    func setup(_ dataSource: BarCharDataSource)
     {
-        
         //note sure why removing from superview doens't work
         emptyView.removeFromSuperview()
-        self.graphData = data.reversed()
+        
+        //Why are we having to reverse this???? 
+        self.graphData = dataSource.data.map { $0.value }
         
         //remove the first entry becuase it will always be zero (start on wk 2 and replace it with 0 because the graph seems to not show the first entry well (bug)
         self.graphData[0] = 0.0
         var tickerLocations: [Int] = []
         var tickerHeadings: [String] = []
         
-        for i in 1..<graphData.count {
+        // don't like having to reverse these
+        var xAxisLabels = dataSource.data.map { $0.xAxisLabel }
+        
+        
+        //this is way too ad hoc, won't work if you use a diff kind of graph 
+        for i in 1..<xAxisLabels.count {
             tickerLocations.append(i)
-            tickerHeadings.append("Wk \(i + 1)")
+            let wkLabel = xAxisLabels[i]
+            tickerHeadings.append("Wk \(wkLabel)")
         }
         
         let newGraph = CPTXYGraph(frame: .zero)
@@ -175,7 +204,7 @@ class BarChart : UIView, CPTBarPlotDataSource {
         
         var barWidth: NSNumber = {
             //just guessing here
-            switch data.count {
+            switch graphData.count {
             case 4: return 0.5
             case 3: return 0.4
             case 2: return 0.2

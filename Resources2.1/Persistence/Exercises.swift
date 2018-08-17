@@ -152,7 +152,8 @@ class ExerciseController: MasterInfoController {
             ExerciseProgressChartController(exercise: exercise),
             ExerciseRepMaxesController(exercise: exercise),
             ExerciseHistoryModel(exercise: exercise),
-            ExerciseSortableTable(exercise: exercise)
+            ExerciseSortableTable(exercise: exercise),
+            VolumeMetricsViewController(exercise: exercise)
         ]
     }()
     
@@ -321,7 +322,6 @@ class ExerciseRepMaxesController: ExerciseInfoController, ExerciseInfoModel {
 
 
 class ExerciseSortableTable: ExerciseInfoController, ExerciseSortableTableModel {
-    
     lazy var model: ExerciseInfoModel? = nil
     
     lazy var viewController: UIViewController = {
@@ -331,20 +331,15 @@ class ExerciseSortableTable: ExerciseInfoController, ExerciseSortableTableModel 
     }()
 
     var menuIcon: UIImage = #imageLiteral(resourceName: "search")
-    
     var menuTitle: String = "Search"
-    
     var displaysInAlertOptions: Bool = false
-    
     var displaysInExerciseInfo: Bool = true
     
     //unnecessary 
     //var sections: [ExerciseAnalyticsSectionUIPopulator] = []
     
     var needsReload: Bool = true
-    
     var tableMenuHeaders: [String] = []
-    
     var tableData: [(date: Date, dataItems: [Double])] = []
     
     func loadModel() {
@@ -424,8 +419,11 @@ class ExerciseHistoryModel: ExerciseInfoController, ExerciseInfoModel {
     init(exercise: Exercises) {
         self.exercise = exercise
     }
-    
 }
+
+
+
+
 
 
 

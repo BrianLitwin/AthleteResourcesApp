@@ -54,6 +54,7 @@ struct ExerciseMetric: Comparable {
         }
         
         //assuming we are going to need these every time and mind as well build them at init
+        //but prob not
         let valuesForRecords = values.sorted(by: {
             $0.metric.primaryMetricOrder < $1.metric.primaryMetricOrder
         })

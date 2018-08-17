@@ -16,7 +16,7 @@ public protocol OneRepMaxTableViewModel: ReloadableModel {
     var currentEstOneRM: Double { get }
     var totalImprovement: Double { get }
     var averageWeeklyImprovement: Double { get }
-    var graphData: [Double] { get }
+    var graphData: BarCharDataSource { get }
     var weeks: [OneRMWeek] { get }
 }
 

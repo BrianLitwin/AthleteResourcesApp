@@ -65,6 +65,16 @@ class ExerciseListModel: ContextObserver, Resources_View2_1.ExerciseListModel, R
 
 
 
+extension Exercises {
+    func workouts(sortedAscending: Bool = false) -> [Workouts] {
+        let request: NSFetchRequest<Workouts> = Workouts.fetchRequest()
+        request.predicate = NSPredicate(format: "SUBQUERY(sequences, $x, SUBQUERY($x.containers, $y, $y.exercise = %@).@count > 0).@count > 0", self)
+        request.sortDescriptors = [NSSortDescriptor(key: "dateSV", ascending: sortedAscending)]
+        let result = try? context.fetch(request)
+        return result ?? []
+    }
+}
+
 
 
 
@@ -75,11 +85,7 @@ extension Exercises: ExerciseListItem {
     }
     
     var workoutsUsed: Int {
-        let request: NSFetchRequest<Workouts> = Workouts.fetchRequest()
-        request.predicate = NSPredicate(format: "SUBQUERY(sequences, $x, SUBQUERY($x.containers, $y, $y.exercise = %@).@count > 0).@count > 0", self)
-        request.sortDescriptors = [NSSortDescriptor(key: "dateSV", ascending: false)]
-        let result = try? context.fetch(request)
-        return result?.count ?? 0
+        return workouts().count
     }
 }
 

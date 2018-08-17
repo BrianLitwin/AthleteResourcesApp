@@ -11,9 +11,7 @@ import UIKit
 class ExerciseInfoMenu: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     typealias Cell = ExerciseInfoMenuCell
-    
     var masterVC: ContainerViewController?
-    
     var infoControllers: [ExerciseInfoController] = []
     
     func setup() {
@@ -42,7 +40,6 @@ class ExerciseInfoMenu: UICollectionView, UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         masterVC?.changeViewController(indexPath: indexPath)
     }
-    
 }
 
 

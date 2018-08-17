@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD2F8BFD2119343200E75CFA /* VolumeSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2F8BFC2119343200E75CFA /* VolumeSectionViewModel.swift */; };
+		BD2F8BFF211934EE00E75CFA /* VolumeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2F8BFE211934EE00E75CFA /* VolumeTests.swift */; };
 		BD4E783E20ED606400E36F5F /* LoadExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4E783D20ED606400E36F5F /* LoadExampleData.swift */; };
 		BD5404D420938E790092C9E9 /* Keyboard_Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */; };
+		BD6C5C7B211C8B3800E93D31 /* Volume+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C5C7A211C8B3800E93D31 /* Volume+ViewController.swift */; };
+		BD6C5C7D211C8B9400E93D31 /* VolumeSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C5C7C211C8B9400E93D31 /* VolumeSectionController.swift */; };
+		BD6C5C7F211C8BBB00E93D31 /* VolumeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C5C7E211C8BBB00E93D31 /* VolumeCollectionViewCell.swift */; };
+		BD6C5C81211C8C1200E93D31 /* VolumeMetricsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C5C80211C8C1200E93D31 /* VolumeMetricsModel.swift */; };
 		BD6EE21D20AC927900DA9E68 /* Test_ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */; };
 		BD6EE22620ACAAE400DA9E68 /* Test_ContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */; };
 		BD6EE22A20ADFBAB00DA9E68 /* RestAPI_Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EE22920ADFBAB00DA9E68 /* RestAPI_Get.swift */; };
@@ -155,8 +161,14 @@
 		812A1EBA6371768F8EAD748A /* Pods-Resources2.1-Unit Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1-Unit Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1-Unit Tests/Pods-Resources2.1-Unit Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B9A13C26032FD947FBA5305F /* Pods-Resources2.1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resources2.1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resources2.1/Pods-Resources2.1.debug.xcconfig"; sourceTree = "<group>"; };
 		BD012F7E203A621C00A4A351 /* Resources_View2_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Resources_View2_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD2F8BFC2119343200E75CFA /* VolumeSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSectionViewModel.swift; sourceTree = "<group>"; };
+		BD2F8BFE211934EE00E75CFA /* VolumeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeTests.swift; sourceTree = "<group>"; };
 		BD4E783D20ED606400E36F5F /* LoadExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadExampleData.swift; sourceTree = "<group>"; };
 		BD5404D320938E790092C9E9 /* Keyboard_Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard_Methods.swift; sourceTree = "<group>"; };
+		BD6C5C7A211C8B3800E93D31 /* Volume+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Volume+ViewController.swift"; sourceTree = "<group>"; };
+		BD6C5C7C211C8B9400E93D31 /* VolumeSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSectionController.swift; sourceTree = "<group>"; };
+		BD6C5C7E211C8BBB00E93D31 /* VolumeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD6C5C80211C8C1200E93D31 /* VolumeMetricsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeMetricsModel.swift; sourceTree = "<group>"; };
 		BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ScrollView.swift; sourceTree = "<group>"; };
 		BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ContextObserver.swift; sourceTree = "<group>"; };
 		BD6EE22920ADFBAB00DA9E68 /* RestAPI_Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI_Get.swift; sourceTree = "<group>"; };
@@ -303,6 +315,18 @@
 				812A1EBA6371768F8EAD748A /* Pods-Resources2.1-Unit Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD2F8BFB211933EA00E75CFA /* Volume */ = {
+			isa = PBXGroup;
+			children = (
+				BD2F8BFC2119343200E75CFA /* VolumeSectionViewModel.swift */,
+				BD6C5C7C211C8B9400E93D31 /* VolumeSectionController.swift */,
+				BD6C5C7A211C8B3800E93D31 /* Volume+ViewController.swift */,
+				BD6C5C7E211C8BBB00E93D31 /* VolumeCollectionViewCell.swift */,
+				BD6C5C80211C8C1200E93D31 /* VolumeMetricsModel.swift */,
+			);
+			path = Volume;
 			sourceTree = "<group>";
 		};
 		BD6EE21E20AC9FA500DA9E68 /* Records */ = {
@@ -573,6 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF5C7D7207858AE002FDC10 /* Info.plist */,
+				BD2F8BFB211933EA00E75CFA /* Volume */,
 				BD75B16C209776B9009392B3 /* Records */,
 				BD75B17820977A2C009392B3 /* Exercise Detail */,
 				BD75B17920977A54009392B3 /* Base Models */,
@@ -611,6 +636,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF5C75A20785899002FDC10 /* Exercise_List.swift */,
+				BD2F8BFE211934EE00E75CFA /* VolumeTests.swift */,
 				BDF597072112275500D5BDD8 /* ArrayGreatestElementLessThan.swift */,
 				BD6EE21C20AC927900DA9E68 /* Test_ScrollView.swift */,
 				BD6EE22520ACAAE400DA9E68 /* Test_ContextObserver.swift */,
@@ -852,17 +878,21 @@
 				BDF5C80B207858AE002FDC10 /* SequenceController1.swift in Sources */,
 				BDF5C7EA207858AE002FDC10 /* Dimension.swift in Sources */,
 				BDF5C7E5207858AE002FDC10 /* Test Data.swift in Sources */,
+				BD2F8BFD2119343200E75CFA /* VolumeSectionViewModel.swift in Sources */,
 				BDF5C7EC207858AE002FDC10 /* Date Manager.swift in Sources */,
 				BDF5C7E7207858AE002FDC10 /* Sequences.swift in Sources */,
 				BDF5C81A207858AE002FDC10 /* AppDelegate.swift in Sources */,
 				BDF5C813207858AE002FDC10 /* Converting To Dict Values.swift in Sources */,
 				BDF5C821207858AE002FDC10 /* Context Observor.swift in Sources */,
 				BDF5C7FA207858AE002FDC10 /* Dashboard TableViewController.swift in Sources */,
+				BD6C5C7F211C8BBB00E93D31 /* VolumeCollectionViewCell.swift in Sources */,
 				BDF5C802207858AE002FDC10 /* Orderable.swift in Sources */,
 				BDF5C80A207858AE002FDC10 /* BodyweightAnalyticsModel.swift in Sources */,
 				BDF5C807207858AE002FDC10 /* OneRepMaxOverTimeModel.swift in Sources */,
 				BDF5C819207858AE002FDC10 /* Sequence Model Updater.swift in Sources */,
+				BD6C5C7B211C8B3800E93D31 /* Volume+ViewController.swift in Sources */,
 				BDF5C801207858AE002FDC10 /* Extensions.swift in Sources */,
+				BD6C5C7D211C8B9400E93D31 /* VolumeSectionController.swift in Sources */,
 				BDF5C806207858AE002FDC10 /* Notifications.swift in Sources */,
 				BDF597022110E20F00D5BDD8 /* MetricInfo.swift in Sources */,
 				BD75B1722097781C009392B3 /* Settings.swift in Sources */,
@@ -902,6 +932,7 @@
 				BDF5C7F0207858AE002FDC10 /* SortableTable.swift in Sources */,
 				BDF5C815207858AE002FDC10 /* Records Extensions.swift in Sources */,
 				BDF5C7FD207858AE002FDC10 /* Create Menu TableViewController.swift in Sources */,
+				BD6C5C81211C8C1200E93D31 /* VolumeMetricsModel.swift in Sources */,
 				BD75B170209777CA009392B3 /* Bodyweight.swift in Sources */,
 				BDF5C817207858AE002FDC10 /* CompoundExercise Records.swift in Sources */,
 				BDF5C7FE207858AE002FDC10 /* Update Metric.swift in Sources */,
@@ -955,6 +986,7 @@
 				BDFE06CF207909B700F3024B /* DateManager.swift in Sources */,
 				BDFE06B6207909B700F3024B /* Sorting_Performance.swift in Sources */,
 				BDFE06D4207909B700F3024B /* Date Methods.swift in Sources */,
+				BD2F8BFF211934EE00E75CFA /* VolumeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1101,7 +1133,7 @@
 				INFOPLIST_FILE = Resources2.1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Final";
+				PRODUCT_BUNDLE_IDENTIFIER = briansbundle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -1119,7 +1151,7 @@
 				INFOPLIST_FILE = Resources2.1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-Speed-Performance.Final";
+				PRODUCT_BUNDLE_IDENTIFIER = briansbundle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
